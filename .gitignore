@@ -7,3 +7,4 @@ Homestead.json
 /.idea
 *.sublime-workspace
 *.sublime-project
+/_ide_helper.php
