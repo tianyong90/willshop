@@ -16,8 +16,6 @@
         "overtrue/laravel-socialite": "~1.0",
         "qiniu/php-sdk": "^7.0",
         "league/uri": "^4.1",
-        "prettus/l5-repository": "^2.5",
-        "zizaco/entrust": "5.2.x-dev",
         "endroid/qrcode": "^1.5"
     },
     "require-dev": {
@@ -50,12 +48,12 @@
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "php artisan optimize",
-            "php artisan ide-helper:genarate"
+            "php artisan ide-helper:generate"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize",
-            "php artisan ide-helper:genarate"
+            "php artisan ide-helper:generate"
         ]
     },
     "config": {
