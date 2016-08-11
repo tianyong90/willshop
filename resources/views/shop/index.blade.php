@@ -5,7 +5,9 @@
     <title>willshap</title>
 </head>
 <body>
-    <example></example>
+    <h1>original html</h1>
+
+    <hello></hello>
 
     <script src="{{ asset('js/app.js') }}"></script>
 
