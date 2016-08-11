@@ -14,20 +14,22 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-Vue.component('hello', require('./components/Hello.vue'));
+// Vue.component('hello', require('./components/Hello.vue'));
 
 import Group from '../../../node_modules/vux/dist/components/group';
 import Cell from '../../../node_modules/vux/dist/components/cell';
+import XButton from '../../../node_modules/vux/dist/components/x-button';
 
 Vue.component('group', Group);
 Vue.component('cell', Cell);
+Vue.component('x-button', XButton);
 
-var app = new Vue({
-    el: 'body',
-    methods: {
-        click: function (event) {
+// var app = new Vue({
+//     el: 'body',
+//     methods: {
+//         click: function (event) {
 
-            console.log("test");
-        }
-    }
-});
+//             console.log("test");
+//         }
+//     }
+// });
