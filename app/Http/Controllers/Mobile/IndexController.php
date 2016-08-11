@@ -11,6 +11,6 @@ class IndexController extends MobileController
 {
     public function index()
     {
-        echo 'hellp world';
+        return view('shop.index');
     }
 }
