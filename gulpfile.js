@@ -18,6 +18,6 @@ elixir(function(mix) {
        .webpack('app.js');
 
     mix.browserSync({
-        proxy: 'localhost:8050'
+        proxy: 'localhost:8050/shop'
     });
 });
