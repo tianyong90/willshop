@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <title>willshap</title>
     <link rel="stylesheet" href="/css/vux.css" />
+    <link rel="stylesheet" href="/css/app.css" />
 </head>
 <body>
     <h1>helo world</h1>
 
     <group title="group">
-        <cell v-for="product in products" :title="product.name" :value="product.description"></cell>
+        <cell v-for="product in products" :title="product.name" :value="product.description" track-by="$index"></cell>
     </group>
+
+    <pre>@{{ products | json }}</pre>
 
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
-        window.Laravel = {};
-        Laravel.csrfToken = "{!! csrf_token() !!}";
+        window.Laravel = {
+            csrfToken: "{!! csrf_token() !!}"
+        };
 
         var vm = new Vue({
             el: "body",
@@ -24,13 +28,12 @@
                 products: []
             },
             ready () {
-                this.fetchData();
+                this.fetchProduct();
             },
             methods: {
-                fetchData: function () {
+                fetchProduct: function () {
                     this.$http.get('/api/product').then(function (response) {
-                        // this.$set('products', response.data);
-                        console.log(response.data);
+                        this.$set('products', response.json());
                     });
                 }
             }
