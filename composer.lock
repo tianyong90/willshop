@@ -896,12 +896,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "fb6914bfbb50cbe5c8b4ce43735a0d534730194a"
+                "reference": "2def1c03988b3624f1f50a8287bcdddaad68526b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/fb6914bfbb50cbe5c8b4ce43735a0d534730194a.zip",
-                "reference": "fb6914bfbb50cbe5c8b4ce43735a0d534730194a",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/2def1c03988b3624f1f50a8287bcdddaad68526b.zip",
+                "reference": "2def1c03988b3624f1f50a8287bcdddaad68526b",
                 "shasum": ""
             },
             "require": {
@@ -1015,20 +1015,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-09 21:40:57"
+            "time": "2016-08-12 15:07:50"
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.26",
+            "version": "1.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0"
+                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/thephpleague/flysystem/fb3b30dca320b36931ea878fea17ebe136fba1b0.zip",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0",
+                "url": "https://packagist.phpcomposer.com/files/thephpleague/flysystem/50e2045ed70a7e75a5e30bc3662904f3b67af8a9.zip",
+                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-08-03 09:49:11"
+            "time": "2016-08-10 08:55:11"
         },
         {
             "name": "league/uri",

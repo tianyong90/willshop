@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\ProductCategory;
 
-class ProductController extends Controller
+class ProductCategoryController extends Controller
 {
     public function lists()
     {
-        return Product::all();
+        return ProductCategory::all();
     }
 }

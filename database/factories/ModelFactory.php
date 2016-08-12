@@ -20,9 +20,19 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->colorName,
+        'parent_id' => 0,
+        'description' => $faker->sentence,
+        'thumbnail' => $faker->imageUrl(200, 200),
+    ];
+});
+
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
+        'category_id' => random_int(1, 3),
         'description' => $faker->sentence,
     ];
 });

@@ -18,3 +18,4 @@ Route::get('/user', function (Request $request) {
 });
 
  Route::get('/product', 'Api\ProductController@lists');
+ Route::get('/product-category', 'Api\ProductCategoryController@lists');
