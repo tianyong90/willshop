@@ -17,8 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name', 30)->comment('商品名');
             $table->string('description', 100)->comment('商品描述');
+            $table->unsignedInteger('category_id')->comment('关联产品分类ID');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('category_id')->references('id')->on('product_categories')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
