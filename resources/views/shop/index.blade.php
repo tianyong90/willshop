@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>willshap</title>
-    <link rel="stylesheet" href="/css/vux.css" />
+    <title>willshop</title>
+    {{-- <link rel="stylesheet" href="/css/vux.css" /> --}}
+    <link rel="stylesheet" href="/css/mint-ui.css" />
     <link rel="stylesheet" href="/css/app.css" />
 </head>
 <body>
-    <h1>helo world</h1>
-
    {{--  <group title="group">
         <cell v-for="product in products" :title="product.name" :value="product.description" track-by="$index"></cell>
     </group> --}}
+
+    {{-- <mt-button type="default">default</mt-button> --}}
+    <mt-button type="primary">primary</mt-button>
+    <mt-button type="danger">danger</mt-button>
+
+    <mt-cell title="标题文字"></mt-cell>
+    <mt-cell title="标题文字" value="说明文字"></mt-cell>
 
     <ul>
         <li v-for="category in categories">
@@ -42,15 +48,15 @@
             },
             methods: {
                 fetchProducts: function () {
-                    this.$http.get('/api/product').then(function (response) {
-                        this.$set('products', response.json());
-                    });
+                    // this.$http.get('/api/product').then(function (response) {
+                    //     this.$set('products', response.json());
+                    // });
                 },
 
                 fetchCategories: function () {
-                    this.$http.get('/api/product-category').then(function (response) {
-                        this.$set('categories', response.json());
-                    });
+                    // this.$http.get('/api/product-category').then(function (response) {
+                    //     this.$set('categories', response.json());
+                    // });
                 }
             }
         });
