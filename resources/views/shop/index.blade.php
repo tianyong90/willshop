@@ -70,6 +70,7 @@
             csrfToken: "{!! csrf_token() !!}"
         };
 
+        Vue.http.options.params = {api_token: "PnqQOHR2MdrIwMeG8BNNlb4q4gnppJBXcnxEHMRqccpEv90Gp76dyI7KC9Ws"};
 
         var vm = new Vue({
             el: "body",
