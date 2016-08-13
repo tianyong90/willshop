@@ -19,7 +19,7 @@
 
     <style>
         .swipe {
-            height: 150px;
+            height: 180px;
         }
         .swipe img {
             display: block;
@@ -35,14 +35,14 @@
       </mt-swipe-item>
     </mt-swipe>
 
-{{--     <ul>
+    <ul>
         <li v-for="category in categories">
             <a href="javascript:;">
                 <img v-bind:src="category.thumbnail" alt="" />
                 <span>@{{ category.name }}</span>
             </a>
         </li>
-    </ul> --}}
+    </ul>
 
     <mt-tabbar :selected.sync="selected">
       <mt-tab-item id="首页">
@@ -70,7 +70,7 @@
             csrfToken: "{!! csrf_token() !!}"
         };
 
-        Vue.http.options.params = {api_token: "PnqQOHR2MdrIwMeG8BNNlb4q4gnppJBXcnxEHMRqccpEv90Gp76dyI7KC9Ws"};
+        Vue.http.options.params = {api_token: "273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9"};
 
         var vm = new Vue({
             el: "body",
