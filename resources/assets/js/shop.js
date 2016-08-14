@@ -13,9 +13,9 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
 
-import MintUI from '../../../node_modules/mint-ui';
+var MintUI = require('mint-ui');
 Vue.use(MintUI);
 
 window.VueRouter = require('vue-router');
@@ -23,28 +23,14 @@ Vue.use(VueRouter);
 
 Vue.http.options.params = {api_token: "273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9"};
 
-var Hello = Vue.extend({
-    template: '<h1>hello world</h1>'
-});
-
-var Test = Vue.extend({
-    template: 'this is a test'
-});
-
-var App = Vue.extend({});
+const App = Vue.extend({});
 
 var router = new VueRouter();
 
 router.map({
     '/': {
-        component: Hello
-    },
-    '/hello': {
-        component: Hello
-    },
-    '/test': {
-        component: Test
-    },
-})
+        component: require('./components/mobile/home.vue')
+    }
+});
 
-router.start(App, 'body')
+router.start(App, 'body');
