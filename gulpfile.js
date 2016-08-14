@@ -15,7 +15,8 @@ require('laravel-elixir-vue');
 
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js');
+       .webpack('app.js')
+       .webpack('shop.js', 'public/js/shop.js');
 
     mix.browserSync({
         proxy: 'localhost:8050/shop'

@@ -15,16 +15,36 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
+import MintUI from '../../../node_modules/mint-ui';
+Vue.use(MintUI);
+
 window.VueRouter = require('vue-router');
 Vue.use(VueRouter);
 
+Vue.http.options.params = {api_token: "273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9"};
 
-// const app = new Vue({
-//     el: 'body',
-//     methods: {
-//         click: function (event) {
+var Hello = Vue.extend({
+    template: '<h1>hello world</h1>'
+});
 
-//             console.log("test");
-//         }
-//     }
-// });
+var Test = Vue.extend({
+    template: 'this is a test'
+});
+
+var App = Vue.extend({});
+
+var router = new VueRouter();
+
+router.map({
+    '/': {
+        component: Hello
+    },
+    '/hello': {
+        component: Hello
+    },
+    '/test': {
+        component: Test
+    },
+})
+
+router.start(App, 'body')
