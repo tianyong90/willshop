@@ -34,32 +34,33 @@
         <img :src="category.thumbnail" alt="" />
       </mt-swipe-item>
     </mt-swipe>
+    <router-view></router-view>
 
-    <ul>
+{{--     <ul>
         <li v-for="category in categories">
             <a href="javascript:;">
                 <img v-bind:src="category.thumbnail" alt="" />
                 <span>@{{ category.name }}</span>
             </a>
         </li>
-    </ul>
+    </ul> --}}
 
     <mt-tabbar :selected.sync="selected">
       <mt-tab-item id="首页">
-        <i slot="icon" class="fa fa-home"></i>
-        首页
+        <a v-link="{path: '/'}"><i slot="icon" class="fa fa-home"></i>
+            首页</a>
       </mt-tab-item>
       <mt-tab-item id="订单">
-        <i slot="icon" class="fa fa-home"></i>
-        订单
+        <a v-link="{path: '/hello'}"><i slot="icon" class="fa fa-home"></i>
+            订单</a>
       </mt-tab-item>
       <mt-tab-item id="发现">
-        <i slot="icon" class="fa fa-home"></i>
-        发现
+        <a v-link="{path: '/test'}"><i slot="icon" class="fa fa-home"></i>
+            发现</a>
       </mt-tab-item>
       <mt-tab-item id="我的">
-        <i slot="icon" class="fa fa-home"></i>
-        我的
+        <a v-link="{path: '/hello'}"><i slot="icon" class="fa fa-home"></i>
+            我的</a>
       </mt-tab-item>
     </mt-tabbar>
 
@@ -72,30 +73,57 @@
 
         Vue.http.options.params = {api_token: "273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9"};
 
-        var vm = new Vue({
-            el: "body",
-            data: {
-                products: [],
-                categories: []
-            },
-            ready () {
-                this.fetchProducts();
-                this.fetchCategories();
-            },
-            methods: {
-                fetchProducts: function () {
-                    this.$http.get('/api/product').then(function (response) {
-                        this.$set('products', response.json());
-                    });
-                },
-
-                fetchCategories: function () {
-                    this.$http.get('/api/product-category').then(function (response) {
-                        this.$set('categories', response.json());
-                    });
-                }
-            }
+        var Hello = Vue.extend({
+            template: '<h1>hello world</h1>'
         });
+
+        var Test = Vue.extend({
+            template: 'this is a test'
+        });
+
+        var App = Vue.extend({});
+
+        // var App = new Vue({
+        //     el: "body",
+        //     data: {
+        //         products: [],
+        //         categories: []
+        //     },
+        //     ready () {
+        //         this.fetchProducts();
+        //         this.fetchCategories();
+        //     },
+        //     methods: {
+        //         fetchProducts: function () {
+        //             this.$http.get('/api/product').then(function (response) {
+        //                 this.$set('products', response.json());
+        //             });
+        //         },
+
+        //         fetchCategories: function () {
+        //             this.$http.get('/api/product-category').then(function (response) {
+        //                 this.$set('categories', response.json());
+        //             });
+        //         }
+        //     }
+        // });
+
+        var router = new VueRouter();
+
+        router.map({
+            '/': {
+                component: Hello
+            },
+            '/hello': {
+                component: Hello
+            },
+            '/test': {
+                component: Test
+            },
+        })
+
+        router.start(App, 'body')
+
     </script>
 </body>
 </html>

@@ -14,13 +14,13 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
-// Vue.component('hello', require('./components/Hello.vue'));
+Vue.component('hello', require('./components/Hello.vue'));
 
 import MintUI from '../../../node_modules/mint-ui';
 Vue.use(MintUI);
 
-// Vue.component(MintUI.Button.name, MintUI.Button);
-// Vue.component(MintUI.Cell.name, MintUI.Cell);
+window.VueRouter = require('vue-router');
+Vue.use(VueRouter);
 
 
 // const app = new Vue({
