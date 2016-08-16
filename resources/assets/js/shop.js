@@ -13,10 +13,12 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
+// var MintUI = require('mint-ui');
+// Vue.use(MintUI);
+var Vux = require('vux');
 
-var MintUI = require('mint-ui');
-Vue.use(MintUI);
+Vue.component('tabbar', Vux.Tabbar);
+Vue.component('tabbar-item', Vux.TabbarItem);
 
 window.VueRouter = require('vue-router');
 Vue.use(VueRouter);

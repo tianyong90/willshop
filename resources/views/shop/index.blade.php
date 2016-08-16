@@ -13,19 +13,9 @@
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-    <link rel="stylesheet" href="/css/mint-ui.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/vux.css" />
     <link rel="stylesheet" href="/css/app.css" />
-
-    <style>
-        .swipe {
-            height: 180px;
-        }
-        .swipe img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-    </style>
 
     <script>
         window.Laravel = {
@@ -36,25 +26,27 @@
 <body>
     <router-view></router-view>
 
-    <mt-tabbar :selected.sync="selected">
-      <mt-tab-item id="首页">
-        <a v-link="{path: '/'}"><i slot="icon" class="fa fa-home"></i>
-            首页</a>
-      </mt-tab-item>
-      <mt-tab-item id="订单">
-        <a v-link="{path: '/hello'}"><i slot="icon" class="fa fa-home"></i>
-            订单</a>
-      </mt-tab-item>
-      <mt-tab-item id="发现">
-        <a v-link="{path: '/test'}"><i slot="icon" class="fa fa-home"></i>
-            发现</a>
-      </mt-tab-item>
-      <mt-tab-item id="我的">
-        <a v-link="{path: '/hello'}"><i slot="icon" class="fa fa-home"></i>
-            我的</a>
-      </mt-tab-item>
-    </mt-tabbar>
+    <div id="tabbar">
+      <tabbar>
+        <tabbar-item>
+          <img slot="icon" src="../assets/demo/icon_nav_button.png">
+          <span slot="label">Wechat</span>
+        </tabbar-item>
+        <tabbar-item show-dot>
+          <img slot="icon" src="../assets/demo/icon_nav_msg.png">
+          <span slot="label">Message</span>
+        </tabbar-item>
+        <tabbar-item selected>
+          <img slot="icon" src="../assets/demo/icon_nav_article.png">
+          <span slot="label">Explore</span>
+        </tabbar-item>
+        <tabbar-item>
+          <i class="fa fa-home"></i>
+          <span slot="label">News</span>
+        </tabbar-item>
+      </tabbar>
+    </div>
 
-    <script src="{{ asset('js/shop.js') }}"></script>
+    <script src="/js/shop.js"></script>
 </body>
 </html>
