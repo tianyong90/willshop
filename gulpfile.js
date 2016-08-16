@@ -14,7 +14,7 @@ require('laravel-elixir-vue');
  */
 
 elixir(mix => {
-    mix.sass('app.scss')
+    mix.sass('shop.scss', 'public/css/shop.css')
        .webpack('shop.js', 'public/js/shop.js');
 
     // mix.copy('node_modules/normalize.css/normalize.css', 'public/css/normalize.css');

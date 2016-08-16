@@ -13,9 +13,9 @@
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-    <link rel="stylesheet" href="/css/normalize.css" />
+    {{--<link rel="stylesheet" href="/css/normalize.css" />--}}
     <link rel="stylesheet" href="/css/vux.css" />
-    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/shop.css" />
 
     <script>
         window.Laravel = {
