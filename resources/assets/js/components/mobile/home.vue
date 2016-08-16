@@ -1,7 +1,11 @@
 <template>
     <ul class="my-product-list">
         <li v-for="product in products">
-            <span>{{ product.name }}</span>
+            <a v-link="{ path: '/' }">
+
+                <span>{{ product.name }}</span>
+                <span class="time">{{ product.created_at }}</span>
+            </a>
         </li>
     </ul>
 </template>
@@ -22,17 +26,41 @@
             fetchProducts: function () {
                 this.$http.get('/api/product').then(response => {
                     this.$set('products', response.json());
-            });
+                });
             }
         }
     }
 </script>
 
-<style>
+<style lang="less">
+    @color: red;
+    @color-hover: blue;
+
     .my-product-list {
-        color: red;
+        color: @color;
         font-size: 20px;
         list-style: none;
+        padding: 20px;
+
+        li {
+            display: block;
+            padding: 5px;
+            border-bottom: 1px dashed grey;
+
+            a {
+                text-decoration: none;
+                display: block;
+            }
+
+            .time {
+                display: inline-block;
+                float: right;
+                color: grey;
+            }
+        }
+
+        li:hover {
+            color: @color-hover;
+        }
     }
 </style>
-
