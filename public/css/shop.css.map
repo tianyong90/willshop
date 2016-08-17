@@ -1,1 +1,1 @@
-{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,UAAU,EACX","file":"shop.css","sourcesContent":["#tabbar .weui_tabbar {\r\n  position: fixed;\r\n  bottom: 0;\r\n}\r\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B,EAC3B","file":"shop.css","sourcesContent":["body {\n  background-color: #ececec;\n}\n\n"],"sourceRoot":"/source/"}

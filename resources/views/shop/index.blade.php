@@ -14,6 +14,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
     {{--<link rel="stylesheet" href="/css/normalize.css" />--}}
+    <link rel="stylesheet" href="/css/simple-line-icons/simple-line-icons.min.css" />
     <link rel="stylesheet" href="/css/vux.css" />
     <link rel="stylesheet" href="/css/shop.css" />
 
@@ -26,27 +27,7 @@
 <body>
     <router-view></router-view>
 
-    <div id="tabbar">
-      <tabbar>
-        <tabbar-item>
-          <img slot="icon" src="../assets/demo/icon_nav_button.png">
-          <span slot="label">Wechat</span>
-        </tabbar-item>
-        <tabbar-item show-dot>
-          <img slot="icon" src="../assets/demo/icon_nav_msg.png">
-          <span slot="label">Message</span>
-        </tabbar-item>
-        <tabbar-item selected>
-          <img slot="icon" src="../assets/demo/icon_nav_article.png">
-          <span slot="label">Explore</span>
-        </tabbar-item>
-        <tabbar-item>
-          <i class="fa fa-home"></i>
-          <span slot="label">News</span>
-        </tabbar-item>
-      </tabbar>
-    </div>
-
+    <submenu></submenu>
     <script src="/js/shop.js"></script>
 </body>
 </html>

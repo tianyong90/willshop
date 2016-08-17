@@ -13,12 +13,7 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-// var MintUI = require('mint-ui');
-// Vue.use(MintUI);
-var Vux = require('vux');
-
-Vue.component('tabbar', Vux.Tabbar);
-Vue.component('tabbar-item', Vux.TabbarItem);
+Vue.component('submenu', require('./components/shop/submenu.vue'));
 
 window.VueRouter = require('vue-router');
 Vue.use(VueRouter);
@@ -31,7 +26,16 @@ var router = new VueRouter();
 
 router.map({
     '/': {
-        component: require('./components/mobile/home.vue')
+        component: require('./components/shop/home.vue')
+    },
+    '/cart': {
+        component: require('./components/shop/cart.vue')
+    },
+    '/example': {
+        component: require('./components/Example.vue')
+    },
+    '/user': {
+        component: require('./components/shop/user.vue')
     }
 });
 

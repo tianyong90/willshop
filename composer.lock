@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ff70807d2c2892083c060746cd23f9f6",
+    "hash": "5158146941cff521650f17cc75bba135",
     "content-hash": "052d4bccbacaee52ad8b01631b9af5bf",
     "packages": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463"
+                "reference": "7598293bc6c89cdf4522835f7aa701db1ed47453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-ide-helper/28af7cd19ca41cc0c63dd1de2b46c2b84d31c463.zip",
-                "reference": "28af7cd19ca41cc0c63dd1de2b46c2b84d31c463",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-ide-helper/7598293bc6c89cdf4522835f7aa701db1ed47453.zip",
+                "reference": "7598293bc6c89cdf4522835f7aa701db1ed47453",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2016-07-04 11:52:48"
+            "time": "2016-08-14 16:38:30"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -896,12 +896,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a9947a115ff2b8b29b3c01a7e6e182afcbd0a97f"
+                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/a9947a115ff2b8b29b3c01a7e6e182afcbd0a97f.zip",
-                "reference": "a9947a115ff2b8b29b3c01a7e6e182afcbd0a97f",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a.zip",
+                "reference": "6b76cecef3fcbad07eb1ab7b15a05563a18d3e0a",
                 "shasum": ""
             },
             "require": {
@@ -1006,7 +1006,7 @@
             "authors": [
                 {
                     "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+                    "email": "taylor@laravel.com"
                 }
             ],
             "description": "The Laravel Framework.",
@@ -1015,7 +1015,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-12 19:17:33"
+            "time": "2016-08-17 15:05:00"
         },
         {
             "name": "league/flysystem",
@@ -3972,16 +3972,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.5.0",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b"
+                "reference": "03c13a19f7c83a23c062e9264ba54f29b92c3963"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b.zip",
-                "reference": "c7b3e1dcc1d183f26d5ba282881fe65c2cbb5b2b",
+                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit/03c13a19f7c83a23c062e9264ba54f29b92c3963.zip",
+                "reference": "03c13a19f7c83a23c062e9264ba54f29b92c3963",
                 "shasum": ""
             },
             "require": {
@@ -4046,20 +4046,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-05 04:49:02"
+            "time": "2016-08-17 09:38:04"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "b13d0d9426ced06958bd32104653526a6c998a52"
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit-mock-objects/b13d0d9426ced06958bd32104653526a6c998a52.zip",
-                "reference": "b13d0d9426ced06958bd32104653526a6c998a52",
+                "url": "https://packagist.phpcomposer.com/files/sebastianbergmann/phpunit-mock-objects/4e83390f64e7ce04fcaec2ce95cd72823b431d19.zip",
+                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19",
                 "shasum": ""
             },
             "require": {
@@ -4105,7 +4105,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-06-12 07:37:26"
+            "time": "2016-08-17 09:33:51"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
