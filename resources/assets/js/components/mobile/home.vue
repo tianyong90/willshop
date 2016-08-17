@@ -32,12 +32,12 @@
     }
 </script>
 
-<style lang="less">
-    @color: red;
-    @color-hover: blue;
+<style lang="sass">
+    $color: red;
+    $color-hover: grayscale($color);
 
     .my-product-list {
-        color: @color;
+        color: $color;
         font-size: 20px;
         list-style: none;
         padding: 20px;
@@ -48,8 +48,13 @@
             border-bottom: 1px dashed grey;
 
             a {
+                color: $color;
                 text-decoration: none;
                 display: block;
+
+                &:hover {
+                    color: $color-hover;
+                }
             }
 
             .time {
@@ -57,10 +62,6 @@
                 float: right;
                 color: grey;
             }
-        }
-
-        li:hover {
-            color: @color-hover;
         }
     }
 </style>

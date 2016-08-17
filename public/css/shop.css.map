@@ -1,0 +1,1 @@
+{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,UAAU,EACX","file":"shop.css","sourcesContent":["#tabbar .weui_tabbar {\r\n  position: fixed;\r\n  bottom: 0;\r\n}\r\n"],"sourceRoot":"/source/"}
