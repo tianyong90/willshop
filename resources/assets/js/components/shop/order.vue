@@ -1,11 +1,18 @@
 <template>
-    cart
+    <ul class="my-product-list">
+        <li v-for="product in products">
+            <a v-link="{ path: '/' }">
+                <span>{{ product.name }}</span>
+                <span class="time">{{ product.created_at }}</span>
+            </a>
+        </li>
+    </ul>
 </template>
 
 <script>
     export default {
         ready: function () {
-            this.fetchProducts();
+            this.fetchOrders();
         },
 
         data: function () {
@@ -15,7 +22,7 @@
         },
 
         methods: {
-            fetchProducts: function () {
+            fetchOrders: function () {
                 this.$http.get('/api/product').then(response => {
                     this.$set('products', response.json());
                 });
