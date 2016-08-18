@@ -2,19 +2,19 @@
     <div id="tabbar">
         <tabbar>
             <tabbar-item v-link="{ path:'/' }">
-                <span class="icon icon-home" slot="icon"></span>
+                <i class="icon iconfont" slot="icon">&#xe608;</i>
                 <span slot="label">首页</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/cart' }">
-                <span class="icon icon-shopping-cart" slot="icon"></span>
+                <i class="icon iconfont" slot="icon">&#xe602;</i>
                 <span slot="label">购物车</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/order' }">
-                <span class="icon icon-info" slot="icon"></span>
+                <i class="icon iconfont" slot="icon">&#xe60d;</i>
                 <span slot="label">订单</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/user' }">
-                <span class="icon icon-user" slot="icon"></span>
+                <i class="icon iconfont" slot="icon">&#xe611;</i>
                 <span slot="label">我的</span>
             </tabbar-item>
         </tabbar>
@@ -30,21 +30,14 @@
             TabbarItem
         },
         ready: function () {
-            this.fetchProducts();
         },
 
         data: function () {
             return {
-                products: []
             }
         },
 
         methods: {
-            fetchProducts: function () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.json());
-                });
-            }
         }
     }
 </script>
@@ -53,6 +46,13 @@
     #tabbar .weui_tabbar {
         position: fixed;
         bottom: 0;
+
+        .weui_tabbar_item {
+            .icon {
+                font-size: 20px;
+                color: #666;
+            }
+        }
 
         .weui_tabbar_item.weui_bar_item_on {
             .icon {

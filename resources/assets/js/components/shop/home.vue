@@ -2,7 +2,6 @@
     <ul class="my-product-list">
         <li v-for="product in products">
             <a v-link="{ path: '/' }">
-
                 <span>{{ product.name }}</span>
                 <span class="time">{{ product.created_at }}</span>
             </a>

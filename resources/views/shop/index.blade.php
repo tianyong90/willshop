@@ -14,7 +14,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
     {{--<link rel="stylesheet" href="/css/normalize.css" />--}}
-    <link rel="stylesheet" href="/css/simple-line-icons/simple-line-icons.min.css" />
+    <link rel="stylesheet" href="/css/iconfont/iconfont.css" />
     <link rel="stylesheet" href="/css/vux.css" />
     <link rel="stylesheet" href="/css/shop.css" />
 
