@@ -1,11 +1,11 @@
 <template>
-
+home
 </template>
 
 <script>
     export default {
         ready: function () {
-            this.fetchProducts();
+            
         },
 
         data: function () {

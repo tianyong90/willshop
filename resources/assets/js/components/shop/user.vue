@@ -5,23 +5,20 @@
         <div class="mobile">13227281234</div>
     </div>
 
-    <div>
+    <div id="card">
         <card>
             <div slot="content" class="card-demo-flex card-demo-content01">
                 <div class="vux-1px-l vux-1px-r" v-link="{ path:'/' }">
                     <span>1130</span>
-                    <br/>
-                    我的余额
+                    <span class="text">我的余额</span>
                 </div>
                 <div class="vux-1px-r" v-link="{ path:'/' }">
                     <span>15</span>
-                    <br/>
-                    我的积分
+                    <span class="text">我的积分</span>
                 </div>
                 <div class="vux-1px-r" v-link="{ path:'/' }">
                     <span>0</span>
-                    <br/>
-                    我的红包
+                    <span class="text">我的红包</span>
                 </div>
             </div>
         </card>
@@ -111,6 +108,16 @@
         display: block;
         color: #fff;
         font-size: 15px;
+    }
+}
+
+#card {
+
+    .text {
+        display: block;
+        color: #777;
+        font-size: 14px;
+        font-weight: 400;
     }
 }
 

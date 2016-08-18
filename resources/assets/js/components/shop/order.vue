@@ -12,7 +12,7 @@
 <script>
     export default {
         ready: function () {
-            this.fetchOrders();
+            
         },
 
         data: function () {
