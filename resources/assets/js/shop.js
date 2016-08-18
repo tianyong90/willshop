@@ -36,6 +36,12 @@ router.map({
     },
     '/user': {
         component: require('./components/shop/user.vue')
+    },
+    '/profile': {
+        component: require('./components/shop/profile.vue')
+    },
+    '/address': {
+        component: require('./components/shop/address.vue')
     }
 });
 

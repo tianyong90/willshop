@@ -1,1 +1,1 @@
-{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B,EAC3B","file":"shop.css","sourcesContent":["body {\r\n  background-color: #ececec;\r\n}\r\n\r\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B,EAC3B","file":"shop.css","sourcesContent":["body {\n  background-color: #ececec;\n}\n\n"],"sourceRoot":"/source/"}
