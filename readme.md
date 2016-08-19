@@ -14,8 +14,6 @@
 
 - Node.js (num, gulp, bower等为必备)
 
-- 如果你在天朝，则最好有一个靠谱的VPN :smile:
-
 ## 安装
 
 todo:
