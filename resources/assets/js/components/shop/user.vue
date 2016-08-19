@@ -1,6 +1,6 @@
 <template>
     <div class="user-profile" v-link="{ path:'profile' }">
-        <img class="avatar" >
+        <img class="avatar" src="/img/avatar.jpg" >
         <div class="username">bontian</div>
         <div class="mobile">13227281234</div>
     </div>
@@ -94,7 +94,6 @@
         width: 70px;
         height: 70px;
         border-radius: 70px;
-        background-color: #0c0;
         margin-right: 20px;
     }
 
@@ -125,7 +124,7 @@
     display: inline-block;
     float: left;
     margin-right: 5px;
-    color: #f00;
+    color: #777;
 }
 
 .card-demo-flex {

@@ -17,5 +17,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
- Route::get('/product', 'Api\ProductController@lists');
- Route::get('/product-category', 'Api\ProductCategoryController@lists');
+Route::post('/login', 'Api\AuthenticateController@authenticate');
+
+Route::get('/product', 'Api\ProductController@lists');
+Route::get('/product-category', 'Api\ProductCategoryController@lists');

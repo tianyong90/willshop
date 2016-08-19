@@ -31,6 +31,9 @@ router.map({
     '/cart': {
         component: require('./components/shop/cart.vue')
     },
+    '/order': {
+        component: require('./components/shop/order.vue')
+    },
     '/example': {
         component: require('./components/Example.vue')
     },
@@ -42,7 +45,14 @@ router.map({
     },
     '/address': {
         component: require('./components/shop/address.vue')
+    },
+    '/login': {
+        component: require('./components/shop/login.vue')
+    },
+    '/logout': {
+        component: require('./components/shop/logout.vue')
     }
+
 });
 
 router.start(App, 'body');
