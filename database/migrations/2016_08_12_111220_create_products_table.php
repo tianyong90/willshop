@@ -15,9 +15,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 30)->comment('商品名');
-            $table->string('description', 100)->comment('商品描述');
             $table->unsignedInteger('category_id')->comment('关联产品分类ID');
+            $table->string('name', 30)->comment('商品名');
+            $table->string('thumbnail', 120)->nullable()->comment('缩略图');
+            $table->string('pictures', 300)->nullbale()->comment('图片集');
+            $table->text('description')->nullable()->comment('商品描述');
             $table->timestamps();
             $table->softDeletes();
 

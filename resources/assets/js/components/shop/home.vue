@@ -2,25 +2,37 @@
     <div id="banner">
         <swiper :list="banners" :aspect-ratio="300/800" dots-position="center" :show-desc-mask="false" auto loop :interval="5000"></swiper>
     </div>
-    
+
+    <div id="products">
+        <ul>
+            <li v-for="product in products">
+                <a v-link="{ path: '/product/' + product.id }">
+                    <img class="thumbnail" :src="product.thumbnail" alt="">
+                    <span class="name">{{ product.name }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
     import { Swiper } from 'vux';
 
     var banners = [{
-        url: 'javascript:',
-        img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
-        title: '如何手制一份秋意的茶？'
-        }, {
-        url: 'javascript:',
-        img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
-        title: '茶包VS原叶茶'
-        }, {
-        url: 'javascript',
-        img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
-        title: '播下茶籽，明春可发芽？'
-        }];
+            url: 'javascript:',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
+            title: '如何手制一份秋意的茶？'
+        },
+        {
+            url: 'javascript:',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
+            title: '茶包VS原叶茶'
+        },
+        {
+            url: 'javascript',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
+            title: '播下茶籽，明春可发芽？'
+    }];
 
     export default {
         components: {
@@ -28,7 +40,7 @@
         },
 
         ready: function () {
-
+            this.fetchProducts();
         },
 
         data: function () {
@@ -40,7 +52,7 @@
 
         methods: {
             fetchProducts: function () {
-                this.$http.get('/api/product').then(response => {
+                this.$http.get('product').then(response => {
                     this.$set('products', response.json());
                 });
             },
@@ -58,4 +70,34 @@
 
 <style scoped lang="sass">
     .vux-slider {}
+
+    #products {
+        display: block;
+        overflow: hidden;
+        margin-top: 20px;
+
+        ul {
+            display: block;
+            overflow: hidden;
+            padding: 0;
+            margin: 20ox 0;
+
+            li {
+                display: block;
+                float: left;
+                width: 50%;
+                
+                .thumbnail {
+                    display: block;
+                    width: 100%;
+
+                }
+
+                .name {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
 </style>

@@ -18,7 +18,10 @@ Vue.component('submenu', require('./components/shop/submenu.vue'));
 window.VueRouter = require('vue-router');
 Vue.use(VueRouter);
 
-Vue.http.options.params = {api_token: "273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9"};
+Vue.http.options.root = '/api';
+Vue.http.options.params = {
+    api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
+};
 
 const App = Vue.extend({});
 
@@ -51,6 +54,9 @@ router.map({
     },
     '/logout': {
         component: require('./components/shop/logout.vue')
+    },
+    '/product/:id': {
+        component: require('./components/shop/product.vue')
     }
 
 });

@@ -30,9 +30,17 @@ $factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
+    $pictures = [
+        $faker->imageUrl(640, 360),
+        $faker->imageUrl(640, 360),
+        $faker->imageUrl(640, 360),
+    ];
+
     return [
         'name' => $faker->name,
         'category_id' => random_int(1, 3),
+        'thumbnail' => $faker->imageUrl(100, 100),
+        'pictures' => $pictures,
         'description' => $faker->sentence,
     ];
 });
