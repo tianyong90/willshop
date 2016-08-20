@@ -57,6 +57,9 @@ router.map({
     },
     '/product/:id': {
         component: require('./components/shop/product.vue')
+    },
+    '/password': {
+        component: require('./components/shop/password.vue')
     }
 
 });
