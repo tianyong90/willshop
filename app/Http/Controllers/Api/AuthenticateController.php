@@ -26,4 +26,15 @@ class AuthenticateController extends Controller
         // 返回生成的 token
         return response()->json(compact('token'));
     }
+
+    public function updatePassword(Request $request)
+    {
+        $data = $request->all();
+
+        $user = \Auth::user();
+
+        return $user;
+
+        return response()->json($data);
+    }
 }

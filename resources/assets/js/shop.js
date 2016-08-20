@@ -61,7 +61,6 @@ router.map({
     '/password': {
         component: require('./components/shop/password.vue')
     }
-
 });
 
 router.start(App, 'body');

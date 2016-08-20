@@ -36,11 +36,13 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         $faker->imageUrl(640, 360),
     ];
 
+    $productCateIds = array_column(\App\ProductCategory::all('id')->toArray(), 'id');
+
     return [
         'name' => $faker->name,
-        'category_id' => random_int(1, 3),
+        'category_id' => $productCateIds[array_rand($productCateIds)],
         'thumbnail' => $faker->imageUrl(100, 100),
         'pictures' => $pictures,
-        'description' => $faker->sentence,
+        'description' => $faker->paragraph(10),
     ];
 });

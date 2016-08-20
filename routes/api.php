@@ -17,7 +17,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', 'Api\AuthenticateController@authenticate');
+Route::get('/login', 'Api\AuthenticateController@authenticate');
+Route::get('/update-password', 'Api\AuthenticateController@updatePassword');
 
 Route::get('/product-category', 'Api\ProductCategoryController@lists');
 

@@ -4,12 +4,12 @@
     </div>
 
     <div id="description">
-        {{product.description}}
+        {{ product.description }}
     </div>
     
-    <panel header="what the fuck">
+    <!--<panel header="评论">
         <cell title="test"></cell>
-    </panel>
+    </panel>-->
 </template>
 
 
@@ -25,6 +25,8 @@
         },
 
         ready: function () {
+            console.log();
+
             this.fetchProduct();
         },
 
@@ -38,14 +40,12 @@
         methods: {
             fetchProduct: function () {
                 this.$http.get('product/' + this.$route.params.id).then(response => {
-                    console.log(response.json());
-
                     var product = response.json();
 
                     this.$set('product', product);
 
-                    for(var i =0;i < product.pictures.length;i++) {
-                        this.banners.push({img: product.pictures[i]});
+                    for(var item in product.pictures) {
+                        this.banners.push({img: product.pictures[item]});
                     }
                 });
             },
