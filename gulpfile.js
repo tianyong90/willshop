@@ -17,7 +17,8 @@ elixir(mix => {
     mix.sass('shop.scss', 'public/css/shop.css')
        .webpack('shop.js', 'public/js/shop.js');
 
-    // mix.copy('node_modules/normalize.css/normalize.css', 'public/css/normalize.css');
+    mix.copy('node_modules/vux/dist/vux.css', 'public/css/vux.css');
+    mix.copy('node_modules/normalize.css/normalize.css', 'public/css/normalize.css');
 
     mix.browserSync({
         proxy: 'localhost:8050/shop'

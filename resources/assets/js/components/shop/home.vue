@@ -1,6 +1,6 @@
 <template>
     <div id="banner">
-        <swiper :list="banners" :aspect-ratio="300/800" dots-position="center" :show-desc-mask="false" auto loop :interval="4000"></swiper>
+        <swiper :list="banners" :aspect-ratio="300/800" dots-position="center" :show-desc-mask="false" auto loop :interval="5000"></swiper>
     </div>
     
 </template>
