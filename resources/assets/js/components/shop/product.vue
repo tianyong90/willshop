@@ -3,30 +3,34 @@
         <swiper :list="banners" :aspect-ratio="360/640" dots-position="center" :show-desc-mask="false" auto loop :interval="5000"></swiper>
     </div>
 
+    <div id="details">
+        <div class="name">{{ product.name }}</div>
+        <div class="price">1000</div>
+
+        <x-number title="已选" :value="1" :min="1" :fillable="false"></x-number>
+        
+        <cell title="送至" value="" is-link @click=""></cell>
+    </div>
+
     <div id="description">
         {{ product.description }}
     </div>
-    
-    <!--<panel header="评论">
-        <cell title="test"></cell>
-    </panel>-->
 </template>
 
 
 <script>
-    import { Swiper,Group,Cell,Panel } from 'vux';
+    import { Swiper,Group,Cell,Panel,XNumber } from 'vux';
 
     export default {
         components: {
             Swiper,
             Group,
             Cell,
-            Panel
+            Panel,
+            XNumber
         },
 
         ready: function () {
-            console.log();
-
             this.fetchProduct();
         },
 
@@ -61,6 +65,35 @@
     }
 </script>
 
-<style lang="sass">
-    
+<style scoped lang="sass">
+    #details {
+        display: block;
+        background-color: #fff;
+        overflow: hidden;
+        margin: 5px 0;
+
+        .name {
+            display: block;
+            padding: 0 10px;
+            font-size: 17px;
+            color: #666;
+        }
+
+        .price {
+            display: block;
+            padding: 0 10px;
+            font-size: 17px;
+            color: red;
+        }
+    }
+
+    #description {
+        display: block;
+        overflow: hidden;
+        background-color: #fff;
+        padding: 1rem 0.5rem 60px 0.5rem;
+        text-align: justify;
+        font-size: 1.1rem;
+        color: #666;
+    }
 </style>
