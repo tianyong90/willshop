@@ -9,7 +9,7 @@
 
         <x-number title="已选" :value="1" :min="1" :fillable="false"></x-number>
         
-        <cell title="送至" value="" is-link @click=""></cell>
+        <cell title="送至" value="" is-link @click="addressPopup"></cell>
     </div>
 
     <div id="description">
@@ -36,7 +36,7 @@
 
         data: function () {
             return {
-                product: [],
+                product: null,
                 banners: []
             }
         },
@@ -52,6 +52,10 @@
                         this.banners.push({img: product.pictures[item]});
                     }
                 });
+            },
+
+            addressPopup: function () {
+
             },
 
             destroy: function () {

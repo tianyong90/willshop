@@ -5,13 +5,13 @@
                 <i class="icon iconfont" slot="icon">&#xe608;</i>
                 <span slot="label">首页</span>
             </tabbar-item>
+            <tabbar-item v-link="{ path:'/order' }">
+                <i class="icon iconfont" slot="icon">&#xe60d;</i>
+                <span slot="label">全部商品</span>
+            </tabbar-item>
             <tabbar-item v-link="{ path:'/cart' }">
                 <i class="icon iconfont" slot="icon">&#xe602;</i>
                 <span slot="label">购物车</span>
-            </tabbar-item>
-            <tabbar-item v-link="{ path:'/order' }">
-                <i class="icon iconfont" slot="icon">&#xe60d;</i>
-                <span slot="label">订单</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/user' }">
                 <i class="icon iconfont" slot="icon">&#xe611;</i>
