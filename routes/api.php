@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-});
+})->middleware('auth:api');
 
 Route::get('/login', 'Api\AuthenticateController@authenticate');
 Route::get('/update-password', 'Api\AuthenticateController@updatePassword');
