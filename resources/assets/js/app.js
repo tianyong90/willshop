@@ -15,16 +15,6 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
-window.VueRouter = require('vue-router');
-Vue.use(VueRouter);
-
-
-// const app = new Vue({
-//     el: 'body',
-//     methods: {
-//         click: function (event) {
-
-//             console.log("test");
-//         }
-//     }
-// });
+const app = new Vue({
+    el: 'body'
+});
