@@ -20,6 +20,7 @@
     "laravel-elixir-webpack-official": "^1.0.2",
     "less-loader": "^2.2.3",
     "lodash": "^4.14.0",
+    "node-sass": "^3.8.0",
     "normalize.css": "^4.2.0",
     "sass-loader": "^4.0.0",
     "vue": "^1.0.26",
