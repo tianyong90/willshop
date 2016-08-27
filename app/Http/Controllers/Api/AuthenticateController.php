@@ -27,14 +27,15 @@ class AuthenticateController extends Controller
         return response()->json(compact('token'));
     }
 
+    /**
+     * 修改密码
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function updatePassword(Request $request)
     {
-        $data = $request->all();
-
-        $user = \Auth::user();
-
-        return $user;
-
-        return response()->json($data);
+//        return response()->json($data);
     }
 }

@@ -25,3 +25,11 @@ Route::get('/product-category', 'Api\ProductCategoryController@lists');
 
 Route::get('/product', 'Api\ProductController@lists');
 Route::get('/product/{id}', 'Api\ProductController@detail');
+
+Route::get('/cart/{productId}/add', 'Api\CartController@add');
+Route::get('/cart/{cartId}/delete', 'Api\CartController@delete');
+Route::get('/cart/lists', 'Api\CartController@lists');
+
+Route::get('/favourite/{productId}/add', 'Api\FavouriteController@add');
+Route::get('/favourite/{favouriteId}/delete', 'Api\FavouriteController@delete');
+Route::get('/favourite/lists', 'Api\FavouriteController@lists');
