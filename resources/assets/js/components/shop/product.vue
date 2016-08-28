@@ -38,6 +38,9 @@
 
         ready: function () {
             this.fetchProduct();
+
+            // 商品详情页隐藏询问主菜单
+            this.$root.showMainmenu = false;
         },
 
         data: function () {
@@ -83,11 +86,14 @@
             },
 
             destroy: function () {
+                // 切换至其他页面时将隐藏的主菜单显示
+                this.$root.showMainmenu = true;
 
+                console.log('product destroy');
             }
         },
 
-        destroy: function () {
+        beforeDestroy: function () {
             this.destroy();
         }
     }
@@ -129,39 +135,37 @@
         display: block;
         position: fixed;
         overflow: hidden;
-        bottom: 100px;
+        bottom: 0;
         width: 100%;
-        height: 50px;
-        background-color: #ccc;
+        height: 60px;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
         padding: 0;
 
         .btn {
             display: inline-block;
             float: right;
-            background-color: #ccc;
             color: #555;
             text-align: center;
-            padding: 3px 12px;
+            padding: 5px 20px;
             font-size: 12px;
 
             .icon {
                 display: block;
-                padding: 0;
             }
 
             .text {
                 font-size: 12px;
-            
             }
         }
 
         #btn-add-cart {
             display: inline-block;
-            height: 50px;
+            height: 60px;
             font-size: 15px;
-            line-height: 50px;
+            line-height: 60px;
             color: #fff;
-            padding: 0 20px;
+            padding: 0 25px;
             background-color: #c00;
             float: right;
         }
