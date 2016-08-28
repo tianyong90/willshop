@@ -45,6 +45,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'category_id' => $productCateIds[array_rand($productCateIds)],
         'thumbnail' => $faker->imageUrl(100, 100),
         'pictures' => $pictures,
+        'price' => $faker->randomDigit,
         'description' => $faker->paragraph(10),
     ];
 });

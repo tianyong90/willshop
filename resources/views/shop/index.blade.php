@@ -27,7 +27,7 @@
 <body>
     <router-view></router-view>
 
-    <submenu v-if="!hideSubMenu"></submenu>
+    <mainmenu v-if="showMainmenu"></mainmenu>
     <script src="/js/shop.js"></script>
 </body>
 </html>

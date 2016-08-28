@@ -17,9 +17,9 @@
     </div>
 
     <footer>
-        <div class="btn" id="btn-favourite" @click="addToFavourite()"><i class="icon-home">收藏</i></div>
-        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon-home">购物车</i></div>
         <div id="btn-add-cart" @click="addToCart()">加入购物车</div>
+        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon iconfont">&#xe602;</i><span class="text">购物车</span></div>
+        <div class="btn" id="btn-favourite" @click="addToFavourite()"><i class="icon iconfont">&#xe609;</i><span class="text">收藏</span></div>
     </footer>
 </template>
 
@@ -131,20 +131,37 @@
         overflow: hidden;
         bottom: 100px;
         width: 100%;
-        background-color: #0c0;
+        height: 50px;
+        background-color: #ccc;
+        padding: 0;
 
         .btn {
             display: inline-block;
             float: right;
             background-color: #ccc;
-            padding: 5px 5px;
+            color: #555;
+            text-align: center;
+            padding: 3px 12px;
+            font-size: 12px;
+
+            .icon {
+                display: block;
+                padding: 0;
+            }
+
+            .text {
+                font-size: 12px;
+            
+            }
         }
 
         #btn-add-cart {
             display: inline-block;
-            font-size: 14px;
+            height: 50px;
+            font-size: 15px;
+            line-height: 50px;
             color: #fff;
-            padding: 5px 10px;
+            padding: 0 20px;
             background-color: #c00;
             float: right;
         }

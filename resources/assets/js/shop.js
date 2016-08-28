@@ -13,7 +13,7 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('submenu', require('./components/shop/submenu.vue'));
+Vue.component('mainmenu', require('./components/shop/mainmenu.vue'));
 
 window.VueRouter = require('vue-router');
 Vue.use(VueRouter);
@@ -23,7 +23,13 @@ Vue.http.options.params = {
     api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
 };
 
-const App = Vue.extend({});
+const App = Vue.extend({
+    data: function () {
+        return {
+            showMainmenu: true
+        }
+    }
+});
 
 var router = new VueRouter();
 
@@ -34,11 +40,14 @@ router.map({
     '/cart': {
         component: require('./components/shop/cart.vue')
     },
+    '/category': {
+        component: require('./components/shop/category.vue')
+    },
     '/order': {
         component: require('./components/shop/order.vue')
     },
-    '/example': {
-        component: require('./components/Example.vue')
+    '/checkout': {
+        component: require('./components/shop/checkout.vue')
     },
     '/user': {
         component: require('./components/shop/user.vue')
