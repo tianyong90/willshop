@@ -26,7 +26,17 @@ Vue.http.options.params = {
 const App = Vue.extend({
     data: function () {
         return {
-            showMainmenu: true
+            mainMenuvisiable: true
+        }
+    },
+
+    methods: {
+        hideMainmenu: function () {
+            this.mainMenuvisiable = false;
+        },
+
+        showMainmenu: function () {
+            this.mainMenuvisiable = true;
         }
     }
 });
@@ -46,6 +56,9 @@ router.map({
     '/order': {
         component: require('./components/shop/order.vue')
     },
+    '/favourite': {
+        component: require('./components/shop/favourite.vue')
+    },
     '/checkout': {
         component: require('./components/shop/checkout.vue')
     },
@@ -57,6 +70,12 @@ router.map({
     },
     '/address': {
         component: require('./components/shop/address.vue')
+    },
+    '/about-us': {
+        component: require('./components/shop/about-us.vue')
+    },
+    '/help': {
+        component: require('./components/shop/help.vue')
     },
     '/login': {
         component: require('./components/shop/login.vue')

@@ -1,6 +1,6 @@
 <template>
     
-    
+    addrss
     <footer>
         <x-button type="primary">添加地址</x-button>
     </footer>
@@ -19,6 +19,9 @@
 
         ready: function () {
             this.fetchProducts();
+
+            // 商品详情页隐藏询问主菜单
+            this.$root.hideMainmenu();
         },
 
         data: function () {
@@ -32,7 +35,18 @@
                 this.$http.get('/api/product').then(response => {
                     this.$set('products', response.json());
                 });
+            },
+
+            destroy: function () {
+                // 切换至其他页面时将隐藏的主菜单显示
+                this.$root.showMainmenu();
+
+                console.log('product destroy');
             }
+        },
+
+        beforeDestroy: function () {
+            this.destroy();
         }
     }
 </script>
@@ -42,7 +56,7 @@
         display: block;
         overflow: hidden;
         position: fixed;
-        bottom: 200px;
+        bottom: 0;
         width: 100%;
         z-index: 1000;
         background-color: #fff;
