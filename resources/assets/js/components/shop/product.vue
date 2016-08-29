@@ -5,7 +5,7 @@
 
     <div id="details">
         <div class="name">{{ product.name }}</div>
-        <div class="price">1000</div>
+        <div class="price">{{ product.price }}</div>
 
         <x-number title="已选" :value="1" :min="1" :fillable="false"></x-number>
         
@@ -18,8 +18,8 @@
 
     <footer>
         <div id="btn-add-cart" @click="addToCart()">加入购物车</div>
-        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon iconfont">&#xe602;</i><span class="text">购物车</span></div>
-        <div class="btn" id="btn-favourite" @click="addToFavourite()"><i class="icon iconfont">&#xe609;</i><span class="text">收藏</span></div>
+        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
+        <div class="btn" id="btn-favourite" @click="addToFavourite()"><i class="icon iconfont">&#xe607;</i><span class="text">收藏</span></div>
     </footer>
 </template>
 

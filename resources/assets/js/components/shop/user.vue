@@ -26,10 +26,10 @@
 
     <group>
         <cell title="收货地址" is-link v-link="{ path:'/address' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
+            <i class="icon iconfont" slot="icon">&#xe602;</i>
         </cell>
         <cell title="我的收藏" is-link v-link="{ path:'/favourite' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
+            <i class="icon iconfont" slot="icon">&#xe607;</i>
         </cell>
     </group>
 
@@ -44,10 +44,10 @@
 
     <group>
         <cell title="使用帮助" is-link v-link="{ path:'/help' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
+            <i class="icon iconfont" slot="icon">&#xe60e;</i>
         </cell>
         <cell title="关于我们" is-link v-link="{ path:'/about-us' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
+            <i class="icon iconfont" slot="icon">&#xe617;</i>
         </cell>
     </group>
 </template>

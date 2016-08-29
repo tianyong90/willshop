@@ -1,7 +1,7 @@
 <template>
     <ul id="cart-list">
         <li class="list-item" v-for="cart in carts">
-            <input class="checker" type="checkbox" name="">
+            <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
             <img :src="cart.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + cart.product.id }">
             <div class="right-part">
                 <div class="name" v-link="{ path: '/product/' + cart.product.id }">{{ cart.product.name }}</div>
@@ -11,12 +11,14 @@
     </ul>
 
     <footer>
-        <input type="checkbox" id="check-all">
+        <label id="check-all" for="check-all">
+            <input type="checkbox" v-model="selectAll"> 全选
+        </label>
         <div class="summary">
             <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
             <div class="product-count">已选 {{ productCount }} 件商品</div>
         </div>
-        <a v-link="{ path: '/checkout' }" class="btn" id="btn-checkout">去结算</a>
+        <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算</button>
     </footer>
 </template>
 
@@ -29,19 +31,63 @@
         data: function () {
             return {
                 carts: [],
-                totalPrice: 0,
-                productCount: 0
+                selectedCarts: []
+            }
+        },
+
+        computed: {
+            selectAll: function () {
+                return this.selectedCarts.length === this.carts.length;
+            },
+
+            totalPrice: function () {
+                if (this.selectedCarts.length === 0) {
+                    return 0;
+                }
+
+                // 选中的樟商品总价累加
+                var price = 0;
+                for(var index in this.selectedCarts) {
+                     price += (this.selectedCarts[index].product.price * this.selectedCarts[index].amount);
+                }
+
+                return price;
+            },
+
+            productCount: function () {
+                if (this.selectedCarts.length === 0) {
+                    return 0;
+                }
+
+                // 选中的订单中商品数累加
+                var count = 0;
+                for(var index in this.selectedCarts) {
+                    count += this.selectedCarts[index].amount;
+                }
+
+                return count;
             }
         },
 
         methods: {
             getCarts: function () {
                 this.$http.get('cart/lists').then(response => {
-
-                    console.log(response.json());
-
                     this.$set('carts', response.json());
                 });
+            },
+
+            checkout: function () {
+                console.log(this.selectedCarts);
+            }
+        },
+
+        watch: {
+            'selectAll': function (val) {
+                if (val) {
+                    console.log('true');
+                } else {
+                    console.log('false');
+                }
             }
         }
     }
@@ -63,8 +109,7 @@
             .checker {
                 display: inline-block;
                 float: left;
-                margin-top: 20px;
-                margin-right: 10px;
+                margin: 30px 15px 0 10px;
             }
 
             .thumbnail {
@@ -106,7 +151,8 @@
 
         #check-all {
             float: left;
-
+            margin: 11px 10px;
+            font-size: 13px;
         }
 
         .summary {
@@ -130,6 +176,11 @@
             line-height: 50px;
             padding: 0 20px;
             background-color: #f00;
+            border: none;
+
+            &.disabled {
+                background-color: #ccc;
+            }
         }
     }
 

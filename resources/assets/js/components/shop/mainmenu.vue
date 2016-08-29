@@ -2,19 +2,19 @@
     <div id="tabbar">
         <tabbar>
             <tabbar-item v-link="{ path:'/' }">
-                <i class="icon iconfont" slot="icon">&#xe608;</i>
+                <i class="icon iconfont" slot="icon">&#xe613;</i>
                 <span slot="label">首页</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/category' }">
-                <i class="icon iconfont" slot="icon">&#xe60d;</i>
+                <i class="icon iconfont" slot="icon">&#xe60b;</i>
                 <span slot="label">分类</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/cart' }">
-                <i class="icon iconfont" slot="icon">&#xe602;</i>
+                <i class="icon iconfont" slot="icon">&#xe611;</i>
                 <span slot="label">购物车</span>
             </tabbar-item>
             <tabbar-item v-link="{ path:'/user' }">
-                <i class="icon iconfont" slot="icon">&#xe611;</i>
+                <i class="icon iconfont" slot="icon">&#xe61c;</i>
                 <span slot="label">我的</span>
             </tabbar-item>
         </tabbar>

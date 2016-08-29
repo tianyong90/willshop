@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1471499097'); /* IE9*/
-  src: url('iconfont.eot?t=1471499097#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1471499097') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1471499097') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1471499097#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1472488700'); /* IE9*/
+  src: url('iconfont.eot?t=1472488700#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1472488700') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1472488700') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1472488700#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -15,27 +15,33 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-app:before { content: "\e600"; }
-.icon-browser:before { content: "\e601"; }
-.icon-cart:before { content: "\e602"; }
-.icon-check:before { content: "\e603"; }
-.icon-code:before { content: "\e604"; }
-.icon-delete:before { content: "\e605"; }
-.icon-deliver:before { content: "\e606"; }
-.icon-favor:before { content: "\e607"; }
-.icon-home:before { content: "\e608"; }
-.icon-like:before { content: "\e609"; }
-.icon-link:before { content: "\e60a"; }
-.icon-lock:before { content: "\e60b"; }
-.icon-mail:before { content: "\e60c"; }
-.icon-menu:before { content: "\e60d"; }
-.icon-message:before { content: "\e60e"; }
-.icon-more:before { content: "\e60f"; }
-.icon-my:before { content: "\e610"; }
-.icon-person2:before { content: "\e611"; }
-.icon-refresh:before { content: "\e612"; }
-.icon-right:before { content: "\e613"; }
-.icon-search:before { content: "\e614"; }
-.icon-shopping:before { content: "\e615"; }
-.icon-sitting:before { content: "\e616"; }
-.icon-tag:before { content: "\e617"; }
+.icon-favorfill:before { content: "\e600"; }
+.icon-favor:before { content: "\e601"; }
+.icon-location:before { content: "\e602"; }
+.icon-phone:before { content: "\e603"; }
+.icon-roundcheckfill:before { content: "\e604"; }
+.icon-time:before { content: "\e605"; }
+.icon-likefill:before { content: "\e606"; }
+.icon-like:before { content: "\e607"; }
+.icon-deliver:before { content: "\e608"; }
+.icon-pay:before { content: "\e609"; }
+.icon-shop:before { content: "\e60a"; }
+.icon-list:before { content: "\e60b"; }
+.icon-more:before { content: "\e60c"; }
+.icon-settings:before { content: "\e60d"; }
+.icon-question:before { content: "\e60e"; }
+.icon-refresh:before { content: "\e60f"; }
+.icon-moreandroid:before { content: "\e610"; }
+.icon-cart:before { content: "\e611"; }
+.icon-delete:before { content: "\e612"; }
+.icon-home:before { content: "\e613"; }
+.icon-message:before { content: "\e614"; }
+.icon-lock:before { content: "\e615"; }
+.icon-goods:before { content: "\e616"; }
+.icon-info:before { content: "\e617"; }
+.icon-recharge:before { content: "\e618"; }
+.icon-share:before { content: "\e619"; }
+.icon-mobile:before { content: "\e61a"; }
+.icon-notice:before { content: "\e61b"; }
+.icon-people:before { content: "\e61c"; }
+.icon-goodslight:before { content: "\e61d"; }
