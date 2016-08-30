@@ -71,6 +71,9 @@ router.map({
     '/address': {
         component: require('./components/shop/address.vue')
     },
+    '/address/add': {
+        component: require('./components/shop/address-edit.vue')
+    },
     '/about-us': {
         component: require('./components/shop/about-us.vue')
     },

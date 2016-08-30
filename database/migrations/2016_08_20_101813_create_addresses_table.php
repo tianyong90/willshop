@@ -23,7 +23,7 @@ class CreateAddressesTable extends Migration
             $table->string('city', 20)->nullable()->comment('市');
             $table->string('area', 20)->nullable()->comment('区');
             $table->string('address', 50)->nullable()->comment('详细地址');
-            $table->tinyInteger('is_default', 1)->default(0)->comment('是默认地址');
+            $table->boolean('is_default')->default(false)->comment('是默认地址');
             $table->timestamps();
             $table->softDeletes();
 

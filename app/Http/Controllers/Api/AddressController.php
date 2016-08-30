@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Address;
-use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -17,7 +16,7 @@ class AddressController extends Controller
      */
     public function add(Request $request)
     {
-        $data = $request->all();
+        $data = $request->input('address');
         $data['user_id'] = 1;
 
         Address::create($data);
@@ -61,6 +60,6 @@ class AddressController extends Controller
      */
     public function lists()
     {
-        return Address::with('product')->get();
+        return Address::all();
     }
 }
