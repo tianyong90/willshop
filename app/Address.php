@@ -11,6 +11,18 @@ class Address extends Model
 
     protected $fillable = [
         'user_id',
+        'name',
+        'mobile',
+        'post_number',
+        'province',
+        'city',
+        'area',
+        'address',
+        'is_default',
+    ];
+
+    protected $casts = [
+        'is_default' => 'boolean',
     ];
 
     /**
