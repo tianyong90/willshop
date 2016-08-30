@@ -12,7 +12,7 @@
 
     <footer>
         <label id="check-all" for="check-all">
-            <input type="checkbox" v-model="selectAll"> 全选
+            <input type="checkbox" v-model="selectAll" @click="checkAllClick"> 全选
         </label>
         <div class="summary">
             <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
@@ -70,23 +70,24 @@
         },
 
         methods: {
+            // 获取购物车列表数据
             getCarts: function () {
                 this.$http.get('cart/lists').then(response => {
                     this.$set('carts', response.json());
                 });
             },
 
+            // 去结算
             checkout: function () {
                 console.log(this.selectedCarts);
-            }
-        },
+            },
 
-        watch: {
-            'selectAll': function (val) {
-                if (val) {
-                    console.log('true');
+            // 全选和取消全选
+            checkAllClick: function () {
+                if (this.selectAll) {
+                    this.selectedCarts = [];
                 } else {
-                    console.log('false');
+                    this.selectedCarts = this.carts;
                 }
             }
         }
