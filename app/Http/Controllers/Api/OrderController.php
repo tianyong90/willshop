@@ -28,4 +28,11 @@ class OrderController extends Controller
     {
         return Order::all();
     }
+
+    public function checkout(Request $request)
+    {
+        \Log::info($request->all());
+
+        return response()->json(['info' => '添加成功']);
+    }
 }

@@ -22,6 +22,7 @@ Route::get('/update-password', 'Api\AuthenticateController@updatePassword');
 
 Route::get('/product-category', 'Api\ProductCategoryController@lists');
 
+Route::any('/checkout', 'Api\OrderController@checkout');
 
 Route::get('/product', 'Api\ProductController@lists');
 Route::get('/product/{id}', 'Api\ProductController@detail');

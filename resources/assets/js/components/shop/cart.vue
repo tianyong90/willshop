@@ -79,7 +79,11 @@
 
             // 去结算
             checkout: function () {
-                console.log(this.selectedCarts);
+                if (this.selectedCarts.length > 0) {
+                    this.$http.post('checkout', this.selectedCarts).then(response => {
+                        console.log(response.json());
+                    })
+                }
             },
 
             // 全选和取消全选
