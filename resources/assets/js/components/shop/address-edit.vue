@@ -2,7 +2,7 @@
     <group title="收货地址信息">
         <x-input title="收货人" :value.sync="address.name"></x-input>
         <x-input title="手机号码" :value.sync="address.mobile"></x-input>
-        <x-input title="所在地区" :value.sync="address.name"></x-input>
+        <address title="所在地区" :value.sync="value2" raw-value :list="addressData></address>
         <x-input title="详细地址" :value.sync="address.address"></x-input>
     </group>
 
@@ -13,14 +13,16 @@
 </template>
 
 <script>
-    import { Cell,Group,XInput,XButton } from 'vux';
+    import { Cell,Group,XInput,XButton,Address,AddressChinaData } from 'vux';
+    import value2name from 'vux/src/filters/value2name';
 
     export default {
         components: {
             Cell,
             Group,
             XInput,
-            XButton
+            XButton,
+            Address
         },
 
         ready: function () {
@@ -32,7 +34,8 @@
 
         data: function () {
             return {
-                address: {}
+                address: {},
+                addressData: AddressChinaData
             }
         },
 
