@@ -16,7 +16,7 @@
         </label>
         <div class="summary">
             <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
-            <div class="product-count">已选 {{ productCount }} 件商品</div>
+            <div class="product-count">已选 {{ productAmount }} 件商品</div>
         </div>
         <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算</button>
     </footer>
@@ -54,7 +54,7 @@
                 return price;
             },
 
-            productCount: function () {
+            productAmount: function () {
                 if (this.selectedCarts.length === 0) {
                     return 0;
                 }
@@ -82,6 +82,8 @@
                 if (this.selectedCarts.length > 0) {
                     this.$http.post('checkout', this.selectedCarts).then(response => {
                         console.log(response.json());
+
+                        // this.$route.go('/checkout');
                     })
                 }
             },

@@ -15,7 +15,16 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id')->comment('用户ID');
+            $table->string('province', 20)->nullable()->comment('省');
+            $table->string('city', 20)->nullable()->comment('市');
+            $table->string('area', 20)->nullable()->comment('区');
+            $table->string('address', 50)->nullable()->comment('详细地址');
+            $table->tinyInteger('is_default', 1)->default(0)->comment('是默认地址');
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
