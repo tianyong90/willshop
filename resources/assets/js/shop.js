@@ -16,7 +16,11 @@ require('./bootstrap');
 Vue.component('mainmenu', require('./components/shop/mainmenu.vue'));
 
 window.VueRouter = require('vue-router');
-Vue.use(VueRouter);
+window.Vuex = require('vuex');
+
+import store from './shop_store';
+
+const commit = store.commit || store.dispatch;
 
 Vue.http.options.root = '/api';
 Vue.http.options.params = {
@@ -42,6 +46,15 @@ const App = Vue.extend({
 });
 
 var router = new VueRouter();
+
+router.beforeEach(({ from, to, next}) => {
+    commit('UPDATE_LOADING', true);
+    next();
+})
+
+router.beforeEach(() => {
+    commit('UPDATE_LOADING', false);
+})
 
 router.map({
     '/': {
