@@ -10,13 +10,29 @@ use App\Http\Controllers\Controller;
 class AddressController extends Controller
 {
     /**
+     * @var Address
+     */
+    private $address;
+
+    /**
+     * AddressController constructor.
+     *
+     * @param Address $address
+     */
+    public function __construct(Address $address)
+    {
+        $this->address = $address;
+    }
+
+
+    /**
      * 地址列表
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function lists()
     {
-        return Address::all();
+        return $this->address->all();
     }
 
     /**
@@ -29,7 +45,7 @@ class AddressController extends Controller
         $data = $request->input('address');
         $data['user_id'] = 1;
 
-        Address::create($data);
+        $this->address->create($data);
 
         return response()->json(['info' => '添加成功']);
     }
@@ -44,7 +60,7 @@ class AddressController extends Controller
         $data = $request->all();
         $data['user_id'] = 1;
 
-        Address::where('id', $id)->update($data);
+        $this->address->where('id', $id)->update($data);
 
         return response()->json(['info' => '添加成功']);
     }
@@ -58,7 +74,7 @@ class AddressController extends Controller
      */
     public function delete($id)
     {
-        Address::where('id', $id)->delete();
+        $this->address->where('id', $id)->delete();
 
         return response()->json(['info' => '删除成功']);
     }

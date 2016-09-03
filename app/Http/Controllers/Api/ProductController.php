@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -10,13 +11,35 @@ use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
     /**
+     * @var Product
+     */
+    private $product;
+
+    /**
+     * @var ProductCategory
+     */
+    private $productCategory;
+
+    /**
+     * ProductCategoryController constructor.
+     *
+     * @param Product         $product
+     * @param ProductCategory $productCategory
+     */
+    public function __construct(Product $product, ProductCategory $productCategory)
+    {
+        $this->product = $product;
+        $this->productCategory = $productCategory;
+    }
+
+    /**
      * 商品列表
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function lists()
     {
-        return Product::all();
+        return $this->product->all();
     }
 
     /**
@@ -28,6 +51,6 @@ class ProductController extends Controller
      */
     public function detail($id)
     {
-        return Product::find($id);
+        return $this->product->find($id);
     }
 }

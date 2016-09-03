@@ -58,14 +58,12 @@ class OrderController extends Controller
      */
     public function add($productId)
     {
-//        return Product::all();
-
         return response()->json(['info' => '添加成功']);
     }
 
     public function lists()
     {
-        return Order::all();
+        return $this->order->all();
     }
 
     public function checkout(Request $request)
