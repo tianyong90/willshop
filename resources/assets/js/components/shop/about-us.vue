@@ -16,7 +16,7 @@
 
         methods: {
             fetchOrders: function () {
-                this.$http.get('/api/product').then(response => {
+                this.$http.get('product').then(response => {
                     this.$set('products', response.json());
                 });
             }

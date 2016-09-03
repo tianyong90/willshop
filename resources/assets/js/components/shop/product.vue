@@ -38,9 +38,6 @@
 
         ready: function () {
             this.fetchProduct();
-
-            // 商品详情页隐藏询问主菜单
-            this.$root.hideMainmenu();
         },
 
         data: function () {
@@ -86,9 +83,6 @@
             },
 
             destroy: function () {
-                // 切换至其他页面时将隐藏的主菜单显示
-                this.$root.showMainmenu();
-
                 console.log('product destroy');
             }
         },

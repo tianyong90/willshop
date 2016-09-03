@@ -1,5 +1,5 @@
 <template>
-    <div id="tabbar">
+    <div id="tabbar" v-if="menuVisible">
         <tabbar>
             <tabbar-item v-link="{ path:'/' }">
                 <i class="icon iconfont" slot="icon">&#xe613;</i>
@@ -29,11 +29,18 @@
             Tabbar,
             TabbarItem
         },
+
         ready: function () {
         },
 
         data: function () {
             return {
+            }
+        },
+
+        computed: {
+            menuVisible: function () {
+                return this.$store.state.isMainMenuVisible;
             }
         },
 

@@ -5,8 +5,10 @@ Vue.use(Vuex)
 
 const state = {
   isLoading: false,
-  direction: 'forward'
+  direction: 'forward',
+  isMainMenuVisible: true
 }
+
 export default new Vuex.Store({
   state,
   mutations: {
@@ -15,6 +17,9 @@ export default new Vuex.Store({
     },
     UPDATE_DIRECTION (state, direction) {
       state.direction = direction
+    },
+    UPDATE_MAINMENU_VISIBLE(state, visible) {
+      state.isMainMenuVisible = visible;
     }
   }
 })

@@ -2,7 +2,7 @@
     <group title="收货地址信息">
         <x-input title="收货人" :value.sync="address.name"></x-input>
         <x-input title="手机号码" :value.sync="address.mobile"></x-input>
-        <address title="所在地区" :value.sync="value2" raw-value :list="addressData></address>
+        <address title="所在地区" :value.sync="value2" raw-value :list="addressData"></address>
         <x-input title="详细地址" :value.sync="address.address"></x-input>
     </group>
 
@@ -27,9 +27,6 @@
 
         ready: function () {
             this.getAddresses();
-
-            // 商品详情页隐藏询问主菜单
-            this.$root.hideMainmenu();
         },
 
         data: function () {
@@ -69,8 +66,6 @@
             },
 
             destroy: function () {
-                // 切换至其他页面时将隐藏的主菜单显示
-                this.$root.showMainmenu();
 
                 console.log('product destroy');
             }

@@ -28,20 +28,10 @@ Vue.http.options.params = {
 };
 
 const App = Vue.extend({
-    data: function () {
-        return {
-            mainMenuvisiable: true
-        }
-    },
+    // store 选项    
+    store,
 
     methods: {
-        hideMainmenu: function () {
-            this.mainMenuvisiable = false;
-        },
-
-        showMainmenu: function () {
-            this.mainMenuvisiable = true;
-        }
     }
 });
 
@@ -49,10 +39,17 @@ var router = new VueRouter();
 
 router.beforeEach(({ from, to, next}) => {
     commit('UPDATE_LOADING', true);
+
+    if (to.hideMainmenu) {
+        commit('UPDATE_MAINMENU_VISIBLE', false);
+    } else {
+        commit('UPDATE_MAINMENU_VISIBLE', true);
+    }
+
     next();
 })
 
-router.beforeEach(() => {
+router.afterEach(() => {
     commit('UPDATE_LOADING', false);
 })
 
@@ -85,7 +82,8 @@ router.map({
         component: require('./components/shop/address.vue')
     },
     '/address/add': {
-        component: require('./components/shop/address-edit.vue')
+        component: require('./components/shop/address-edit.vue'),
+        hideMainmenu: true
     },
     '/about-us': {
         component: require('./components/shop/about-us.vue')
@@ -94,13 +92,12 @@ router.map({
         component: require('./components/shop/help.vue')
     },
     '/login': {
-        component: require('./components/shop/login.vue')
-    },
-    '/logout': {
-        component: require('./components/shop/logout.vue')
+        component: require('./components/shop/login.vue'),
+        hideMainmenu: true
     },
     '/product/:id': {
-        component: require('./components/shop/product.vue')
+        component: require('./components/shop/product.vue'),
+        hideMainmenu: true
     },
     '/password': {
         component: require('./components/shop/password.vue')
