@@ -10,6 +10,16 @@ use App\Http\Controllers\Controller;
 class AddressController extends Controller
 {
     /**
+     * 地址列表
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function lists()
+    {
+        return Address::all();
+    }
+
+    /**
      * 添加地址
      *
      * @return \Illuminate\Http\JsonResponse
@@ -51,15 +61,5 @@ class AddressController extends Controller
         Address::where('id', $id)->delete();
 
         return response()->json(['info' => '删除成功']);
-    }
-
-    /**
-     * 地址列表
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function lists()
-    {
-        return Address::all();
     }
 }

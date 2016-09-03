@@ -80,10 +80,14 @@
             // 去结算
             checkout: function () {
                 if (this.selectedCarts.length > 0) {
-                    this.$http.post('checkout', this.selectedCarts).then(response => {
+                    console.log(this.selectedCarts);
+
+                    var postData = JSON.parse(JSON.stringify(this.selectedCarts));
+
+                    this.$http.post('checkout', postData).then(response => {
                         console.log(response.json());
 
-                        // this.$route.go('/checkout');
+                        this.$route.router.go('/checkout');
                     })
                 }
             },

@@ -69,28 +69,29 @@
 </script>
 
 <style scoped lang="sass">
-    .vux-slider {}
+    .vux-slider {
+        
+    }
 
     #products {
         display: block;
         overflow: hidden;
-        margin-top: 20px;
+        margin: 20px 0 80px 0;
 
         ul {
             display: block;
             overflow: hidden;
             padding: 0;
-            margin: 20ox 0;
 
             li {
                 display: block;
                 float: left;
-                width: 50%;
+                width: 40%;
+                margin: 5%;
                 
                 .thumbnail {
                     display: block;
                     width: 100%;
-
                 }
 
                 .name {

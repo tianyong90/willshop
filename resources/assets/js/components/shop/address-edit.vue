@@ -47,18 +47,22 @@
                 }
             },
 
+            // 保存
             save: function () {
                 var postData = JSON.parse(JSON.stringify(this.$data));
 
                 console.log(postData);
 
-                this.$http.post('address/add', postData).then(response => {
+                this.$http.post('address/save', postData).then(response => {
                     console.log(response.json());
                 });
             },
 
+            // 删除
             delete: function () {
                 var addressId = this.$route.params.id;
+
+                console.log(addressId);
 
                 this.$http.get('address/' + addressId + '/delete').then(response => {
                     console.log(response.json());
@@ -84,7 +88,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        z-index: 1000;
+        z-index: 20;
         background-color: #fff;
         padding: 15px 0;
 
@@ -92,7 +96,7 @@
             display: block;
             float: left;
             width: 40%;
-            margin: 0;
+            margin: 0 5% !important;
         }
     }
 </style>

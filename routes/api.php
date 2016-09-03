@@ -18,28 +18,28 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['namespace' => 'Api'], function () {
-    Route::get('/login', 'AuthenticateController@authenticate');
-    Route::get('/update-password', 'AuthenticateController@updatePassword');
+    Route::any('/login', 'AuthenticateController@authenticate');
+    Route::any('/update-password', 'AuthenticateController@updatePassword');
 
-    Route::get('/product-category', 'ProductCategoryController@lists');
+    Route::any('/product-category', 'ProductCategoryController@lists');
 
     Route::any('/checkout', 'OrderController@checkout');
 
-    Route::get('/product', 'ProductController@lists');
-    Route::get('/product/{id}', 'ProductController@detail');
+    Route::any('/product', 'ProductController@lists');
+    Route::any('/product/{id}', 'ProductController@detail');
 
-    Route::get('/cart/{productId}/add', 'CartController@add');
-    Route::get('/cart/{cartId}/delete', 'CartController@delete');
-    Route::get('/cart/lists', 'CartController@lists');
+    Route::any('/cart/{productId}/add', 'CartController@add');
+    Route::any('/cart/{cartId}/delete', 'CartController@delete');
+    Route::any('/cart/lists', 'CartController@lists');
 
-    Route::get('/favourite/{productId}/add', 'FavouriteController@add');
-    Route::get('/favourite/{favouriteId}/delete', 'FavouriteController@delete');
-    Route::get('/favourite/lists', 'FavouriteController@lists');
+    Route::any('/favourite/{productId}/add', 'FavouriteController@add');
+    Route::any('/favourite/{favouriteId}/delete', 'FavouriteController@delete');
+    Route::any('/favourite/lists', 'FavouriteController@lists');
 
     // 地址
-    Route::get('/address', 'AddressController@lists');
-    Route::post('/address/add', 'AddressController@add');
-    Route::get('/address/{id}/get', 'AddressController@detail');
-    Route::post('/address/{id}/edit', 'AddressController@edit');
-    Route::get('/address/{id}/delete', 'AddressController@delete');
+    Route::any('/address', 'AddressController@lists');
+    Route::any('/address/add', 'AddressController@add');
+    Route::any('/address/{id}/get', 'AddressController@detail');
+    Route::any('/address/{id}/edit', 'AddressController@edit');
+    Route::any('/address/{id}/delete', 'AddressController@delete');
 });
