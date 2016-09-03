@@ -1,5 +1,9 @@
 <template>
-    <button @click="login">test</button>
+    <div class="login-form">
+        <input type="text" v-model="user.name" placeholder="请输入用户名">
+        <input type="password" v-model="user.password" placeholder="请输入登录密码">
+        <button @click="login" :disabled="!canLogin">登录</button>
+    </div>
 </template>
 
 <script>
@@ -10,50 +14,62 @@
 
         data: function () {
             return {
-                products: []
+                user: {}
+            }
+        },
+
+        computed: {
+            canLogin: function () {
+                return this.user.name && this.user.password.length >= 6;
             }
         },
 
         methods: {
             login: function () {
-                this.$http.post('/api/login', {name: "abc", password: "password"}).then(response => {
-                    // this.$set('products', response.json());
+                this.$http.post('login', this.user).then(response => {
                     console.log(response.json());
+
+                    this.$route.router.go({ path: '/home' });
                 });
             }
         }
     }
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
     $color: red;
     $color-hover: grayscale($color);
 
-    .my-product-list {
-        color: $color;
-        font-size: 20px;
-        list-style: none;
-        padding: 20px;
+    body {
+        background-color: #fff;
+    }
 
-        li {
+    .login-form {
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+        
+        input {
             display: block;
-            padding: 5px;
-            border-bottom: 1px dashed grey;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 15px;
+            padding: 0 10px;
+            border-radius: 5px;
+        }
 
-            a {
-                color: $color;
-                text-decoration: none;
-                display: block;
+        button {
+            display: block;
+            background-color: $color;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            border: none;
+            margin: 0;
 
-                &:hover {
-                    color: $color-hover;
-                }
-            }
-
-            .time {
-                display: inline-block;
-                float: right;
-                color: grey;
+            &[disabled] {
+                background-color: #ccc;
             }
         }
     }

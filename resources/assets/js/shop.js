@@ -20,8 +20,6 @@ window.Vuex = require('vuex');
 
 import store from './shop_store';
 
-const commit = store.commit || store.dispatch;
-
 Vue.http.options.root = '/api';
 Vue.http.options.params = {
     api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
@@ -38,19 +36,19 @@ const App = Vue.extend({
 var router = new VueRouter();
 
 router.beforeEach(({ from, to, next}) => {
-    commit('UPDATE_LOADING', true);
+    store.dispatch('UPDATE_LOADING', true);
 
     if (to.hideMainmenu) {
-        commit('UPDATE_MAINMENU_VISIBLE', false);
+        store.dispatch('UPDATE_MAINMENU_VISIBLE', false);
     } else {
-        commit('UPDATE_MAINMENU_VISIBLE', true);
+        store.dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
     next();
 })
 
 router.afterEach(() => {
-    commit('UPDATE_LOADING', false);
+    store.dispatch('UPDATE_LOADING', false);
 })
 
 router.map({

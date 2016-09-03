@@ -11,6 +11,28 @@ use App\Http\Controllers\Controller;
 class CartController extends Controller
 {
     /**
+     * @var Cart
+     */
+    private $cart;
+
+    /**
+     * @var Product
+     */
+    private $product;
+
+    /**
+     * CartController constructor.
+     *
+     * @param Cart    $cart
+     * @param Product $product
+     */
+    public function __construct(Cart $cart, Product $product)
+    {
+        $this->cart = $cart;
+        $this->product = $product;
+    }
+
+    /**
      * 加入购物车
      *
      * @param $productId
@@ -23,7 +45,7 @@ class CartController extends Controller
         $data['product_id'] = $productId;
         $data['amount'] = 1;
 
-        Cart::create($data);
+        $this->cart->create($data);
 
         return response()->json(['info' => '添加成功']);
     }
@@ -35,6 +57,18 @@ class CartController extends Controller
      */
     public function lists()
     {
-        return Cart::with('product')->get();
+        return $this->cart->with('product')->get();
+    }
+
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function delte($id)
+    {
+        $this->cart->where('id', $id)->delete();
+
+        return response()->json(['info' => '删除成功']);
     }
 }
