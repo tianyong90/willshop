@@ -7,7 +7,7 @@
         <div class="name">{{ product.name }}</div>
         <div class="price">{{ product.price }}</div>
 
-        <x-number title="已选" :value="1" :min="1" :fillable="false"></x-number>
+        <x-number title="已选" :value.sync="amount" :min="1" :fillable="false"></x-number>
         
         <cell title="送至" value="" is-link @click="addressPopup"></cell>
     </div>
@@ -18,7 +18,7 @@
 
     <footer>
         <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
-        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
+        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
         <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i><span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span></div>
     </footer>
 </template>
@@ -38,13 +38,17 @@
 
         ready: function () {
             this.fetchProduct();
+            this.checkIsFavourite();
+            this.getProductAmountInCart();
         },
 
         data: function () {
             return {
                 product: {},
                 banners: [],
-                isFavourite: false
+                amount: 1,
+                isFavourite: false,
+                productAmountInCart: 0
             }
         },
 
@@ -61,6 +65,23 @@
                 });
             },
 
+            // 商品是否已被收藏
+            checkIsFavourite: function () {
+                this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
+                    var data = response.json();
+
+                    this.$set('isFavourite', data.isFavourite);
+                });
+            },
+
+            // 购物车中商品总数
+            getProductAmountInCart: function () {
+                this.$http.get('cart/product-amount').then(response => {
+
+                    this.$set('productAmountInCart', response.data);
+                });
+            },
+
             addressPopup: function () {
 
             },
@@ -70,20 +91,15 @@
                 this.$http.get('cart/' + productId + '/add').then(response => {
                     var data = response.json();
 
-                    console.log(data);
+                    this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;
                 });
             },
 
             // 加入购物车
             toggleFavourite: function (productId) {
                 this.$http.get('favourite/' + productId + '/toggle').then(response => {
-                    var data = response.json();
-
-                    console.log(data);
                     this.isFavourite = !this.isFavourite;
-
                 });
-
             },
 
             destroy: function () {
@@ -147,6 +163,7 @@
             text-align: center;
             padding: 5px 20px;
             font-size: 12px;
+            position: relative;
 
             .icon {
                 display: block;
@@ -154,6 +171,17 @@
                 &.is-favourite {
                     color: #f00;
                 }
+            }
+
+            .amount {
+                position: absolute;
+                background-color: #f00;
+                top: 3px;
+                right: 20px;
+                color: #fff;
+                font-size: 10px;
+                padding: 0 4px;
+                border-radius: 50%;
             }
 
             .text {

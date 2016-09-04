@@ -71,4 +71,16 @@ class CartController extends Controller
 
         return response()->json(['info' => '删除成功']);
     }
+
+    /**
+     * 获取购物车中商品总数
+     *
+     * @return mixed
+     */
+    public function getProductAmount()
+    {
+        $amount = $this->cart->sum('amount');
+
+        return $amount;
+    }
 }

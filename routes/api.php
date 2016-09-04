@@ -31,11 +31,13 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('/cart/{productId}/add', 'CartController@add');
     Route::any('/cart/{cartId}/delete', 'CartController@delete');
     Route::any('/cart/lists', 'CartController@lists');
+    Route::any('/cart/product-amount', 'CartController@getProductAmount');
 
     Route::any('/favourite/{productId}/add', 'FavouriteController@add');
-    Route::any('/favourite/{favouriteId}/delete', 'FavouriteController@delete');
-    Route::any('/favourite/{favouriteId}/toggle', 'FavouriteController@toggle');
-    Route::any('/favourite/lists', 'FavouriteController@lists');
+    Route::any('/favourite/{productId}/delete', 'FavouriteController@delete');
+    Route::any('/favourite/{productId}/toggle', 'FavouriteController@toggle');
+    Route::any('/favourite/{productId}/is-favourite', 'FavouriteController@checkFavourite');
+    Route::any('/favourite', 'FavouriteController@lists');
 
     // 地址
     Route::any('/address', 'AddressController@lists');
