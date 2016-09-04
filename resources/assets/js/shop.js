@@ -35,16 +35,21 @@ const App = Vue.extend({
 
 var router = new VueRouter();
 
-router.beforeEach(({ from, to, next}) => {
+router.beforeEach((transition) => {
     store.dispatch('UPDATE_LOADING', true);
 
-    if (to.hideMainmenu) {
+    if (transition.to.hideMainmenu) {
         store.dispatch('UPDATE_MAINMENU_VISIBLE', false);
     } else {
         store.dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
-    next();
+    // if (transition.to.auth) {
+    //     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
+    //     transition.redirect('/login?redirect=' + transition.to.path);
+    // }
+
+    transition.next();
 })
 
 router.afterEach(() => {
@@ -56,31 +61,39 @@ router.map({
         component: require('./components/shop/home.vue')
     },
     '/cart': {
-        component: require('./components/shop/cart.vue')
+        component: require('./components/shop/cart.vue'),
+        auth: true
     },
     '/category': {
         component: require('./components/shop/category.vue')
     },
     '/order': {
-        component: require('./components/shop/order.vue')
+        component: require('./components/shop/order.vue'),
+        auth: true
     },
     '/favourite': {
-        component: require('./components/shop/favourite.vue')
+        component: require('./components/shop/favourite.vue'),
+        auth: true
     },
     '/checkout': {
-        component: require('./components/shop/checkout.vue')
+        component: require('./components/shop/checkout.vue'),
+        auth: true
     },
     '/user': {
-        component: require('./components/shop/user.vue')
+        component: require('./components/shop/user.vue'),
+        auth: true
     },
     '/profile': {
-        component: require('./components/shop/profile.vue')
+        component: require('./components/shop/profile.vue'),
+        auth: true
     },
     '/address': {
-        component: require('./components/shop/address.vue')
+        component: require('./components/shop/address.vue'),
+        auth: true
     },
     '/address/add': {
         component: require('./components/shop/address-edit.vue'),
+        auth: true,
         hideMainmenu: true
     },
     '/about-us': {
@@ -102,7 +115,8 @@ router.map({
         hideMainmenu: true
     },
     '/password': {
-        component: require('./components/shop/password.vue')
+        component: require('./components/shop/password.vue'),
+        auth: true 
     }
 });
 

@@ -40,7 +40,7 @@
 </script>
 
 <style lang="sass">
-    $grandientColor1: #1e5eb5;
+    /*$grandientColor1: #1e5eb5;
     $grandientColor2: #8bcffe;
     $grandientColor3: #58b5fe;
 
@@ -49,11 +49,11 @@
     }
 
     body {
-        background: -webkit-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Safari 5.1 - 6.0 */
-        background: -o-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Opera 11.1 - 12.0 */
-        background: -moz-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Firefox 3.6 - 15 */
-        background: linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* 标准的语法 */
-    }
+        background: -webkit-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
+        background: -o-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
+        background: -moz-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
+        background: linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
+    }*/
 </style>
 
 <style scoped lang="sass">
@@ -61,18 +61,18 @@
 
     #avatar {
         display: block;
-        width: 100px;
-        height: 100px;
-        border-radius: 30px;
+        width: 85px;
+        height: 85px;
+        border-radius: 25px;
         margin: 30px auto;
         border: 1px solid #ccc;
-        padding: 3px;
+        padding: 5px;
     }
 
     .login-form {
         display: block;
         overflow: hidden;
-        font-size: 15px;
+        font-size: 18px;
         
         input {
             display: block;
@@ -82,8 +82,10 @@
             padding: 0 10px;
             border-radius: 20px;
             border: 1px solid #999;
-            /*outline: none;*/
 
+            &:active {
+                outline: none;
+            }
         }
 
         button {
