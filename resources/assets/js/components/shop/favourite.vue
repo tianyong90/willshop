@@ -1,7 +1,6 @@
 <template>
     <ul id="favourite-list">
         <li class="list-item" v-for="favourite in favourites">
-            <input class="checker" type="checkbox" :value="favourite" v-model="selectedfavourites">
             <img :src="favourite.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + favourite.product.id }">
             <div class="right-part">
                 <div class="name" v-link="{ path: '/product/' + favourite.product.id }">{{ favourite.product.name }}</div>
@@ -27,40 +26,17 @@
         computed: {
             selectAll: function () {
                 return this.selectedfavourites.length === this.favourites.length;
-            },
-
-            productAmount: function () {
-                if (this.selectedfavourites.length === 0) {
-                    return 0;
-                }
-
-                // 选中的订单中商品数累加
-                var count = 0;
-                for(var index in this.selectedfavourites) {
-                    count += this.selectedfavourites[index].amount;
-                }
-
-                return count;
             }
         },
 
         methods: {
-            // 获取购物车列表数据
+            // 获取收藏列表数据
             getfavourites: function () {
-                this.$http.get('favourite/lists').then(response => {
+                this.$http.get('favourite').then(response => {
+
+                    console.log(response.json());
                     this.$set('favourites', response.json());
                 });
-            },
-
-            // 去结算
-            checkout: function () {
-                if (this.selectedfavourites.length > 0) {
-                    this.$http.post('checkout', {selectedfavourites: this.selectedfavourites}).then(response => {
-                        console.log(response.json());
-
-                        // this.$route.router.go('/checkout');
-                    })
-                }
             },
 
             // 全选和取消全选

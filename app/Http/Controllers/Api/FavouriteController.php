@@ -111,6 +111,6 @@ class FavouriteController extends Controller
      */
     public function lists()
     {
-        return $this->favourite->all();
+        return $this->favourite->with('product')->get();
     }
 }
