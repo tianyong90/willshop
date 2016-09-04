@@ -22,25 +22,25 @@
 
 3. 安装 composer 依赖包
 
-```shell
-composer install -vvv
-```
+    ```shell
+    composer install -vvv
+    ```
 
 4. 复制根目录下 .env.example 文件为 .env
 
 5. 生成 APP_KEY
 
-```shell
-php artisan key:generate
-```
+    ```shell
+    php artisan key:generate
+    ```
 
 6. 创建数据库（请将数据库字符集设置为 utf8mb4 以便存储可能出现的 emoji 表情），然后在 .env 文件中配置数据库、邮件等相关参数
 
 7. 生成数据表
 
-```shell
-php artisan migrate --seed
-```
+    ```shell
+    php artisan migrate --seed
+    ```
 > 如果不需要填充测试数据，则后面的 --seed 选项可省略
 
 ## 使用
@@ -55,15 +55,15 @@ php artisan migrate --seed
 
 1. 使用 npm 安装相关前端依赖
 
-```shell
-npm install
-```
+    ```shell
+    npm install
+    ```
 
 2. 运行 gulp watch 命令，将启动 browserSync 并监听文章变化
 
-```shell
-gulp watch
-```
+    ```shell
+    gulp watch
+    ```
 
 3. 尽情编写代码，实现各种牛逼的功能……
 
