@@ -28,7 +28,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('/product', 'ProductController@lists');
     Route::any('/product/{id}', 'ProductController@detail');
 
-    Route::any('/cart/{productId}/add', 'CartController@add');
+    Route::any('/cart/add', 'CartController@add');
     Route::any('/cart/{cartId}/delete', 'CartController@delete');
     Route::any('/cart/lists', 'CartController@lists');
     Route::any('/cart/product-amount', 'CartController@getProductAmount');

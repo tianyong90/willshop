@@ -88,7 +88,12 @@
 
             // 加入购物车
             addToCart: function (productId) {
-                this.$http.get('cart/' + productId + '/add').then(response => {
+                var postData = {
+                    productId: productId,
+                    amount: this.amount
+                };
+
+                this.$http.post('cart/add', postData).then(response => {
                     var data = response.json();
 
                     this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;

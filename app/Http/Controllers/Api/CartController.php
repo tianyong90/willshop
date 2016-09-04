@@ -35,17 +35,20 @@ class CartController extends Controller
     /**
      * 加入购物车
      *
-     * @param $productId
-     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function add($productId)
+    public function add(Request $request)
     {
-        $data['user_id'] = 1;
-        $data['product_id'] = $productId;
-        $data['amount'] = 1;
+        $where['user_id'] = 1;
+        $where['product_id'] = $request->input('productId');
 
-        $this->cart->create($data);
+        if ($cart = $this->cart->where($where)->first()) {
+            $cart->increment('amount', $request->input('amount'));
+        } else {
+            $data = array_merge($where, ['amount' => $request->input('amount')]);
+
+            $this->cart->create($data);
+        }
 
         return response()->json(['info' => '添加成功']);
     }
