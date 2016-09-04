@@ -1,9 +1,12 @@
 <template>
+    <img src="/img/avatar.jpg" alt="" id="avatar">
     <div class="login-form">
         <input type="text" v-model="user.name" placeholder="请输入用户名">
         <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <button @click="login" :disabled="!canLogin">登录</button>
+        <button id="login" @click="login" :disabled="!canLogin">登录</button>
     </div>
+
+    <a v-link="{ path:'/register' }" id="btn-register">注册</a>
 </template>
 
 <script>
@@ -36,41 +39,81 @@
     }
 </script>
 
-<style scoped lang="sass">
-    $color: red;
-    $color-hover: grayscale($color);
+<style lang="sass">
+    $grandientColor1: #1e5eb5;
+    $grandientColor2: #8bcffe;
+    $grandientColor3: #58b5fe;
+
+    html {
+        height: 100%;
+    }
 
     body {
-        background-color: #fff;
+        background: -webkit-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* Firefox 3.6 - 15 */
+        background: linear-gradient($grandientColor1, $grandientColor2, $grandientColor2); /* 标准的语法 */
+    }
+</style>
+
+<style scoped lang="sass">
+    $color: red;
+
+    #avatar {
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 30px;
+        margin: 30px auto;
+        border: 1px solid #ccc;
+        padding: 3px;
     }
 
     .login-form {
         display: block;
-        width: 80%;
-        margin: 20px auto;
+        overflow: hidden;
+        font-size: 15px;
         
         input {
             display: block;
-            width: 100%;
+            width: 75%;
             height: 40px;
-            margin-bottom: 15px;
+            margin: 20px auto;
             padding: 0 10px;
-            border-radius: 5px;
+            border-radius: 20px;
+            border: 1px solid #999;
+            /*outline: none;*/
+
         }
 
         button {
             display: block;
             background-color: $color;
-            width: 100%;
+            width: 75%;
             height: 40px;
             line-height: 40px;
             color: #fff;
             border: none;
-            margin: 0;
+            border-radius: 20px;
+            margin: 20px auto;
 
             &[disabled] {
-                background-color: #ccc;
+                background-color: #BBB;
+                color: #333;
             }
         }
+    }
+
+    #btn-register {
+        display: block;
+        height: 40px;
+        width: 70px;
+        margin: 50px auto 0;
+        background-color: #5d5de5;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        line-height: 40px;
     }
 </style>

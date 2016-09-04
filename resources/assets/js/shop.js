@@ -93,6 +93,10 @@ router.map({
         component: require('./components/shop/login.vue'),
         hideMainmenu: true
     },
+    '/register': {
+        component: require('./components/shop/register.vue'),
+        hideMainmenu: true
+    },
     '/product/:id': {
         component: require('./components/shop/product.vue'),
         hideMainmenu: true
