@@ -45,4 +45,9 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('/address/{id}/get', 'AddressController@detail');
     Route::any('/address/{id}/edit', 'AddressController@edit');
     Route::any('/address/{id}/delete', 'AddressController@delete');
+
+    // 文章
+    Route::any('/post', 'PostController@lists');
+    Route::any('/post/{id}', 'PostController@detail');
+
 });

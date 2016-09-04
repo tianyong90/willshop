@@ -1,23 +1,31 @@
 <template>
-    help
+    <group title="常见问题" id="post-list">
+        <cell v-for="post in posts" :title="post.title" v-link="{path: '/help/' + post.id }" is-link></cell>
+    </group>
 </template>
 
 <script>
+    import { Group, Cell } from 'vux';
     export default {
+        components: {
+            Group,
+            Cell
+        },
+
         ready: function () {
-            
+            this.getPosts();
         },
 
         data: function () {
             return {
-                products: []
+                posts: []
             }
         },
 
         methods: {
-            fetchOrders: function () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.json());
+            getPosts: function () {
+                this.$http.get('post').then(response => {
+                    this.$set('posts', response.json());
                 });
             }
         }
@@ -25,35 +33,7 @@
 </script>
 
 <style lang="sass">
-    $color: red;
-    $color-hover: grayscale($color);
-
-    .my-product-list {
-        color: $color;
-        font-size: 20px;
-        list-style: none;
-        padding: 20px;
-
-        li {
-            display: block;
-            padding: 5px;
-            border-bottom: 1px dashed grey;
-
-            a {
-                color: $color;
-                text-decoration: none;
-                display: block;
-
-                &:hover {
-                    color: $color-hover;
-                }
-            }
-
-            .time {
-                display: inline-block;
-                float: right;
-                color: grey;
-            }
-        }
+    #post-list {
+        margin-bottom: 60px;
     }
 </style>

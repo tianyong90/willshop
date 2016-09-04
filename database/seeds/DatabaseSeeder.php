@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
 
         factory(App\ProductCategory::class, 3)->create();
         factory(App\Product::class, 20)->create();
+        factory(App\Post::class, 10)->create();
     }
 }

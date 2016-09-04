@@ -97,12 +97,13 @@ router.map({
         hideMainmenu: true
     },
     '/about-us': {
-        component: require('./components/shop/about-us.vue'),
-        hideMainmenu: true
+        component: require('./components/shop/about-us.vue')
     },
     '/help': {
-        component: require('./components/shop/help.vue'),
-        hideMainmenu: true
+        component: require('./components/shop/help.vue')
+    },
+    '/help/:id': {
+        component: require('./components/shop/help-detail.vue')
     },
     '/login': {
         component: require('./components/shop/login.vue'),
