@@ -17,9 +17,9 @@
     </div>
 
     <footer>
-        <div id="btn-add-cart" @click="addToCart()">加入购物车</div>
+        <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
         <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
-        <div class="btn" id="btn-favourite" @click="addToFavourite()"><i class="icon iconfont">&#xe607;</i><span class="text">收藏</span></div>
+        <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i><span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span></div>
     </footer>
 </template>
 
@@ -43,7 +43,8 @@
         data: function () {
             return {
                 product: {},
-                banners: []
+                banners: [],
+                isFavourite: false
             }
         },
 
@@ -65,8 +66,8 @@
             },
 
             // 加入购物车
-            addToCart: function () {
-                this.$http.get('cart/' + this.$route.params.id + '/add').then(response => {
+            addToCart: function (productId) {
+                this.$http.get('cart/' + productId + '/add').then(response => {
                     var data = response.json();
 
                     console.log(data);
@@ -74,12 +75,15 @@
             },
 
             // 加入购物车
-            addToFavourite: function () {
-                this.$http.get('favourite/' + this.$route.params.id + '/add').then(response => {
+            toggleFavourite: function (productId) {
+                this.$http.get('favourite/' + productId + '/toggle').then(response => {
                     var data = response.json();
 
                     console.log(data);
+                    this.isFavourite = !this.isFavourite;
+
                 });
+
             },
 
             destroy: function () {
@@ -146,6 +150,10 @@
 
             .icon {
                 display: block;
+
+                &.is-favourite {
+                    color: #f00;
+                }
             }
 
             .text {

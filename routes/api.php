@@ -34,6 +34,7 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::any('/favourite/{productId}/add', 'FavouriteController@add');
     Route::any('/favourite/{favouriteId}/delete', 'FavouriteController@delete');
+    Route::any('/favourite/{favouriteId}/toggle', 'FavouriteController@toggle');
     Route::any('/favourite/lists', 'FavouriteController@lists');
 
     // 地址
