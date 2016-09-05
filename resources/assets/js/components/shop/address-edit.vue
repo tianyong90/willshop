@@ -2,12 +2,12 @@
     <group title="收货地址信息">
         <x-input title="收货人" :value.sync="address.name"></x-input>
         <x-input title="手机号码" :value.sync="address.mobile"></x-input>
-        <address title="所在地区" :value.sync="value2" raw-value :list="addressData"></address>
+        <address title="所在地区" :value.sync="pca" :list="addressData"></address>
         <x-input title="详细地址" :value.sync="address.address"></x-input>
     </group>
 
     <footer>
-        <x-button type="warn" @click="delete">删除</x-button>
+        <x-button type="warn" @click="deleteAddress">删除</x-button>
         <x-button type="primary" @click="save">保存</x-button>
     </footer>
 </template>
@@ -32,7 +32,9 @@
         data: function () {
             return {
                 address: {},
-                addressData: AddressChinaData
+                addressData: AddressChinaData,
+                address: {},
+                pca: []
             }
         },
 
@@ -59,7 +61,7 @@
             },
 
             // 删除
-            delete: function () {
+            deleteAddress: function () {
                 var addressId = this.$route.params.id;
 
                 console.log(addressId);
