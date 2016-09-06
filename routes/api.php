@@ -40,9 +40,9 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('/favourite', 'FavouriteController@lists');
 
     // 地址
-    Route::any('/address', 'AddressController@lists');
-    Route::any('/address/add', 'AddressController@add');
-    Route::any('/address/{id}/get', 'AddressController@detail');
+    Route::get('/address', 'AddressController@lists');
+    Route::post('/address/add', 'AddressController@add');
+    Route::get('/address/{id}', 'AddressController@detail');
     Route::any('/address/{id}/edit', 'AddressController@edit');
     Route::any('/address/{id}/delete', 'AddressController@delete');
 
