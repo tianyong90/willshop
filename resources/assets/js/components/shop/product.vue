@@ -55,7 +55,7 @@
         methods: {
             fetchProduct: function () {
                 this.$http.get('product/' + this.$route.params.id).then(response => {
-                    var product = response.json();
+                    var product = response.body;
 
                     this.$set('product', product);
 
@@ -68,7 +68,7 @@
             // 商品是否已被收藏
             checkIsFavourite: function () {
                 this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
-                    var data = response.json();
+                    var data = response.body;
 
                     this.$set('isFavourite', data.isFavourite);
                 });
@@ -94,7 +94,7 @@
                 };
 
                 this.$http.post('cart/add', postData).then(response => {
-                    var data = response.json();
+                    var data = response.body;
 
                     this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;
                 });

@@ -32,7 +32,7 @@
                 var formData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.get('update-password', formData).then(response => {
-                    console.log(response.json());
+                    console.log(response.body);
                 });
             }
         }

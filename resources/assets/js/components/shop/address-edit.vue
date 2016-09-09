@@ -52,9 +52,9 @@
                 if (addressId) {
                     this.$http.get('address/' + addressId).then(response => {
 
-                        console.log(response.json());
+                        console.log(response.body);
 
-                        this.$set('address', response.json());
+                        this.$set('address', response.body);
                     });
                 }
             },
@@ -68,7 +68,7 @@
                 var postData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.post('address/save', postData).then(response => {
-                    console.log(response.json());
+                    console.log(response.body);
                 });
             },
 
@@ -79,7 +79,7 @@
                 console.log(addressId);
 
                 this.$http.get('address/' + addressId + '/delete').then(response => {
-                    console.log(response.json());
+                    console.log(response.body);
                 });
             },
 

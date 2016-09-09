@@ -73,7 +73,7 @@
             // 获取购物车列表数据
             getCarts: function () {
                 this.$http.get('cart/lists').then(response => {
-                    this.$set('carts', response.json());
+                    this.$set('carts', response.body);
                 });
             },
 
@@ -81,7 +81,7 @@
             checkout: function () {
                 if (this.selectedCarts.length > 0) {
                     this.$http.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
-                        console.log(response.json());
+                        console.log(response.body);
 
                         // this.$route.router.go('/checkout');
                     })

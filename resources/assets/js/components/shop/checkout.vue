@@ -36,9 +36,9 @@
             getCarts: function () {
                 this.$http.get('cart/lists').then(response => {
 
-                    console.log(response.json());
+                    console.log(response.body);
 
-                    this.$set('carts', response.json());
+                    this.$set('carts', response.body);
                 });
             }
         }

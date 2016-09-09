@@ -40,7 +40,7 @@
         },
 
         ready: function () {
-            this.fetchProducts();
+            this.getProducts();
         },
 
         data: function () {
@@ -51,9 +51,10 @@
         },
 
         methods: {
-            fetchProducts: function () {
+            getProducts: function () {
                 this.$http.get('product').then(response => {
-                    this.$set('products', response.json());
+
+                    this.$set('products', response.body);
                 });
             },
 

@@ -34,8 +34,8 @@
             getfavourites: function () {
                 this.$http.get('favourite').then(response => {
 
-                    console.log(response.json());
-                    this.$set('favourites', response.json());
+                    console.log(response.body);
+                    this.$set('favourites', response.body);
                 });
             },
 

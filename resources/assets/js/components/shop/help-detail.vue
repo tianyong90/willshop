@@ -19,7 +19,7 @@
         methods: {
             getPost: function () {
                 this.$http.get('post/' + this.$route.params.id).then(response => {
-                    this.$set('post', response.json());
+                    this.$set('post', response.body);
                 });
             }
         }

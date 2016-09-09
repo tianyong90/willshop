@@ -31,7 +31,7 @@
         methods: {
             login: function () {
                 this.$http.post('login', this.user).then(response => {
-                    console.log(response.json());
+                    console.log(response.body);
 
                     this.$route.router.go({ path: '/home' });
                 });

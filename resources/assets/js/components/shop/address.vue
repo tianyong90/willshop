@@ -41,7 +41,7 @@
         methods: {
             getAddresses: function () {
                 this.$http.get('address').then(response => {
-                    this.$set('addresses', response.json());
+                    this.$set('addresses', response.body);
                 });
             },
 
