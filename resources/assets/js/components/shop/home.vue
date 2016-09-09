@@ -21,17 +21,14 @@
     var banners = [{
             url: 'javascript:',
             img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
-            title: '如何手制一份秋意的茶？'
         },
         {
             url: 'javascript:',
             img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
-            title: '茶包VS原叶茶'
         },
         {
             url: 'javascript',
             img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
-            title: '播下茶籽，明春可发芽？'
     }];
 
     export default {
