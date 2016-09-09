@@ -46,8 +46,8 @@
                 }
 
                 // 选中的樟商品总价累加
-                var price = 0;
-                for(var index in this.selectedCarts) {
+                let price = 0;
+                for(let index in this.selectedCarts) {
                      price += (this.selectedCarts[index].product.price * this.selectedCarts[index].amount);
                 }
 
@@ -60,8 +60,8 @@
                 }
 
                 // 选中的订单中商品数累加
-                var count = 0;
-                for(var index in this.selectedCarts) {
+                let count = 0;
+                for(let index in this.selectedCarts) {
                     count += this.selectedCarts[index].amount;
                 }
 

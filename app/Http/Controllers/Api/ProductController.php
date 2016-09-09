@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function lists()
     {
-        return $this->product->all();
+        return $this->product->take(6)->get();
     }
 
     /**

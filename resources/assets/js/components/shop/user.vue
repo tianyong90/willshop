@@ -25,6 +25,9 @@
     </div>
 
     <group>
+        <cell title="我的订单" is-link v-link="{ path:'/order' }">
+            <i class="icon iconfont" slot="icon">&#xe616;;</i>
+        </cell>
         <cell title="收货地址" is-link v-link="{ path:'/address' }">
             <i class="icon iconfont" slot="icon">&#xe602;</i>
         </cell>
@@ -32,15 +35,6 @@
             <i class="icon iconfont" slot="icon">&#xe607;</i>
         </cell>
     </group>
-
-    <!--<group>
-        <cell title="积分商城" is-link v-link="{ path:'/address' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
-        </cell>
-        <cell title="抢红包" is-link v-link="{ path:'/address' }">
-            <i class="icon iconfont" slot="icon">&#xe608;</i>
-        </cell>
-    </group>-->
 
     <group>
         <cell title="使用帮助" is-link v-link="{ path:'/help' }">

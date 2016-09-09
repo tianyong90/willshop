@@ -18,7 +18,7 @@
 <script>
     import { Swiper } from 'vux';
 
-    var banners = [{
+    const banners = [{
             url: 'javascript:',
             img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
         },

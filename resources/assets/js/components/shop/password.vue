@@ -29,7 +29,7 @@
 
         methods: {
             submit: function () {
-                var formData = JSON.parse(JSON.stringify(this.$data));
+                let formData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.get('update-password', formData).then(response => {
                     console.log(response.body);

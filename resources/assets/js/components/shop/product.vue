@@ -37,7 +37,7 @@
         },
 
         ready: function () {
-            this.fetchProduct();
+            this.getProduct();
             this.checkIsFavourite();
             this.getProductAmountInCart();
         },
@@ -53,13 +53,13 @@
         },
 
         methods: {
-            fetchProduct: function () {
+            getProduct: function () {
                 this.$http.get('product/' + this.$route.params.id).then(response => {
-                    var product = response.body;
+                    let product = response.body;
 
                     this.$set('product', product);
 
-                    for(var item in product.pictures) {
+                    for(let item in product.pictures) {
                         this.banners.push({img: product.pictures[item]});
                     }
                 });
@@ -68,7 +68,7 @@
             // 商品是否已被收藏
             checkIsFavourite: function () {
                 this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
-                    var data = response.body;
+                    let data = response.body;
 
                     this.$set('isFavourite', data.isFavourite);
                 });
@@ -88,13 +88,13 @@
 
             // 加入购物车
             addToCart: function (productId) {
-                var postData = {
+                let postData = {
                     productId: productId,
                     amount: this.amount
                 };
 
                 this.$http.post('cart/add', postData).then(response => {
-                    var data = response.body;
+                    let data = response.body;
 
                     this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;
                 });

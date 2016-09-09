@@ -46,7 +46,7 @@
             },
 
             getAddress: function () {
-                var addressId = this.$route.params.id;
+                let addressId = this.$route.params.id;
 
                 if (addressId) {
                     this.$http.get('address/' + addressId).then(response => {
@@ -63,7 +63,7 @@
                 // console.log(value2name(this.pca, AddressChinaData));
                 // console.log(this.pca);
 
-                var postData = JSON.parse(JSON.stringify(this.$data));
+                let postData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.post('address/save', postData).then(response => {
                     console.log(response.body);
@@ -72,7 +72,7 @@
 
             // 删除
             deleteAddress: function () {
-                var addressId = this.$route.params.id;
+                let addressId = this.$route.params.id;
 
                 console.log(addressId);
 
