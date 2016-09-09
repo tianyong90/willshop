@@ -28,7 +28,6 @@
         ready: function () {
             this.getAddress();
 
-            console.log(value2name);
         },
 
         data: function () {
@@ -61,9 +60,8 @@
 
             // 保存
             save: function () {
-                console.log(value2name(this.pca));
-
-                return false;
+                // console.log(value2name(this.pca, AddressChinaData));
+                // console.log(this.pca);
 
                 var postData = JSON.parse(JSON.stringify(this.$data));
 
