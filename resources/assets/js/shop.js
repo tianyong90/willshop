@@ -82,10 +82,10 @@ router.beforeEach((transition) => {
         dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
-    if (!store.state.isLogin && transition.to.auth) {
-        // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
-        transition.redirect('/login?redirect=' + transition.to.path);
-    }
+    // if (!store.state.isLogin && transition.to.auth) {
+    //     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
+    //     transition.redirect('/login?redirect=' + transition.to.path);
+    // }
 
     transition.next();
 })
