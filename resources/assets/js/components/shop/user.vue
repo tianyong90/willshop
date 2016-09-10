@@ -59,19 +59,21 @@
             XButton
         },
         ready: function () {
-            this.fetchProducts();
+            this.getUser();
         },
 
         data: function () {
             return {
-                products: []
+                user: {}
             }
         },
 
         methods: {
-            fetchProducts: function () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.body);
+            getUser: function () {
+                this.$http.get('/api/current-user').then(response => {
+                    console.log(response.body);
+
+                    this.$set('user', response.body);
                 });
             },
 
@@ -81,7 +83,7 @@
                 // });
 
                 // 登录成功之后保存 JWT token
-                dispatch('UPDATE_JWTTOKEN', '');
+                localStorage.token = '';
 
                 // 登录状态设置为已经登录
                 dispatch('UPDATE_IS_LOGIN', false);

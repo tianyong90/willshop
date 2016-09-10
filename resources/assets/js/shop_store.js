@@ -7,9 +7,7 @@ const state = {
   isLoading: false,
   direction: 'forward',
   isMainMenuVisible: true,
-  user: {},
-  isLogin: false,
-  token: ''
+  isLogin: false
 }
 
 export default new Vuex.Store({
@@ -23,9 +21,6 @@ export default new Vuex.Store({
     },
     UPDATE_MAINMENU_VISIBLE(state, visible) {
       state.isMainMenuVisible = visible;
-    },
-    UPDATE_JWTTOKEN(state, token) {
-      state.token = token;
     },
     UPDATE_IS_LOGIN(state, isLogin) {
       state.isLogin = isLogin;

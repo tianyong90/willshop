@@ -34,7 +34,7 @@
             login: function () {
                 this.$http.post('login', this.user).then(response => {
                     // 登录成功之后保存 JWT token
-                    dispatch('UPDATE_JWTTOKEN', response.body.token);
+                    localStorage.token = response.body.token;
 
                     // 登录状态设置为已经登录
                     dispatch('UPDATE_IS_LOGIN', true);

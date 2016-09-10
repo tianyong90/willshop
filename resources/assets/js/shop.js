@@ -29,11 +29,6 @@ import store from './shop_store';
 
 window.dispatch = store.dispatch || store.commit;
 
-Vue.http.options.root = '/api';
-Vue.http.options.params = {
-    api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
-};
-
 import { Toast,Alert,Confirm } from 'vux';
 
 const App = Vue.extend({
@@ -69,6 +64,19 @@ const App = Vue.extend({
             this.toastMsg = msg;
         }
     }
+});
+
+Vue.http.options.root = '/api';
+// Vue.http.options.params = {
+//     api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
+// };
+
+Vue.http.interceptors.push((request, next) => {
+    if (localStorage.token) {
+        request.headers.set('Authorization', localStorage.token);
+    }    
+
+    next();
 });
 
 var router = new VueRouter();

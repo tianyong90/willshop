@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('/login', 'AuthenticateController@authenticate');
     Route::any('/register', 'AuthenticateController@register');
     Route::any('/update-password', 'AuthenticateController@updatePassword');
+    Route::any('/current-user', 'AuthenticateController@getAuthenticatedUser');
 
     Route::any('/product-category', 'ProductCategoryController@lists');
 
