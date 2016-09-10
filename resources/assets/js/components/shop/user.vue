@@ -58,6 +58,7 @@
             Card,
             XButton
         },
+
         ready () {
             this.getUser();
         },
@@ -73,7 +74,7 @@
                 this.$http.get('/api/current-user').then(response => {
                     console.log(response.body);
 
-                    this.$set('user', response.body);
+                    // this.$set('user', response.body);
                 });
             },
 

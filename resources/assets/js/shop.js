@@ -18,18 +18,11 @@ Vue.component('mainmenu', require('./components/shop/mainmenu.vue'));
 window.VueRouter = require('vue-router');
 window.Vuex = require('vuex');
 
-// // plugins
-// import ToastPlugin from 'vux/src/plugins/toast'
-// import AlertPlugin from 'vux/src/plugins/alert'
-
-// Vue.use(ToastPlugin);
-// Vue.use(AlertPlugin);
-
 import store from './shop_store';
 
 window.dispatch = store.dispatch || store.commit;
 
-import { Toast,Alert,Confirm } from 'vux';
+import { Toast, Alert, Confirm } from 'vux';
 
 const App = Vue.extend({
     // store 选项
@@ -67,14 +60,9 @@ const App = Vue.extend({
 });
 
 Vue.http.options.root = '/api';
-// Vue.http.options.params = {
-//     api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
-// };
 
 Vue.http.interceptors.push((request, next) => {
-    if (localStorage.token) {
-        request.headers.set('Authorization', localStorage.token);
-    }    
+    request.headers.set('Authorization', localStorage.getItem('token'));
 
     next();
 });
@@ -90,10 +78,10 @@ router.beforeEach((transition) => {
         dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
-    // if (!store.state.isLogin && transition.to.auth) {
-    //     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
-    //     transition.redirect('/login?redirect=' + transition.to.path);
-    // }
+    if (transition.to.auth && !localStorage.getItem('token')) {
+        // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
+        transition.redirect('/login?redirect=' + transition.to.path);
+    }
 
     transition.next();
 })
