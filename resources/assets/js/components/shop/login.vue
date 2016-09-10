@@ -17,7 +17,10 @@
 
         data: function () {
             return {
-                user: {}
+                user: {
+                    name: '',
+                    password: ''
+                }
             }
         },
 
@@ -30,9 +33,24 @@
         methods: {
             login: function () {
                 this.$http.post('login', this.user).then(response => {
-                    console.log(response.body);
+                    // 登录成功之后保存 JWT token
+                    dispatch('UPDATE_JWTTOKEN', response.body.token);
 
-                    this.$route.router.go({ path: '/home' });
+                    // 登录状态设置为已经登录
+                    dispatch('UPDATE_IS_LOGIN', true);
+
+                    this.$root.success('登录成功');
+
+                    let _this = this;
+
+                    setTimeout(function () {
+                        let redirectPath = _this.$route.query.redirect;
+
+                        // 登录成功后跳转至之前想要进入的页面
+                        _this.$route.router.go({ path: redirectPath });
+                    }, 1000);
+                }, response => {
+                    this.$root.error('登录失败');
                 });
             }
         }

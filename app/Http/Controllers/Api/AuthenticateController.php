@@ -13,7 +13,7 @@ class AuthenticateController extends Controller
     public function authenticate(Request $request)
     {
         // 登录信息
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'password');
 
         try {
             if (!$token = JWTAuth::attempt($credentials)) {

@@ -18,35 +18,71 @@ Vue.component('mainmenu', require('./components/shop/mainmenu.vue'));
 window.VueRouter = require('vue-router');
 window.Vuex = require('vuex');
 
+// // plugins
+// import ToastPlugin from 'vux/src/plugins/toast'
+// import AlertPlugin from 'vux/src/plugins/alert'
+
+// Vue.use(ToastPlugin);
+// Vue.use(AlertPlugin);
+
 import store from './shop_store';
+
+window.dispatch = store.dispatch || store.commit;
 
 Vue.http.options.root = '/api';
 Vue.http.options.params = {
     api_token: '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9'
 };
 
+import { Toast,Alert,Confirm } from 'vux';
+
 const App = Vue.extend({
-    // store 选项    
+    // store 选项
     store,
 
+    components: {
+        Toast,
+        Alert,
+        Confirm
+    },
+
+    data: function () {
+        return {
+            toastShow: false,
+            toastTime: 1000,
+            toastMsg: ''
+        }
+    },
+
     methods: {
+        success(msg) {
+            this.toastShow = true;
+            this.toastTime = 1000;
+            this.toastType = 'default';
+            this.toastMsg = msg;
+        },
+
+        error(msg) {
+            this.toastShow = true;
+            this.toastTime = 2000;
+            this.toastType = 'warn';
+            this.toastMsg = msg;
+        }
     }
 });
 
 var router = new VueRouter();
 
 router.beforeEach((transition) => {
-    store.dispatch('UPDATE_LOADING', true);
+    dispatch('UPDATE_LOADING', true);
 
     if (transition.to.hideMainmenu) {
-        store.dispatch('UPDATE_MAINMENU_VISIBLE', false);
+        dispatch('UPDATE_MAINMENU_VISIBLE', false);
     } else {
-        store.dispatch('UPDATE_MAINMENU_VISIBLE', true);
+        dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
-    console.log(store.state.login);
-
-    if (!store.state.login && transition.to.auth) {
+    if (!store.state.isLogin && transition.to.auth) {
         // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
         transition.redirect('/login?redirect=' + transition.to.path);
     }
@@ -55,7 +91,7 @@ router.beforeEach((transition) => {
 })
 
 router.afterEach(() => {
-    store.dispatch('UPDATE_LOADING', false);
+    dispatch('UPDATE_LOADING', false);
 })
 
 router.map({

@@ -27,6 +27,7 @@
 <body>
     <router-view></router-view>
 
+    <toast :show.sync="toastShow" :type.sync="toastType" :time.sync="toastTime" :text.sync="toastMsg"></toast>
     <mainmenu></mainmenu>
     <script src="/js/shop.js"></script>
 </body>
