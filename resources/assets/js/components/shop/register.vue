@@ -1,39 +1,56 @@
 <template>
-    <div class="login-form">
+    <div class="register-form">
         <input type="text" v-model="user.name" placeholder="请输入用户名">
+        <input type="mobile" v-model="user.mobile" placeholder="请输入手机号">
         <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <button id="login" @click="login" :disabled="!canLogin">注册</button>
+        <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码">
+        <button id="register" @click="register" :disabled="!canRegister">注册</button>
     </div>
 
-    <a v-link="{ path:'/login' }" id="btn-register">使用已有账号登录</a>
+    <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
 </template>
 
 <script>
     export default {
-        ready: function () {
-            
-        },
-
         data: function () {
             return {
-                user: {}
+                user: {
+                    name: '',
+                    mobile: '',
+                    password: '',
+                    password_confirmation: ''
+                }
             }
         },
 
         computed: {
-            canLogin: function () {
-                return this.user.name && this.user.password.length >= 6;
+            canRegister: function () {
+                // return this.user.name && this.user.password.length >= 6;
+                return true;
             }
         },
 
         methods: {
-            login: function () {
-                this.$http.post('login', this.user).then(response => {
-                    console.log(response.body);
+            register: function () {
+                this.$http.post('register', this.user).then(response => {
+                    console.log(response);
 
-                    this.$route.router.go({ path: '/home' });
+                    // 注册成功之后保存 JWT token
+                    dispatch('UPDATE_JWTTOKEN', response.body.token);
+
+                    // 登录状态设置为已经登录
+                    dispatch('UPDATE_IS_LOGIN', true);
+
+                    this.$root.success('登录成功');
+
+                    let _this = this;
+
+                    setTimeout(function () {
+                        // 注册成功后跳转至用户中心页面
+                        _this.$route.router.go({ path: '/user' });
+                    }, 1000);
+                }, response => {
+                    this.$root.error(response.body.error);
                 });
             }
         }
@@ -60,7 +77,7 @@
 <style scoped lang="sass">
     $color: red;
     
-    .login-form {
+    .register-form {
         display: block;
         overflow: hidden;
         
@@ -90,14 +107,11 @@
         }
     }
 
-    #btn-register {
+    #btn-to-register {
         display: block;
         height: 35px;
-        width: 70px;
         margin: 50px auto 0;
-        background-color: #00c;
-        border-radius: 18px;
-        color: #fff;
+        color: #444;
         font-size: 15px;
         text-align: center;
         line-height: 35px;

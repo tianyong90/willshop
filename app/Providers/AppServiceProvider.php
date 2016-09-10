@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->registerObservers();
     }
 
     /**
@@ -24,5 +24,13 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    /**
+     * Register model observers.
+     */
+    private function registerObservers()
+    {
+        \App\User::observe(\App\Observers\UserObserver::class);
     }
 }

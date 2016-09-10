@@ -7,9 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\User;
+use Validator;
 
 class AuthenticateController extends Controller
 {
+    /**
+     * 登录授权
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function authenticate(Request $request)
     {
         // 登录信息
@@ -25,6 +34,41 @@ class AuthenticateController extends Controller
 
         // 返回生成的 token
         return response()->json(compact('token'));
+    }
+
+    /**
+     * 注册
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $data = $request->all();
+
+        $rules = [
+            'name' => 'required|min:3|max:20',
+            'mobile' => 'required|min:1|max:12',
+            'password' => 'required|confirmed',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, [], \App\User::$aliases);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()->first()], 401);
+        }
+
+        try {
+            $newUser = User::create($data);
+
+            $token = JWTAuth::fromUser($newUser);
+
+            // 返回生成的 token
+            return response()->json(compact('token'));
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'system error'], 500);
+        }
     }
 
     /**

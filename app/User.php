@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'api_token',
+        'name', 'mobile', 'email', 'password', 'api_token',
     ];
 
     /**
@@ -25,5 +25,18 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token', 'api_token',
+    ];
+
+    /**
+     * 用于表单验证时的字段名称提示.
+     *
+     * @var array
+     */
+    public static $aliases = [
+        'name' => '用户名',
+        'mobile' => '手机',
+        'email' => '邮箱',
+        'password' => '密码',
+        'api_token' => 'apitoken',
     ];
 }
