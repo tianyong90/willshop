@@ -44,10 +44,12 @@ router.beforeEach((transition) => {
         store.dispatch('UPDATE_MAINMENU_VISIBLE', true);
     }
 
-    // if (transition.to.auth) {
-    //     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
-    //     transition.redirect('/login?redirect=' + transition.to.path);
-    // }
+    console.log(store.state.login);
+
+    if (!store.state.login && transition.to.auth) {
+        // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
+        transition.redirect('/login?redirect=' + transition.to.path);
+    }
 
     transition.next();
 })
@@ -119,7 +121,7 @@ router.map({
     },
     '/password': {
         component: require('./components/shop/password.vue'),
-        auth: true 
+        auth: true
     }
 });
 

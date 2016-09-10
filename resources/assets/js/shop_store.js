@@ -6,7 +6,9 @@ Vue.use(Vuex)
 const state = {
   isLoading: false,
   direction: 'forward',
-  isMainMenuVisible: true
+  isMainMenuVisible: true,
+  user: {},
+  login: false
 }
 
 export default new Vuex.Store({
