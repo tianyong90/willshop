@@ -30,16 +30,16 @@
             TabbarItem
         },
 
-        ready: function () {
+        ready () {
         },
 
-        data: function () {
+        data () {
             return {
             }
         },
 
         computed: {
-            menuVisible: function () {
+            menuVisible () {
                 return this.$store.state.isMainMenuVisible;
             }
         },

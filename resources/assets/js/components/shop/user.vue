@@ -58,18 +58,18 @@
             Card,
             XButton
         },
-        ready: function () {
+        ready () {
             this.getUser();
         },
 
-        data: function () {
+        data () {
             return {
                 user: {}
             }
         },
 
         methods: {
-            getUser: function () {
+            getUser () {
                 this.$http.get('/api/current-user').then(response => {
                     console.log(response.body);
 

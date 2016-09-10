@@ -6,18 +6,18 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             this.getPost();
         },
 
-        data: function () {
+        data () {
             return {
                 post: {}
             }
         },
 
         methods: {
-            getPost: function () {
+            getPost () {
                 this.$http.get('post/' + this.$route.params.id).then(response => {
                     this.$set('post', response.body);
                 });

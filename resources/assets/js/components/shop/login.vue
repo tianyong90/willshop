@@ -11,11 +11,11 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             
         },
 
-        data: function () {
+        data () {
             return {
                 user: {
                     name: '',
@@ -25,13 +25,13 @@
         },
 
         computed: {
-            canLogin: function () {
+            canLogin () {
                 return this.user.name && this.user.password.length >= 6;
             }
         },
 
         methods: {
-            login: function () {
+            login () {
                 this.$http.post('login', this.user).then(response => {
                     // 登录成功之后保存 JWT token
                     localStorage.token = response.body.token;
@@ -44,7 +44,7 @@
                     let _this = this;
 
                     setTimeout(function () {
-                        let redirectPath = _this.$route.query.redirect;
+                        let redirectPath = _this.$route.query.redirect ? _this.$route.query.redirect : '/home';
 
                         // 登录成功后跳转至之前想要进入的页面
                         _this.$route.router.go({ path: redirectPath });

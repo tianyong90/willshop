@@ -12,11 +12,11 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             this.getfavourites();
         },
 
-        data: function () {
+        data () {
             return {
                 favourites: [],
                 selectedfavourites: []
@@ -24,14 +24,14 @@
         },
 
         computed: {
-            selectAll: function () {
+            selectAll () {
                 return this.selectedfavourites.length === this.favourites.length;
             }
         },
 
         methods: {
             // 获取收藏列表数据
-            getfavourites: function () {
+            getfavourites () {
                 this.$http.get('favourite').then(response => {
 
                     console.log(response.body);
@@ -40,7 +40,7 @@
             },
 
             // 全选和取消全选
-            checkAllClick: function () {
+            checkAllClick () {
                 if (this.selectAll) {
                     this.selectedfavourites = [];
                 } else {

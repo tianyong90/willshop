@@ -25,12 +25,12 @@
             Address
         },
 
-        ready: function () {
+        ready () {
             this.getAddress();
 
         },
 
-        data: function () {
+        data () {
             return {
                 address: {},
                 addressData: AddressChinaData,
@@ -40,12 +40,12 @@
         },
 
         methods: {
-            getName: function (value) {
+            getName (value) {
                 // TODO: 地址值转地址名
                 // return value2name(value, AddressChinaData);
             },
 
-            getAddress: function () {
+            getAddress () {
                 let addressId = this.$route.params.id;
 
                 if (addressId) {
@@ -59,7 +59,7 @@
             },
 
             // 保存
-            save: function () {
+            save () {
                 // console.log(value2name(this.pca, AddressChinaData));
                 // console.log(this.pca);
 
@@ -71,7 +71,7 @@
             },
 
             // 删除
-            deleteAddress: function () {
+            deleteAddress () {
                 let addressId = this.$route.params.id;
 
                 console.log(addressId);
@@ -81,13 +81,13 @@
                 });
             },
 
-            destroy: function () {
+            destroy () {
 
                 console.log('product destroy');
             }
         },
 
-        beforeDestroy: function () {
+        beforeDestroy () {
             this.destroy();
         }
     }

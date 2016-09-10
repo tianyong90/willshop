@@ -4,18 +4,18 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             
         },
 
-        data: function () {
+        data () {
             return {
                 products: []
             }
         },
 
         methods: {
-            fetchOrders: function () {
+            fetchOrders () {
                 this.$http.get('/api/product').then(response => {
                     this.$set('products', response.body);
                 });

@@ -22,18 +22,18 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             // this.getCarts();
         },
 
-        data: function () {
+        data () {
             return {
                 carts: []
             }
         },
 
         methods: {
-            getCarts: function () {
+            getCarts () {
                 this.$http.get('cart/lists').then(response => {
 
                     console.log(response.body);

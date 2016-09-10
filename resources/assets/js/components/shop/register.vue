@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        data: function () {
+        data () {
             return {
                 user: {
                     name: '',
@@ -24,14 +24,14 @@
         },
 
         computed: {
-            canRegister: function () {
+            canRegister () {
                 // return this.user.name && this.user.password.length >= 6;
                 return true;
             }
         },
 
         methods: {
-            register: function () {
+            register () {
                 this.$http.post('register', this.user).then(response => {
                     console.log(response);
 

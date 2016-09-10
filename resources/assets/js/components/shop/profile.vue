@@ -22,18 +22,18 @@
             Group,
             Card
         },
-        ready: function () {
+        ready () {
             this.fetchProducts();
         },
 
-        data: function () {
+        data () {
             return {
                 products: []
             }
         },
 
         methods: {
-            fetchProducts: function () {
+            fetchProducts () {
                 this.$http.get('/api/product').then(response => {
                     this.$set('products', response.body);
                 });

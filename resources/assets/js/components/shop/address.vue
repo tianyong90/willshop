@@ -28,30 +28,30 @@
             XButton
         },
 
-        ready: function () {
+        ready () {
             this.getAddresses();
         },
 
-        data: function () {
+        data () {
             return {
                 addresses: []
             }
         },
 
         methods: {
-            getAddresses: function () {
+            getAddresses () {
                 this.$http.get('address').then(response => {
                     this.$set('addresses', response.body);
                 });
             },
 
-            destroy: function () {
+            destroy () {
 
                 console.log('product destroy');
             }
         },
 
-        beforeDestroy: function () {
+        beforeDestroy () {
             this.destroy();
         }
     }

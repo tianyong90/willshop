@@ -12,18 +12,18 @@
             Cell
         },
 
-        ready: function () {
+        ready () {
             this.getPosts();
         },
 
-        data: function () {
+        data () {
             return {
                 posts: []
             }
         },
 
         methods: {
-            getPosts: function () {
+            getPosts () {
                 this.$http.get('post').then(response => {
                     this.$set('posts', response.body);
                 });

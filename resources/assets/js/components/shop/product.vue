@@ -36,13 +36,13 @@
             XNumber
         },
 
-        ready: function () {
+        ready () {
             this.getProduct();
             this.checkIsFavourite();
             this.getProductAmountInCart();
         },
 
-        data: function () {
+        data () {
             return {
                 product: {},
                 banners: [],
@@ -53,7 +53,7 @@
         },
 
         methods: {
-            getProduct: function () {
+            getProduct () {
                 this.$http.get('product/' + this.$route.params.id).then(response => {
                     let product = response.body;
 
@@ -66,7 +66,7 @@
             },
 
             // 商品是否已被收藏
-            checkIsFavourite: function () {
+            checkIsFavourite () {
                 this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
                     let data = response.body;
 
@@ -75,19 +75,19 @@
             },
 
             // 购物车中商品总数
-            getProductAmountInCart: function () {
+            getProductAmountInCart () {
                 this.$http.get('cart/product-amount').then(response => {
 
                     this.$set('productAmountInCart', response.data);
                 });
             },
 
-            addressPopup: function () {
+            addressPopup () {
 
             },
 
             // 加入购物车
-            addToCart: function (productId) {
+            addToCart (productId) {
                 let postData = {
                     productId: productId,
                     amount: this.amount
@@ -101,18 +101,18 @@
             },
 
             // 加入购物车
-            toggleFavourite: function (productId) {
+            toggleFavourite (productId) {
                 this.$http.get('favourite/' + productId + '/toggle').then(response => {
                     this.isFavourite = !this.isFavourite;
                 });
             },
 
-            destroy: function () {
+            destroy () {
                 console.log('product destroy');
             }
         },
 
-        beforeDestroy: function () {
+        beforeDestroy () {
             this.destroy();
         }
     }

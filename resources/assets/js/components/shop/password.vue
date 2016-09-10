@@ -16,10 +16,10 @@
             XInput,
             XButton
         },
-        ready: function () {
+        ready () {
         },
 
-        data: function () {
+        data () {
             return {
                 oldPassword: '',
                 password: '',
@@ -28,7 +28,7 @@
         },
 
         methods: {
-            submit: function () {
+            submit () {
                 let formData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.get('update-password', formData).then(response => {

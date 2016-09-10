@@ -24,11 +24,11 @@
 
 <script>
     export default {
-        ready: function () {
+        ready () {
             this.getCarts();
         },
 
-        data: function () {
+        data () {
             return {
                 carts: [],
                 selectedCarts: []
@@ -36,11 +36,11 @@
         },
 
         computed: {
-            selectAll: function () {
+            selectAll () {
                 return this.selectedCarts.length === this.carts.length;
             },
 
-            totalPrice: function () {
+            totalPrice () {
                 if (this.selectedCarts.length === 0) {
                     return 0;
                 }
@@ -54,7 +54,7 @@
                 return price;
             },
 
-            productAmount: function () {
+            productAmount () {
                 if (this.selectedCarts.length === 0) {
                     return 0;
                 }
@@ -71,14 +71,14 @@
 
         methods: {
             // 获取购物车列表数据
-            getCarts: function () {
+            getCarts () {
                 this.$http.get('cart/lists').then(response => {
                     this.$set('carts', response.body);
                 });
             },
 
             // 去结算
-            checkout: function () {
+            checkout () {
                 if (this.selectedCarts.length > 0) {
                     this.$http.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
                         console.log(response.body);
@@ -89,7 +89,7 @@
             },
 
             // 全选和取消全选
-            checkAllClick: function () {
+            checkAllClick () {
                 if (this.selectAll) {
                     this.selectedCarts = [];
                 } else {

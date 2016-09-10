@@ -36,11 +36,11 @@
             Swiper
         },
 
-        ready: function () {
+        ready () {
             this.getProducts();
         },
 
-        data: function () {
+        data () {
             return {
                 products: [],
                 banners: banners
@@ -48,19 +48,19 @@
         },
 
         methods: {
-            getProducts: function () {
+            getProducts () {
                 this.$http.get('product').then(response => {
 
                     this.$set('products', response.body);
                 });
             },
 
-            destroy: function () {
+            destroy () {
                 console.log('home destroyed');
             }
         },
 
-        beforeDestroy: function () {
+        beforeDestroy () {
             this.destroy();
         }
     }
