@@ -1,6 +1,6 @@
 <?php
 
-namespace Api\Controllers;
+namespace App\Api\Controllers;
 
 use App\Product;
 use App\ProductCategory;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
     /**
      * @var Product

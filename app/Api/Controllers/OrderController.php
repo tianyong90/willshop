@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Api\Controllers;
 
 use App\Cart;
 use App\Order;
@@ -8,9 +8,7 @@ use App\OrderItem;
 use App\Product;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
-class OrderController extends Controller
+class OrderController extends BaseController
 {
     /**
      * @var Order

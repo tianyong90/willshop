@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Api\Controllers;
 
 use App\Favourite;
 use App\Product;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
-class FavouriteController extends Controller
+class FavouriteController extends BaseController
 {
     /**
      * @var Favourite

@@ -1,56 +1,133 @@
 <?php
 
-namespace Api\Controllers;
+namespace App\Api\Controllers;
 
-use App\User;
-use Dingo\Api\Facade\API;
 use Illuminate\Http\Request;
-use Api\Requests\UserRequest;
-use Tymon\JWTAuth\Facades\JWTAuth;
+
+use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\User;
+use Validator;
 
-class AuthController extends BaseController
+class AuthenticateController extends BaseController
 {
-    public function me(Request $request)
-    {
-        return JWTAuth::parseToken()->authenticate();
-    }
-
+    /**
+     * 登录授权
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function authenticate(Request $request)
     {
-        // grab credentials from the request
-        $credentials = $request->only('email', 'password');
+        // 登录信息
+        $credentials = $request->only('name', 'password');
 
         try {
-            // attempt to verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid credentials'], 401);
             }
         } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            return response()->json(['error' => 'could not create token'], 500);
         }
 
-        // all good so return the token
+        // 返回生成的 token
         return response()->json(compact('token'));
     }
 
-    public function validateToken() 
+    /**
+     * 注册
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
     {
-        // Our routes file should have already authenticated this token, so we just return success here
-        return API::response()->array(['status' => 'success'])->statusCode(200);
-    }
+        $data = $request->all();
 
-    public function register(UserRequest $request)
-    {
-        $newUser = [
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => bcrypt($request->get('password')),
+        $rules = [
+            'name' => 'required|min:3|max:20',
+            'mobile' => 'required|min:1|max:12',
+            'password' => 'required|confirmed',
         ];
-        $user = User::create($newUser);
-        $token = JWTAuth::fromUser($user);
 
-        return response()->json(compact('token'));
+        $validator = Validator::make($request->all(), $rules, [], \App\User::$aliases);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()->first()], 401);
+        }
+
+        try {
+            $newUser = User::create($data);
+
+            $token = JWTAuth::fromUser($newUser);
+
+            // 返回生成的 token
+            return response()->json(compact('token'));
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'system error'], 500);
+        }
+    }
+
+    /**
+     * 获取当前登录的用户
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getAuthenticatedUser(Request $request)
+    {
+        try {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json(['token_absent'], $e->getStatusCode());
+        }
+
+        // the token is valid and we have found the user via the sub claim
+        return response()->json(compact('user'));
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updatePassword(Request $request)
+    {
+        $data = $request->all();
+
+        try {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json(['token_absent'], $e->getStatusCode());
+        }
+
+        if (!password_verify($data['oldPassword'], $user['password'])) {
+            return response()->json(['oldpassword don\'t match'], 400);
+        }
+
+        if ($data['password'] !== $data['password_confirmation']) {
+            return response()->json(['password confirmation failed.'], 400);
+        }
+
+        $user['password'] = bcrypt($data['password']);
+
+        $user = $user->save();
+
+        return response()->json(['info' => '修改成功']);
     }
 }

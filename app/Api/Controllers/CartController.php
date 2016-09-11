@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Api\Controllers;
 
 use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
-class CartController extends Controller
+class CartController extends BaseController
 {
     /**
      * @var Cart

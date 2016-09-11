@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Api\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
-class PostController extends Controller
+class PostController extends BaseController
 {
     /**
      * @var Post

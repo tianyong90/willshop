@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Api\Controllers;
 
 use App\Address;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
-class AddressController extends Controller
+class AddressController extends BaseController
 {
     /**
      * @var Address
