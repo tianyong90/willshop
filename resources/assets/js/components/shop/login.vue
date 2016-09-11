@@ -34,7 +34,7 @@
             login () {
                 this.$http.post('login', this.user).then(response => {
                     // 登录成功之后保存 JWT token
-                    localStorage.token = response.body.token;
+                    localStorage.setItem('token', response.body.token);
 
                     // 登录状态设置为已经登录
                     dispatch('UPDATE_IS_LOGIN', true);
@@ -50,6 +50,8 @@
                         _this.$route.router.go({ path: redirectPath });
                     }, 1000);
                 }, response => {
+                    console.log(response);
+
                     this.$root.error('登录失败');
                 });
             }

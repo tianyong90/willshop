@@ -1,8 +1,8 @@
 <template>
     <div class="user-profile" v-link="{ path:'profile' }">
         <img class="avatar" src="/img/avatar.jpg">
-        <div class="username">bontian</div>
-        <div class="mobile">13227281234</div>
+        <div class="username">{{ user.name }}</div>
+        <div class="mobile">{{ user.mobile }}</div>
     </div>
 
     <div id="card">
@@ -72,30 +72,22 @@
         methods: {
             getUser () {
                 this.$http.get('/api/current-user').then(response => {
-                    console.log(response.body);
-
-                    // this.$set('user', response.body);
+                    this.$set('user', response.body.user);
                 });
             },
 
             logout () {
-                // this.$http.get('/api/logout').then(response => {
-                //     this.$set('products', response.body);
-                // });
-
                 // 登录成功之后保存 JWT token
-                localStorage.token = '';
+                localStorage.setItem('token', '');
 
                 // 登录状态设置为已经登录
                 dispatch('UPDATE_IS_LOGIN', false);
 
                 this.$root.success('退出登录');
 
-                let _this = this;
-
-                setTimeout(function () {
+                setTimeout(() => {
                     // 退出登录后跳转至首页
-                    _this.$route.router.go({ path: '/home' });
+                    this.$route.router.go({ path: '/' });
                 }, 1000);
             }
         }

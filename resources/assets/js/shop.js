@@ -62,7 +62,9 @@ const App = Vue.extend({
 Vue.http.options.root = '/api';
 
 Vue.http.interceptors.push((request, next) => {
-    request.headers.set('Authorization', localStorage.getItem('token'));
+    let { token = '' } = localStorage;
+
+    request.headers.set('Authorization', 'bearer ' + token);
 
     next();
 });
