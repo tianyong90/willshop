@@ -103,6 +103,32 @@ class AuthenticateController extends Controller
      */
     public function updatePassword(Request $request)
     {
-//        return response()->json($data);
+        $data = $request->all();
+
+        try {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
+            return response()->json(['token_absent'], $e->getStatusCode());
+        }
+
+        if (!password_verify($data['oldPassword'], $user['password'])) {
+            return response()->json(['oldpassword don\'t match'], 400);   
+        }
+
+        if ($data['password'] !== $data['password_confirmation']) {
+            return response()->json(['password confirmation failed.'], 400);   
+        }
+        
+        $user['password'] = bcrypt($data['password']);
+
+        $user = $user->save();
+
+        return response()->json(['info' => '修改成功']);
     }
 }

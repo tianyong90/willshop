@@ -1,6 +1,6 @@
 <template>
     <div class="user-profile" v-link="{ path:'profile' }">
-        <img class="avatar" src="/img/avatar.jpg">
+        <img class="avatar" :src="user.avatar || '/img/avatar.jpg'">
         <div class="username">{{ user.name }}</div>
         <div class="mobile">{{ user.mobile }}</div>
     </div>

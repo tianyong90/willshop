@@ -8,7 +8,6 @@
 
     <group title="账号安全">
         <cell title="登录密码" is-link v-link="{path:'/password'}"></cell>
-        <cell title="支付密码" is-link v-link="{path:'/password'}"></cell>
     </group>
 
 </template>

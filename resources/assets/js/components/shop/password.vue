@@ -1,9 +1,9 @@
 <template>
     <group>
-        <x-input :value.sync="oldPassword" placeholder="原密码"></x-input>
-        <x-input :value.sync="password" placeholder="新密码"></x-input>
-        <x-input :value.sync="rePassword" placeholder="确认新密码"></x-input>
-        <x-button id="submit-btn" type="primary" @click="submit">确定</x-button>
+        <x-input type="password" :value.sync="oldPassword" placeholder="原密码"></x-input>
+        <x-input type="password" :value.sync="password" placeholder="新密码"></x-input>
+        <x-input type="password" :value.sync="password_confirmation" placeholder="确认新密码"></x-input>
+        <x-button id="submit-btn" type="primary" @click="submit" :disabled="!canSubmit">确定</x-button>
     </group>
 </template>
 
@@ -16,23 +16,49 @@
             XInput,
             XButton
         },
-        ready () {
-        },
 
         data () {
             return {
                 oldPassword: '',
                 password: '',
-                rePassword: ''
+                password_confirmation: ''
+            }
+        },
+
+        computed: {
+            canSubmit: function () {
+                let reg = /.{6,20}/;
+
+                if (!this.oldPassword.match(reg)) {
+                    return false;
+                }
+
+                if (!this.password.match(reg)) {
+                    return false;
+                }
+
+                if (!this.password_confirmation.match(reg)) {
+                    return false;
+                }
+
+                if (this.password_confirmation !== this.password) {
+                    return false;
+                }
+
+                return true;
             }
         },
 
         methods: {
             submit () {
-                let formData = JSON.parse(JSON.stringify(this.$data));
+                this.$http.post('update-password', this.$data).then(response => {
+                    this.$root.success(response.body.info);
 
-                this.$http.get('update-password', formData).then(response => {
-                    console.log(response.body);
+                    setTimeout(() => {
+                        this.$route.router.go({ path:'/user' });
+                    }, 1000);
+                }, response => {
+                    this.$root.error(response.body[0]);
                 });
             }
         }
