@@ -16,10 +16,10 @@
 
         methods: {
             fetchOrders () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.body);
-                });
-            }
+            //     this.$http.get('product').then(response => {
+            //         this.$set('products', response.body);
+            //     });
+            // }
         }
     }
 </script>

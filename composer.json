@@ -14,10 +14,10 @@
         "barryvdh/laravel-ide-helper": "dev-master",
         "overtrue/laravel-wechat": "~3.0",
         "overtrue/laravel-socialite": "~1.0",
-        "qiniu/php-sdk": "^7.0",
         "league/uri": "^4.1",
         "endroid/qrcode": "^1.5",
-        "tymon/jwt-auth": "^0.5.9"
+        "tymon/jwt-auth": "^0.5.9",
+        "dingo/api": "1.0.x@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
