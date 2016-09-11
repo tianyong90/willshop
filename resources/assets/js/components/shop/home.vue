@@ -51,7 +51,7 @@
             getProducts () {
                 this.$http.get('product').then(response => {
 
-                    this.$set('products', response.body);
+                    this.$set('products', response.body.products);
                 });
             },
 

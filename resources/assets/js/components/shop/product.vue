@@ -55,7 +55,7 @@
         methods: {
             getProduct () {
                 this.$http.get('product/' + this.$route.params.id).then(response => {
-                    let product = response.body;
+                    let { product } = response.body;
 
                     this.$set('product', product);
 
@@ -69,6 +69,8 @@
             checkIsFavourite () {
                 this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
                     let data = response.body;
+
+                    console.log(data);
 
                     this.$set('isFavourite', data.isFavourite);
                 });
