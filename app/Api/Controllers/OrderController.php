@@ -68,8 +68,6 @@ class OrderController extends BaseController
     {
         $selectedCarts = $request->input('selectedCarts');
 
-        dump($selectedCarts);
-
-//        return response()->json(['info' => '添加成功']);
+        return response()->json(['info' => '添加成功']);
     }
 }
