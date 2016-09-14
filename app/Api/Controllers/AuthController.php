@@ -9,7 +9,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
 use Validator;
 
-class AuthenticateController extends BaseController
+class AutHController extends BaseController
 {
     /**
      * 登录授权
@@ -25,10 +25,10 @@ class AuthenticateController extends BaseController
 
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid credentials'], 401);
+                return $this->response->error('invalid credentials', 401);
             }
         } catch (JWTException $e) {
-            return response()->json(['error' => 'could not create token'], 500);
+            return $this->response->error('could not create token', 500);
         }
 
         // 返回生成的 token
@@ -55,7 +55,7 @@ class AuthenticateController extends BaseController
         $validator = Validator::make($request->all(), $rules, [], \App\User::$aliases);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->messages()->first()], 401);
+            return $this->response->error($validator->messages()->first(), 401);
         }
 
         try {
@@ -66,7 +66,7 @@ class AuthenticateController extends BaseController
             // 返回生成的 token
             return response()->json(compact('token'));
         } catch (\Exception $e) {
-            return response()->json(['error' => 'system error'], 500);
+            return $this->response->error('system error', 500);
         }
     }
 
@@ -79,14 +79,14 @@ class AuthenticateController extends BaseController
     {
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['user_not_found'], 404);
+                return $this->response->error('user_not_found', 404);
             }
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return response()->json(['token_expired'], $e->getStatusCode());
+            return $this->response->error('token_expired', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return response()->json(['token_invalid'], $e->getStatusCode());
+            return $this->response->error('token_invalid', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return response()->json(['token_absent'], $e->getStatusCode());
+            return $this->response->error('token_absent', $e->getStatusCode());
         }
 
         // the token is valid and we have found the user via the sub claim
@@ -106,28 +106,28 @@ class AuthenticateController extends BaseController
 
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['user_not_found'], 404);
+                return $this->response->error('user_not_found', 404);
             }
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return response()->json(['token_expired'], $e->getStatusCode());
+            return $this->response->error('token_expired', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return response()->json(['token_invalid'], $e->getStatusCode());
+            return $this->response->error('token_invalid', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return response()->json(['token_absent'], $e->getStatusCode());
+            return $this->response->error('token_absent', $e->getStatusCode());
         }
 
         if (!password_verify($data['oldPassword'], $user['password'])) {
-            return response()->json(['oldpassword don\'t match'], 400);
+            return $this->response->error('oldpassword don\'t match', 400);
         }
 
         if ($data['password'] !== $data['password_confirmation']) {
-            return response()->json(['password confirmation failed.'], 400);
+            return $this->response->error('password confirmation failed.', 400);
         }
 
         $user['password'] = bcrypt($data['password']);
 
         $user = $user->save();
 
-        return response()->json(['info' => '修改成功']);
+        return $this->response->error('修改成功');
     }
 }

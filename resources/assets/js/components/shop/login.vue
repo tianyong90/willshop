@@ -50,9 +50,7 @@
                         _this.$route.router.go({ path: redirectPath });
                     }, 1000);
                 }, response => {
-                    console.log(response);
-
-                    this.$root.error('登录失败');
+                    this.$root.error(response.body.message);
                 });
             }
         }
