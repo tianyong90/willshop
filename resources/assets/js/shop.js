@@ -66,7 +66,13 @@ Vue.http.interceptors.push((request, next) => {
 
     request.headers.set('Authorization', 'bearer ' + token);
 
-    next();
+    next((response) => {
+        if (response.status === 401) {
+            // console.log(response.headers);
+            // 未登录
+            localStorage.removeItem('token');
+        }
+    });
 });
 
 var router = new VueRouter();

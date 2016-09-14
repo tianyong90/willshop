@@ -73,7 +73,9 @@
             // 获取购物车列表数据
             getCarts () {
                 this.$http.get('cart/lists').then(response => {
-                    this.$set('carts', response.body);
+
+                    console.log(response.body.carts);
+                    this.$set('carts', response.body.carts);
                 });
             },
 

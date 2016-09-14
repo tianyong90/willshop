@@ -71,7 +71,7 @@
 
         methods: {
             getUser () {
-                this.$http.get('/api/current-user').then(response => {
+                this.$http.get('current-user').then(response => {
                     this.$set('user', response.body.user);
                 });
             },
