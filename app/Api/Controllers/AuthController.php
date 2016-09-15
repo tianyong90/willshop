@@ -128,6 +128,8 @@ class AutHController extends BaseController
 
         $user = $user->save();
 
-        return $this->response->error('修改成功');
+        $token = JWTAuth::fromUser($user);
+
+        return response()->json(compact('token'));
     }
 }

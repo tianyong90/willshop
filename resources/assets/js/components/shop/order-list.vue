@@ -5,19 +5,21 @@
 <script>
     export default {
         ready () {
-            
+            this.getOrders();
         },
 
         data () {
             return {
-                products: []
+                orders: []
             }
         },
 
         methods: {
-            fetchOrders () {
-                this.$http.get('product').then(response => {
-                    this.$set('products', response.body);
+            getOrders () {
+                this.$http.get('order').then(response => {
+                    this.$set('orders', response.body);
+                }, response => {
+                    console.log(response);
                 });
             }
         }

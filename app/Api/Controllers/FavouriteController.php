@@ -5,6 +5,7 @@ namespace App\Api\Controllers;
 use App\Favourite;
 use App\Product;
 use Illuminate\Http\Request;
+use Auth;
 
 class FavouriteController extends BaseController
 {
@@ -92,7 +93,7 @@ class FavouriteController extends BaseController
      */
     public function checkFavourite($productId)
     {
-        $data['user_id'] = 1;
+        $data['user_id'] = Auth::id();
         $data['product_id'] = $productId;
 
         if ($this->favourite->where($data)->first()) {

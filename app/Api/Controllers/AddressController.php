@@ -4,6 +4,7 @@ namespace App\Api\Controllers;
 
 use App\Address;
 use Illuminate\Http\Request;
+use Auth;
 
 class AddressController extends BaseController
 {
@@ -28,7 +29,7 @@ class AddressController extends BaseController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function lists()
+    public function index()
     {
         return $this->address->all();
     }
@@ -38,7 +39,7 @@ class AddressController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function add(Request $request)
+    public function store(Request $request)
     {
         $data = $request->input('address');
         $data['user_id'] = 1;
@@ -70,7 +71,7 @@ class AddressController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delete($id)
+    public function destroy($id)
     {
         $this->address->where('id', $id)->delete();
 

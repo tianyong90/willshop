@@ -109,7 +109,11 @@ router.map({
     '/category': {
         component: require('./components/shop/category.vue')
     },
-    '/order': {
+    '/order-list': {
+        component: require('./components/shop/order-list.vue'),
+        auth: true
+    },
+    '/order/:id': {
         component: require('./components/shop/order.vue'),
         auth: true
     },

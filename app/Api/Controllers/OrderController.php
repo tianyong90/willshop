@@ -7,6 +7,7 @@ use App\Order;
 use App\OrderItem;
 use App\Product;
 use Illuminate\Http\Request;
+use Auth;
 
 class OrderController extends BaseController
 {
@@ -51,9 +52,21 @@ class OrderController extends BaseController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function lists()
+    public function index()
     {
-        return $this->order->all();
+        return $this->order->where('user_id', Auth::id())->all();
+    }
+
+    /**
+     * 订单详情
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function show($id)
+    {
+        return $this->order->findOrFail($id);
     }
 
     /**
@@ -63,23 +76,71 @@ class OrderController extends BaseController
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function checkout(Request $request)
+    public function store(Request $request)
     {
-        // 选中的购物车项
-        $selectedCarts = $request->input('selectedCarts');
-
-        if (count($selectedCarts) == 0) {
-            return $this->response->error('未选择结算项目', 400);
-        }
-
-        foreach ($selectedCarts as $key => $cart) {
-
-        }
-
-
-        dump($selectedCarts);
-
-        return response()->json(['info' => '添加成功']);
+//        // 选中的购物车项
+//        $selectedCarts = $request->input('selectedCarts');
+//
+//        if (count($selectedCarts) == 0) {
+//            return $this->response->error('未选择结算项目', 400);
+//        }
+//
+//        foreach ($selectedCarts as $key => $cart) {
+//
+//        }
+//
+//
+//
+//        $rules = [
+//            'name'             => 'required|filled|string|min:2',
+//            'phone'            => 'required|filled|digits:11',
+//            'line.id'     => 'required|exists:tickets',
+//            'tickets.*.amount' => 'required|integer|between:1,100',
+//        ];
+//
+//        $this->validate($request, $rules);
+//
+//        $requestTickets = collect($request->tickets);
+//
+//        $tickets = Ticket::whereIn('id', $requestTickets->pluck('id'))->lists('resell_price', 'id');
+//
+//        // attach price
+//        $requestTickets = collect($request->tickets)->map(function($ticket) use ($tickets) {
+//            $ticket['unit_price'] = $tickets[$ticket['id']];
+//
+//            return $ticket;
+//        });
+//
+//        $order = new Order([
+//            'type'           => Order::TICKET,
+//            'total_fee'      => $requestTickets->reduce(function($carry, $item) {
+//                return $carry + ($item['amount'] * $item['unit_price']);
+//            }),
+//            'amount'         => $requestTickets->sum('amount'),
+//            'consumer_phone' => $request->phone,
+//            'consumer_name'  => $request->name,
+//        ]);
+//
+//        $items = [];
+//
+//        foreach ($requestTickets as $ticket) {
+//            $items[] = new OrderItem([
+//                'order_id'     => $order->id,
+//                'product_id'   => $ticket['id'],
+//                'product_type' => Ticket::class,
+//                'amount'       => $ticket['amount'],
+//                'unit_price'   => $ticket['unit_price'],
+//            ]);
+//        }
+//
+//        $order = DB::transaction(function() use ($order, $items) {
+//            $order->save();
+//            $order->order_items()->saveMany($items);
+//
+//            return $order;
+//        });
+//
+//        return ['order_no', $order->no];
     }
 
     /**

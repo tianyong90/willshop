@@ -5,6 +5,7 @@ namespace App\Api\Controllers;
 use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
+use Auth;
 
 class CartController extends BaseController
 {
@@ -31,13 +32,23 @@ class CartController extends BaseController
     }
 
     /**
+     * 购物车列表
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function index()
+    {
+        return $this->cart->with('product')->get();
+    }
+
+    /**
      * 加入购物车
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function add(Request $request)
+    public function store(Request $request)
     {
-        $where['user_id'] = 1;
+        $where['user_id'] = Auth::id();
         $where['product_id'] = $request->input('productId');
 
         if ($cart = $this->cart->where($where)->first()) {
@@ -52,21 +63,11 @@ class CartController extends BaseController
     }
 
     /**
-     * 购物车列表
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function lists()
-    {
-        return $this->cart->with('product')->get();
-    }
-
-    /**
      * @param $id
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function delte($id)
+    public function destroy($id)
     {
         $this->cart->where('id', $id)->delete();
 

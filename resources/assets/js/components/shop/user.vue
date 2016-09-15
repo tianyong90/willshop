@@ -8,15 +8,15 @@
     <div id="card">
         <card>
             <div slot="content" class="card-demo-flex card-demo-content01">
-                <div class="vux-1px-l vux-1px-r" v-link="{ path:'/' }">
+                <div class="vux-1px-l vux-1px-r" v-link="">
                     <span>1130</span>
                     <span class="text">我的余额</span>
                 </div>
-                <div class="vux-1px-r" v-link="{ path:'/' }">
+                <div class="vux-1px-r" v-link="">
                     <span>15</span>
                     <span class="text">我的积分</span>
                 </div>
-                <div class="vux-1px-r" v-link="{ path:'/' }">
+                <div class="vux-1px-r" v-link="">
                     <span>0</span>
                     <span class="text">我的红包</span>
                 </div>
@@ -25,7 +25,7 @@
     </div>
 
     <group>
-        <cell title="我的订单" is-link v-link="{ path:'/order' }">
+        <cell title="我的订单" is-link v-link="{ path:'/order-list' }">
             <i class="icon iconfont" slot="icon">&#xe616;;</i>
         </cell>
         <cell title="收货地址" is-link v-link="{ path:'/address' }">

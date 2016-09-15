@@ -38,15 +38,16 @@ $api->version('v1', function ($api) {
 
 //        $api->group(['middleware' => ['jwt.auth', 'jwt.refresh']], function ($api) {
         $api->group(['middleware' => ['jwt.auth']], function ($api) {
-            $api->get('/update-password', 'AuthController@updatePassword');
+            $api->post('/update-password', 'AuthController@updatePassword');
             $api->get('/current-user', 'AuthController@getAuthenticatedUser');
 
+            $api->post('/checkout', 'OrderController@store');
+            $api->get('/order', 'OrderController@index');
+            $api->get('/order/{$id}', 'OrderController@show');
 
-            $api->post('/checkout', 'OrderController@checkout');
-
-            $api->post('/cart/add', 'CartController@add');
-            $api->post('/cart/{cartId}/delete', 'CartController@delete');
-            $api->get('/cart/lists', 'CartController@lists');
+            $api->get('/cart', 'CartController@index');
+            $api->post('/cart/add', 'CartController@store');
+            $api->post('/cart/{cartId}/delete', 'CartController@destroy');
             $api->get('/cart/product-amount', 'CartController@getProductAmount');
 
             $api->get('/favourite/{productId}/add', 'FavouriteController@add');

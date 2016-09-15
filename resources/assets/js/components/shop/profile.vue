@@ -21,20 +21,23 @@
             Group,
             Card
         },
+
         ready () {
-            this.fetchProducts();
+            this.getUser();
         },
 
         data () {
             return {
-                products: []
+                user: []
             }
         },
 
         methods: {
-            fetchProducts () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.body);
+            getUser () {
+                this.$http.get('current-user').then(response => {
+                    this.$set('user', response.body);
+                }, response => {
+                    console.log(response.body);
                 });
             }
         }
@@ -47,6 +50,5 @@
         width: 40px;
         height: 40px;
         border-radius: 20px;
-
     }
 </style>

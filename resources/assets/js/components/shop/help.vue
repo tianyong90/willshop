@@ -25,7 +25,7 @@
         methods: {
             getPosts () {
                 this.$http.get('post').then(response => {
-                    this.$set('posts', response.body);
+                    this.$set('posts', response.body.posts);
                 });
             }
         }
