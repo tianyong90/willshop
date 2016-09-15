@@ -133,6 +133,11 @@ router.map({
         component: require('./components/shop/profile.vue'),
         auth: true
     },
+    '/avatar': {
+        component: require('./components/shop/avatar.vue'),
+        auth: true,
+        hideMainmenu: true
+    },
     '/address': {
         component: require('./components/shop/address.vue'),
         auth: true

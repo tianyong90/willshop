@@ -41,13 +41,11 @@
 
                     this.$root.success('登录成功');
 
-                    let _this = this;
-
-                    setTimeout(function () {
-                        let redirectPath = _this.$route.query.redirect ? _this.$route.query.redirect : '/home';
+                    setTimeout(() => {
+                        let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/home';
 
                         // 登录成功后跳转至之前想要进入的页面
-                        _this.$route.router.go({ path: redirectPath });
+                        this.$route.router.go(redirectPath);
                     }, 1000);
                 }, response => {
                     this.$root.error(response.body.message);

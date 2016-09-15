@@ -40,6 +40,7 @@ $api->version('v1', function ($api) {
         $api->group(['middleware' => ['jwt.auth']], function ($api) {
             $api->post('/update-password', 'AuthController@updatePassword');
             $api->get('/current-user', 'AuthController@getAuthenticatedUser');
+            $api->post('/user/avatar', 'UserController@avatar');
 
             $api->post('/checkout', 'OrderController@store');
             $api->get('/order', 'OrderController@index');

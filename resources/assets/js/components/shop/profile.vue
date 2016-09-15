@@ -1,7 +1,7 @@
 <template>
     <group>
-        <cell title="头像">
-            <img class="avatar" src="/img/avatar.jpg" alt="">
+        <cell title="头像" v-link="{ path:'/avatar' }">
+            <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
         </cell>
         <cell title="用户名" value="admin"></cell>
     </group>
@@ -28,14 +28,14 @@
 
         data () {
             return {
-                user: []
+                user: {}
             }
         },
 
         methods: {
             getUser () {
                 this.$http.get('current-user').then(response => {
-                    this.$set('user', response.body);
+                    this.$set('user', response.body.user);
                 }, response => {
                     console.log(response.body);
                 });

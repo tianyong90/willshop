@@ -33,6 +33,7 @@
     "vue-resource": "^1.0.2",
     "vue-router": "^0.7.13",
     "vue-style-loader": "^1.0.0",
+    "vue-touch": "^1.1.0",
     "vuex": "^1.0.0-rc.2",
     "vux": "^0.1.3"
   },
