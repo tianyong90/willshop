@@ -72,6 +72,7 @@
 
 <style scoped lang="sass">
     $color: red;
+    $borderRadius: 5px;
 
     #avatar {
         display: block;
@@ -94,7 +95,7 @@
             height: 40px;
             margin: 20px auto;
             padding: 0 10px;
-            border-radius: 20px;
+            border-radius: $borderRadius;
             border: 1px solid #999;
 
             &:active {
@@ -110,8 +111,9 @@
             line-height: 40px;
             color: #fff;
             border: none;
-            border-radius: 20px;
+            border-radius: $borderRadius;
             margin: 20px auto;
+            padding: 0 10px;
 
             &[disabled] {
                 background-color: #BBB;
@@ -126,7 +128,7 @@
         width: 70px;
         margin: 50px auto 0;
         background-color: #5d5de5;
-        border-radius: 20px;
+        border-radius: $borderRadius;
         color: #fff;
         font-size: 15px;
         text-align: center;

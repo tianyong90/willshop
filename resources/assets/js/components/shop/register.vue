@@ -73,6 +73,8 @@
 
 <style scoped lang="sass">
     $color: red;
+    $borderRadius: 5px;
+
     .register-form {
         display: block;
         overflow: hidden;
@@ -82,20 +84,24 @@
             height: 35px;
             margin: 10px auto;
             padding: 0 10px;
-            border-radius: 18px;
+            border-radius: $borderRadius;
         }
+
         button {
             display: block;
             background-color: $color;
             width: 75%;
-            height: 35px;
+            height: 40px;
             line-height: 40px;
             color: #fff;
             border: none;
-            border-radius: 18px;
+            border-radius: $borderRadius;
             margin: 20px auto;
+            padding: 0 10px;
+
             &[disabled] {
-                background-color: #ccc;
+                background-color: #BBB;
+                color: #333;
             }
         }
     }
