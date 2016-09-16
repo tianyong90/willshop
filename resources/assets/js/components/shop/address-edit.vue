@@ -26,6 +26,8 @@
         },
 
         ready () {
+            console.log(value2name);
+
             this.getAddress();
         },
 

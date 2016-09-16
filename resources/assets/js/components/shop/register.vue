@@ -1,17 +1,30 @@
 <template>
-    <div class="register-form">
-        <input type="text" v-model="user.name" placeholder="请输入用户名">
-        <input type="mobile" v-model="user.mobile" placeholder="请输入手机号">
-        <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码">
-        <button id="register" @click="register" :disabled="!canRegister">注册</button>
-    </div>
+    <validator name="myValidation">
+        <div class="register-form">
+            <input type="text" v-model="user.name" placeholder="请输入用户名" v-validate:name="{required: true, minlength: 3, maxlength: 20}">
+            <input type="mobile" v-model="user.mobile" placeholder="请输入手机号" v-validate:mobile="{required: true, pattern: {rule: '/^0?(13|14|15|18)[0-9]{9}$/'}}">
+            <input type="password" v-model="user.password" placeholder="请输入登录密码" v-validate:password="{required: true, confirmed: true, minlength: 6, maxlength: 20}">
+            <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码" v-validate:password_confirmation="{required: true, minlength: 6, maxlength: 20}">
+            <button id="register" @click="register" :disabled="!$myValidation.valid">注册</button>
+        </div>
+    </validator>
 
     <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
 </template>
 
 <script>
     export default {
+        // validators: {
+        //     confirmed: {
+        //         message: 'unconfirmed value',
+        //         check: (val) => {
+        //             console.log(this);
+
+        //             // return this.user.password === this.user.password_confirmation;
+        //         }
+        //     }
+        // },
+
         data () {
             return {
                 user: {
@@ -20,13 +33,6 @@
                     password: '',
                     password_confirmation: ''
                 }
-            }
-        },
-
-        computed: {
-            canRegister () {
-                // return this.user.name && this.user.password.length >= 6;
-                return true;
             }
         },
 
@@ -43,11 +49,9 @@
 
                     this.$root.success('登录成功');
 
-                    let _this = this;
-
-                    setTimeout(function () {
+                    setTimeout(() => {
                         // 注册成功后跳转至用户中心页面
-                        _this.$route.router.go({ path: '/user' });
+                        this.$route.router.go({ path: '/user' });
                     }, 1000);
                 }, response => {
                     this.$root.error(response.body.error);
@@ -76,11 +80,9 @@
 
 <style scoped lang="sass">
     $color: red;
-    
     .register-form {
         display: block;
         overflow: hidden;
-        
         input {
             display: block;
             width: 75%;
@@ -89,7 +91,6 @@
             padding: 0 10px;
             border-radius: 18px;
         }
-
         button {
             display: block;
             background-color: $color;
@@ -100,13 +101,12 @@
             border: none;
             border-radius: 18px;
             margin: 20px auto;
-
             &[disabled] {
                 background-color: #ccc;
             }
         }
     }
-
+    
     #btn-to-register {
         display: block;
         height: 35px;

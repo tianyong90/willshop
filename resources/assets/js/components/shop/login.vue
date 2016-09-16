@@ -1,18 +1,22 @@
 <template>
     <img src="/img/avatar.jpg" alt="" id="avatar">
-    <div class="login-form">
-        <input type="text" v-model="user.name" placeholder="请输入用户名">
-        <input type="password" v-model="user.password" placeholder="请输入登录密码">
-        <button id="login" @click="login" :disabled="!canLogin">登录</button>
-    </div>
+    <validator name="myValidation">
+        <div class="login-form">
+            <input type="text" v-model="user.name" placeholder="请输入用户名" v-validate:name="{required: true, minlength: 3, maxlength: 20}">
+            <input type="password" v-model="user.password" placeholder="请输入登录密码" v-validate:password="{required: true, minlength: 6, maxlength: 20}">
+            <button id="login" @click="login" :disabled="!$myValidation.valid">登录</button>
+        </div>
+    </validator>
 
     <a v-link="{ path:'/register' }" id="btn-register">注册</a>
 </template>
 
 <script>
+    import VueValidator from 'vue-validator';
+    Vue.use(VueValidator);    
+
     export default {
         ready () {
-            
         },
 
         data () {
@@ -21,12 +25,6 @@
                     name: '',
                     password: ''
                 }
-            }
-        },
-
-        computed: {
-            canLogin () {
-                return this.user.name && this.user.password.length >= 6;
             }
         },
 
