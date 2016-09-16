@@ -41,13 +41,15 @@
         methods: {
             getAddresses () {
                 this.$http.get('address').then(response => {
-                    this.$set('addresses', response.body);
+                    console.log(response.body);
+                    this.$set('addresses', response.body.addresses);
+                }, response => {
+                    console.log(response.body);
                 });
             },
 
             destroy () {
-
-                console.log('product destroy');
+                console.log('adress destroy');
             }
         },
 

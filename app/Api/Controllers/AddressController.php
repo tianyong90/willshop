@@ -35,6 +35,18 @@ class AddressController extends BaseController
     }
 
     /**
+     * 地址详情
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
+    public function show($id)
+    {
+        return $this->address->findOrFail($id);
+    }
+
+    /**
      * 添加地址
      *
      * @return \Illuminate\Http\JsonResponse
@@ -42,7 +54,8 @@ class AddressController extends BaseController
     public function store(Request $request)
     {
         $data = $request->input('address');
-        $data['user_id'] = 1;
+
+        $data['user_id'] = Auth::id();
 
         $this->address->create($data);
 
@@ -57,7 +70,8 @@ class AddressController extends BaseController
     public function edit(Request $request, $id)
     {
         $data = $request->all();
-        $data['user_id'] = 1;
+
+        $data['user_id'] = Auth::id();
 
         $this->address->where('id', $id)->update($data);
 

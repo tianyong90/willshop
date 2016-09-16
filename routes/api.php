@@ -58,11 +58,11 @@ $api->version('v1', function ($api) {
             $api->get('/favourite', 'FavouriteController@lists');
 
             // 地址
-            $api->get('/address', 'AddressController@lists');
-            $api->post('/address/add', 'AddressController@add');
-            $api->get('/address/{id}', 'AddressController@detail');
-            $api->put('/address/{id}/edit', 'AddressController@edit');
-            $api->delete('/address/{id}/delete', 'AddressController@delete');
+            $api->get('/address', 'AddressController@index');
+            $api->post('/address/add', 'AddressController@store');
+            $api->get('/address/{id}', 'AddressController@show');
+            $api->post('/address/{id}/edit', 'AddressController@store');
+            $api->delete('/address/{id}/delete', 'AddressController@destroy');
         });
     });
 });

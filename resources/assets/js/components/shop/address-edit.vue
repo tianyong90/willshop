@@ -27,7 +27,6 @@
 
         ready () {
             this.getAddress();
-
         },
 
         data () {
@@ -49,23 +48,28 @@
                 let addressId = this.$route.params.id;
 
                 if (addressId) {
-                    this.$http.get('address/' + addressId).then(response => {
+                    this.$http.get(`address/${addressId}`).then(response => {
 
                         console.log(response.body);
 
                         this.$set('address', response.body);
+                    }, response => {
+                        console.log(response.body);
                     });
                 }
             },
 
             // 保存
             save () {
-                // console.log(value2name(this.pca, AddressChinaData));
+                console.log('save');
+                console.log(value2name(this.pca, AddressChinaData));
                 // console.log(this.pca);
 
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
-                this.$http.post('address/save', postData).then(response => {
+                this.$http.post('address/add', postData).then(response => {
+                    console.log(response.body);
+                }, response => {
                     console.log(response.body);
                 });
             },
@@ -74,15 +78,12 @@
             deleteAddress () {
                 let addressId = this.$route.params.id;
 
-                console.log(addressId);
-
-                this.$http.get('address/' + addressId + '/delete').then(response => {
+                this.$http.get(`address/${addressId}/delete`).then(response => {
                     console.log(response.body);
                 });
             },
 
             destroy () {
-
                 console.log('product destroy');
             }
         },
