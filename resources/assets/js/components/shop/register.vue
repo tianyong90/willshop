@@ -5,7 +5,7 @@
             <input type="mobile" v-model="user.mobile" placeholder="请输入手机号" v-validate:mobile="{required: true, pattern: {rule: '/^0?(13|14|15|18)[0-9]{9}$/'}}">
             <input type="password" v-model="user.password" placeholder="请输入登录密码" v-validate:password="{required: true, confirmed: true, minlength: 6, maxlength: 20}">
             <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码" v-validate:password_confirmation="{required: true, minlength: 6, maxlength: 20}">
-            <button id="register" @click="register" :disabled="!$myValidation.valid">注册</button>
+            <button id="register" @click="register" :disabled="!canSubmit">注册</button>
         </div>
     </validator>
 
@@ -14,17 +14,6 @@
 
 <script>
     export default {
-        // validators: {
-        //     confirmed: {
-        //         message: 'unconfirmed value',
-        //         check: (val) => {
-        //             console.log(this);
-
-        //             // return this.user.password === this.user.password_confirmation;
-        //         }
-        //     }
-        // },
-
         data () {
             return {
                 user: {
@@ -36,11 +25,15 @@
             }
         },
 
+        computed: {
+            canSubmit: function () {
+                return this.$myValidation.valid && (this.user.password === this.user.password_confirmation);
+            }
+        },
+
         methods: {
             register () {
                 this.$http.post('register', this.user).then(response => {
-                    console.log(response);
-
                     // 注册成功之后保存 JWT token
                     localStorage.token = response.body.token;
 
