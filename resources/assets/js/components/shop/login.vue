@@ -8,14 +8,22 @@
         </div>
     </validator>
 
+    <loading :show="isLoading"></loading>
+
     <a v-link="{ path:'/register' }" id="btn-register">注册</a>
 </template>
 
 <script>
     import VueValidator from 'vue-validator';
-    Vue.use(VueValidator);    
+    Vue.use(VueValidator);
+
+    import { Loading } from 'vux';
 
     export default {
+        components: {
+            Loading
+        },
+
         ready () {
         },
 
@@ -24,13 +32,18 @@
                 user: {
                     name: '',
                     password: ''
-                }
+                },
+                isLoading: false
             }
         },
 
         methods: {
             login () {
+                this.isLoading = true;
+
                 this.$http.post('login', this.user).then(response => {
+                    this.isLoading = false;
+
                     // 登录成功之后保存 JWT token
                     localStorage.setItem('token', response.body.token);
 
@@ -46,6 +59,8 @@
                         this.$route.router.go(redirectPath);
                     }, 1000);
                 }, response => {
+                    this.isLoading = false;
+                    
                     this.$root.error(response.body.message);
                 });
             }
