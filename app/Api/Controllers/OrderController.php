@@ -8,6 +8,7 @@ use App\OrderItem;
 use App\Product;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 class OrderController extends BaseController
 {
@@ -85,30 +86,15 @@ class OrderController extends BaseController
            return $this->response->error('未选择结算项目', 400);
        }
 
-       foreach ($selectedCarts as $key => $cart) {
-
-       }
-
-
-
-       // $rules = [
-       //     'name'             => 'required|filled|string|min:2',
-       //     'phone'            => 'required|filled|digits:11',
-       //     'line.id'     => 'required|exists:tickets',
-       //     'tickets.*.amount' => 'required|integer|between:1,100',
-       // ];
-
-       // $this->validate($request, $rules);
-
        $products = collect($request->tickets);
 
-       $tickets = Ticket::whereIn('id', $products->pluck('id'))->lists('resell_price', 'id');
+       $products = Product::whereIn('id', $products->pluck('id'))->lists('id');
 
        // attach price
-       $products = collect($request->tickets)->map(function($ticket) use ($tickets) {
-           $ticket['unit_price'] = $tickets[$ticket['id']];
+       $products = collect($request->tickets)->map(function($product) use ($products) {
+           $product['unit_price'] = $products[$product['id']];
 
-           return $ticket;
+           return $product;
        });
 
        $order = new Order([
@@ -116,8 +102,6 @@ class OrderController extends BaseController
                return $carry + ($item['amount'] * $item['unit_price']);
            }),
            'amount'         => $products->sum('amount'),
-           'consumer_phone' => $request->phone,
-           'consumer_name'  => $request->name,
        ]);
 
        $items = [];
@@ -138,7 +122,7 @@ class OrderController extends BaseController
            return $order;
        });
 
-       return ['order_no', $order->no];
+       return $this->response->array(['order_no', $order->no]);
     }
 
     /**
