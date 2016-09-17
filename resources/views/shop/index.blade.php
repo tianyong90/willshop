@@ -27,8 +27,11 @@
 <body>
     <router-view></router-view>
 
+    <loading :show.sync="isLoading"></loading>
     <toast :show.sync="toastShow" :type.sync="toastType" :time.sync="toastTime" :text.sync="toastMsg"></toast>
+    
     <mainmenu></mainmenu>
+
     <script src="/js/shop.js"></script>
 </body>
 </html>

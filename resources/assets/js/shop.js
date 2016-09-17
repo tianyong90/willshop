@@ -22,7 +22,7 @@ import store from './shop_store';
 
 window.dispatch = store.dispatch || store.commit;
 
-import { Toast, Alert, Confirm } from 'vux';
+import { Toast, Loading, Alert, Confirm } from 'vux';
 
 const App = Vue.extend({
     // store 选项
@@ -30,6 +30,7 @@ const App = Vue.extend({
 
     components: {
         Toast,
+        Loading,
         Alert,
         Confirm
     },
@@ -38,19 +39,25 @@ const App = Vue.extend({
         return {
             toastShow: false,
             toastTime: 1000,
-            toastMsg: ''
+            toastMsg: '',
+        }
+    },
+
+    computed: {
+        isLoading: () => {
+            return store.state.isLoading;
         }
     },
 
     methods: {
-        success(msg) {
+        success (msg) {
             this.toastShow = true;
             this.toastTime = 1000;
             this.toastType = 'default';
             this.toastMsg = msg;
         },
 
-        error(msg) {
+        error (msg) {
             this.toastShow = true;
             this.toastTime = 2000;
             this.toastType = 'warn';
