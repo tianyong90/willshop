@@ -8,8 +8,6 @@
         <div class="price">{{ product.price }}</div>
 
         <x-number title="已选" :value.sync="amount" :min="1" :fillable="false"></x-number>
-        
-        <cell title="送至" value="" is-link @click="addressPopup"></cell>
     </div>
 
     <div id="description">
@@ -54,7 +52,7 @@
 
         methods: {
             getProduct () {
-                this.$http.get('product/' + this.$route.params.id).then(response => {
+                this.$http.get(`product/${this.$route.params.id}`).then(response => {
                     let { product } = response.body;
 
                     this.$set('product', product);
@@ -62,30 +60,29 @@
                     for(let item in product.pictures) {
                         this.banners.push({img: product.pictures[item]});
                     }
+                }, response => {
+                    console.log('出错');
                 });
             },
 
             // 商品是否已被收藏
             checkIsFavourite () {
-                this.$http.get('favourite/' + this.$route.params.id + '/is-favourite').then(response => {
+                this.$http.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
                     let data = response.body;
 
-                    console.log(data);
-
                     this.$set('isFavourite', data.isFavourite);
+                }, response => {
+                    console.log('出错');
                 });
             },
 
             // 购物车中商品总数
             getProductAmountInCart () {
                 this.$http.get('cart/product-amount').then(response => {
-
                     this.$set('productAmountInCart', response.data);
+                }, response => {
+                    console.log('出错');
                 });
-            },
-
-            addressPopup () {
-
             },
 
             // 加入购物车
@@ -104,7 +101,7 @@
 
             // 加入购物车
             toggleFavourite (productId) {
-                this.$http.get('favourite/' + productId + '/toggle').then(response => {
+                this.$http.get(`favourite/${productId}/toggle`).then(response => {
                     this.isFavourite = !this.isFavourite;
                 });
             },
