@@ -9,19 +9,11 @@
         </div>
     </validator>
 
-    <loading :show="isLoading"></loading>
-
     <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
 </template>
 
 <script>
-    import { Loading } from 'vux';
-
     export default {
-        components: {
-            Loading
-        },
-
         data () {
             return {
                 user: {
@@ -29,8 +21,7 @@
                     mobile: '',
                     password: '',
                     password_confirmation: ''
-                },
-                isLoading: false
+                }
             }
         },
 
@@ -42,11 +33,7 @@
 
         methods: {
             register () {
-                this.isLoading = true;
-
                 this.$http.post('register', this.user).then(response => {
-                    this.isLoading = false;
-
                     // 注册成功之后保存 JWT token
                     localStorage.token = response.body.token;
 
@@ -60,8 +47,6 @@
                         this.$route.router.go({ path: '/user' });
                     }, 1000);
                 }, response => {
-                    this.isLoading = false;
-                    
                     this.$root.error(response.body.error);
                 });
             }
