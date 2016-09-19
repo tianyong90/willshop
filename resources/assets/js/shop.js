@@ -157,6 +157,11 @@ router.map({
         auth: true,
         hideMainmenu: true
     },
+    '/address/:id': {
+        component: require('./components/shop/address-edit.vue'),
+        auth: true,
+        hideMainmenu: true
+    },
     '/about-us': {
         component: require('./components/shop/about-us.vue')
     },

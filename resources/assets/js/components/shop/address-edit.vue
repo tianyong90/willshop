@@ -4,16 +4,23 @@
         <x-input title="手机号码" :value.sync="address.mobile"></x-input>
         <address title="所在地区" :value.sync="pca" :list="addressData"></address>
         <x-input title="详细地址" :value.sync="address.address"></x-input>
+        <x-input title="邮政编码" :value.sync="address.post_number"></x-input>
     </group>
 
     <footer>
-        <x-button type="warn" @click="deleteAddress">删除</x-button>
-        <x-button type="primary" @click="save">保存</x-button>
+        <flexbox>
+            <flexbox-item v-if="$route.params.id">
+                <x-button type="warn" @click="deleteAddress">删除</x-button>
+            </flexbox-item>
+            <flexbox-item>
+                <x-button type="primary" @click="save">保存</x-button>
+            </flexbox-item>
+        </flexbox>
     </footer>
 </template>
 
 <script>
-    import { Cell,Group,XInput,XButton,Address,AddressChinaData } from 'vux';
+    import { Cell,Group,Flexbox,FlexboxItem,XInput,XButton,Address,AddressChinaData } from 'vux';
     import value2name from 'vux/src/filters/value2name';
     
     export default {
@@ -22,12 +29,12 @@
             Group,
             XInput,
             XButton,
-            Address
+            Address,
+            Flexbox,
+            FlexboxItem,
         },
 
         ready () {
-            console.log(value2name);
-
             this.getAddress();
         },
 
@@ -51,9 +58,6 @@
 
                 if (addressId) {
                     this.$http.get(`address/${addressId}`).then(response => {
-
-                        console.log(response.body);
-
                         this.$set('address', response.body);
                     }, response => {
                         console.log(response.body);
@@ -63,9 +67,7 @@
 
             // 保存
             save () {
-                console.log('save');
-                console.log(value2name(this.pca, AddressChinaData));
-                // console.log(this.pca);
+                // console.log(value2name(this.pca, AddressChinaData));
 
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
@@ -80,7 +82,13 @@
             deleteAddress () {
                 let addressId = this.$route.params.id;
 
-                this.$http.get(`address/${addressId}/delete`).then(response => {
+                this.$http.delete(`address/${addressId}/delete`).then(response => {
+                    this.$root.success('删除成功');
+
+                    setTimeout(() => {
+                        this.$route.router.go('/address');
+                    }, 1000);
+                }, response => {
                     console.log(response.body);
                 });
             },
@@ -105,12 +113,11 @@
         width: 100%;
         z-index: 20;
         background-color: #fff;
-        padding: 15px 0;
-        button {
-            display: block;
-            float: left;
-            width: 40%;
-            margin: 0 5% !important;
+        padding: .5rem 0;
+
+        .vux-flexbox {
+            width: 90%;
+            margin: 0 auto;
         }
     }
 </style>

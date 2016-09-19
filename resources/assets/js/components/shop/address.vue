@@ -9,13 +9,14 @@
                 <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
             </div>
             <div class="footer">
-                <span class="edit">编辑</span>
+                <a class="edit" v-link="{path: '/address/' + address.id}">编辑</a>
                 <span class="delete">删除</span>
             </div>
         </li>
     </ul>
     <div class="empty" v-else>
-        无数据
+        <i class="icon iconfont">&#xe617;</i>
+        <div class="tips">您还没有设置地址</div>
     </div>
 
     <footer>
@@ -37,16 +38,14 @@
 
         data () {
             return {
-                addresses: []
+                addresses: [],
             }
         },
 
         methods: {
             getAddresses () {
                 this.$http.get('address').then(response => {
-                    let { addresses: [] } = response.body;
-                    
-                    this.$set('addresses', addresses);
+                    this.$set('addresses', response.body.addresses);
                 }, response => {
                     console.log(response.body);
                 });
@@ -67,7 +66,7 @@
     #address-list {
         display: block;
         overflow: hidden;
-        margin: 0;
+        margin: 0 0 60px 0;
         padding: 0;
 
         li {
@@ -111,6 +110,22 @@
         }
     }
 
+    .empty {
+        display: block;
+        text-align: center;
+        margin: 30px auto;
+
+        .icon {
+            font-size: 5rem;
+            color: #3695e9;
+        }
+
+        .tips {
+            font-size: .8rem;
+            color: #666;
+        }
+    }
+
     footer {
         display: block;
         overflow: hidden;
@@ -119,7 +134,8 @@
         width: 100%;
         z-index: 1000;
         background-color: #fff;
-        padding: 15px 0;
+        padding: 10px 0;
+        border-top: 1px solid #ccc;
 
         button {
             display: block;

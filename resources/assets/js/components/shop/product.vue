@@ -17,10 +17,12 @@
     <footer>
         <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
         <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
-        <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i><span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span></div>
+        <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
+            <span
+                class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
+        </div>
     </footer>
 </template>
-
 
 <script>
     import { Swiper,Group,Cell,Panel,XNumber } from 'vux';
@@ -31,7 +33,7 @@
             Group,
             Cell,
             Panel,
-            XNumber
+            XNumber,
         },
 
         ready () {
@@ -46,7 +48,7 @@
                 banners: [],
                 amount: 1,
                 isFavourite: false,
-                productAmountInCart: 0
+                productAmountInCart: 0,
             }
         },
 
@@ -123,14 +125,12 @@
         background-color: #fff;
         overflow: hidden;
         margin: 5px 0;
-
         .name {
             display: block;
             padding: 0 10px;
             font-size: 17px;
             color: #666;
         }
-
         .price {
             display: block;
             padding: 0 10px;
@@ -138,7 +138,7 @@
             color: red;
         }
     }
-
+    
     #description {
         display: block;
         overflow: hidden;
@@ -148,7 +148,7 @@
         font-size: 1.1rem;
         color: #666;
     }
-
+    
     footer {
         display: block;
         position: fixed;
@@ -159,7 +159,6 @@
         background-color: #fff;
         border-top: 1px solid #ccc;
         padding: 0;
-
         .btn {
             display: inline-block;
             float: right;
@@ -168,15 +167,12 @@
             padding: 5px 20px;
             font-size: 12px;
             position: relative;
-
             .icon {
                 display: block;
-
                 &.is-favourite {
                     color: #f00;
                 }
             }
-
             .amount {
                 position: absolute;
                 background-color: #f00;
@@ -187,12 +183,10 @@
                 padding: 0 4px;
                 border-radius: 50%;
             }
-
             .text {
                 font-size: 12px;
             }
         }
-
         #btn-add-cart {
             display: inline-block;
             height: 60px;

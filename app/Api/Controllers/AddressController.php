@@ -31,7 +31,7 @@ class AddressController extends BaseController
      */
     public function index()
     {
-        return $this->address->all();
+        return $this->address->where('user_id', Auth::id())->get();
     }
 
     /**
