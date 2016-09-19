@@ -1,5 +1,5 @@
 <template>
-    <ul id="address-list">
+    <ul id="address-list" v-if="addresses.length">
         <li v-for="address in addresses">
             <div class="header">
                 <span class="name">{{ address.name }}</span>
@@ -14,6 +14,9 @@
             </div>
         </li>
     </ul>
+    <div class="empty" v-else>
+        无数据
+    </div>
 
     <footer>
         <x-button type="primary" v-link="{ path: '/address/add' }">添加地址</x-button>
@@ -41,8 +44,9 @@
         methods: {
             getAddresses () {
                 this.$http.get('address').then(response => {
-                    console.log(response.body);
-                    this.$set('addresses', response.body.addresses);
+                    let { addresses: [] } = response.body;
+                    
+                    this.$set('addresses', addresses);
                 }, response => {
                     console.log(response.body);
                 });
