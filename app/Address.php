@@ -13,7 +13,7 @@ class Address extends Model
         'user_id',
         'name',
         'mobile',
-        'post_number',
+        'postcode',
         'province',
         'city',
         'area',

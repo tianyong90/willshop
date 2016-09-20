@@ -25,11 +25,12 @@
 </template>
 
 <script>
-    import { XButton } from 'vux';
+    import { XButton,Actionsheet } from 'vux';
 
     export default {
         components: {
-            XButton
+            XButton,
+            Actionsheet,
         },
 
         ready () {

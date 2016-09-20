@@ -28,7 +28,7 @@
     <router-view></router-view>
 
     <loading :show.sync="isLoading"></loading>
-    <toast :show.sync="toastShow" :type.sync="toastType" :time.sync="toastTime" :text.sync="toastMsg | toString"></toast>
+    <toast :show.sync="toastShow" :type.sync="toastType" :time.sync="toastTime" :text.sync="toastMsg"></toast>
     
     <mainmenu></mainmenu>
 

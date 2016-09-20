@@ -4,7 +4,7 @@
         <x-input title="手机号码" :value.sync="address.mobile"></x-input>
         <address title="所在地区" :value.sync="pca" :list="addressData"></address>
         <x-input title="详细地址" :value.sync="address.address"></x-input>
-        <x-input title="邮政编码" :value.sync="address.post_number"></x-input>
+        <x-input title="邮政编码" :value.sync="address.postcode"></x-input>
     </group>
 
     <footer>
@@ -72,7 +72,11 @@
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
                 this.$http.post('address/add', postData).then(response => {
-                    console.log(response.body);
+                    this.$root.success('保存成功');
+
+                    setTimeout(() => {
+                        this.$route.router.go('/address');
+                    }, 1000);
                 }, response => {
                     console.log(response.body);
                 });
