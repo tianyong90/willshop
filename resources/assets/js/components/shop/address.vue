@@ -9,8 +9,8 @@
                 <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
             </div>
             <div class="footer">
-                <a class="edit" v-link="{path: '/address/' + address.id}">编辑</a>
-                <span class="delete">删除</span>
+                <span class="delete icon iconfont" @click="deleteClick(address)">&#xe612;</span>
+                <a class="edit icon iconfont" v-link="{path: '/address/' + address.id}">&#xe61f;</a>
             </div>
         </li>
     </ul>
@@ -22,6 +22,8 @@
     <footer>
         <x-button type="primary" v-link="{ path: '/address/add' }">添加地址</x-button>
     </footer>
+
+    <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress(activeAddress)" show-cancel cancel-text="取消"></actionsheet>
 </template>
 
 <script>
@@ -40,6 +42,12 @@
         data () {
             return {
                 addresses: [],
+                activeAddress: null,
+                confirmShow: false,
+                menuConfirmDelete: {
+                    'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
+                    delete: '<span style="color:red">删除</span>'
+                },
             }
         },
 
@@ -47,6 +55,23 @@
             getAddresses () {
                 this.$http.get('address').then(response => {
                     this.$set('addresses', response.body.addresses);
+                }, response => {
+                    console.log(response.body);
+                });
+            },
+
+            // 地址项中删除按钮点击
+            deleteClick (address) {
+                this.activeAddress = address;
+
+                this.confirmShow = true;
+            },
+
+            deleteAddress(address) {
+                this.$http.delete(`address/${address.id}/delete`).then(response => {
+                    this.$root.success('删除成功');
+
+                    this.addresses.$remove(address);
                 }, response => {
                     console.log(response.body);
                 });
@@ -107,6 +132,22 @@
                 font-size: 14px;
                 color: #666;
                 padding-top: 3px;
+
+                .icon {
+                    margin: 0 .5rem;
+                }
+
+                .edit {
+                    display: inline-block;
+                    float: right;
+                    color: #555;
+                }
+
+                .delete {
+                    display: inline-block;
+                    float: right;
+                    color: #555;
+                }
             }
         }
     }
