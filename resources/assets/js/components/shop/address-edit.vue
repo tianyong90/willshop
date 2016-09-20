@@ -10,17 +10,19 @@
     <footer>
         <flexbox>
             <flexbox-item v-if="$route.params.id">
-                <x-button type="warn" @click="deleteAddress">删除</x-button>
+                <x-button type="warn" @click="confirmShow = true">删除</x-button>
             </flexbox-item>
             <flexbox-item>
                 <x-button type="primary" @click="save">保存</x-button>
             </flexbox-item>
         </flexbox>
     </footer>
+
+    <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress()" show-cancel cancel-text="取消"></actionsheet>
 </template>
 
 <script>
-    import { Cell,Group,Flexbox,FlexboxItem,XInput,XButton,Address,AddressChinaData } from 'vux';
+    import { Cell,Group,Flexbox,FlexboxItem,XInput,XButton,Address,AddressChinaData,Actionsheet } from 'vux';
     import value2name from 'vux/src/filters/value2name';
     
     export default {
@@ -32,6 +34,7 @@
             Address,
             Flexbox,
             FlexboxItem,
+            Actionsheet,
         },
 
         ready () {
@@ -43,7 +46,12 @@
                 address: {},
                 addressData: AddressChinaData,
                 address: {},
-                pca: []
+                pca: [],
+                confirmShow: false,
+                menuConfirmDelete: {
+                    'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
+                    delete: '<span style="color:red">删除</span>'
+                },
             }
         },
 
