@@ -31,7 +31,9 @@ class AddressController extends BaseController
      */
     public function index()
     {
-        return $this->address->where('user_id', Auth::id())->get();
+        $addresses = $this->address->where('user_id', Auth::id())->get();
+
+        return response()->json(compact('addresses'));
     }
 
     /**

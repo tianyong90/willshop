@@ -66,7 +66,7 @@
 
                 if (addressId) {
                     this.$http.get(`address/${addressId}`).then(response => {
-                        this.$set('address', response.body);
+                        this.$set('address', response.body.address);
                     }, response => {
                         console.log(response.body);
                     });
