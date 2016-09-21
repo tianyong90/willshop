@@ -56,7 +56,7 @@
             Cell,
             Group,
             Card,
-            XButton
+            XButton,
         },
 
         ready () {
