@@ -66,26 +66,7 @@ const App = Vue.extend({
     }
 });
 
-Vue.http.options.root = '/api';
-
-Vue.http.interceptors.push((request, next) => {
-    let { token = '' } = localStorage;
-
-    dispatch('UPDATE_LOADING', true);
-
-    request.headers.set('Authorization', 'bearer ' + token);
-
-    next((response) => {
-        dispatch('UPDATE_LOADING', false);
-        if (response.status === 401) {
-            // console.log(response.headers);
-            // 未登录
-            localStorage.removeItem('token');
-        }
-    });
-});
-
-var router = new VueRouter();
+const router = new VueRouter();
 
 router.beforeEach((transition) => {
     dispatch('UPDATE_LOADING', true);
@@ -107,6 +88,28 @@ router.beforeEach((transition) => {
 router.afterEach(() => {
     dispatch('UPDATE_LOADING', false);
 })
+
+Vue.http.options.root = '/api';
+
+Vue.http.interceptors.push((request, next) => {
+    let { token = '' } = localStorage;
+
+    dispatch('UPDATE_LOADING', true);
+
+    request.headers.set('Authorization', 'bearer ' + token);
+
+    next((response) => {
+        dispatch('UPDATE_LOADING', false);
+        
+        if (response.status === 401) {
+            // 未登录
+            localStorage.removeItem('token');
+
+            // 跳转至登录页            
+            router.go('/login');
+        }
+    });
+});
 
 router.map({
     '/': {
