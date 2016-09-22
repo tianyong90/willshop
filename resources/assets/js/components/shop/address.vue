@@ -14,7 +14,8 @@
             </div>
         </li>
     </ul>
-    <div class="empty" v-show="!isLoading && addresses.length === 0">
+
+    <div class="empty" v-show="!$store.state.isLoading && addresses.length === 0">
         <i class="icon iconfont">&#xe617;</i>
         <div class="tips">您还没有设置地址</div>
     </div>
