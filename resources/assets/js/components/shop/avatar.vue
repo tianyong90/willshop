@@ -134,6 +134,12 @@
 
                     _this.startWidth = _this.width;
                     _this.startHeight = _this.height;
+
+                    // 居中
+                    _this.posX = - parseInt((_this.width - _this.cropperWidth) / 2);
+                    _this.posY = - parseInt((_this.height - _this.cropperHeight) / 2);
+                    _this.startX = _this.posX;
+                    _this.startY = _this.posY;
                 };
                 img.src = this.previewSrc;
             },
