@@ -26,7 +26,7 @@
 
     <group>
         <cell title="我的订单" is-link v-link="{ path:'/order-list' }">
-            <i class="icon iconfont" slot="icon">&#xe616;;</i>
+            <i class="icon iconfont" slot="icon">&#xe616;</i>
         </cell>
         <cell title="收货地址" is-link v-link="{ path:'/address' }">
             <i class="icon iconfont" slot="icon">&#xe602;</i>

@@ -31,8 +31,8 @@
 
         data () {
             return {
-                cropperWidth: 300,
-                cropperHeight: 300,
+                cropperWidth: 250,
+                cropperHeight: 250,
                 posX: 0,
                 posY: 0,
                 startX: 0, //一次拖动操作起始时的横坐标
