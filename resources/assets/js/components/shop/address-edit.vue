@@ -79,7 +79,13 @@
 
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
-                this.$http.post('address/add', postData).then(response => {
+                let addressId = this.$route.params.id;
+                
+                if (addressId) {
+                    postData.id = addressId;
+                }
+
+                this.$http.post('address/store', postData).then(response => {
                     this.$root.success('保存成功');
 
                     setTimeout(() => {

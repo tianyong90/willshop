@@ -59,9 +59,8 @@ $api->version('v1', function ($api) {
 
             // 地址
             $api->get('/address', 'AddressController@index');
-            $api->post('/address/add', 'AddressController@store');
-            $api->get('/address/{id}', 'AddressController@show');
-            $api->post('/address/{id}/edit', 'AddressController@store');
+            $api->post('/address/store', 'AddressController@store');
+            $api->get('/address/{id}', 'AddressController@show')->where('id', '\d+');
             $api->delete('/address/{id}/delete', 'AddressController@destroy');
         });
     });

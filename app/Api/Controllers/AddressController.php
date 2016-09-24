@@ -57,11 +57,13 @@ class AddressController extends BaseController
     {
         $data = $request->input('address');
 
+        $id = $request->input('id', null);
+
         $data['user_id'] = Auth::id();
 
-        $this->address->create($data);
+        $this->address->updateOrCreate(['id' => $id], $data);
 
-        return response()->json(['info' => '添加成功']);
+        return response()->json(['info' => '保存成功']);
     }
 
     /**
