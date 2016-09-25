@@ -74,6 +74,8 @@
             getCarts () {
                 this.$http.get('cart').then(response => {
                     this.$set('carts', response.body.carts);
+                }, response => {
+                    console.log(response.body);
                 });
             },
 

@@ -38,7 +38,9 @@ class CartController extends BaseController
      */
     public function index()
     {
-        return $this->cart->with('product')->get();
+        $carts = $this->cart->with('product')->get();
+        
+        return response()->json(compact('carts'));
     }
 
     /**
