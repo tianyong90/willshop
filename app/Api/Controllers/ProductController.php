@@ -39,7 +39,10 @@ class ProductController extends BaseController
      */
     public function lists()
     {
-        return $this->product->take(6)->get();
+
+        $products = $this->product->take(6)->get();
+
+        return response()->json(compact('products'));
     }
 
     /**
@@ -49,8 +52,8 @@ class ProductController extends BaseController
      *
      * @return mixed
      */
-    public function detail($id)
+    public function show($id)
     {
-        return $this->product->find($id);
+        return $this->product->findOrFail($id);
     }
 }

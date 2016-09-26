@@ -28,7 +28,7 @@ $api->version('v1', function ($api) {
 
         // 商品相关
         $api->get('/product', 'ProductController@lists');
-        $api->get('/product/{id}', 'ProductController@detail');
+        $api->get('/product/{id}', 'ProductController@show');
 
         $api->get('/product-category', 'ProductCategoryController@lists');
 
