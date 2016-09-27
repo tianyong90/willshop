@@ -37,9 +37,11 @@ class PostController extends BaseController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function lists()
+    public function index()
     {
-        return $this->post->all();
+        $posts = $this->post->all();
+
+        return response()->json(compact('posts'));
     }
 
     /**
@@ -51,7 +53,7 @@ class PostController extends BaseController
      */
     public function detail($id)
     {
-        $post = $this->post->find($id);
+        $post = $this->post->findOrFail($id);
 
         return $post;
     }

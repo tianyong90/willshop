@@ -40,7 +40,7 @@ class FavouriteController extends BaseController
      */
     public function add($productId)
     {
-        $data['user_id'] = 1;
+        $data['user_id'] = Auth::id();
         $data['product_id'] = $productId;
 
         $this->favourite->create($data);
@@ -57,7 +57,7 @@ class FavouriteController extends BaseController
      */
     public function delete($productId)
     {
-        $data['user_id'] = 1;
+        $data['user_id'] = Auth::id();
         $data['product_id'] = $productId;
 
         $this->favourite->where($data)->delete();
@@ -74,7 +74,7 @@ class FavouriteController extends BaseController
      */
     public function toggle($productId)
     {
-        $data['user_id'] = 1;
+        $data['user_id'] = Auth::id();
         $data['product_id'] = $productId;
 
         if ($this->favourite->where($data)->first()) {
@@ -108,8 +108,10 @@ class FavouriteController extends BaseController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function lists()
+    public function index()
     {
-        return $this->favourite->with('product')->get();
+        $favourites = $this->favourite->with('product')->get();
+
+        return response()->json(compact('favourites'));
     }
 }

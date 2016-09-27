@@ -40,7 +40,7 @@
                     this.$root.success('登录成功');
 
                     setTimeout(() => {
-                        let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/home';
+                        let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/';
 
                         // 登录成功后跳转至之前想要进入的页面
                         this.$route.router.go(redirectPath);

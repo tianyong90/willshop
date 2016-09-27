@@ -55,7 +55,9 @@ class OrderController extends BaseController
      */
     public function index()
     {
-        return $this->order->where('user_id', Auth::id())->all();
+        $orders = $this->order->where('user_id', Auth::id())->all();
+
+        return response()->json(compact('orders'));
     }
 
     /**
@@ -79,50 +81,50 @@ class OrderController extends BaseController
      */
     public function store(Request $request)
     {
-       // 选中的购物车项
-       $selectedCarts = $request->input('selectedCarts');
+        // 选中的购物车项
+        $selectedCarts = $request->input('selectedCarts');
 
-       if (count($selectedCarts) == 0) {
-           return $this->response->error('未选择结算项目', 400);
-       }
+        if (count($selectedCarts) == 0) {
+            return $this->response->error('未选择结算项目', 400);
+        }
 
-       $products = collect($request->tickets);
+        $products = collect($request->tickets);
 
-       $products = Product::whereIn('id', $products->pluck('id'))->lists('id');
+        $products = Product::whereIn('id', $products->pluck('id'))->lists('id');
 
-       // attach price
-       $products = collect($request->tickets)->map(function($product) use ($products) {
-           $product['unit_price'] = $products[$product['id']];
+        // attach price
+        $products = collect($request->tickets)->map(function ($product) use ($products) {
+            $product['unit_price'] = $products[$product['id']];
 
-           return $product;
-       });
+            return $product;
+        });
 
-       $order = new Order([
-           'total_fee'      => $products->reduce(function($carry, $item) {
-               return $carry + ($item['amount'] * $item['unit_price']);
-           }),
-           'amount'         => $products->sum('amount'),
-       ]);
+        $order = new Order([
+            'total_fee' => $products->reduce(function ($carry, $item) {
+                return $carry + ($item['amount'] * $item['unit_price']);
+            }),
+            'amount' => $products->sum('amount'),
+        ]);
 
-       $items = [];
+        $items = [];
 
-       foreach ($products as $product) {
-           $items[] = new OrderItem([
-               'order_id'     => $order->id,
-               'product_id'   => $product['id'],
-               'amount'       => $product['amount'],
-               'unit_price'   => $product['unit_price'],
-           ]);
-       }
+        foreach ($products as $product) {
+            $items[] = new OrderItem([
+                'order_id' => $order->id,
+                'product_id' => $product['id'],
+                'amount' => $product['amount'],
+                'unit_price' => $product['unit_price'],
+            ]);
+        }
 
-       $order = DB::transaction(function() use ($order, $items) {
-           $order->save();
-           $order->order_items()->saveMany($items);
+        $order = DB::transaction(function () use ($order, $items) {
+            $order->save();
+            $order->order_items()->saveMany($items);
 
-           return $order;
-       });
+            return $order;
+        });
 
-       return $this->response->array(['order_no', $order->no]);
+        return $this->response->array(['order_no', $order->no]);
     }
 
     /**

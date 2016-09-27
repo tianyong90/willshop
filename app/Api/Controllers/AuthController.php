@@ -40,7 +40,7 @@ class AutHController extends BaseController
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse|void
      */
     public function register(Request $request)
     {
