@@ -24,7 +24,7 @@ $api->version('v1', function ($api) {
     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
         // Login and Register
         $api->post('/login', 'AuthController@authenticate');
-        $api->post('/regiter', 'AuthController@register');
+        $api->post('/register', 'AuthController@register');
 
         // 商品相关
         $api->get('/product', 'ProductController@lists');
