@@ -14,10 +14,6 @@
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-    <link rel="stylesheet" href="/css/iconfont/iconfont.css" />
-    <link rel="stylesheet" href="/css/vux.css" />
-    <link rel="stylesheet" href="/css/shop.css" />
-
     <script>
         window.Laravel = {
             csrfToken: "{!! csrf_token() !!}"
