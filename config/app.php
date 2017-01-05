@@ -166,10 +166,10 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-        Dingo\Api\Provider\LaravelServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class, // InterventionImage
+//        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
+//        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+//        Dingo\Api\Provider\LaravelServiceProvider::class,
+//        Intervention\Image\ImageServiceProvider::class, // InterventionImage
 
         /*
          * Application Service Providers...
@@ -227,11 +227,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'APIRoute' => \Dingo\Api\Facade\Route::class,
-        'API' => \Dingo\Api\Facade\API::class,
-        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+//        'APIRoute' => \Dingo\Api\Facade\Route::class,
+//        'API' => \Dingo\Api\Facade\API::class,
+//        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+//        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+ //       'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

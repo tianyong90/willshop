@@ -6,38 +6,22 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "predis/predis": "~1.1@dev",
-        "illuminate/redis": "*",
-        "intervention/image": "^2.3",
-        "intervention/imagecache": "~2.3",
-        "barryvdh/laravel-ide-helper": "dev-master",
-        "overtrue/laravel-wechat": "~3.0",
-        "overtrue/laravel-socialite": "~1.0",
-        "league/uri": "^4.1",
-        "endroid/qrcode": "^1.5",
-        "tymon/jwt-auth": "^0.5.9",
-        "dingo/api": "1.0.x@dev"
+        "laravel/framework": "5.4.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "phpunit/phpunit": "~5.0"
     },
     "autoload": {
         "classmap": [
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+            "App\\": "app/",
+            "Tests\\": "tests/"
+        },
+        "files": ["app/mix.php"]
     },
     "scripts": {
         "post-root-package-install": [
@@ -59,5 +43,7 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
