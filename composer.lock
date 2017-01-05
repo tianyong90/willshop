@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "df3ecb2843c109770e9651a62591aa20d668036a"
+                "reference": "8caca941b338b73bbfe5137c74befeb78eb77e4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-ide-helper/df3ecb2843c109770e9651a62591aa20d668036a.zip",
-                "reference": "df3ecb2843c109770e9651a62591aa20d668036a",
+                "url": "https://packagist.phpcomposer.com/files/barryvdh/laravel-ide-helper/8caca941b338b73bbfe5137c74befeb78eb77e4e.zip",
+                "reference": "8caca941b338b73bbfe5137c74befeb78eb77e4e",
                 "shasum": ""
             },
             "require": {
@@ -70,7 +70,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2016-12-09 11:13:18"
+            "time": "2017-01-05 09:02:31"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -236,12 +236,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f30c5640e04f2fc486066c9984816f11e15e67a9"
+                "reference": "e84703ccd0645e62b81033556840f27c1526c614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/f30c5640e04f2fc486066c9984816f11e15e67a9.zip",
-                "reference": "f30c5640e04f2fc486066c9984816f11e15e67a9",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/e84703ccd0645e62b81033556840f27c1526c614.zip",
+                "reference": "e84703ccd0645e62b81033556840f27c1526c614",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +256,7 @@
                 "paragonie/random_compat": "~1.4|~2.0",
                 "php": ">=5.6.4",
                 "ramsey/uuid": "~3.0",
-                "swiftmailer/swiftmailer": "~5.1",
+                "swiftmailer/swiftmailer": "~5.4",
                 "symfony/console": "~3.2",
                 "symfony/debug": "~3.2",
                 "symfony/finder": "~3.2",
@@ -355,7 +355,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-01-05T03:05:23+00:00"
+            "time": "2017-01-05T14:59:13+00:00"
         },
         {
             "name": "league/flysystem",
