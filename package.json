@@ -47,6 +47,6 @@
     "vue-template-compiler": "^2.1.8",
     "vue-validator": "3.0.0-alpha.1",
     "vuex": "^2.0.0",
-    "we-vue": "git+https://github.com/tianyong90/we-vue.git#master"
+    "we-vue": "^0.0.4"
   }
 }

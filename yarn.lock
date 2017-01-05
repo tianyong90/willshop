@@ -6043,9 +6043,9 @@ watchpack@^1.0.0:
     chokidar "^1.4.3"
     graceful-fs "^4.1.2"
 
-"we-vue@git+https://github.com/tianyong90/we-vue.git#master":
-  version "0.0.1"
-  resolved "git+https://github.com/tianyong90/we-vue.git#7bd827e36dfdc62b13f4ad632525725c977a2d77"
+we-vue@^0.0.4:
+  version "0.0.4"
+  resolved "http://registry.npm.taobao.org/we-vue/download/we-vue-0.0.4.tgz#0338179041a222b26948e857c8f37fe7492955a1"
   dependencies:
     alloyfinger "^0.1.3"
     vue "^2.1.8"

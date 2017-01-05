@@ -6,8 +6,6 @@ import 'normalize.css/normalize.css';
 import 'we-vue/lib/style.css';
 import '../../sass/shop.scss';
 
-console.log(WeVue);
-
 Vue.use(VueRouter);
 Vue.use(WeVue);
 
