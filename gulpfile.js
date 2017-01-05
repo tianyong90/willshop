@@ -33,7 +33,7 @@ elixir(mix => {
             }]
         },
         entry: {
-            shop: ['babel-polyfill', './resources/assets/js/shop/index.js'],
+            shop: './resources/assets/js/shop/index.js',
             vendor: ['vue', 'vuex', 'vue-router', 'axios']
         },
         output: {

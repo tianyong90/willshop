@@ -1,12 +1,6 @@
 <template>
     <div class="main">
-        <wv-button type="primary">hello world</wv-button>
-
         <wv-group>
-            <wv-cell title="title" value="value"></wv-cell>
-            <wv-cell title="title" value="value"></wv-cell>
-            <wv-cell title="title" value="value"></wv-cell>
-            <wv-cell title="title" value="value"></wv-cell>
             <wv-cell title="title" value="value"></wv-cell>
             <wv-cell title="title" value="value"></wv-cell>
         </wv-group>

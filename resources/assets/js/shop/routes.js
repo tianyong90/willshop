@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/home.vue')), 'card-home')
+      require.ensure([], () => resolve(require('./components/home.vue')), 'shop-home')
     },
     meta: {
       requiresAuth: false,
