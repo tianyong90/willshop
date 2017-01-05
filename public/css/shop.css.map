@@ -1,1 +1,0 @@
-{"version":3,"sources":["shop.scss"],"names":[],"mappings":"AAAA;EACE,0BAA0B,EAC3B;;AAED;EAEI,YAAY,EACb","file":"shop.css","sourcesContent":["body {\n  background-color: #ececec;\n}\n\n.weui_cell_bd {\n  p {\n    color: #555;\n  }\n}"],"sourceRoot":"/source/"}

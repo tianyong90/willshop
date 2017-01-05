@@ -21,13 +21,13 @@
     </script>
 </head>
 <body>
-    <router-view></router-view>
+    <div id="app">
+        <transition name="slide-fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
 
-    <loading :show.sync="isLoading"></loading>
-    <toast :show.sync="toastShow" :type.sync="toastType" :time.sync="toastTime" :text.sync="toastMsg"></toast>
-    
-    <mainmenu></mainmenu>
-
-    <script src="/js/shop.js"></script>
+    <script src="{{ env('APP_ENV') == 'production' ? elixir('build/vendor.js') : asset('build/vendor.js') }}"></script>
+    <script src="{{ env('APP_ENV') == 'production' ? elixir('build/shop.entry.js') : asset('build/shop.entry.js') }}"></script>
 </body>
 </html>
