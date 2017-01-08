@@ -1,4 +1,6 @@
 let mix = require('laravel-mix').mix;
+const path = require('path')
+require('shelljs/global');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +13,40 @@ let mix = require('laravel-mix').mix;
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// mix.js('resources/assets/js/app.js', 'public/js')
+//    .sass('resources/assets/sass/app.scss', 'public/css');
+
+const webpack = require('webpack');
+
+mix.webpackConfig({
+    module: {
+        loaders: [{
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!sass'
+        }]
+    },
+    entry: {
+        shop: './resources/assets/js/shop/index.js',
+        vendor: ['vue', 'vuex', 'vue-router', 'axios']
+    },
+    output: {
+        publicPath: "/build/",
+        filename: "[name].entry.js",
+        chunkFilename: "[name].[chunkhash:8].js"
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'vendor.js'
+        })
+        // new webpack.optimize.UglifyJsPlugin()
+    ],
+    externals: {
+        // jquery: "jQuery"
+    }
+});
+
+mix.js('resources/assets/js/shop/index.js', 'public/build');
