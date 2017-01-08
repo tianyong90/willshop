@@ -44,11 +44,7 @@
     }
 </script>
 
-<style scoped lang="sass">
-    .vux-slider {
-        
-    }
-
+<style scoped lang="scss">
     #products {
         display: block;
         overflow: hidden;

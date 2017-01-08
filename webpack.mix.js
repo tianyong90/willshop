@@ -19,6 +19,9 @@ require('shelljs/global');
 const webpack = require('webpack');
 
 mix.webpackConfig({
+    resolve: {
+        modules: ['node_modules']
+    },
     module: {
         loaders: [{
             test: /\.css$/,
