@@ -19,17 +19,31 @@ require('shelljs/global');
 const webpack = require('webpack');
 
 mix.webpackConfig({
-    resolve: {
-        modules: ['node_modules']
-    },
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loader: 'style!css'
-        }, {
-            test: /\.scss$/,
-            loader: 'style!css!sass'
-        }]
+        rules: [{
+                test: /\.css$/,
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
+            }
+        ]
     },
     entry: {
         shop: './resources/assets/js/shop/index.js',
