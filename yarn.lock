@@ -1428,6 +1428,10 @@ css-selector-tokenizer@^0.7.0:
     fastparse "^1.1.1"
     regexpu-core "^1.0.0"
 
+css3transform@^1.1.2:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/css3transform/download/css3transform-1.1.2.tgz#33e5f396ceea1a68b7fc4b8c2faaebcddc6ef504"
+
 css@^2.0.0:
   version "2.2.1"
   resolved "http://registry.npm.taobao.org/css/download/css-2.2.1.tgz#73a4c81de85db664d4ee674f7d47085e3b2d55dc"
@@ -5038,11 +5042,12 @@ wbuf@^1.1.0, wbuf@^1.4.0:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-we-vue@0.0.6:
-  version "0.0.6"
-  resolved "http://registry.npm.taobao.org/we-vue/download/we-vue-0.0.6.tgz#59f87f2d684a59f7fd06ba695b8688ebb3a4e5f2"
+we-vue@0.0.10:
+  version "0.0.10"
+  resolved "http://registry.npm.taobao.org/we-vue/download/we-vue-0.0.10.tgz#ce994791de05a6621dfe0f511381a3595e95a9ef"
   dependencies:
     alloyfinger "0.1.4"
+    css3transform "^1.1.2"
     vue "^2.1.8"
     weui "^1.1.0"
 
