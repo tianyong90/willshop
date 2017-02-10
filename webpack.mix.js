@@ -1,6 +1,5 @@
-let mix = require('laravel-mix').mix;
-const path = require('path')
-require('shelljs/global');
+const { mix } = require('laravel-mix');
+const path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -9,7 +8,7 @@ require('shelljs/global');
  |
  | Mix provides a clean, fluent API for defining some Webpack build steps
  | for your Laravel application. By default, we are compiling the Sass
- | file for your application, as well as bundling up your JS files.
+ | file for the application as well as bundling up all the JS files.
  |
  */
 
@@ -19,51 +18,34 @@ require('shelljs/global');
 const webpack = require('webpack');
 
 mix.webpackConfig({
-    module: {
-        rules: [{
-                test: /\.css$/,
-                use: [{
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    }
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [{
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    },
-                    {
-                        loader: 'sass-loader'
-                    }
-                ]
-            }
-        ]
-    },
-    entry: {
-        shop: './resources/assets/js/shop/index.js',
-        vendor: ['vue', 'vuex', 'vue-router', 'axios']
-    },
-    output: {
-        publicPath: "/build/",
-        filename: "[name].entry.js",
-        chunkFilename: "[name].[chunkhash:8].js"
-    },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js'
-        })
-        // new webpack.optimize.UglifyJsPlugin()
-    ],
-    externals: {
-        // jquery: "jQuery"
-    }
+  module: {
+    rules: [
+      {
+        test: /\.sa|css$/,
+        exclude: /(node_modules|bower_components)/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
+  entry: {
+    shop: './resources/assets/js/shop/index.js',
+    vendor: ['vue', 'vuex', 'vue-router', 'axios']
+  },
+  output: {
+    path: path.resolve(__dirname, "public/js"),
+    publicPath: "/js/",
+    filename: "[name].entry.js",
+    chunkFilename: "[name].[chunkhash:8].js"
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js'
+    })
+  ],
+  externals: {
+    // jquery: "jQuery"
+  }
 });
 
 mix.js('resources/assets/js/shop/index.js', 'public/build');

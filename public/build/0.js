@@ -1,19 +1,19 @@
-webpackJsonp([0,2],{
+webpackJsonp([0],{
 
-/***/ 106:
+/***/ 105:
 /***/ function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = {}
 
 /* styles */
-__webpack_require__(112)
+__webpack_require__(111)
 
 /* script */
-__vue_exports__ = __webpack_require__(107)
+__vue_exports__ = __webpack_require__(106)
 
 /* template */
-var __vue_template__ = __webpack_require__(110)
+var __vue_template__ = __webpack_require__(109)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -49,7 +49,7 @@ module.exports = __vue_exports__
 
 /***/ },
 
-/***/ 107:
+/***/ 106:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85,10 +85,10 @@ exports.default = {
 
 /***/ },
 
-/***/ 108:
+/***/ 107:
 /***/ function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(109)();
+exports = module.exports = __webpack_require__(108)();
 // imports
 
 
@@ -100,7 +100,7 @@ exports.push([module.i, "\n#products[data-v-0a0b6942] {\n  display: block;\n  ov
 
 /***/ },
 
-/***/ 109:
+/***/ 108:
 /***/ function(module, exports) {
 
 /*
@@ -157,7 +157,7 @@ module.exports = function() {
 
 /***/ },
 
-/***/ 110:
+/***/ 109:
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -185,7 +185,7 @@ if (false) {
 
 /***/ },
 
-/***/ 111:
+/***/ 110:
 /***/ function(module, exports) {
 
 /*
@@ -408,16 +408,16 @@ function applyToTag(styleElement, obj) {
 
 /***/ },
 
-/***/ 112:
+/***/ 111:
 /***/ function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(108);
+var content = __webpack_require__(107);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(111)(content, {});
+var update = __webpack_require__(110)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {

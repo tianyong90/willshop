@@ -27,7 +27,7 @@
         </transition>
     </div>
 
-    <script src="{{ env('APP_ENV') == 'production' ? elixir('build/vendor.js') : asset('build/vendor.js') }}"></script>
-    <script src="{{ env('APP_ENV') == 'production' ? elixir('build/shop.entry.js') : asset('build/shop.entry.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="{{ asset('js/shop.entry.js') }}"></script>
 </body>
 </html>

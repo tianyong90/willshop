@@ -1,24 +1,21 @@
 <template>
-    <div class="main">
-        <wv-group>
-            <wv-cell title="title" value="value"></wv-cell>
-            <wv-cell title="title" value="value"></wv-cell>
-        </wv-group>
-    </div>
+  <div class="main">
+    afsssfsfasdf
+  </div>
 </template>
 
 <script>
     const banners = [{
             url: 'javascript:',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg'
         },
         {
             url: 'javascript:',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg'
         },
         {
             url: 'javascript',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
+            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg'
     }];
 
     export default {
