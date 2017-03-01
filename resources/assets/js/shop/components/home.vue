@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    fasfs
+    
   </div>
 </template>
 

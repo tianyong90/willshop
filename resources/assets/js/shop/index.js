@@ -75,7 +75,7 @@ const app = new Vue({
   // 路由器
   router,
 
-  // vux store
+  // vuex store
   store,
 
   computed: {
