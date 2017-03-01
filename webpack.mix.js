@@ -1,5 +1,7 @@
 const { mix } = require('laravel-mix');
+
 const path = require('path');
+require('shelljs/global');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,9 +13,6 @@ const path = require('path');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-// mix.js('resources/assets/js/app.js', 'public/js')
-//    .sass('resources/assets/sass/app.scss', 'public/css');
 
 const webpack = require('webpack');
 
@@ -32,8 +31,8 @@ mix.webpackConfig({
     vendor: ['vue', 'vuex', 'vue-router', 'axios']
   },
   output: {
-    path: path.resolve(__dirname, "public/js"),
-    publicPath: "/js/",
+    path: path.resolve(__dirname, "public/build"),
+    publicPath: "/build/",
     filename: "[name].entry.js",
     chunkFilename: "[name].[chunkhash:8].js"
   },
@@ -42,10 +41,20 @@ mix.webpackConfig({
       name: 'vendor',
       filename: 'vendor.js'
     })
-  ],
-  externals: {
-    // jquery: "jQuery"
-  }
+  ]
 });
 
-mix.js('resources/assets/js/shop/index.js', 'public/build');
+if (process.env.NODE_ENV === 'production') {
+  // 删除原构建的文件
+  rm('-rf', path.join(__dirname, 'public/build'));
+  
+  mix.version([
+    'public/build/vendor.js',
+    'public/build/mix.entry.js',
+    'public/build/shop.entry.js'
+  ]);
+}
+
+mix.browserSync({
+  proxy: 'localhost:8050/shop'
+});
