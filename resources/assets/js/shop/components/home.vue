@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <wv-button type="primary">hello 121321</wv-button>
+    <wv-button type="primary">hello world</wv-button>
   </div>
 </template>
 
