@@ -28,7 +28,7 @@
     </div>
 
     <script src="{{ asset('build/vendor.js') }}"></script>
-    <script src="{{ asset('build/mix.entry.js') }}"></script>
-    <script src="{{ asset('build/shop.entry.js') }}"></script>
+    <script src="{{ asset('build/mix.js') }}"></script>
+    <script src="{{ asset('build/shop.js') }}"></script>
 </body>
 </html>

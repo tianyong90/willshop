@@ -39,8 +39,8 @@ mix.webpackConfig({
   output: {
     path: path.resolve(__dirname, 'public/build'),
     publicPath: '/build/',
-    filename: '[name].entry.js',
-    chunkFilename: '[name].[chunkhash:8].js'
+    filename: '[name].js',
+    chunkFilename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' :'[name].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -56,8 +56,8 @@ if (process.env.NODE_ENV === 'production') {
   
   mix.version([
     'public/build/vendor.js',
-    'public/build/mix.entry.js',
-    'public/build/shop.entry.js'
+    'public/build/mix.js',
+    'public/build/shop.js'
   ]);
 }
 

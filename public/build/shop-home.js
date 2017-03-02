@@ -147,7 +147,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "primary"
     }
-  }, [_vm._v("552")])], 1)
+  }, [_vm._v("what the fuck")])], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

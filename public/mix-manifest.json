@@ -1,9 +1,9 @@
 {
-  "/shop-home.70ac1d69.js": "/shop-home.70ac1d69.js",
-  "/shop.entry.js": "/shop.entry.js",
-  "/mix.entry.js": "/mix.entry.js",
+  "/shop-home.693ee6d4.js": "/shop-home.693ee6d4.js",
+  "/shop.js": "/shop.js",
+  "/mix.js": "/mix.js",
   "/vendor.js": "/vendor.js",
-  "/build/vendor.js": "/build/vendor.7a8be5d099cd19c17713bb18d1e01a1a.js",
-  "/build/mix.entry.js": "/build/mix.entry.c4fc358b7361a2a7a35ab3c2e5970ad6.js",
-  "/build/shop.entry.js": "/build/shop.entry.6c9c67a0c59fc0961b76bcfd3a7ee888.js"
+  "/build/vendor.js": "/build/vendor.8c2e525713300ce79b3216bb436d3c1f.js",
+  "/build/mix.js": "/build/mix.c4fc358b7361a2a7a35ab3c2e5970ad6.js",
+  "/build/shop.js": "/build/shop.6c9c67a0c59fc0961b76bcfd3a7ee888.js"
 }
