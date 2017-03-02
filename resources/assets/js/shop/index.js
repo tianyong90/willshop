@@ -30,7 +30,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  store.commit('UPDATE_LOADING', true)
+  store.commit('UPDATE_LOADING', true);
 
   next();
 });
@@ -86,4 +86,4 @@ const app = new Vue({
 
   watch: {
   }
-}).$mount('#app')
+}).$mount('#app');
