@@ -20,10 +20,10 @@ mix.webpackConfig({
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "eslint-loader"
+        loader: 'eslint-loader'
       },
       {
         test: /\.sa|css$/,
@@ -37,10 +37,10 @@ mix.webpackConfig({
     vendor: ['vue', 'vuex', 'vue-router', 'axios']
   },
   output: {
-    path: path.resolve(__dirname, "public/build"),
-    publicPath: "/build/",
-    filename: "[name].entry.js",
-    chunkFilename: "[name].[chunkhash:8].js"
+    path: path.resolve(__dirname, 'public/build'),
+    publicPath: '/build/',
+    filename: '[name].entry.js',
+    chunkFilename: '[name].[chunkhash:8].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
