@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/tianyong90/willshop.svg)](https://greenkeeper.io/)
 
-这是一款基于 Laravel5.3 + vue.js1.0.26 的网店系统，也是本人初学 vue.js 的练手项目，设计比较粗陋。现学现用之中，让我学到了不少新的东西，这无疑是一个不错的尝试。虽然算不上最佳实践，但也能起到一定的示范作用，所以将它分享出来。
+这是一款基于 Laravel 5.4 + Vue.js 2.x 的网店系统，也是本人初学 vue.js 的练手项目，设计比较粗陋。现学现用之中，让我学到了不少新的东西，这无疑是一个不错的尝试。虽然算不上最佳实践，但也能起到一定的示范作用，所以将它分享出来。
 
 ## 环境要求
 
@@ -53,7 +53,7 @@
 
 ## 二次开发
 
-本项目使用 Laravel5.3 配套的 Elixir 整合前端资源，因此需要有一个可用的 node.js 环境，包括 npm、gulp 等。
+本项目使用 Laravel 5.4 配套的 Laravel-mix 整合前端资源，因此需要有一个可用的 node.js 环境，包括 npm 等。
 
 1. 使用 npm 安装相关前端依赖
 
