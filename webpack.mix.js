@@ -53,7 +53,7 @@ mix.webpackConfig({
 if (process.env.NODE_ENV === 'production') {
   // 删除原构建的文件
   rm('-rf', path.join(__dirname, 'public/build'));
-  
+
   mix.version([
     'public/build/vendor.js',
     'public/build/mix.js',

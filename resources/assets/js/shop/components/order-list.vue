@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        ready () {
+        mounted () {
             this.getOrders();
         },
 
@@ -16,8 +16,8 @@
 
         methods: {
             getOrders () {
-                this.$http.get('order').then(response => {
-                    this.$set('orders', response.body);
+                this.axios.get('order').then(response => {
+                    this.$set('orders', response.data);
                 }, response => {
                     console.log(response);
                 });

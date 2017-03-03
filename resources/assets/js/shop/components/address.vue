@@ -36,7 +36,7 @@
             Actionsheet,
         },
 
-        ready () {
+        mounted () {
             this.getAddresses();
         },
 
@@ -54,10 +54,10 @@
 
         methods: {
             getAddresses () {
-                this.$http.get('address').then(response => {
-                    this.$set('addresses', response.body.addresses);
+                this.axios.get('address').then(response => {
+                    this.$set('addresses', response.data.addresses);
                 }, response => {
-                    console.log(response.body);
+                    console.log(response.data);
                 });
             },
 
@@ -69,12 +69,12 @@
             },
 
             deleteAddress(address) {
-                this.$http.delete(`address/${address.id}/delete`).then(response => {
+                this.axios.delete(`address/${address.id}/delete`).then(response => {
                     this.$root.success('删除成功');
 
                     this.addresses.$remove(address);
                 }, response => {
-                    console.log(response.body);
+                    console.log(response.data);
                 });
             },
 

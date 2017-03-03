@@ -1,27 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import WeVue from 'we-vue';
-import Cookies from 'js-cookie';
 import 'normalize.css/normalize.css';
 import 'we-vue/lib/style.css';
 import '../../sass/shop.scss';
+import '../../iconfont/iconfont.css';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import store from './store/index';
+import Config from './config';  // 配置
+import routes from './routes.js';
 
 Vue.use(VueRouter);
 Vue.use(WeVue);
-
-import axios from 'axios';
-window.axios = axios;
-
-import store from './store/index';
-
-// 配置
-import _config from './config';
-window.Config = _config;
-
-axios.defaults.baseURL = _config.apiRoot;
-axios.defaults.timeout = _config.timeout;
-
-import routes from './routes.js';
+Vue.use(VueAxios, axios);
 
 const router = new VueRouter({
   mode: 'history',
@@ -42,11 +34,14 @@ router.afterEach((to, from) => {
   store.commit('UPDATE_LOADING', false);
 });
 
+axios.defaults.baseURL = Config.apiRoot;
+axios.defaults.timeout = Config.timeout;
+
 // axios 请求发送前处理
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true);
 
-  config.headers.UserId = Cookies.get('suishoubian_card_userid');
+  // config.headers.UserId = Cookies.get('suishoubian_card_userid');
 
   return config;
 }, (error) => {
@@ -61,7 +56,7 @@ axios.interceptors.response.use((response) => {
 }, (error) => {
   store.commit('UPDATE_LOADING', false);
 
-  // 超时后进行提示  
+  // 超时后进行提示
   if (error.code === 'ECONNABORTED') {
     // app.$root.error('网络超时，请重试');
   }
@@ -77,6 +72,10 @@ const app = new Vue({
 
   // vuex store
   store,
+
+  components: {
+    'mainmenu': require('./components/mainmenu.vue')
+  },
 
   computed: {
   },

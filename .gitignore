@@ -12,3 +12,4 @@ Homestead.yaml
 *.sublime-project
 /_ide_helper.php
 /.vscode
+/yarn.lock

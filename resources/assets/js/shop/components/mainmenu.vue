@@ -1,36 +1,29 @@
 <template>
   <div id="tabbar" v-if="menuVisible">
-    <tabbar>
-      <tabbar-item v-link="{ path:'/' }">
+    <wv-tabbar>
+      <wv-tabbar-item to="/">
         <i class="icon iconfont" slot="icon">&#xe613;</i>
-        <span slot="label">首页</span>
-      </tabbar-item>
-      <tabbar-item v-link="{ path:'/category' }">
+        <span>首页</span>
+      </wv-tabbar-item>
+      <wv-tabbar-item to="/category">
         <i class="icon iconfont" slot="icon">&#xe60b;</i>
-        <span slot="label">分类</span>
-      </tabbar-item>
-      <tabbar-item v-link="{ path:'/cart' }">
+        <span>分类</span>
+      </wv-tabbar-item>
+      <wv-tabbar-item to="/cart">
         <i class="icon iconfont" slot="icon">&#xe611;</i>
-        <span slot="label">购物车</span>
-      </tabbar-item>
-      <tabbar-item v-link="{ path:'/user' }">
+        <span>购物车</span>
+      </wv-tabbar-item>
+      <wv-tabbar-item to="/user">
         <i class="icon iconfont" slot="icon">&#xe61c;</i>
-        <span slot="label">我的</span>
-      </tabbar-item>
-    </tabbar>
+        <span>我的</span>
+      </wv-tabbar-item>
+    </wv-tabbar>
   </div>
 </template>
 
 <script>
-  import { Tabbar, TabbarItem } from 'vux';
-
   export default {
-    components: {
-      Tabbar,
-      TabbarItem
-    },
-
-    ready () {
+    mounted () {
     },
 
     data () {
@@ -50,7 +43,7 @@
 
 </script>
 
-<style lang="sass">
+<style lang="scss">
   #tabbar .weui_tabbar {
     position: fixed;
     bottom: 0;

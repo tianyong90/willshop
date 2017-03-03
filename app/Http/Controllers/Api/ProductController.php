@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Api\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Product;
 use App\ProductCategory;

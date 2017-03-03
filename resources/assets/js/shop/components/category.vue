@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        ready () {
+        mounted () {
             
         },
 
@@ -16,8 +16,8 @@
 
         methods: {
             fetchOrders () {
-                this.$http.get('/api/product').then(response => {
-                    this.$set('products', response.body);
+                this.axios.get('/api/product').then(response => {
+                    this.$set('products', response.data);
                 });
             }
         }

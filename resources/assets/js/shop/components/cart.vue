@@ -24,7 +24,7 @@
 
 <script>
     export default {
-        ready () {
+        mounted () {
             this.getCarts();
         },
 
@@ -72,17 +72,17 @@
         methods: {
             // 获取购物车列表数据
             getCarts () {
-                this.$http.get('cart').then(response => {
-                    this.$set('carts', response.body.carts);
+                this.axios.get('cart').then(response => {
+                    this.$set('carts', response.data.carts);
                 }, response => {
-                    console.log(response.body);
+                    console.log(response.data);
                 });
             },
 
             // 去结算
             checkout () {
                 if (this.selectedCarts.length > 0) {
-                    this.$http.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
+                    this.axios.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
 
                         // this.$route.router.go('/checkout');
                     })

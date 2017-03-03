@@ -33,9 +33,9 @@
 
         methods: {
             register () {
-                this.$http.post('register', this.user).then(response => {
+                this.axios.post('register', this.user).then(response => {
                     // 注册成功之后保存 JWT token
-                    localStorage.token = response.body.token;
+                    localStorage.token = response.data.token;
 
                     // 登录状态设置为已经登录
                     dispatch('UPDATE_IS_LOGIN', true);
@@ -47,7 +47,7 @@
                         this.$route.router.go({ path: '/user' });
                     }, 1000);
                 }, response => {
-                    this.$root.error(response.body.error);
+                    this.$root.error(response.data.error);
                 });
             }
         }

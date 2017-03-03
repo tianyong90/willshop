@@ -37,7 +37,7 @@
             Actionsheet,
         },
 
-        ready () {
+        mounted () {
             this.getAddress();
         },
 
@@ -65,10 +65,10 @@
                 let addressId = this.$route.params.id;
 
                 if (addressId) {
-                    this.$http.get(`address/${addressId}`).then(response => {
-                        this.$set('address', response.body.address);
+                    this.axios.get(`address/${addressId}`).then(response => {
+                        this.$set('address', response.data.address);
                     }, response => {
-                        console.log(response.body);
+                        console.log(response.data);
                     });
                 }
             },
@@ -85,14 +85,14 @@
                     postData.id = addressId;
                 }
 
-                this.$http.post('address/store', postData).then(response => {
+                this.axios.post('address/store', postData).then(response => {
                     this.$root.success('保存成功');
 
                     setTimeout(() => {
                         this.$route.router.go('/address');
                     }, 1000);
                 }, response => {
-                    console.log(response.body);
+                    console.log(response.data);
                 });
             },
 
@@ -100,14 +100,14 @@
             deleteAddress () {
                 let addressId = this.$route.params.id;
 
-                this.$http.delete(`address/${addressId}/delete`).then(response => {
+                this.axios.delete(`address/${addressId}/delete`).then(response => {
                     this.$root.success('删除成功');
 
                     setTimeout(() => {
                         this.$route.router.go('/address');
                     }, 1000);
                 }, response => {
-                    console.log(response.body);
+                    console.log(response.data);
                 });
             },
 

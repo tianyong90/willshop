@@ -22,7 +22,7 @@
 
 <script>
     export default {
-        ready () {
+        mounted () {
             // this.getCarts();
         },
 
@@ -34,11 +34,11 @@
 
         methods: {
             getCarts () {
-                this.$http.get('cart/lists').then(response => {
+                this.axios.get('cart/lists').then(response => {
 
-                    console.log(response.body);
+                    console.log(response.data);
 
-                    this.$set('carts', response.body);
+                    this.$set('carts', response.data);
                 });
             }
         }

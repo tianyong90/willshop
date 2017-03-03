@@ -25,7 +25,7 @@
             Loading,
         },
 
-        ready () {
+        mounted () {
             
         },
 
@@ -81,10 +81,10 @@
                 oMyForm.append("avatar", files[0]);
 
                 this.isLoading = true;
-                this.$http.post('user/avatar', oMyForm).then(function (response) {
+                this.axios.post('user/avatar', oMyForm).then(function (response) {
                     this.isLoading = false;
 
-                    var data = response.body;
+                    var data = response.data;
 
                     if (data.status) {
                         this.$root.success('登录成功');

@@ -51,14 +51,14 @@
 
         methods: {
             submit () {
-                this.$http.post('update-password', this.$data).then(response => {
-                    this.$root.success(response.body.info);
+                this.axios.post('update-password', this.$data).then(response => {
+                    this.$root.success(response.data.info);
 
                     setTimeout(() => {
                         this.$route.router.go({ path:'/user' });
                     }, 1000);
                 }, response => {
-                    this.$root.error(response.body[0]);
+                    this.$root.error(response.data[0]);
                 });
             }
         }

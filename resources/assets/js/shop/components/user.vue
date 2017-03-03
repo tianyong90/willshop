@@ -59,7 +59,7 @@
             XButton,
         },
 
-        ready () {
+        mounted () {
             this.getUser();
         },
 
@@ -71,8 +71,8 @@
 
         methods: {
             getUser () {
-                this.$http.get('current-user').then(response => {
-                    this.$set('user', response.body.user);
+                this.axios.get('current-user').then(response => {
+                    this.$set('user', response.data.user);
                 });
             },
 

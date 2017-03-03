@@ -12,7 +12,7 @@
             Cell
         },
 
-        ready () {
+        mounted () {
             this.getPosts();
         },
 
@@ -24,8 +24,8 @@
 
         methods: {
             getPosts () {
-                this.$http.get('post').then(response => {
-                    this.$set('posts', response.body.posts);
+                this.axios.get('post').then(response => {
+                    this.$set('posts', response.data.posts);
                 });
             }
         }

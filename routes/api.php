@@ -13,55 +13,50 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-// $api = app(\Dingo\Api\Routing\Router::class);
-
-// $api->version('v1', function ($api) {
-
-//     $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
-//         // Login and Register
-//         $api->post('/login', 'AuthController@authenticate');
-//         $api->post('/register', 'AuthController@register');
-
-//         // 商品相关
-//         $api->get('/product', 'ProductController@lists');
-//         $api->get('/product/{id}', 'ProductController@show');
-
-//         $api->get('/product-category', 'ProductCategoryController@lists');
-
-//         // 文章
-//         $api->get('/post', 'PostController@lists');
-//         $api->get('/post/{id}', 'PostController@detail');
-
-// //        $api->group(['middleware' => ['jwt.auth', 'jwt.refresh']], function ($api) {
-//         $api->group(['middleware' => ['jwt.auth']], function ($api) {
-//             $api->post('/update-password', 'AuthController@updatePassword');
-//             $api->get('/current-user', 'AuthController@getAuthenticatedUser');
-//             $api->post('/user/avatar', 'UserController@avatar');
-
-//             $api->post('/checkout', 'OrderController@store');
-//             $api->get('/order', 'OrderController@index');
-//             $api->get('/order/{$id}', 'OrderController@show');
-
-//             $api->get('/cart', 'CartController@index');
-//             $api->post('/cart/add', 'CartController@store');
-//             $api->post('/cart/{cartId}/delete', 'CartController@destroy');
-//             $api->get('/cart/product-amount', 'CartController@getProductAmount');
-
-//             $api->get('/favourite/{productId}/add', 'FavouriteController@add');
-//             $api->get('/favourite/{productId}/delete', 'FavouriteController@delete');
-//             $api->get('/favourite/{productId}/toggle', 'FavouriteController@toggle');
-//             $api->get('/favourite/{productId}/is-favourite', 'FavouriteController@checkFavourite');
-//             $api->get('/favourite', 'FavouriteController@lists');
-
-//             // 地址
-//             $api->get('/address', 'AddressController@index');
-//             $api->post('/address/store', 'AddressController@store');
-//             $api->get('/address/{id}', 'AddressController@show')->where('id', '\d+');
-//             $api->delete('/address/{id}/delete', 'AddressController@destroy');
-//         });
-//     });
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
 // });
+
+Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
+    // Login and Register
+    Route::post('/login', 'AuthController@authenticate');
+    Route::post('/register', 'AuthController@register');
+
+    // 商品相关
+    Route::get('/product', 'ProductController@lists');
+    Route::get('/product/{id}', 'ProductController@show');
+
+    Route::get('/product-category', 'ProductCategoryController@lists');
+
+    // 文章
+    Route::get('/post', 'PostController@lists');
+    Route::get('/post/{id}', 'PostController@detail');
+
+//  Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function ($api) {
+    Route::group(['middleware' => ['jwt.auth']], function ($api) {
+        Route::post('/update-password', 'AuthController@updatePassword');
+        Route::get('/current-user', 'AuthController@getAuthenticatedUser');
+        Route::post('/user/avatar', 'UserController@avatar');
+
+        Route::post('/checkout', 'OrderController@store');
+        Route::get('/order', 'OrderController@index');
+        Route::get('/order/{$id}', 'OrderController@show');
+
+        Route::get('/cart', 'CartController@index');
+        Route::post('/cart/add', 'CartController@store');
+        Route::post('/cart/{cartId}/delete', 'CartController@destroy');
+        Route::get('/cart/product-amount', 'CartController@getProductAmount');
+
+        Route::get('/favourite/{productId}/add', 'FavouriteController@add');
+        Route::get('/favourite/{productId}/delete', 'FavouriteController@delete');
+        Route::get('/favourite/{productId}/toggle', 'FavouriteController@toggle');
+        Route::get('/favourite/{productId}/is-favourite', 'FavouriteController@checkFavourite');
+        Route::get('/favourite', 'FavouriteController@lists');
+
+        // 地址
+        Route::get('/address', 'AddressController@index');
+        Route::post('/address/store', 'AddressController@store');
+        Route::get('/address/{id}', 'AddressController@show')->where('id', '\d+');
+        Route::delete('/address/{id}/delete', 'AddressController@destroy');
+    });
+});

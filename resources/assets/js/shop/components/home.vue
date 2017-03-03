@@ -36,13 +36,9 @@
 
     methods: {
       getProducts () {
-        // this.$http.get('product').then(response => {
-        //   this.$set('products', response.body.products);
-        // });
-      },
-
-      destroy () {
-        console.log('home destroyed');
+        this.axios.get('product').then(response => {
+          this.products = response.data.products;
+        });
       }
     }
   }
@@ -70,7 +66,7 @@
         float: left;
         width: 40%;
         margin: 5%;
-        
+
         .thumbnail {
           display: block;
           width: 100%;

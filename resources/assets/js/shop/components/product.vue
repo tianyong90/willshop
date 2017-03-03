@@ -36,7 +36,7 @@
             XNumber,
         },
 
-        ready () {
+        mounted () {
             this.getProduct();
             this.checkIsFavourite();
             this.getProductAmountInCart();
@@ -54,8 +54,8 @@
 
         methods: {
             getProduct () {
-                this.$http.get(`product/${this.$route.params.id}`).then(response => {
-                    let { product } = response.body;
+                this.axios.get(`product/${this.$route.params.id}`).then(response => {
+                    let { product } = response.data;
 
                     this.$set('product', product);
 
@@ -69,8 +69,8 @@
 
             // 商品是否已被收藏
             checkIsFavourite () {
-                this.$http.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
-                    let data = response.body;
+                this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
+                    let data = response.data;
 
                     this.$set('isFavourite', data.isFavourite);
                 }, response => {
@@ -80,7 +80,7 @@
 
             // 购物车中商品总数
             getProductAmountInCart () {
-                this.$http.get('cart/product-amount').then(response => {
+                this.axios.get('cart/product-amount').then(response => {
                     this.$set('productAmountInCart', response.data);
                 }, response => {
                     console.log('出错');
@@ -94,8 +94,8 @@
                     amount: this.amount
                 };
 
-                this.$http.post('cart/add', postData).then(response => {
-                    let data = response.body;
+                this.axios.post('cart/add', postData).then(response => {
+                    let data = response.data;
 
                     this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;
                 });
@@ -103,7 +103,7 @@
 
             // 加入购物车
             toggleFavourite (productId) {
-                this.$http.get(`favourite/${productId}/toggle`).then(response => {
+                this.axios.get(`favourite/${productId}/toggle`).then(response => {
                     this.isFavourite = !this.isFavourite;
                 });
             },

@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        ready () {
+        mounted () {
             this.getfavourites();
         },
 
@@ -32,10 +32,10 @@
         methods: {
             // 获取收藏列表数据
             getfavourites () {
-                this.$http.get('favourite').then(response => {
+                this.axios.get('favourite').then(response => {
 
-                    console.log(response.body);
-                    this.$set('favourites', response.body.favourites);
+                    console.log(response.data);
+                    this.$set('favourites', response.data.favourites);
                 });
             },
 
