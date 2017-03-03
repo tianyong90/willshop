@@ -1,73 +1,86 @@
 <template>
   <div class="main">
-    <wv-button type="primary">hello world</wv-button>
+    <wv-swipe class="demo-swipe" :height="180" :auto="4000">
+      <wv-swipe-item class="demo-swipe-item" v-for="banner in banners">
+        <img :src="banner.img" alt="">
+      </wv-swipe-item>
+    </wv-swipe>
   </div>
 </template>
 
 <script>
-    const banners = [{
-            url: 'javascript:',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg'
-        },
-        {
-            url: 'javascript:',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg'
-        },
-        {
-            url: 'javascript',
-            img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg'
-    }];
+  const banners = [{
+    url: 'javascript:',
+    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg'
+  },
+  {
+    url: 'javascript:',
+    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
+  },
+  {
+    url: 'javascript',
+    img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
+  }];
 
-    export default {
-        data () {
-            return {
-                products: [],
-                banners: banners
-            }
-        },
+  export default {
+    data () {
+      return {
+        products: [],
+        banners
+      }
+    },
 
-        methods: {
-            // getProducts () {
-            //     this.$http.get('product').then(response => {
+    mounted () {
+      this.getProducts();
+    },
 
-            //         this.$set('products', response.body.products);
-            //     });
-            // },
+    methods: {
+      getProducts () {
+        // this.$http.get('product').then(response => {
+        //   this.$set('products', response.body.products);
+        // });
+      },
 
-            // destroy () {
-            //     console.log('home destroyed');
-            // }
-        }
+      destroy () {
+        console.log('home destroyed');
+      }
     }
+  }
+
 </script>
 
 <style scoped lang="scss">
-    #products {
+  .demo-swipe-item {
+    display: block;
+    overflow: hidden;
+  }
+
+  #products {
+    display: block;
+    overflow: hidden;
+    margin: 20px 0 80px 0;
+
+    ul {
+      display: block;
+      overflow: hidden;
+      padding: 0;
+
+      li {
         display: block;
-        overflow: hidden;
-        margin: 20px 0 80px 0;
-
-        ul {
-            display: block;
-            overflow: hidden;
-            padding: 0;
-
-            li {
-                display: block;
-                float: left;
-                width: 40%;
-                margin: 5%;
-                
-                .thumbnail {
-                    display: block;
-                    width: 100%;
-                }
-
-                .name {
-                    display: block;
-                    text-align: center;
-                }
-            }
+        float: left;
+        width: 40%;
+        margin: 5%;
+        
+        .thumbnail {
+          display: block;
+          width: 100%;
         }
+
+        .name {
+          display: block;
+          text-align: center;
+        }
+      }
     }
+  }
 </style>
