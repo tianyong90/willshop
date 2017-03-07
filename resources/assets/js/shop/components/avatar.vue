@@ -195,7 +195,7 @@
     }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     #cropper {
         display: block;
         overflow: hidden;

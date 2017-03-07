@@ -54,7 +54,7 @@
     }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     /*$grandientColor1: #1e5eb5;
     $grandientColor2: #8bcffe;
     $grandientColor3: #58b5fe;
@@ -71,7 +71,7 @@
     }*/
 </style>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     $color: red;
     $borderRadius: 5px;
 

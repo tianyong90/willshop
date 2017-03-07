@@ -1,20 +1,17 @@
 <template>
+  <div>
     <img src="/img/avatar.jpg" alt="" id="avatar">
-    <validator name="myValidation">
-        <div class="login-form">
-            <input type="text" v-model="user.name" placeholder="请输入用户名" v-validate:name="{required: true, minlength: 3, maxlength: 20}">
-            <input type="password" v-model="user.password" placeholder="请输入登录密码" v-validate:password="{required: true, minlength: 6, maxlength: 20}">
-            <button id="login" @click="login" :disabled="!$myValidation.valid">登录</button>
-        </div>
-    </validator>
+    <div class="login-form">
+        <input type="text" v-model="user.name" placeholder="请输入用户名">
+        <input type="password" v-model="user.password" placeholder="请输入登录密码">
+        <button id="login" @click="login" :disabled="false">登录</button>
+    </div>
 
-    <a v-link="{ path:'/register' }" id="btn-register">注册</a>
+    <v-link to="/register" id="btn-register">注册</v-link>
+  </div>
 </template>
 
 <script>
-    import VueValidator from 'vue-validator';
-    Vue.use(VueValidator);
-
     export default {
         mounted () {
         },
@@ -53,24 +50,7 @@
     }
 </script>
 
-<style lang="sass">
-    /*$grandientColor1: #1e5eb5;
-    $grandientColor2: #8bcffe;
-    $grandientColor3: #58b5fe;
-
-    html {
-        height: 100%;
-    }
-
-    body {
-        background: -webkit-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
-        background: -o-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
-        background: -moz-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
-        background: linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);
-    }*/
-</style>
-
-<style scoped lang="sass">
+<style scoped lang="scss">
     $color: red;
     $borderRadius: 5px;
 
@@ -88,7 +68,7 @@
         display: block;
         overflow: hidden;
         font-size: 18px;
-        
+
         input {
             display: block;
             width: 75%;

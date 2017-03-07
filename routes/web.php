@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop', 'Mobile\IndexController@index');
+Route::get('/shop/{vue_capture?}', 'Mobile\IndexController@index')->where('vue_capture', '[\/\w\.-]*');

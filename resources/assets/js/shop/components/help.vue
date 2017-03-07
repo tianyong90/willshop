@@ -32,7 +32,7 @@
     }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     #post-list {
         margin-bottom: 60px;
     }

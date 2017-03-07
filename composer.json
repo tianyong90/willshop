@@ -9,7 +9,8 @@
         "laravel/framework": "5.4.*",
         "barryvdh/laravel-ide-helper": "^2.2",
         "predis/predis": "^1.1",
-	"laravel/tinker": "~1.0"
+	    "laravel/tinker": "~1.0",
+        "tymon/jwt-auth": "^1.0.0-beta.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -45,7 +45,7 @@
     }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     #cart-liat {
         display: block;
         margin: 0;

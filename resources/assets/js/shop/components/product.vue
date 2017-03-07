@@ -1,13 +1,11 @@
 <template v-cloak>
     <div id="banner">
-        <swiper :list="banners" :aspect-ratio="360/640" dots-position="center" :show-desc-mask="false" auto loop :interval="5000"></swiper>
+
     </div>
 
     <div id="details">
         <div class="name">{{ product.name }}</div>
         <div class="price">{{ product.price }}</div>
-
-        <x-number title="已选" :value.sync="amount" :min="1" :fillable="false"></x-number>
     </div>
 
     <div id="description">
@@ -25,17 +23,7 @@
 </template>
 
 <script>
-    import { Swiper,Group,Cell,Panel,XNumber } from 'vux';
-
     export default {
-        components: {
-            Swiper,
-            Group,
-            Cell,
-            Panel,
-            XNumber,
-        },
-
         mounted () {
             this.getProduct();
             this.checkIsFavourite();
@@ -119,7 +107,7 @@
     }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     #details {
         display: block;
         background-color: #fff;
@@ -138,7 +126,7 @@
             color: red;
         }
     }
-    
+
     #description {
         display: block;
         overflow: hidden;
@@ -148,7 +136,7 @@
         font-size: 1.1rem;
         color: #666;
     }
-    
+
     footer {
         display: block;
         position: fixed;

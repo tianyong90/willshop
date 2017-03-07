@@ -65,7 +65,7 @@
     }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     #submit-btn {
         width: 90%;
         margin: 20px auto;

@@ -26,7 +26,7 @@
     }
 </script>
 
-<style lang="sass">
+<style lang="scss">
     $color: red;
     $color-hover: grayscale($color);
 

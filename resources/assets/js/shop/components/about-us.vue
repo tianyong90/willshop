@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     .content {
         display: block;
         padding: 20px;

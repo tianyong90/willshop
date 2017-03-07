@@ -89,7 +89,7 @@
     }
 </script>
 
-<style scoped lang="sass">
+<style scoped lang="scss">
     #address-list {
         display: block;
         overflow: hidden;
