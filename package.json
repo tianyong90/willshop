@@ -16,7 +16,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "bootstrap-sass": "^3.3.7",
     "element-ui": "1.2.3",
-    "eslint": "^3.16.1",
+    "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
     "fastclick": "^1.0.6",
     "jquery": "^3.1.1",
@@ -29,6 +29,6 @@
     "vue-axios": "^1.2.2",
     "vue-router": "^2.3.0",
     "vuex": "^2.2.1",
-    "we-vue": "^1.0.5"
+    "we-vue": "^1.0.7"
   }
 }
