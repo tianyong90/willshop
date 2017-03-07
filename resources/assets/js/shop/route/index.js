@@ -1,80 +1,176 @@
-router.map({
-  '/': {
-    component: require('./components/shop/home.vue')
+const routes = [
+  {
+    path: '/',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/home.vue')), 'shop-home');
+    },
+    meta: {
+      requiresAuth: false,
+      title: '首页'
+    }
   },
-  '/cart': {
-    component: require('./components/shop/cart.vue'),
-    auth: true
+  {
+    path: '/cart',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/cart.vue')), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/category': {
-    component: require('./components/shop/category.vue')
+  {
+    path: '/category',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/category.vue')), 'shop-home');
+    }
   },
-  '/order-list': {
-    component: require('./components/shop/order-list.vue'),
-    auth: true
+  {
+    path: '/order-list',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/order-list.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/order/:id': {
-    component: require('./components/shop/order.vue'),
-    auth: true
+  {
+    path: '/order/:id',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/order.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/favourite': {
-    component: require('./components/shop/favourite.vue'),
-    auth: true
+  {
+    path: '/favourite',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/favourite.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/checkout': {
-    component: require('./components/shop/checkout.vue'),
-    auth: true
+  {
+    path: '/checkout',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/checkout.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/user': {
-    component: require('./components/shop/user.vue'),
-    auth: true
+  {
+    path: '/user',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/user.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/profile': {
-    component: require('./components/shop/profile.vue'),
-    auth: true
+  {
+    path: '/profile',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/profile.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/avatar': {
-    component: require('./components/shop/avatar.vue'),
-    auth: true,
-    hideMainmenu: true
+  {
+    path: '/avatar',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/avatar.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true,
+      hideMainmenu: true
+    }
   },
-  '/address': {
-    component: require('./components/shop/address.vue'),
-    auth: true
+  {
+    path: '/address',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/address.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   },
-  '/address/add': {
-    component: require('./components/shop/address-edit.vue'),
-    auth: true,
-    hideMainmenu: true
+  {
+    path: '/address/add',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/address-edit.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true,
+      hideMainmenu: true
+    }
   },
-  '/address/:id': {
-    component: require('./components/shop/address-edit.vue'),
-    auth: true,
-    hideMainmenu: true
+  {
+    path: '/address/:id',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/address-edit.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true,
+      hideMainmenu: true
+    }
   },
-  '/about-us': {
-    component: require('./components/shop/about-us.vue')
+  {
+    path: '/about-us',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/about-us.vue')), 'shop-home');
+    }
   },
-  '/help': {
-    component: require('./components/shop/help.vue')
+  {
+    path: '/help',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/help.vue')), 'shop-home');
+    }
   },
-  '/help/:id': {
-    component: require('./components/shop/help-detail.vue')
+  {
+    path: '/help/:id',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/help-detail.vue')), 'shop-home');
+    }
   },
-  '/login': {
-    component: require('./components/shop/login.vue'),
-    hideMainmenu: true
+  {
+    path: '/login',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/login.vue'), ), 'shop-home');
+    },
+    meta: {
+      hideMainmenu: true
+    }
   },
-  '/register': {
-    component: require('./components/shop/register.vue'),
-    hideMainmenu: true
+  {
+    path: '/register',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/register.vue'), ), 'shop-home');
+    },
+    meta: {
+      hideMainmenu: true
+    }
   },
-  '/product/:id': {
-    component: require('./components/shop/product.vue'),
-    hideMainmenu: true
+  {
+    path: '/product/:id',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/product.vue'), ), 'shop-home');
+    },
+    meta: {
+      hideMainmenu: true
+    }
   },
-  '/password': {
-    component: require('./components/shop/password.vue'),
-    auth: true
+  {
+    path: '/password',
+    component: (resolve) => {
+      require.ensure([], () => resolve(require('../components/password.vue'), ), 'shop-home');
+    },
+    meta: {
+      requireAuth: true
+    }
   }
-});
+];
+
+export default routes;

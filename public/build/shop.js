@@ -887,31 +887,7 @@ var Config = {
 exports.default = Config;
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var routes = [{
-  path: '/',
-  component: function component(resolve) {
-    __webpack_require__.e/* require.ensure */(0).then((function () {
-      return resolve(__webpack_require__(122));
-    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-  },
-  meta: {
-    requiresAuth: false,
-    title: '首页'
-  }
-}];
-
-exports.default = routes;
-
-/***/ }),
+/* 48 */,
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2391,11 +2367,11 @@ exports.push([module.i, "html{-ms-text-size-adjust:100%;-webkit-text-size-adjust
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.menuVisible) ? _c('div', {
+  return (_vm.menuVisible) ? _c('wv-tabbar', {
     attrs: {
-      "id": "tabbar"
+      "fixed": ""
     }
-  }, [_c('wv-tabbar', [_c('wv-tabbar-item', {
+  }, [_c('wv-tabbar-item', {
     attrs: {
       "to": "/"
     }
@@ -2423,7 +2399,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "icon iconfont",
     slot: "icon"
-  }, [_vm._v("")]), _vm._v(" "), _c('span', [_vm._v("我的")])])], 1)], 1) : _vm._e()
+  }, [_vm._v("")]), _vm._v(" "), _c('span', [_vm._v("我的")])])], 1) : _vm._e()
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -2540,9 +2516,9 @@ var _config = __webpack_require__(47);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _routes = __webpack_require__(48);
+var _index3 = __webpack_require__(127);
 
-var _routes2 = _interopRequireDefault(_routes);
+var _index4 = _interopRequireDefault(_index3);
 
 var _vuex = __webpack_require__(10);
 
@@ -2555,7 +2531,7 @@ _vue2.default.use(_vueAxios2.default, _axios2.default);
 var router = new _vueRouter2.default({
   mode: 'history',
   base: '/shop/',
-  routes: _routes2.default
+  routes: _index4.default
 });
 
 router.beforeEach(function (to, from, next) {
@@ -2608,6 +2584,219 @@ var app = new _vue2.default({
 
   watch: {}
 }).$mount('#app');
+
+/***/ }),
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var routes = [{
+  path: '/',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(122));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requiresAuth: false,
+    title: '首页'
+  }
+}, {
+  path: '/cart',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(132));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/category',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(133));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
+}, {
+  path: '/order-list',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(139));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/order/:id',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(140));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/favourite',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(135));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/checkout',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(134));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/user',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(145));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/profile',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(143));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/avatar',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(131));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true,
+    hideMainmenu: true
+  }
+}, {
+  path: '/address',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(130));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}, {
+  path: '/address/add',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(128));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true,
+    hideMainmenu: true
+  }
+}, {
+  path: '/address/:id',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(128));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true,
+    hideMainmenu: true
+  }
+}, {
+  path: '/about-us',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(129));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
+}, {
+  path: '/help',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(137));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
+}, {
+  path: '/help/:id',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(136));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
+}, {
+  path: '/login',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(138));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    hideMainmenu: true
+  }
+}, {
+  path: '/register',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(144));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    hideMainmenu: true
+  }
+}, {
+  path: '/product/:id',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(142));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    hideMainmenu: true
+  }
+}, {
+  path: '/password',
+  component: function component(resolve) {
+    __webpack_require__.e/* require.ensure */(0).then((function () {
+      return resolve(__webpack_require__(141));
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  },
+  meta: {
+    requireAuth: true
+  }
+}];
+
+exports.default = routes;
 
 /***/ })
 ],[119]);

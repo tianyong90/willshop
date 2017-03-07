@@ -5,6 +5,17 @@
         <img :src="banner.img" alt="">
       </wv-swipe-item>
     </wv-swipe>
+
+    <div id="products">
+      <ul>
+        <li v-for="product in products">
+          <router-link :to="'/product/' + product.id">
+            <img class="thumbnail" :src="product.thumbnail" alt="">
+            <span class="name">{{ product.name }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 

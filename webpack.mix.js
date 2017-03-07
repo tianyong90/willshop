@@ -16,6 +16,8 @@ require('shelljs/global');
 
 const webpack = require('webpack');mix.disableNotifications();
 
+mix.setResourceRoot('/build/');
+
 mix.webpackConfig({
   module: {
     rules: [

@@ -9,7 +9,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import store from './store/index';
 import Config from './config';  // 配置
-import routes from './routes.js';
+import routes from './route/index.js';
 
 Vue.use(VueRouter);
 Vue.use(WeVue);
@@ -40,8 +40,6 @@ axios.defaults.timeout = Config.timeout;
 // axios 请求发送前处理
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true);
-
-  // config.headers.UserId = Cookies.get('suishoubian_card_userid');
 
   return config;
 }, (error) => {
