@@ -4,7 +4,6 @@ import WeVue from 'we-vue';
 import 'normalize.css/normalize.css';
 import 'we-vue/lib/style.css';
 import '../../sass/shop.scss';
-import '../../iconfont/iconfont.css';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import store from './store/index';
@@ -30,6 +29,8 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to, from) => {
   // 动态设置页面标题
   document.title = to.meta.title;
+
+  store.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
 
   store.commit('UPDATE_LOADING', false);
 });
@@ -85,7 +86,8 @@ const app = new Vue({
 
   computed: {
     ...mapState({
-      isLoading: state => state.isLoading
+      isLoading: state => state.isLoading,
+      isMainMenuVisible: state => state.isMainMenuVisible
     })
   },
 

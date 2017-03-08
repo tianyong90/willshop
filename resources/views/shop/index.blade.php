@@ -13,7 +13,7 @@
 
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-
+    <link rel="stylesheet" href="/css/iconfont/iconfont.css">
     <script>
         window.Laravel = {
             csrfToken: "{!! csrf_token() !!}"

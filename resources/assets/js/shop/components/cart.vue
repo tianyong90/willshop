@@ -1,25 +1,27 @@
 <template>
-    <ul id="cart-list">
-        <li class="list-item" v-for="cart in carts">
-            <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
-            <img :src="cart.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + cart.product.id }">
-            <div class="right-part">
-                <div class="name" v-link="{ path: '/product/' + cart.product.id }">{{ cart.product.name }}</div>
-                <span class="price">{{ cart.product.price | currency '&yen; ' }}</span>
-            </div>
-        </li>
-    </ul>
+    <div>
+        <ul id="cart-list">
+            <li class="list-item" v-for="cart in carts">
+                <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
+                <img :src="cart.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + cart.product.id }">
+                <div class="right-part">
+                    <div class="name" v-link="{ path: '/product/' + cart.product.id }">{{ cart.product.name }}</div>
+                    <span class="price">{{ cart.product.price | currency '&yen; ' }}</span>
+                </div>
+            </li>
+        </ul>
 
-    <footer>
-        <label id="check-all" for="check-all">
-            <input type="checkbox" v-model="selectAll" @click="checkAllClick"> 全选
-        </label>
-        <div class="summary">
-            <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
-            <div class="product-count">已选 {{ productAmount }} 件商品</div>
-        </div>
-        <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算</button>
-    </footer>
+        <footer>
+            <label id="check-all" for="check-all">
+                <input type="checkbox" v-model="selectAll" @click="checkAllClick"> 全选
+            </label>
+            <div class="summary">
+                <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
+                <div class="product-count">已选 {{ productAmount }} 件商品</div>
+            </div>
+            <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算</button>
+        </footer>
+    </div>
 </template>
 
 <script>

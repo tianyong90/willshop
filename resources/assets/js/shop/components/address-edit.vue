@@ -1,24 +1,23 @@
 <template>
-    <group title="收货地址信息">
-        <x-input title="收货人" :value.sync="address.name"></x-input>
-        <x-input title="手机号码" :value.sync="address.mobile"></x-input>
-        <address title="所在地区" :value.sync="pca" :list="addressData"></address>
-        <x-input title="详细地址" :value.sync="address.address"></x-input>
-        <x-input title="邮政编码" :value.sync="address.postcode"></x-input>
-    </group>
+    <div>
+        <wv-group title="收货地址信息">
+            <wv-input label="收货人" v-model="address.name"></wv-input>
+            <wv-input label="手机号码" v-model="address.mobile"></wv-input>
+            <wv-input label="详细地址" v-model="address.address"></wv-input>
+            <wv-input label="邮政编码" v-model="address.postcode"></wv-input>
+        </wv-group>
 
-    <footer>
-        <flexbox>
-            <flexbox-item v-if="$route.params.id">
-                <x-button type="warn" @click="confirmShow = true">删除</x-button>
-            </flexbox-item>
-            <flexbox-item>
-                <x-button type="primary" @click="save">保存</x-button>
-            </flexbox-item>
-        </flexbox>
-    </footer>
-
-    <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress()" show-cancel cancel-text="取消"></actionsheet>
+        <footer>
+            <wv-flex>
+                <wv-flex-item v-if="$route.params.id">
+                    <wv-button type="warn" @click.native="confirmShow = true">删除</wv-button>
+                </wv-flex-item>
+                <wv-flex-item>
+                    <wv-button type="primary" @click.native="save">保存</wv-button>
+                </wv-flex-item>
+            </wv-flex>
+        </footer>
+    </div>
 </template>
 
 <script>
@@ -31,7 +30,6 @@
         data () {
             return {
                 address: {},
-                addressData: AddressChinaData,
                 address: {},
                 pca: [],
                 confirmShow: false,

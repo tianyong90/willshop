@@ -1,14 +1,16 @@
 <template>
-    <group>
-        <cell title="头像" v-link="{ path:'/avatar' }">
-            <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
-        </cell>
-        <cell title="用户名" value="admin"></cell>
-    </group>
+    <div>
+        <wv-group>
+            <cell title="头像" v-link="{ path:'/avatar' }">
+                <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
+            </cell>
+            <cell title="用户名" value="admin"></cell>
+        </wv-group>
 
-    <group title="账号安全">
-        <cell title="登录密码" is-link v-link="{path:'/password'}"></cell>
-    </group>
+        <wv-group title="账号安全">
+            <cell title="登录密码" is-link v-link="{path:'/password'}"></cell>
+        </wv-group>
+    </div>
 </template>
 
 <script>

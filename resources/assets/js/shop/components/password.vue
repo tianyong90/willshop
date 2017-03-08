@@ -1,10 +1,10 @@
 <template>
-    <group>
+    <wv-group>
         <x-input type="password" :value.sync="oldPassword" placeholder="原密码"></x-input>
         <x-input type="password" :value.sync="password" placeholder="新密码"></x-input>
         <x-input type="password" :value.sync="password_confirmation" placeholder="确认新密码"></x-input>
         <x-button id="submit-btn" type="primary" @click="submit" :disabled="!canSubmit">确定</x-button>
-    </group>
+    </wv-group>
 </template>
 
 <script>

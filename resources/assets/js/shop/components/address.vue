@@ -1,30 +1,32 @@
 <template>
-    <ul id="address-list" v-if="addresses.length">
-        <li v-for="address in addresses">
-            <div class="header">
-                <span class="name">{{ address.name }}</span>
-                <span class="mobile">{{ address.mobile }}</span>
-            </div>
-            <div class="body">
-                <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
-            </div>
-            <div class="footer">
-                <span class="delete icon iconfont" @click="deleteClick(address)">&#xe612;</span>
-                <a class="edit icon iconfont" v-link="{path: '/address/' + address.id}">&#xe61f;</a>
-            </div>
-        </li>
-    </ul>
+    <div>
+        <ul id="address-list" v-if="addresses.length">
+            <li v-for="address in addresses">
+                <div class="header">
+                    <span class="name">{{ address.name }}</span>
+                    <span class="mobile">{{ address.mobile }}</span>
+                </div>
+                <div class="body">
+                    <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
+                </div>
+                <div class="footer">
+                    <span class="delete icon iconfont" @click="deleteClick(address)">&#xe612;</span>
+                    <a class="edit icon iconfont" v-link="{path: '/address/' + address.id}">&#xe61f;</a>
+                </div>
+            </li>
+        </ul>
 
-    <div class="empty" v-show="!$store.state.isLoading && addresses.length === 0">
-        <i class="icon iconfont">&#xe617;</i>
-        <div class="tips">您还没有设置地址</div>
+        <div class="empty" v-show="!isLoading && addresses.length === 0">
+            <i class="icon iconfont">&#xe617;</i>
+            <div class="tips">您还没有设置地址</div>
+        </div>
+
+        <footer>
+            <router-link class="weui-btn weui-btn_primary" tag="button" to="address/add">添加地址</router-link>
+        </footer>
+
+        <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress(activeAddress)" show-cancel cancel-text="取消"></actionsheet>
     </div>
-
-    <footer>
-        <x-button type="primary" v-link="{ path: '/address/add' }">添加地址</x-button>
-    </footer>
-
-    <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress(activeAddress)" show-cancel cancel-text="取消"></actionsheet>
 </template>
 
 <script>

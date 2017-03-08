@@ -1,51 +1,49 @@
 <template>
-    <div class="user-profile" v-link="{ path:'profile' }">
-        <img class="avatar" :src="user.avatar || '/img/avatar.jpg'">
-        <div class="username">{{ user.name }}</div>
-        <div class="mobile">{{ user.mobile }}</div>
+    <div>
+        <router-link class="user-profile" tag="div" to="{ path:'profile' }">
+            <img class="avatar" :src="user.avatar || '/img/avatar.jpg'">
+            <div class="username">{{ user.name }}</div>
+            <div class="mobile">{{ user.mobile }}</div>
+        </router-link>
+
+        <div id="card">
+            <router-link class="" tag="div" to="">
+                <span>1130</span>
+                <span class="text">我的余额</span>
+            </router-link>
+            <router-link class="" tag="div" to="">
+                <span>15</span>
+                <span class="text">我的积分</span>
+            </router-link>
+            <router-link class="" tag="div" to="">
+                <span>0</span>
+                <span class="text">我的红包</span>
+            </router-link>
+        </div>
+
+        <wv-group>
+            <wv-cell title="我的订单" is-link to="order-list">
+                <i class="icon iconfont icon-home" slot="icon"></i>
+            </wv-cell>
+            <wv-cell title="收货地址" is-link to="address">
+                <i class="icon iconfont icon-home" slot="icon"></i>
+            </wv-cell>
+            <wv-cell title="我的收藏" is-link to="favourite">
+                <i class="icon iconfont icon-home" slot="icon"></i>
+            </wv-cell>
+        </wv-group>
+
+        <wv-group>
+            <wv-cell title="使用帮助" is-link to="help">
+                <i class="icon iconfont icon-home" slot="icon"></i>
+            </wv-cell>
+            <wv-cell title="关于我们" is-link to="about-us">
+                <i class="icon iconfont icon-home" slot="icon"></i>
+            </wv-cell>
+        </wv-group>
+
+        <wv-button class="btn-logout" type="warn" @click.native="logout">退出登录</wv-button>
     </div>
-
-    <div id="card">
-        <card>
-            <div slot="content" class="card-demo-flex card-demo-content01">
-                <div class="vux-1px-l vux-1px-r" v-link="">
-                    <span>1130</span>
-                    <span class="text">我的余额</span>
-                </div>
-                <div class="vux-1px-r" v-link="">
-                    <span>15</span>
-                    <span class="text">我的积分</span>
-                </div>
-                <div class="vux-1px-r" v-link="">
-                    <span>0</span>
-                    <span class="text">我的红包</span>
-                </div>
-            </div>
-        </card>
-    </div>
-
-    <group>
-        <cell title="我的订单" is-link v-link="{ path:'/order-list' }">
-            <i class="icon iconfont" slot="icon">&#xe616;</i>
-        </cell>
-        <cell title="收货地址" is-link v-link="{ path:'/address' }">
-            <i class="icon iconfont" slot="icon">&#xe602;</i>
-        </cell>
-        <cell title="我的收藏" is-link v-link="{ path:'/favourite' }">
-            <i class="icon iconfont" slot="icon">&#xe607;</i>
-        </cell>
-    </group>
-
-    <group>
-        <cell title="使用帮助" is-link v-link="{ path:'/help' }">
-            <i class="icon iconfont" slot="icon">&#xe60e;</i>
-        </cell>
-        <cell title="关于我们" is-link v-link="{ path:'/about-us' }">
-            <i class="icon iconfont" slot="icon">&#xe617;</i>
-        </cell>
-    </group>
-
-    <x-button id="btn-logout" type="warn" @click="logout">退出登录</x-button>
 </template>
 
 <script>
@@ -68,22 +66,16 @@
             },
 
             logout () {
-                // 登录成功之后保存 JWT token
-                localStorage.setItem('token', '');
+                // 清除 jwt-token
+                localStorage.removeItem('willshop_token');
 
                 // 登录状态设置为已经登录
-                dispatch('UPDATE_IS_LOGIN', false);
+                this.$store.commit('UPDATE_IS_LOGIN', false);
 
-                this.$root.success('退出登录');
-
-                setTimeout(() => {
-                    // 退出登录后跳转至首页
-                    this.$route.router.go({ path: '/' });
-                }, 1000);
+                this.$router.replace('/');
             }
         }
     }
-
 </script>
 
 <style scoped lang="scss">
@@ -150,7 +142,7 @@
         color: #f74c31;
     }
 
-    #btn-logout {
+    .btn-logout {
         display: block;
         margin-top: 40px;
         width: 80%;

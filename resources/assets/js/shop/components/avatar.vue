@@ -1,17 +1,19 @@
 <template>
-    <div id="cropper" :style="{ width: cropperWidth + 'px', height: cropperHeight + 'px' }">
-        <img :src="previewSrc" v-touch:pan="onPan" v-touch:pinch="onPinch" :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }">
-    </div>
+    <div>
+        <div id="cropper" :style="{ width: cropperWidth + 'px', height: cropperHeight + 'px' }">
+            <img :src="previewSrc" v-touch:pan="onPan" v-touch:pinch="onPinch" :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }">
+        </div>
 
-    <div class="buttons">
-        <x-button type="default">选择图片
-            <input type="file" name="file" id="file" @change="fileChange">
-        </x-button>
-        <x-button type="primary" @click="save">保存</x-button>
-        <x-button type="warn" @click="cancle">取消</x-button>
-    </div>
+        <div class="buttons">
+            <x-button type="default">选择图片
+                <input type="file" name="file" id="file" @change="fileChange">
+            </x-button>
+            <x-button type="primary" @click="save">保存</x-button>
+            <x-button type="warn" @click="cancle">取消</x-button>
+        </div>
 
-    <loading :show="isLoading"></loading>
+        <loading :show="isLoading"></loading>
+    </div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-    <group title="常见问题" id="post-list">
-        <cell v-for="post in posts" :title="post.title" v-link="{path: '/help/' + post.id }" is-link></cell>
-    </group>
+    <wv-group title="常见问题" id="post-list">
+        <wv-cell v-for="post in posts" :title="post.title" :to="'/help/' + post.id" is-link></wv-cell>
+    </wv-group>
 </template>
 
 <script>
@@ -19,7 +19,7 @@
         methods: {
             getPosts () {
                 this.axios.get('post').then(response => {
-                    this.$set('posts', response.data.posts);
+                    this.posts = response.data.posts;
                 });
             }
         }

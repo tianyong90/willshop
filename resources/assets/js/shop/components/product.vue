@@ -18,8 +18,8 @@
 
         <footer>
             <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
-            <router-link class="btn" id="btn-cart" to="/cart"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></router-link>
-            <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
+            <router-link class="btn btn-cart" to="/cart"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></router-link>
+            <div class="btn btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
                 <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
             </div>
         </footer>
@@ -30,8 +30,8 @@
     export default {
         mounted () {
             this.getProduct();
-            // this.checkIsFavourite();
-            // this.getProductAmountInCart();
+            this.checkIsFavourite();
+            this.getProductAmountInCart();
         },
 
         data () {
@@ -65,9 +65,8 @@
             // 商品是否已被收藏
             checkIsFavourite () {
                 this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
-                    let data = response.data;
-
-                    this.$set('isFavourite', data.isFavourite);
+                    console.log(response);
+                    this.isFavourite = response.data.isFavourite;
                 });
             },
 

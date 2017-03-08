@@ -13,17 +13,17 @@ const state = {
 export default new Vuex.Store({
   state,
   mutations: {
-    UPDATE_LOADING (state, status) {
-      state.isLoading = status;
+    UPDATE_LOADING (state, value) {
+      state.isLoading = value;
     },
-    UPDATE_DIRECTION (state, direction) {
-      state.direction = direction;
+    UPDATE_DIRECTION (state, value) {
+      state.direction = value;
     },
-    UPDATE_MAINMENU_VISIBLE(state, visible) {
-      state.isMainMenuVisible = visible;
+    UPDATE_MAINMENU_VISIBLE (state, value) {
+      state.isMainMenuVisible = value;
     },
-    UPDATE_IS_LOGIN(state, isLogin) {
-      state.isLogin = isLogin;
+    UPDATE_IS_LOGIN (state, value) {
+      state.isLogin = value;
     }
   }
 });

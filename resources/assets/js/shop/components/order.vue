@@ -1,11 +1,11 @@
 <template>
-    order
+    <div>order</div>
 </template>
 
 <script>
     export default {
         mounted () {
-            
+
         },
 
         data () {

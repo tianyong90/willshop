@@ -1,11 +1,11 @@
 <template>
-    category
+    <div>category</div>
 </template>
 
 <script>
     export default {
         mounted () {
-            
+
         },
 
         data () {

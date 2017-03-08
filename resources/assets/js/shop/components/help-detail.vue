@@ -1,7 +1,9 @@
 <template>
-    <h1 class="title">{{ post.title }}</h1>
+    <div>
+        <h1 class="title">{{ post.title }}</h1>
 
-    <div class="content">{{ post.content }}</div>
+        <div class="content">{{ post.content }}</div>
+    </div>
 </template>
 
 <script>
@@ -19,7 +21,7 @@
         methods: {
             getPost () {
                 this.axios.get('post/' + this.$route.params.id).then(response => {
-                    this.$set('post', response.data.post);
+                    this.post = response.data.post;
                 });
             }
         }

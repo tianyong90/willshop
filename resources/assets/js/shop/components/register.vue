@@ -1,5 +1,5 @@
 <template>
-    <validator name="myValidation">
+    <div>
         <div class="register-form">
             <input type="text" v-model="user.name" placeholder="请输入用户名" v-validate:name="{required: true, minlength: 3, maxlength: 20}">
             <input type="mobile" v-model="user.mobile" placeholder="请输入手机号" v-validate:mobile="{required: true, pattern: {rule: '/^0?(13|14|15|18)[0-9]{9}$/'}}">
@@ -7,9 +7,9 @@
             <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码" v-validate:password_confirmation="{required: true, minlength: 6, maxlength: 20}">
             <button id="register" @click="register" :disabled="!canSubmit">注册</button>
         </div>
-    </validator>
 
-    <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
+        <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
+    </div>
 </template>
 
 <script>
@@ -38,7 +38,7 @@
                     localStorage.token = response.data.token;
 
                     // 登录状态设置为已经登录
-                    dispatch('UPDATE_IS_LOGIN', true);
+                    this.$store.commit('UPDATE_IS_LOGIN', true);
 
                     this.$root.success('登录成功');
 
@@ -105,7 +105,7 @@
             }
         }
     }
-    
+
     #btn-to-register {
         display: block;
         height: 35px;
