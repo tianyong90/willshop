@@ -1,57 +1,64 @@
 <template v-cloak>
-    <div id="banner">
-
-    </div>
-
-    <div id="details">
-        <div class="name">{{ product.name }}</div>
-        <div class="price">{{ product.price }}</div>
-    </div>
-
-    <div id="description">
-        {{ product.description }}
-    </div>
-
-    <footer>
-        <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
-        <div class="btn" id="btn-cart" v-link="{path: '/cart'}"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></div>
-        <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
-            <span
-                class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
+    <div>
+        <div id="banner">
+            <wv-swipe :height="180" :auto="4000">
+                <wv-swipe-item v-for="banner in banners">
+                    <img :src="banner.img" alt="">
+                </wv-swipe-item>
+            </wv-swipe>
         </div>
-    </footer>
+        <div id="details">
+            <div class="name">{{ product.name }}</div>
+            <div class="price">{{ product.price }}</div>
+        </div>
+
+        <div id="description">
+            {{ product.description }}
+        </div>
+
+        <footer>
+            <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
+            <router-link class="btn" id="btn-cart" to="/cart"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></router-link>
+            <div class="btn" id="btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
+                <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
+            </div>
+        </footer>
+    </div>
 </template>
 
 <script>
     export default {
         mounted () {
             this.getProduct();
-            this.checkIsFavourite();
-            this.getProductAmountInCart();
+            // this.checkIsFavourite();
+            // this.getProductAmountInCart();
         },
 
         data () {
             return {
                 product: {},
-                banners: [],
                 amount: 1,
                 isFavourite: false,
                 productAmountInCart: 0,
             }
         },
 
+        computed: {
+            banners () {
+                let temp = [];
+                if (this.product.pictures) {
+                    this.product.pictures.forEach(picture => {
+                        temp.push({ img: picture });
+                    });
+                }
+                return temp;
+            }
+        },
+
         methods: {
             getProduct () {
                 this.axios.get(`product/${this.$route.params.id}`).then(response => {
-                    let { product } = response.data;
-
-                    this.$set('product', product);
-
-                    for(let item in product.pictures) {
-                        this.banners.push({img: product.pictures[item]});
-                    }
-                }, response => {
-                    console.log('出错');
+                    this.product = response.data.product;
                 });
             },
 
@@ -61,8 +68,6 @@
                     let data = response.data;
 
                     this.$set('isFavourite', data.isFavourite);
-                }, response => {
-                    console.log('出错');
                 });
             },
 
@@ -70,8 +75,6 @@
             getProductAmountInCart () {
                 this.axios.get('cart/product-amount').then(response => {
                     this.$set('productAmountInCart', response.data);
-                }, response => {
-                    console.log('出错');
                 });
             },
 
@@ -94,15 +97,7 @@
                 this.axios.get(`favourite/${productId}/toggle`).then(response => {
                     this.isFavourite = !this.isFavourite;
                 });
-            },
-
-            destroy () {
-                console.log('product destroy');
             }
-        },
-
-        beforeDestroy () {
-            this.destroy();
         }
     }
 </script>

@@ -49,16 +49,7 @@
 </template>
 
 <script>
-    import { Cell,Group,Card,XButton } from 'vux';
-
     export default {
-        components: {
-            Cell,
-            Group,
-            Card,
-            XButton,
-        },
-
         mounted () {
             this.getUser();
         },
@@ -72,7 +63,7 @@
         methods: {
             getUser () {
                 this.axios.get('current-user').then(response => {
-                    this.$set('user', response.data.user);
+                    // this.$set('user', response.data.user);
                 });
             },
 
@@ -92,6 +83,7 @@
             }
         }
     }
+
 </script>
 
 <style scoped lang="scss">
@@ -119,7 +111,7 @@
             font-size: 15px;
         }
     }
-    
+
     #card {
         .text {
             display: block;
@@ -128,36 +120,36 @@
             font-weight: 400;
         }
     }
-    
+
     .icon {
         display: inline-block;
         float: left;
         margin-right: 5px;
         color: #777;
     }
-    
+
     .card-demo-flex {
         display: flex;
     }
-    
+
     .card-demo-content01 {
         padding: 10px 0;
     }
-    
+
     .card-padding {
         padding: 15px;
     }
-    
+
     .card-demo-flex > div {
         flex: 1;
         text-align: center;
         font-size: 12px;
     }
-    
+
     .card-demo-flex span {
         color: #f74c31;
     }
-    
+
     #btn-logout {
         display: block;
         margin-top: 40px;

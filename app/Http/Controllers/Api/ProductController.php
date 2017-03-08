@@ -6,8 +6,6 @@ use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-
 class ProductController extends BaseController
 {
     /**
@@ -54,6 +52,8 @@ class ProductController extends BaseController
      */
     public function show($id)
     {
-        return $this->product->findOrFail($id);
+        $product = $this->product->findOrFail($id);
+
+        return response()->json(compact('product'));
     }
 }

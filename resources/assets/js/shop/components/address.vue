@@ -28,14 +28,7 @@
 </template>
 
 <script>
-    import { XButton,Actionsheet } from 'vux';
-
     export default {
-        components: {
-            XButton,
-            Actionsheet,
-        },
-
         mounted () {
             this.getAddresses();
         },

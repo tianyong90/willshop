@@ -5,13 +5,7 @@
 </template>
 
 <script>
-    import { Group, Cell } from 'vux';
     export default {
-        components: {
-            Group,
-            Cell
-        },
-
         mounted () {
             this.getPosts();
         },

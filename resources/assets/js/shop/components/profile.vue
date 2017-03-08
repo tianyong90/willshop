@@ -12,15 +12,7 @@
 </template>
 
 <script>
-    import { Cell,Group,Card } from 'vux';
-
     export default {
-        components: {
-            Cell,
-            Group,
-            Card
-        },
-
         mounted () {
             this.getUser();
         },

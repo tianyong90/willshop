@@ -41,6 +41,9 @@ axios.defaults.timeout = Config.timeout;
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true);
 
+  let token = window.localStorage.getItem('willshop_token');
+  config.headers.Authorization = 'bearer ' + token;
+
   return config;
 }, (error) => {
   return Promise.reject(error);
@@ -49,6 +52,11 @@ axios.interceptors.request.use((config) => {
 // axios 得到响应后处理
 axios.interceptors.response.use((response) => {
   store.commit('UPDATE_LOADING', false);
+
+  const newToken = response.headers.authorization;
+  if (newToken) {
+    window.localStorage.setItem('sadmin_token', newToken.replace('bearer ', ''));
+  }
 
   return response;
 }, (error) => {
@@ -76,11 +84,30 @@ const app = new Vue({
   },
 
   computed: {
+    ...mapState({
+      isLoading: state => state.isLoading
+    })
   },
 
   methods: {
+    success (message) {
+      WeVue.Toast(message);
+    },
+
+    error (message, duration) {
+      WeVue.Toast({
+        message
+      });
+    }
   },
 
   watch: {
+    'isLoading': (value) => {
+      if (value) {
+        WeVue.Indicator.open('loading');
+      } else {
+        WeVue.Indicator.close();
+      }
+    }
   }
 }).$mount('#app');

@@ -1269,7 +1269,7 @@ var Component = __webpack_require__(58)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\mainmenu.vue"
+Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\mainmenu.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mainmenu.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2682,6 +2682,10 @@ module.exports = function listToStyles (parentId, list) {
 "use strict";
 
 
+var _extends2 = __webpack_require__(224);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _promise = __webpack_require__(50);
 
 var _promise2 = _interopRequireDefault(_promise);
@@ -2758,6 +2762,9 @@ _axios2.default.defaults.timeout = _config2.default.timeout;
 _axios2.default.interceptors.request.use(function (config) {
   _index2.default.commit('UPDATE_LOADING', true);
 
+  var token = window.localStorage.getItem('willshop_token');
+  config.headers.Authorization = 'bearer ' + token;
+
   return config;
 }, function (error) {
   return _promise2.default.reject(error);
@@ -2765,6 +2772,11 @@ _axios2.default.interceptors.request.use(function (config) {
 
 _axios2.default.interceptors.response.use(function (response) {
   _index2.default.commit('UPDATE_LOADING', false);
+
+  var newToken = response.headers.authorization;
+  if (newToken) {
+    window.localStorage.setItem('sadmin_token', newToken.replace('bearer ', ''));
+  }
 
   return response;
 }, function (error) {
@@ -2784,12 +2796,238 @@ var app = new _vue2.default({
     'mainmenu': __webpack_require__(56)
   },
 
-  computed: {},
+  computed: (0, _extends3.default)({}, (0, _vuex.mapState)({
+    isLoading: function isLoading(state) {
+      return state.isLoading;
+    }
+  })),
 
-  methods: {},
+  methods: {
+    success: function success(message) {
+      _weVue2.default.Toast(message);
+    },
+    error: function error(message, duration) {
+      _weVue2.default.Toast({
+        message: message
+      });
+    }
+  },
 
-  watch: {}
+  watch: {
+    'isLoading': function isLoading(value) {
+      if (value) {
+        _weVue2.default.Indicator.open('loading');
+      } else {
+        _weVue2.default.Indicator.close();
+      }
+    }
+  }
 }).$mount('#app');
+
+/***/ }),
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(225);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _assign2.default || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(226), __esModule: true };
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(230);
+module.exports = __webpack_require__(7).Object.assign;
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys  = __webpack_require__(96)
+  , gOPS     = __webpack_require__(228)
+  , pIE      = __webpack_require__(229)
+  , toObject = __webpack_require__(103)
+  , IObject  = __webpack_require__(85)
+  , $assign  = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__(38)(function(){
+  var A = {}
+    , B = {}
+    , S = Symbol()
+    , K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function(k){ B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+  var T     = toObject(target)
+    , aLen  = arguments.length
+    , index = 1
+    , getSymbols = gOPS.f
+    , isEnum     = pIE.f;
+  while(aLen > index){
+    var S      = IObject(arguments[index++])
+      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+      , length = keys.length
+      , j      = 0
+      , key;
+    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+  } return T;
+} : $assign;
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports) {
+
+exports.f = {}.propertyIsEnumerable;
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(30);
+
+$export($export.S + $export.F, 'Object', {assign: __webpack_require__(227)});
 
 /***/ })
 ],[120]);

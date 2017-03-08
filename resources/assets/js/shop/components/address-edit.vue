@@ -22,21 +22,8 @@
 </template>
 
 <script>
-    import { Cell,Group,Flexbox,FlexboxItem,XInput,XButton,Address,AddressChinaData,Actionsheet } from 'vux';
-    import value2name from 'vux/src/filters/value2name';
-    
-    export default {
-        components: {
-            Cell,
-            Group,
-            XInput,
-            XButton,
-            Address,
-            Flexbox,
-            FlexboxItem,
-            Actionsheet,
-        },
 
+    export default {
         mounted () {
             this.getAddress();
         },
@@ -80,7 +67,7 @@
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
                 let addressId = this.$route.params.id;
-                
+
                 if (addressId) {
                     postData.id = addressId;
                 }
@@ -132,10 +119,5 @@
         z-index: 20;
         background-color: #fff;
         padding: .5rem 0;
-
-        .vux-flexbox {
-            width: 90%;
-            margin: 0 auto;
-        }
     }
 </style>

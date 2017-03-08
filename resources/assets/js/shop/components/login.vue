@@ -7,7 +7,7 @@
         <button id="login" @click="login" :disabled="false">登录</button>
     </div>
 
-    <v-link to="/register" id="btn-register">注册</v-link>
+    <router-link to="/register" id="btn-register">注册</router-link>
   </div>
 </template>
 
@@ -29,10 +29,10 @@
             login () {
                 this.axios.post('login', this.user).then(response => {
                     // 登录成功之后保存 JWT token
-                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('willshop_token', response.data.token);
 
                     // 登录状态设置为已经登录
-                    dispatch('UPDATE_IS_LOGIN', true);
+                    this.$store.commit('UPDATE_IS_LOGIN', true);
 
                     this.$root.success('登录成功');
 
@@ -40,7 +40,7 @@
                         let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/';
 
                         // 登录成功后跳转至之前想要进入的页面
-                        this.$route.router.go(redirectPath);
+                        this.$router.push(redirectPath);
                     }, 1000);
                 }, response => {
                     this.$root.error(response.data.message);

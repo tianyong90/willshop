@@ -15,18 +15,12 @@
 </template>
 
 <script>
-    import { XButton, Loading } from 'vux';
     import VueTouch from 'vue-touch';
     Vue.use(VueTouch);
 
     export default {
-        components: {
-            XButton,
-            Loading,
-        },
-
         mounted () {
-            
+
         },
 
         data () {
@@ -126,7 +120,7 @@
                     // 根据原始宽高设置预览图片的宽和高
                     if (originalWidth >= originalHeight) {
                         _this.height = _this.cropperHeight + 50;
-                        _this.width = parseInt(originalWidth * _this.height / originalHeight);        
+                        _this.width = parseInt(originalWidth * _this.height / originalHeight);
                     } else {
                         _this.width = _this.cropperWidth + 50;
                         _this.height = parseInt(originalHeight * _this.width / originalWidth);

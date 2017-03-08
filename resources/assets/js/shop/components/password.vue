@@ -8,15 +8,7 @@
 </template>
 
 <script>
-    import { Group,XInput,XButton } from 'vux';
-
     export default {
-        components: {
-            Group,
-            XInput,
-            XButton
-        },
-
         data () {
             return {
                 oldPassword: '',
