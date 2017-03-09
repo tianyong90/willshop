@@ -17,7 +17,7 @@
         methods: {
             getOrders () {
                 this.axios.get('order').then(response => {
-                    this.$set('orders', response.data);
+                    this.orders = response.data;
                 }, response => {
                     console.log(response);
                 });

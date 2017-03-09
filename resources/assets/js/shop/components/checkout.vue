@@ -15,7 +15,7 @@
         <footer>
             <input type="checkbox" id="check-all">
             <div class="total-price">合计：{{ totalPrice }}</div>
-            <a v-link="{ path: '/order' }" class="btn" id="btn-checkout">立即下单</a>
+            <router-link v-link="/order" class="btn" id="btn-checkout">立即下单</router-link>
         </footer>
     </div>
 </template>
@@ -35,10 +35,7 @@
         methods: {
             getCarts () {
                 this.axios.get('cart/lists').then(response => {
-
-                    console.log(response.data);
-
-                    this.$set('carts', response.data);
+                    this.carts = response.data;
                 });
             }
         }

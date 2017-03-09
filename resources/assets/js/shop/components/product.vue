@@ -2,7 +2,7 @@
     <div>
         <div id="banner">
             <wv-swipe :height="180" :auto="4000">
-                <wv-swipe-item v-for="banner in banners">
+                <wv-swipe-item class="banner-swipe-item" v-for="banner in banners">
                     <img :src="banner.img" alt="">
                 </wv-swipe-item>
             </wv-swipe>
@@ -17,7 +17,7 @@
         </div>
 
         <footer>
-            <div id="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
+            <div class="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
             <router-link class="btn btn-cart" to="/cart"><span class="amount">{{ productAmountInCart }}</span><i class="icon iconfont">&#xe611;</i><span class="text">购物车</span></router-link>
             <div class="btn btn-favourite" @click="toggleFavourite(product.id)"><i class="icon iconfont" :class="{'is-favourite': isFavourite}">{{ isFavourite ? '&#xe606;' : '&#xe607;' }}</i>
                 <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
@@ -65,7 +65,6 @@
             // 商品是否已被收藏
             checkIsFavourite () {
                 this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
-                    console.log(response);
                     this.isFavourite = response.data.isFavourite;
                 });
             },
@@ -73,7 +72,7 @@
             // 购物车中商品总数
             getProductAmountInCart () {
                 this.axios.get('cart/product-amount').then(response => {
-                    this.$set('productAmountInCart', response.data);
+                    this.productAmountInCart = response.data.amount;
                 });
             },
 
@@ -102,6 +101,11 @@
 </script>
 
 <style scoped lang="scss">
+    .banner-swipe-item {
+        display: block;
+        overflow: hidden;
+    }
+
     #details {
         display: block;
         background-color: #fff;
@@ -169,7 +173,8 @@
                 font-size: 12px;
             }
         }
-        #btn-add-cart {
+
+        .btn-add-cart {
             display: inline-block;
             height: 60px;
             font-size: 15px;

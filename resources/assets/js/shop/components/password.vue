@@ -1,9 +1,9 @@
 <template>
     <wv-group>
-        <x-input type="password" :value.sync="oldPassword" placeholder="原密码"></x-input>
-        <x-input type="password" :value.sync="password" placeholder="新密码"></x-input>
-        <x-input type="password" :value.sync="password_confirmation" placeholder="确认新密码"></x-input>
-        <x-button id="submit-btn" type="primary" @click="submit" :disabled="!canSubmit">确定</x-button>
+        <wv-input type="password" v-model.trim="oldPassword" placeholder="原密码"></wv-input>
+        <wv-input type="password" v-model.trim="password" placeholder="新密码"></wv-input>
+        <wv-input type="password" v-model.trim="password_confirmation" placeholder="确认新密码"></wv-input>
+        <wv-button id="submit-btn" type="primary" @click.native="submit" :disabled="!canSubmit">确定</wv-button>
     </wv-group>
 </template>
 
@@ -47,7 +47,7 @@
                     this.$root.success(response.data.info);
 
                     setTimeout(() => {
-                        this.$route.router.go({ path:'/user' });
+                        this.$router.push('/user');
                     }, 1000);
                 }, response => {
                     this.$root.error(response.data[0]);

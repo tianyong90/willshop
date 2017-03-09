@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="register-form">
-            <input type="text" v-model="user.name" placeholder="请输入用户名" v-validate:name="{required: true, minlength: 3, maxlength: 20}">
-            <input type="mobile" v-model="user.mobile" placeholder="请输入手机号" v-validate:mobile="{required: true, pattern: {rule: '/^0?(13|14|15|18)[0-9]{9}$/'}}">
-            <input type="password" v-model="user.password" placeholder="请输入登录密码" v-validate:password="{required: true, confirmed: true, minlength: 6, maxlength: 20}">
-            <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码" v-validate:password_confirmation="{required: true, minlength: 6, maxlength: 20}">
+            <input type="text" v-model="user.name" placeholder="请输入用户名">
+            <input type="mobile" v-model="user.mobile" placeholder="请输入手机号">
+            <input type="password" v-model="user.password" placeholder="请输入登录密码">
+            <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码">
             <button id="register" @click="register" :disabled="!canSubmit">注册</button>
         </div>
 
-        <a v-link="{ path:'/login' }" id="btn-to-register">使用已有账号登录</a>
+        <router-link to="/login" id="btn-to-register">使用已有账号登录</router-link>
     </div>
 </template>
 
@@ -27,7 +27,7 @@
 
         computed: {
             canSubmit: function () {
-                return this.$myValidation.valid && (this.user.password === this.user.password_confirmation);
+                return this.user.password === this.user.password_confirmation;
             }
         },
 
@@ -44,7 +44,7 @@
 
                     setTimeout(() => {
                         // 注册成功后跳转至用户中心页面
-                        this.$route.router.go({ path: '/user' });
+                        this.$router.push('/user');
                     }, 1000);
                 }, response => {
                     this.$root.error(response.data.error);

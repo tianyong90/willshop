@@ -1,21 +1,17 @@
 <template>
     <ul id="favourite-list">
-        <li class="list-item" v-for="favourite in favourites">
-            <img :src="favourite.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + favourite.product.id }">
+        <router-link tag="li" :to="'product/' + favourite.product.id" class="list-item" v-for="favourite in favourites">
+            <img :src="favourite.product.thumbnail" alt="" class="thumbnail" :to="'/product/' + favourite.product.id">
             <div class="right-part">
-                <div class="name" v-link="{ path: '/product/' + favourite.product.id }">{{ favourite.product.name }}</div>
-                <span class="price">{{ favourite.product.price | currency '&yen; ' }}</span>
+                <div class="name" :to="'/product/' + favourite.product.id">{{ favourite.product.name }}</div>
+                <span class="price">{{ favourite.product.price }}</span>
             </div>
-        </li>
+        </router-link>
     </ul>
 </template>
 
 <script>
     export default {
-        mounted () {
-            this.getfavourites();
-        },
-
         data () {
             return {
                 favourites: [],
@@ -23,29 +19,16 @@
             }
         },
 
-        computed: {
-            selectAll () {
-                return this.selectedfavourites.length === this.favourites.length;
-            }
+        mounted () {
+            this.getfavourites();
         },
 
         methods: {
             // 获取收藏列表数据
             getfavourites () {
                 this.axios.get('favourite').then(response => {
-
-                    console.log(response.data);
-                    this.$set('favourites', response.data.favourites);
+                    this.favourites = response.data.favourites;
                 });
-            },
-
-            // 全选和取消全选
-            checkAllClick () {
-                if (this.selectAll) {
-                    this.selectedfavourites = [];
-                } else {
-                    this.selectedfavourites = this.favourites;
-                }
             }
         }
     }

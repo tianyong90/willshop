@@ -936,7 +936,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requiresAuth: false,
+    auth: false,
     title: '首页'
   }
 }, {
@@ -947,7 +947,8 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true,
+    hideMainmenu: true
   }
 }, {
   path: '/category',
@@ -964,7 +965,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/order/:id',
@@ -974,7 +975,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/favourite',
@@ -984,7 +985,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/checkout',
@@ -994,7 +995,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/user',
@@ -1004,7 +1005,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/profile',
@@ -1014,7 +1015,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/avatar',
@@ -1024,7 +1025,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true,
+    auth: true,
     hideMainmenu: true
   }
 }, {
@@ -1035,7 +1036,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }, {
   path: '/address/add',
@@ -1045,7 +1046,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true,
+    auth: true,
     hideMainmenu: true
   }
 }, {
@@ -1056,7 +1057,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true,
+    auth: true,
     hideMainmenu: true
   }
 }, {
@@ -1118,7 +1119,7 @@ var routes = [{
     }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
   },
   meta: {
-    requireAuth: true
+    auth: true
   }
 }];
 
@@ -2814,13 +2815,22 @@ var router = new _vueRouter2.default({
 router.beforeEach(function (to, from, next) {
   _index2.default.commit('UPDATE_LOADING', true);
 
+  _index2.default.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+
+  if (to.matched.some(function (record) {
+    return record.meta.auth;
+  }) && !window.localStorage.getItem('willshop_token')) {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    });
+  }
+
   next();
 });
 
 router.afterEach(function (to, from) {
-  document.title = to.meta.title;
-
-  _index2.default.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+  document.title = to.meta.title || 'willshop';
 
   _index2.default.commit('UPDATE_LOADING', false);
 });
@@ -2844,14 +2854,27 @@ _axios2.default.interceptors.response.use(function (response) {
 
   var newToken = response.headers.authorization;
   if (newToken) {
-    window.localStorage.setItem('sadmin_token', newToken.replace('bearer ', ''));
+    window.localStorage.setItem('willshop_token', newToken.replace('bearer ', ''));
   }
 
   return response;
 }, function (error) {
   _index2.default.commit('UPDATE_LOADING', false);
 
-  if (error.code === 'ECONNABORTED') {}
+  if (error.response) {
+    if (error.response.status === 401) {
+      window.localStorage.removeItem('willshop_token');
+
+      router.push('/login');
+    } else if (error.response.status === 403) {
+      app.error('无操作权限');
+      return;
+    }
+  } else {
+    if (error.code === 'ECONNABORTED') {
+      app.error('网络超时，请重试');
+    }
+  }
 
   return _promise2.default.reject(error);
 });
@@ -2880,7 +2903,9 @@ var app = new _vue2.default({
     },
     error: function error(message, duration) {
       _weVue2.default.Toast({
-        message: message
+        duration: duration,
+        message: message,
+        icon: 'warn'
       });
     }
   },

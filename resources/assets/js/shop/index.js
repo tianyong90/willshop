@@ -23,14 +23,22 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   store.commit('UPDATE_LOADING', true);
 
+  store.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+
+  if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem('willshop_token')) {
+    // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    });
+  }
+
   next();
 });
 
 router.afterEach((to, from) => {
   // 动态设置页面标题
-  document.title = to.meta.title;
-
-  store.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+  document.title = to.meta.title || 'willshop';
 
   store.commit('UPDATE_LOADING', false);
 });
@@ -56,16 +64,28 @@ axios.interceptors.response.use((response) => {
 
   const newToken = response.headers.authorization;
   if (newToken) {
-    window.localStorage.setItem('sadmin_token', newToken.replace('bearer ', ''));
+    window.localStorage.setItem('willshop_token', newToken.replace('bearer ', ''));
   }
 
   return response;
 }, (error) => {
   store.commit('UPDATE_LOADING', false);
 
-  // 超时后进行提示
-  if (error.code === 'ECONNABORTED') {
-    // app.$root.error('网络超时，请重试');
+  if (error.response) {
+    if (error.response.status === 401) {
+      window.localStorage.removeItem('willshop_token');
+
+      router.push('/login');
+    } else if (error.response.status === 403) {
+      // 无权限时统一提示
+      app.error('无操作权限');
+      return;
+    }
+  } else {
+    // 请求超时提示
+    if (error.code === 'ECONNABORTED') {
+      app.error('网络超时，请重试');
+    }
   }
 
   return Promise.reject(error);
@@ -98,7 +118,9 @@ const app = new Vue({
 
     error (message, duration) {
       WeVue.Toast({
-        message
+        duration: duration,
+        message: message,
+        icon: 'warn'
       });
     }
   },

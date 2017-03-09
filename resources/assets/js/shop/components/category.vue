@@ -17,7 +17,7 @@
         methods: {
             fetchOrders () {
                 this.axios.get('/api/product').then(response => {
-                    this.$set('products', response.data);
+                    this.products = response.data;
                 });
             }
         }

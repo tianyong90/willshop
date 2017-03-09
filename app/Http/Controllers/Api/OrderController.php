@@ -85,12 +85,12 @@ class OrderController extends BaseController
         $selectedCarts = $request->input('selectedCarts');
 
         if (count($selectedCarts) == 0) {
-            return $this->response->error('未选择结算项目', 400);
+            return response('未选择结算项目', 400);
         }
 
         $products = collect($request->tickets);
 
-        $products = Product::whereIn('id', $products->pluck('id'))->lists('id');
+        $products = Product::whereIn('id', $products->pluck('id'))->pluck('id');
 
         // attach price
         $products = collect($request->tickets)->map(function ($product) use ($products) {
@@ -100,6 +100,7 @@ class OrderController extends BaseController
         });
 
         $order = new Order([
+            'user_id' => Auth::id(),
             'total_fee' => $products->reduce(function ($carry, $item) {
                 return $carry + ($item['amount'] * $item['unit_price']);
             }),

@@ -86,7 +86,7 @@
                         this.$root.success('登录成功');
 
                         setTimeout(() => {
-                            this.$route.router.go('/profile');
+                            this.$router.push('/profile');
                         }, 1000);
                     } else {
                         this.$root.error(data.info);
@@ -100,7 +100,7 @@
 
             // 取消
             cancle () {
-                this.$route.router.go('/profile');
+                this.$router.push('/profile');
             },
 
             // 选择图片

@@ -11,7 +11,7 @@
                 </div>
                 <div class="footer">
                     <span class="delete icon iconfont" @click="deleteClick(address)">&#xe612;</span>
-                    <a class="edit icon iconfont" v-link="{path: '/address/' + address.id}">&#xe61f;</a>
+                    <router-link class="edit icon iconfont" :to="'/address/' + address.id">&#xe61f;</router-link>
                 </div>
             </li>
         </ul>
@@ -50,7 +50,7 @@
         methods: {
             getAddresses () {
                 this.axios.get('address').then(response => {
-                    this.$set('addresses', response.data.addresses);
+                    this.addresses = response.data.addresses;
                 }, response => {
                     console.log(response.data);
                 });

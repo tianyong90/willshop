@@ -1,14 +1,14 @@
 <template>
     <div>
         <wv-group>
-            <cell title="头像" v-link="{ path:'/avatar' }">
+            <wv-cell title="头像" v-link="{ path:'/avatar' }">
                 <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
-            </cell>
-            <cell title="用户名" value="admin"></cell>
+            </wv-cell>
+            <wv-cell title="用户名" value="admin"></wv-cell>
         </wv-group>
 
         <wv-group title="账号安全">
-            <cell title="登录密码" is-link v-link="{path:'/password'}"></cell>
+            <wv-cell title="登录密码" is-link to="password"></wv-cell>
         </wv-group>
     </div>
 </template>
@@ -28,7 +28,7 @@
         methods: {
             getUser () {
                 this.axios.get('current-user').then(response => {
-                    this.$set('user', response.data.user);
+                    this.user = response.data.user;
                 }, response => {
                     console.log(response.data);
                 });

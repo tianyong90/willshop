@@ -5,7 +5,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/home.vue')), 'shop-home');
     },
     meta: {
-      requiresAuth: false,
+      auth: false,
       title: '首页'
     }
   },
@@ -15,7 +15,8 @@ const routes = [
       require.ensure([], () => resolve(require('../components/cart.vue')), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true,
+      hideMainmenu: true
     }
   },
   {
@@ -30,7 +31,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/order-list.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -39,7 +40,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/order.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -48,7 +49,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/favourite.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -57,7 +58,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/checkout.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -66,7 +67,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/user.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -75,7 +76,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/profile.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -84,7 +85,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/avatar.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true,
+      auth: true,
       hideMainmenu: true
     }
   },
@@ -94,7 +95,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/address.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   },
   {
@@ -103,7 +104,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/address-edit.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true,
+      auth: true,
       hideMainmenu: true
     }
   },
@@ -113,7 +114,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/address-edit.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true,
+      auth: true,
       hideMainmenu: true
     }
   },
@@ -168,7 +169,7 @@ const routes = [
       require.ensure([], () => resolve(require('../components/password.vue'), ), 'shop-home');
     },
     meta: {
-      requireAuth: true
+      auth: true
     }
   }
 ];

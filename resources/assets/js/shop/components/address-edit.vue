@@ -51,7 +51,7 @@
 
                 if (addressId) {
                     this.axios.get(`address/${addressId}`).then(response => {
-                        this.$set('address', response.data.address);
+                        this.address = response.data.address;
                     }, response => {
                         console.log(response.data);
                     });
@@ -74,7 +74,7 @@
                     this.$root.success('保存成功');
 
                     setTimeout(() => {
-                        this.$route.router.go('/address');
+                        this.$router.push('/address');
                     }, 1000);
                 }, response => {
                     console.log(response.data);
@@ -89,7 +89,7 @@
                     this.$root.success('删除成功');
 
                     setTimeout(() => {
-                        this.$route.router.go('/address');
+                        this.$router.push('/address');
                     }, 1000);
                 }, response => {
                     console.log(response.data);

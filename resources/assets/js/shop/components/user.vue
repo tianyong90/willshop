@@ -1,44 +1,44 @@
 <template>
     <div>
-        <router-link class="user-profile" tag="div" to="{ path:'profile' }">
+        <router-link class="user-profile" tag="div" to="profile">
             <img class="avatar" :src="user.avatar || '/img/avatar.jpg'">
             <div class="username">{{ user.name }}</div>
             <div class="mobile">{{ user.mobile }}</div>
         </router-link>
 
-        <div id="card">
-            <router-link class="" tag="div" to="">
-                <span>1130</span>
-                <span class="text">我的余额</span>
-            </router-link>
-            <router-link class="" tag="div" to="">
-                <span>15</span>
-                <span class="text">我的积分</span>
-            </router-link>
-            <router-link class="" tag="div" to="">
-                <span>0</span>
-                <span class="text">我的红包</span>
-            </router-link>
-        </div>
+        <wv-flex class="card">
+            <wv-flex-item class="card-item br-1px">
+                <span class="amount">1130</span>
+                <span class="label">我的余额</span>
+            </wv-flex-item>
+            <wv-flex-item class="card-item br-1px">
+                <span class="amount">15</span>
+                <span class="label">我的积分</span>
+            </wv-flex-item>
+            <wv-flex-item class="card-item">
+                <span class="amount">0</span>
+                <span class="label">我的红包</span>
+            </wv-flex-item>
+        </wv-flex>
 
         <wv-group>
             <wv-cell title="我的订单" is-link to="order-list">
-                <i class="icon iconfont icon-home" slot="icon"></i>
+                <i class="icon iconfont icon-goods" slot="icon"></i>
             </wv-cell>
             <wv-cell title="收货地址" is-link to="address">
-                <i class="icon iconfont icon-home" slot="icon"></i>
+                <i class="icon iconfont icon-location" slot="icon"></i>
             </wv-cell>
             <wv-cell title="我的收藏" is-link to="favourite">
-                <i class="icon iconfont icon-home" slot="icon"></i>
+                <i class="icon iconfont icon-like" slot="icon"></i>
             </wv-cell>
         </wv-group>
 
         <wv-group>
             <wv-cell title="使用帮助" is-link to="help">
-                <i class="icon iconfont icon-home" slot="icon"></i>
+                <i class="icon iconfont icon-question" slot="icon"></i>
             </wv-cell>
             <wv-cell title="关于我们" is-link to="about-us">
-                <i class="icon iconfont icon-home" slot="icon"></i>
+                <i class="icon iconfont icon-info" slot="icon"></i>
             </wv-cell>
         </wv-group>
 
@@ -61,7 +61,7 @@
         methods: {
             getUser () {
                 this.axios.get('current-user').then(response => {
-                    // this.$set('user', response.data.user);
+                    this.user = response.data.user;
                 });
             },
 
@@ -104,12 +104,31 @@
         }
     }
 
-    #card {
-        .text {
+    .card {
+        .br-1px {
+            border-right: 1px solid #ececec;
+        }
+
+        .card-item {
             display: block;
-            color: #777;
-            font-size: 14px;
-            font-weight: 400;
+            padding: .3rem;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+
+            .amount {
+                display: block;
+                color: #f74c31;
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .label {
+                display: block;
+                color: #666;
+                font-size: 14px;
+                font-weight: 400;
+            }
         }
     }
 
@@ -144,7 +163,7 @@
 
     .btn-logout {
         display: block;
-        margin-top: 40px;
+        margin: 30px auto 80px;
         width: 80%;
     }
 </style>

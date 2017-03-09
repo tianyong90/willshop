@@ -108,7 +108,7 @@ class FavouriteController extends BaseController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function index()
+    public function lists()
     {
         $favourites = $this->favourite->with('product')->get();
 

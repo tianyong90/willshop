@@ -79,12 +79,12 @@ class CartController extends BaseController
     /**
      * 获取购物车中商品总数
      *
-     * @return mixed
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getProductAmount()
     {
         $amount = $this->cart->sum('amount');
 
-        return $amount;
+        return response()->json(compact('amount'));
     }
 }

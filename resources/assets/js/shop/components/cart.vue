@@ -3,10 +3,12 @@
         <ul id="cart-list">
             <li class="list-item" v-for="cart in carts">
                 <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
-                <img :src="cart.product.thumbnail" alt="" class="thumbnail" v-link="{ path: '/product/' + cart.product.id }">
+                <router-link :to="'/product/' + cart.product.id">
+                    <img :src="cart.product.thumbnail" alt="" class="thumbnail">
+                </router-link>
                 <div class="right-part">
-                    <div class="name" v-link="{ path: '/product/' + cart.product.id }">{{ cart.product.name }}</div>
-                    <span class="price">{{ cart.product.price | currency '&yen; ' }}</span>
+                    <router-link class="name" tag="div" :to="'/product/' + cart.product.id">{{ cart.product.name }}</router-link>
+                    <span class="price">{{ cart.product.price }}</span>
                 </div>
             </li>
         </ul>
@@ -16,7 +18,7 @@
                 <input type="checkbox" v-model="selectAll" @click="checkAllClick"> 全选
             </label>
             <div class="summary">
-                <div class="total-price">合计：{{ totalPrice | currency '&yen; ' }}</div>
+                <div class="total-price">合计：{{ totalPrice }}</div>
                 <div class="product-count">已选 {{ productAmount }} 件商品</div>
             </div>
             <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算</button>
@@ -75,18 +77,15 @@
             // 获取购物车列表数据
             getCarts () {
                 this.axios.get('cart').then(response => {
-                    this.$set('carts', response.data.carts);
-                }, response => {
-                    console.log(response.data);
+                    this.carts = response.data.carts;
                 });
             },
 
             // 去结算
             checkout () {
                 if (this.selectedCarts.length > 0) {
-                    this.axios.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
-
-                        // this.$route.router.go('/checkout');
+                    this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(response => {
+                        this.$router.push('/checkout');
                     })
                 }
             },
@@ -154,7 +153,7 @@
     footer {
         display: block;
         position: fixed;
-        bottom: 55px;
+        bottom: 0;
         width: 100%;
         background-color: #fff;
         height: 50px;
@@ -193,5 +192,4 @@
             }
         }
     }
-
 </style>
