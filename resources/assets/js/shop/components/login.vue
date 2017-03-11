@@ -12,6 +12,8 @@
 </template>
 
 <script>
+    import appConfig from '../config';
+
     export default {
         mounted () {
         },
@@ -29,7 +31,7 @@
             login () {
                 this.axios.post('login', this.user).then(response => {
                     // 登录成功之后保存 JWT token
-                    localStorage.setItem('willshop_token', response.data.token);
+                    localStorage.setItem(appConfig.jwtTokenName, response.data.token);
 
                     // 登录状态设置为已经登录
                     this.$store.commit('UPDATE_IS_LOGIN', true);

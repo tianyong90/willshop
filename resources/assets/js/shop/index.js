@@ -7,7 +7,7 @@ import '../../sass/shop.scss';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import store from './store/index';
-import Config from './config';  // 配置
+import appConfig from './config';  // 配置
 import routes from './route/index.js';
 
 Vue.use(VueRouter);
@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
 
   store.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
 
-  if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem('willshop_token')) {
+  if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem(appConfig.jwtTokenName)) {
     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
     next({
       path: '/login',
@@ -43,14 +43,14 @@ router.afterEach((to, from) => {
   store.commit('UPDATE_LOADING', false);
 });
 
-axios.defaults.baseURL = Config.apiRoot;
-axios.defaults.timeout = Config.timeout;
+axios.defaults.baseURL = appConfig.apiRoot;
+axios.defaults.timeout = appConfig.timeout;
 
 // axios 请求发送前处理
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true);
 
-  let token = window.localStorage.getItem('willshop_token');
+  let token = window.localStorage.getItem(appConfig.jwtTokenName);
   config.headers.Authorization = 'bearer ' + token;
 
   return config;
@@ -64,7 +64,7 @@ axios.interceptors.response.use((response) => {
 
   const newToken = response.headers.authorization;
   if (newToken) {
-    window.localStorage.setItem('willshop_token', newToken.replace('bearer ', ''));
+    window.localStorage.setItem(appConfig.jwtTokenName, newToken.replace('bearer ', ''));
   }
 
   return response;
@@ -73,7 +73,7 @@ axios.interceptors.response.use((response) => {
 
   if (error.response) {
     if (error.response.status === 401) {
-      window.localStorage.removeItem('willshop_token');
+      window.localStorage.removeItem(appConfig.jwtTokenName);
 
       router.push('/login');
     } else if (error.response.status === 403) {

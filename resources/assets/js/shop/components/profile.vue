@@ -1,7 +1,7 @@
 <template>
     <div>
         <wv-group>
-            <wv-cell title="头像" v-link="{ path:'/avatar' }">
+            <wv-cell title="头像" to="/avatar" is-link>
                 <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
             </wv-cell>
             <wv-cell title="用户名" value="admin"></wv-cell>

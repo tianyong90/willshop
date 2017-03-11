@@ -816,10 +816,7 @@ exports.default = {
 
         return _ref = {
             address: {}
-        }, (0, _defineProperty3.default)(_ref, 'address', {}), (0, _defineProperty3.default)(_ref, 'pca', []), (0, _defineProperty3.default)(_ref, 'confirmShow', false), (0, _defineProperty3.default)(_ref, 'menuConfirmDelete', {
-            'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
-            delete: '<span style="color:red">删除</span>'
-        }), _ref;
+        }, (0, _defineProperty3.default)(_ref, 'address', {}), (0, _defineProperty3.default)(_ref, 'pca', []), _ref;
     },
 
 
@@ -838,7 +835,7 @@ exports.default = {
                 });
             }
         },
-        save: function save() {
+        store: function store() {
             var _this2 = this;
 
             var postData = JSON.parse((0, _stringify2.default)(this.$data));
@@ -894,19 +891,27 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _index = __webpack_require__(52);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _weVue = __webpack_require__(20);
+
+var _weVue2 = _interopRequireDefault(_weVue);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
+    store: _index2.default,
+
     mounted: function mounted() {
         this.getAddresses();
     },
     data: function data() {
         return {
             addresses: [],
-            activeAddress: null,
-            confirmShow: false,
-            menuConfirmDelete: {
-                'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
-                delete: '<span style="color:red">删除</span>'
-            }
+            activeAddress: null
         };
     },
 
@@ -917,33 +922,21 @@ exports.default = {
 
             this.axios.get('address').then(function (response) {
                 _this.addresses = response.data.addresses;
-            }, function (response) {
-                console.log(response.data);
             });
-        },
-        deleteClick: function deleteClick(address) {
-            this.activeAddress = address;
-
-            this.confirmShow = true;
         },
         deleteAddress: function deleteAddress(address) {
             var _this2 = this;
 
-            this.axios.delete('address/' + address.id + '/delete').then(function (response) {
-                _this2.$root.success('删除成功');
-
-                _this2.addresses.$remove(address);
-            }, function (response) {
-                console.log(response.data);
+            _weVue2.default.Dialog({
+                title: '操作提示',
+                message: '确定要删除吗？',
+                skin: 'ios'
+            }, function () {
+                _this2.axios.delete('address/' + address.id + '/delete').then(function (response) {
+                    _this2.$root.success('删除成功');
+                });
             });
-        },
-        destroy: function destroy() {
-            console.log('adress destroy');
         }
-    },
-
-    beforeDestroy: function beforeDestroy() {
-        this.destroy();
     }
 };
 
@@ -958,13 +951,17 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _vue = __webpack_require__(6);
+
+var _vue2 = _interopRequireDefault(_vue);
+
 var _vueTouch = __webpack_require__(230);
 
 var _vueTouch2 = _interopRequireDefault(_vueTouch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-Vue.use(_vueTouch2.default);
+_vue2.default.use(_vueTouch2.default);
 
 exports.default = {
     mounted: function mounted() {},
@@ -1109,16 +1106,10 @@ exports.default = {
                 this.startWidth = this.width;
                 this.startHeight = this.height;
             }
-        },
-        destroy: function destroy() {
-
-            console.log('avatar destroy');
         }
     },
 
-    beforeDestroy: function beforeDestroy() {
-        this.destroy();
-    }
+    beforeDestroy: function beforeDestroy() {}
 };
 
 /***/ }),
@@ -1413,6 +1404,13 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _config = __webpack_require__(50);
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
     mounted: function mounted() {},
     data: function data() {
@@ -1430,7 +1428,7 @@ exports.default = {
             var _this = this;
 
             this.axios.post('login', this.user).then(function (response) {
-                localStorage.setItem('willshop_token', response.data.token);
+                localStorage.setItem(_config2.default.jwtTokenName, response.data.token);
 
                 _this.$store.commit('UPDATE_IS_LOGIN', true);
 
@@ -1751,6 +1749,13 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _config = __webpack_require__(50);
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = {
     mounted: function mounted() {
         this.getUser();
@@ -1771,7 +1776,7 @@ exports.default = {
             });
         },
         logout: function logout() {
-            localStorage.removeItem('willshop_token');
+            localStorage.removeItem(_config2.default.jwtTokenName);
 
             this.$store.commit('UPDATE_IS_LOGIN', false);
 
@@ -4720,16 +4725,10 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('wv-group', [_c('wv-cell', {
-    directives: [{
-      name: "link",
-      rawName: "v-link",
-      value: ({
-        path: '/avatar'
-      }),
-      expression: "{ path:'/avatar' }"
-    }],
     attrs: {
-      "title": "头像"
+      "title": "头像",
+      "to": "/avatar",
+      "is-link": ""
     }
   }, [_c('img', {
     staticClass: "avatar",
@@ -4811,7 +4810,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.address.postcode = $$v
       }
     }
-  })], 1), _vm._v(" "), _c('footer', [_c('wv-flex', [(_vm.$route.params.id) ? _c('wv-flex-item', [_c('wv-button', {
+  })], 1), _vm._v(" "), _c('footer', [_c('wv-flex', {
+    attrs: {
+      "gutter": 20
+    }
+  }, [(_vm.$route.params.id) ? _c('wv-flex-item', [_c('wv-button', {
     attrs: {
       "type": "warn"
     },
@@ -4826,7 +4829,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     nativeOn: {
       "click": function($event) {
-        _vm.save($event)
+        _vm.store($event)
       }
     }
   }, [_vm._v("保存")])], 1)], 1)], 1)], 1)
@@ -4968,7 +4971,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "delete icon iconfont",
       on: {
         "click": function($event) {
-          _vm.deleteClick(address)
+          _vm.deleteAddress(address)
         }
       }
     }, [_vm._v("")]), _vm._v(" "), _c('router-link', {
@@ -4981,8 +4984,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (!_vm.isLoading && _vm.addresses.length === 0),
-      expression: "!isLoading && addresses.length === 0"
+      value: (!_vm.$store.isLoading && _vm.addresses.length === 0),
+      expression: "!$store.isLoading && addresses.length === 0"
     }],
     staticClass: "empty"
   }, [_c('i', {
@@ -4995,19 +4998,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "tag": "button",
       "to": "address/add"
     }
-  }, [_vm._v("添加地址")])], 1), _vm._v(" "), _c('actionsheet', {
-    attrs: {
-      "show": _vm.confirmShow,
-      "menus": _vm.menuConfirmDelete,
-      "show-cancel": "",
-      "cancel-text": "取消"
-    },
-    on: {
-      "on-click-menu-delete": function($event) {
-        _vm.deleteAddress(_vm.activeAddress)
-      }
-    }
-  })], 1)
+  }, [_vm._v("添加地址")])], 1)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

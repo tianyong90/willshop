@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import Vue from 'vue';
     import VueTouch from 'vue-touch';
     Vue.use(VueTouch);
 
@@ -177,16 +178,11 @@
                     this.startWidth = this.width;
                     this.startHeight = this.height;
                 }
-            },
-
-            destroy () {
-
-                console.log('avatar destroy');
             }
         },
 
         beforeDestroy () {
-            this.destroy();
+            //
         }
     }
 </script>

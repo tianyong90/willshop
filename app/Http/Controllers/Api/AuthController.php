@@ -126,10 +126,12 @@ class AutHController extends BaseController
 
         $user['password'] = bcrypt($data['password']);
 
-        $user = $user->save();
+        try {
+            $user->save();
 
-        $token = JWTAuth::fromUser($user);
-
-        return response()->json(compact('token'));
+            return response('修改成功');
+        } catch (\Exception $e) {
+            return response($e->getMessage(), 500);
+        }
     }
 }

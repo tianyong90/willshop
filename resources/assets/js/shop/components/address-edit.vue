@@ -8,12 +8,12 @@
         </wv-group>
 
         <footer>
-            <wv-flex>
+            <wv-flex :gutter="20">
                 <wv-flex-item v-if="$route.params.id">
                     <wv-button type="warn" @click.native="confirmShow = true">删除</wv-button>
                 </wv-flex-item>
                 <wv-flex-item>
-                    <wv-button type="primary" @click.native="save">保存</wv-button>
+                    <wv-button type="primary" @click.native="store">保存</wv-button>
                 </wv-flex-item>
             </wv-flex>
         </footer>
@@ -32,11 +32,6 @@
                 address: {},
                 address: {},
                 pca: [],
-                confirmShow: false,
-                menuConfirmDelete: {
-                    'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
-                    delete: '<span style="color:red">删除</span>'
-                },
             }
         },
 
@@ -59,9 +54,7 @@
             },
 
             // 保存
-            save () {
-                // console.log(value2name(this.pca, AddressChinaData));
-
+            store () {
                 let postData = JSON.parse(JSON.stringify(this.$data));
 
                 let addressId = this.$route.params.id;

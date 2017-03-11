@@ -47,6 +47,8 @@
 </template>
 
 <script>
+    import appConfig from '../config';
+
     export default {
         mounted () {
             this.getUser();
@@ -67,7 +69,7 @@
 
             logout () {
                 // 清除 jwt-token
-                localStorage.removeItem('willshop_token');
+                localStorage.removeItem(appConfig.jwtTokenName);
 
                 // 登录状态设置为已经登录
                 this.$store.commit('UPDATE_IS_LOGIN', false);

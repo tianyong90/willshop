@@ -913,7 +913,8 @@ Object.defineProperty(exports, "__esModule", {
 var Config = {
   apiRoot: '/api/shop',
   timeout: 5000,
-  smsResendCountdown: 60
+  smsResendCountdown: 60,
+  jwtTokenName: 'willshop_jwt_token'
 };
 
 exports.default = Config;
@@ -2819,7 +2820,7 @@ router.beforeEach(function (to, from, next) {
 
   if (to.matched.some(function (record) {
     return record.meta.auth;
-  }) && !window.localStorage.getItem('willshop_token')) {
+  }) && !window.localStorage.getItem(_config2.default.jwtTokenName)) {
     next({
       path: '/login',
       query: { redirect: to.fullPath }
@@ -2841,7 +2842,7 @@ _axios2.default.defaults.timeout = _config2.default.timeout;
 _axios2.default.interceptors.request.use(function (config) {
   _index2.default.commit('UPDATE_LOADING', true);
 
-  var token = window.localStorage.getItem('willshop_token');
+  var token = window.localStorage.getItem(_config2.default.jwtTokenName);
   config.headers.Authorization = 'bearer ' + token;
 
   return config;
@@ -2854,7 +2855,7 @@ _axios2.default.interceptors.response.use(function (response) {
 
   var newToken = response.headers.authorization;
   if (newToken) {
-    window.localStorage.setItem('willshop_token', newToken.replace('bearer ', ''));
+    window.localStorage.setItem(_config2.default.jwtTokenName, newToken.replace('bearer ', ''));
   }
 
   return response;
@@ -2863,7 +2864,7 @@ _axios2.default.interceptors.response.use(function (response) {
 
   if (error.response) {
     if (error.response.status === 401) {
-      window.localStorage.removeItem('willshop_token');
+      window.localStorage.removeItem(_config2.default.jwtTokenName);
 
       router.push('/login');
     } else if (error.response.status === 403) {

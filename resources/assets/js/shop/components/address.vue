@@ -10,13 +10,13 @@
                     <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
                 </div>
                 <div class="footer">
-                    <span class="delete icon iconfont" @click="deleteClick(address)">&#xe612;</span>
+                    <span class="delete icon iconfont" @click="deleteAddress(address)">&#xe612;</span>
                     <router-link class="edit icon iconfont" :to="'/address/' + address.id">&#xe61f;</router-link>
                 </div>
             </li>
         </ul>
 
-        <div class="empty" v-show="!isLoading && addresses.length === 0">
+        <div class="empty" v-show="!$store.isLoading && addresses.length === 0">
             <i class="icon iconfont">&#xe617;</i>
             <div class="tips">您还没有设置地址</div>
         </div>
@@ -24,13 +24,16 @@
         <footer>
             <router-link class="weui-btn weui-btn_primary" tag="button" to="address/add">添加地址</router-link>
         </footer>
-
-        <actionsheet :show.sync="confirmShow" :menus="menuConfirmDelete" @on-click-menu-delete="deleteAddress(activeAddress)" show-cancel cancel-text="取消"></actionsheet>
     </div>
 </template>
 
 <script>
+    import store from '../store/index';
+    import WeVue from 'we-vue';
+
     export default {
+        store,
+
         mounted () {
             this.getAddresses();
         },
@@ -39,11 +42,6 @@
             return {
                 addresses: [],
                 activeAddress: null,
-                confirmShow: false,
-                menuConfirmDelete: {
-                    'title.noop': '确定要删除么?<br/><span style="color:#666;font-size:12px;">删除后将不可恢复</span>',
-                    delete: '<span style="color:red">删除</span>'
-                },
             }
         },
 
@@ -51,35 +49,24 @@
             getAddresses () {
                 this.axios.get('address').then(response => {
                     this.addresses = response.data.addresses;
-                }, response => {
-                    console.log(response.data);
                 });
             },
 
             // 地址项中删除按钮点击
-            deleteClick (address) {
-                this.activeAddress = address;
+            deleteAddress (address) {
+                WeVue.Dialog({
+                    title: '操作提示',
+                    message: '确定要删除吗？',
+                    skin: 'ios'
+                },
+                () => {
+                    this.axios.delete(`address/${address.id}/delete`).then(response => {
+                        this.$root.success('删除成功');
 
-                this.confirmShow = true;
-            },
-
-            deleteAddress(address) {
-                this.axios.delete(`address/${address.id}/delete`).then(response => {
-                    this.$root.success('删除成功');
-
-                    this.addresses.$remove(address);
-                }, response => {
-                    console.log(response.data);
-                });
-            },
-
-            destroy () {
-                console.log('adress destroy');
+                        // this.addresses.$remove(address);
+                    });
+                })
             }
-        },
-
-        beforeDestroy () {
-            this.destroy();
         }
     }
 </script>
