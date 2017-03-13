@@ -2,8 +2,13 @@ body {
   background-color: #ececec;
 }
 
-.weui_cell_bd {
+.weui-tabbar {
+  font-weight: bold;
+}
+
+.weui-cell__bd {
   p {
-    color: #555;
+    color: #777;
+    font-weight: 200;
   }
 }
