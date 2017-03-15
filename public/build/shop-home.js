@@ -16,7 +16,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\address-edit.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\address-edit.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] address-edit.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -119,7 +119,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\about-us.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\about-us.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] about-us.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -157,7 +157,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\address.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\address.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] address.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -195,7 +195,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\avatar.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\avatar.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] avatar.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -233,7 +233,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\cart.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\cart.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] cart.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -271,7 +271,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\category.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\category.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] category.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -309,7 +309,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\checkout.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\checkout.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] checkout.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -347,7 +347,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\favourite.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\favourite.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] favourite.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -385,7 +385,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\help-detail.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\help-detail.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] help-detail.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -423,7 +423,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\help.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\help.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] help.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -461,7 +461,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\home.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] home.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -499,7 +499,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\login.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\login.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] login.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -537,7 +537,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\order-list.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\order-list.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] order-list.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -575,7 +575,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\order.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\order.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] order.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -613,7 +613,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\password.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\password.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] password.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -651,7 +651,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\product.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\product.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] product.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -689,7 +689,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\profile.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\profile.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] profile.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -715,8 +715,7 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(228)
-__webpack_require__(229)
+__webpack_require__(232)
 
 var Component = __webpack_require__(61)(
   /* script */
@@ -728,7 +727,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\register.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\register.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] register.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -766,7 +765,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\user.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\user.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] user.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -794,7 +793,7 @@ module.exports = Component.exports
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _stringify = __webpack_require__(164);
@@ -808,77 +807,77 @@ var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    mounted: function mounted() {
-        this.getAddress();
+  mounted: function mounted() {
+    this.getAddress();
+  },
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      address: {}
+    }, (0, _defineProperty3.default)(_ref, 'address', {}), (0, _defineProperty3.default)(_ref, 'pca', []), _ref;
+  },
+
+
+  methods: {
+    getName: function getName(value) {},
+    getAddress: function getAddress() {
+      var _this = this;
+
+      var addressId = this.$route.params.id;
+
+      if (addressId) {
+        this.axios.get('address/' + addressId).then(function (response) {
+          _this.address = response.data.address;
+        }, function (response) {
+          console.log(response.data);
+        });
+      }
     },
-    data: function data() {
-        var _ref;
+    store: function store() {
+      var _this2 = this;
 
-        return _ref = {
-            address: {}
-        }, (0, _defineProperty3.default)(_ref, 'address', {}), (0, _defineProperty3.default)(_ref, 'pca', []), _ref;
+      var postData = JSON.parse((0, _stringify2.default)(this.$data));
+
+      var addressId = this.$route.params.id;
+
+      if (addressId) {
+        postData.id = addressId;
+      }
+
+      this.axios.post('address/store', postData).then(function (response) {
+        _this2.$root.success('保存成功');
+
+        setTimeout(function () {
+          _this2.$router.push('/address');
+        }, 1000);
+      }, function (response) {
+        console.log(response.data);
+      });
     },
+    deleteAddress: function deleteAddress() {
+      var _this3 = this;
 
+      var addressId = this.$route.params.id;
 
-    methods: {
-        getName: function getName(value) {},
-        getAddress: function getAddress() {
-            var _this = this;
+      this.axios.delete('address/' + addressId + '/delete').then(function (response) {
+        _this3.$root.success('删除成功');
 
-            var addressId = this.$route.params.id;
-
-            if (addressId) {
-                this.axios.get('address/' + addressId).then(function (response) {
-                    _this.address = response.data.address;
-                }, function (response) {
-                    console.log(response.data);
-                });
-            }
-        },
-        store: function store() {
-            var _this2 = this;
-
-            var postData = JSON.parse((0, _stringify2.default)(this.$data));
-
-            var addressId = this.$route.params.id;
-
-            if (addressId) {
-                postData.id = addressId;
-            }
-
-            this.axios.post('address/store', postData).then(function (response) {
-                _this2.$root.success('保存成功');
-
-                setTimeout(function () {
-                    _this2.$router.push('/address');
-                }, 1000);
-            }, function (response) {
-                console.log(response.data);
-            });
-        },
-        deleteAddress: function deleteAddress() {
-            var _this3 = this;
-
-            var addressId = this.$route.params.id;
-
-            this.axios.delete('address/' + addressId + '/delete').then(function (response) {
-                _this3.$root.success('删除成功');
-
-                setTimeout(function () {
-                    _this3.$router.push('/address');
-                }, 1000);
-            }, function (response) {
-                console.log(response.data);
-            });
-        },
-        destroy: function destroy() {
-            console.log('product destroy');
-        }
+        setTimeout(function () {
+          _this3.$router.push('/address');
+        }, 1000);
+      }, function (response) {
+        console.log(response.data);
+      });
     },
-
-    beforeDestroy: function beforeDestroy() {
-        this.destroy();
+    destroy: function destroy() {
+      console.log('product destroy');
     }
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    this.destroy();
+  }
 };
 
 /***/ }),
@@ -889,7 +888,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _index = __webpack_require__(38);
@@ -903,41 +902,41 @@ var _weVue2 = _interopRequireDefault(_weVue);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    store: _index2.default,
+  store: _index2.default,
 
-    mounted: function mounted() {
-        this.getAddresses();
+  mounted: function mounted() {
+    this.getAddresses();
+  },
+  data: function data() {
+    return {
+      addresses: [],
+      activeAddress: null
+    };
+  },
+
+
+  methods: {
+    getAddresses: function getAddresses() {
+      var _this = this;
+
+      this.axios.get('address').then(function (response) {
+        _this.addresses = response.data.addresses;
+      });
     },
-    data: function data() {
-        return {
-            addresses: [],
-            activeAddress: null
-        };
-    },
+    deleteAddress: function deleteAddress(address) {
+      var _this2 = this;
 
-
-    methods: {
-        getAddresses: function getAddresses() {
-            var _this = this;
-
-            this.axios.get('address').then(function (response) {
-                _this.addresses = response.data.addresses;
-            });
-        },
-        deleteAddress: function deleteAddress(address) {
-            var _this2 = this;
-
-            _weVue2.default.Dialog({
-                title: '操作提示',
-                message: '确定要删除吗？',
-                skin: 'ios'
-            }, function () {
-                _this2.axios.delete('address/' + address.id + '/delete').then(function (response) {
-                    _this2.$root.success('删除成功');
-                });
-            });
-        }
+      _weVue2.default.Dialog({
+        title: '操作提示',
+        message: '确定要删除吗？',
+        skin: 'ios'
+      }, function () {
+        _this2.axios.delete('address/' + address.id + '/delete').then(function (response) {
+          _this2.$root.success('删除成功');
+        });
+      });
     }
+  }
 };
 
 /***/ }),
@@ -948,7 +947,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _vue = __webpack_require__(6);
@@ -964,152 +963,152 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _vue2.default.use(_vueTouch2.default);
 
 exports.default = {
-    mounted: function mounted() {},
-    data: function data() {
-        return {
-            cropperWidth: 250,
-            cropperHeight: 250,
-            posX: 0,
-            posY: 0,
-            startX: 0,
-            startY: 0,
-            width: 0,
-            height: 0,
-            startWidth: 0,
-            startHeight: 0,
-            previewSrc: '',
-            isLoading: false
-        };
-    },
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      cropperWidth: 250,
+      cropperHeight: 250,
+      posX: 0,
+      posY: 0,
+      startX: 0,
+      startY: 0,
+      width: 0,
+      height: 0,
+      startWidth: 0,
+      startHeight: 0,
+      previewSrc: '',
+      isLoading: false
+    };
+  },
 
 
-    computed: {
-        cropData: function cropData() {
-            return {
-                x: Math.abs(this.posX),
-                y: Math.abs(this.posY),
-                width: this.width,
-                height: this.height,
-                cropWidth: this.cropperWidth,
-                cropHeight: this.cropperHeight
-            };
+  computed: {
+    cropData: function cropData() {
+      return {
+        x: Math.abs(this.posX),
+        y: Math.abs(this.posY),
+        width: this.width,
+        height: this.height,
+        cropWidth: this.cropperWidth,
+        cropHeight: this.cropperHeight
+      };
+    }
+  },
+
+  methods: {
+    save: function save() {
+      var files = document.getElementById('file').files;
+
+      if (files.length === 0) {
+        return false;
+      }
+
+      var oMyForm = new FormData();
+
+      oMyForm.append("cropX", this.cropData.x);
+      oMyForm.append("cropY", this.cropData.y);
+      oMyForm.append("width", this.cropData.width);
+      oMyForm.append("height", this.cropData.height);
+      oMyForm.append("cropWidth", this.cropData.cropWidth);
+      oMyForm.append("cropHeight", this.cropData.cropHeight);
+
+      oMyForm.append("avatar", files[0]);
+
+      this.isLoading = true;
+      this.axios.post('user/avatar', oMyForm).then(function (response) {
+        var _this2 = this;
+
+        this.isLoading = false;
+
+        var data = response.data;
+
+        if (data.status) {
+          this.$root.success('登录成功');
+
+          setTimeout(function () {
+            _this2.$router.push('/profile');
+          }, 1000);
+        } else {
+          this.$root.error(data.info);
         }
+      }, function (response) {
+        this.isLoading = false;
+
+        this.error('设置失败');
+      });
     },
+    cancle: function cancle() {
+      this.$router.push('/profile');
+    },
+    fileChange: function fileChange() {
+      var imageFile = document.getElementById('file').files[0];
 
-    methods: {
-        save: function save() {
-            var files = document.getElementById('file').files;
+      window.URL = window.URL || window.webkitURL;
 
-            if (files.length === 0) {
-                return false;
-            }
+      this.previewSrc = window.URL.createObjectURL(imageFile);
 
-            var oMyForm = new FormData();
+      var img = new Image();
 
-            oMyForm.append("cropX", this.cropData.x);
-            oMyForm.append("cropY", this.cropData.y);
-            oMyForm.append("width", this.cropData.width);
-            oMyForm.append("height", this.cropData.height);
-            oMyForm.append("cropWidth", this.cropData.cropWidth);
-            oMyForm.append("cropHeight", this.cropData.cropHeight);
+      var _this = this;
+      img.onload = function () {
+        var originalWidth = this.width;
+        var originalHeight = this.height;
 
-            oMyForm.append("avatar", files[0]);
-
-            this.isLoading = true;
-            this.axios.post('user/avatar', oMyForm).then(function (response) {
-                var _this2 = this;
-
-                this.isLoading = false;
-
-                var data = response.data;
-
-                if (data.status) {
-                    this.$root.success('登录成功');
-
-                    setTimeout(function () {
-                        _this2.$router.push('/profile');
-                    }, 1000);
-                } else {
-                    this.$root.error(data.info);
-                }
-            }, function (response) {
-                this.isLoading = false;
-
-                this.error('设置失败');
-            });
-        },
-        cancle: function cancle() {
-            this.$router.push('/profile');
-        },
-        fileChange: function fileChange() {
-            var imageFile = document.getElementById('file').files[0];
-
-            window.URL = window.URL || window.webkitURL;
-
-            this.previewSrc = window.URL.createObjectURL(imageFile);
-
-            var img = new Image();
-
-            var _this = this;
-            img.onload = function () {
-                var originalWidth = this.width;
-                var originalHeight = this.height;
-
-                if (originalWidth >= originalHeight) {
-                    _this.height = _this.cropperHeight + 50;
-                    _this.width = parseInt(originalWidth * _this.height / originalHeight);
-                } else {
-                    _this.width = _this.cropperWidth + 50;
-                    _this.height = parseInt(originalHeight * _this.width / originalWidth);
-                }
-
-                _this.startWidth = _this.width;
-                _this.startHeight = _this.height;
-
-                _this.posX = -parseInt((_this.width - _this.cropperWidth) / 2);
-                _this.posY = -parseInt((_this.height - _this.cropperHeight) / 2);
-                _this.startX = _this.posX;
-                _this.startY = _this.posY;
-            };
-            img.src = this.previewSrc;
-        },
-        onPan: function onPan(e) {
-            if (e.eventType === 2) {
-                var targetX = this.startX + e.deltaX;
-                var targetY = this.startY + e.deltaY;
-
-                if (targetX <= 0 && this.cropperWidth - targetX <= this.width) {
-                    this.posX = targetX;
-                }
-
-                if (targetY <= 0 && this.cropperHeight - targetY <= this.height) {
-                    this.posY = targetY;
-                }
-            } else if (e.eventType === 4) {
-                this.startX = this.posX;
-                this.startY = this.posY;
-            }
-        },
-        onPinch: function onPinch(e) {
-            if (e.eventType === 2) {
-                var targetWidth = parseInt(this.startWidth * e.scale);
-                var targetHeight = parseInt(this.startHeight * e.scale);
-
-                if (this.cropperWidth - this.posX <= this.width) {
-                    this.width = targetWidth;
-                }
-
-                if (this.cropperHeight - this.posY <= this.height) {
-                    this.height = targetHeight;
-                }
-            } else if (e.eventType === 4) {
-                this.startWidth = this.width;
-                this.startHeight = this.height;
-            }
+        if (originalWidth >= originalHeight) {
+          _this.height = _this.cropperHeight + 50;
+          _this.width = parseInt(originalWidth * _this.height / originalHeight);
+        } else {
+          _this.width = _this.cropperWidth + 50;
+          _this.height = parseInt(originalHeight * _this.width / originalWidth);
         }
-    },
 
-    beforeDestroy: function beforeDestroy() {}
+        _this.startWidth = _this.width;
+        _this.startHeight = _this.height;
+
+        _this.posX = -parseInt((_this.width - _this.cropperWidth) / 2);
+        _this.posY = -parseInt((_this.height - _this.cropperHeight) / 2);
+        _this.startX = _this.posX;
+        _this.startY = _this.posY;
+      };
+      img.src = this.previewSrc;
+    },
+    onPan: function onPan(e) {
+      if (e.eventType === 2) {
+        var targetX = this.startX + e.deltaX;
+        var targetY = this.startY + e.deltaY;
+
+        if (targetX <= 0 && this.cropperWidth - targetX <= this.width) {
+          this.posX = targetX;
+        }
+
+        if (targetY <= 0 && this.cropperHeight - targetY <= this.height) {
+          this.posY = targetY;
+        }
+      } else if (e.eventType === 4) {
+        this.startX = this.posX;
+        this.startY = this.posY;
+      }
+    },
+    onPinch: function onPinch(e) {
+      if (e.eventType === 2) {
+        var targetWidth = parseInt(this.startWidth * e.scale);
+        var targetHeight = parseInt(this.startHeight * e.scale);
+
+        if (this.cropperWidth - this.posX <= this.width) {
+          this.width = targetWidth;
+        }
+
+        if (this.cropperHeight - this.posY <= this.height) {
+          this.height = targetHeight;
+        }
+      } else if (e.eventType === 4) {
+        this.startWidth = this.width;
+        this.startHeight = this.height;
+      }
+    }
+  },
+
+  beforeDestroy: function beforeDestroy() {}
 };
 
 /***/ }),
@@ -1120,75 +1119,75 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getCarts();
+  mounted: function mounted() {
+    this.getCarts();
+  },
+  data: function data() {
+    return {
+      carts: [],
+      selectedCarts: []
+    };
+  },
+
+
+  computed: {
+    selectAll: function selectAll() {
+      return this.selectedCarts.length === this.carts.length;
     },
-    data: function data() {
-        return {
-            carts: [],
-            selectedCarts: []
-        };
+    totalPrice: function totalPrice() {
+      if (this.selectedCarts.length === 0) {
+        return 0;
+      }
+
+      var price = 0;
+      for (var index in this.selectedCarts) {
+        price += this.selectedCarts[index].product.price * this.selectedCarts[index].amount;
+      }
+
+      return price;
     },
+    productAmount: function productAmount() {
+      if (this.selectedCarts.length === 0) {
+        return 0;
+      }
 
+      var count = 0;
+      for (var index in this.selectedCarts) {
+        count += this.selectedCarts[index].amount;
+      }
 
-    computed: {
-        selectAll: function selectAll() {
-            return this.selectedCarts.length === this.carts.length;
-        },
-        totalPrice: function totalPrice() {
-            if (this.selectedCarts.length === 0) {
-                return 0;
-            }
-
-            var price = 0;
-            for (var index in this.selectedCarts) {
-                price += this.selectedCarts[index].product.price * this.selectedCarts[index].amount;
-            }
-
-            return price;
-        },
-        productAmount: function productAmount() {
-            if (this.selectedCarts.length === 0) {
-                return 0;
-            }
-
-            var count = 0;
-            for (var index in this.selectedCarts) {
-                count += this.selectedCarts[index].amount;
-            }
-
-            return count;
-        }
-    },
-
-    methods: {
-        getCarts: function getCarts() {
-            var _this = this;
-
-            this.axios.get('cart').then(function (response) {
-                _this.carts = response.data.carts;
-            });
-        },
-        checkout: function checkout() {
-            var _this2 = this;
-
-            if (this.selectedCarts.length > 0) {
-                this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(function (response) {
-                    _this2.$router.push('/checkout');
-                });
-            }
-        },
-        checkAllClick: function checkAllClick() {
-            if (this.selectAll) {
-                this.selectedCarts = [];
-            } else {
-                this.selectedCarts = this.carts;
-            }
-        }
+      return count;
     }
+  },
+
+  methods: {
+    getCarts: function getCarts() {
+      var _this = this;
+
+      this.axios.get('cart').then(function (response) {
+        _this.carts = response.data.carts;
+      });
+    },
+    checkout: function checkout() {
+      var _this2 = this;
+
+      if (this.selectedCarts.length > 0) {
+        this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(function (response) {
+          _this2.$router.push('/checkout');
+        });
+      }
+    },
+    checkAllClick: function checkAllClick() {
+      if (this.selectAll) {
+        this.selectedCarts = [];
+      } else {
+        this.selectedCarts = this.carts;
+      }
+    }
+  }
 };
 
 /***/ }),
@@ -1199,26 +1198,26 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {},
-    data: function data() {
-        return {
-            products: []
-        };
-    },
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      products: []
+    };
+  },
 
 
-    methods: {
-        fetchOrders: function fetchOrders() {
-            var _this = this;
+  methods: {
+    fetchOrders: function fetchOrders() {
+      var _this = this;
 
-            this.axios.get('/api/product').then(function (response) {
-                _this.products = response.data;
-            });
-        }
+      this.axios.get('/api/product').then(function (response) {
+        _this.products = response.data;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1229,26 +1228,26 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {},
-    data: function data() {
-        return {
-            carts: []
-        };
-    },
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      carts: []
+    };
+  },
 
 
-    methods: {
-        getCarts: function getCarts() {
-            var _this = this;
+  methods: {
+    getCarts: function getCarts() {
+      var _this = this;
 
-            this.axios.get('cart/lists').then(function (response) {
-                _this.carts = response.data;
-            });
-        }
+      this.axios.get('cart/lists').then(function (response) {
+        _this.carts = response.data;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1259,29 +1258,29 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    data: function data() {
-        return {
-            favourites: [],
-            selectedfavourites: []
-        };
-    },
-    mounted: function mounted() {
-        this.getfavourites();
-    },
+  data: function data() {
+    return {
+      favourites: [],
+      selectedfavourites: []
+    };
+  },
+  mounted: function mounted() {
+    this.getfavourites();
+  },
 
 
-    methods: {
-        getfavourites: function getfavourites() {
-            var _this = this;
+  methods: {
+    getfavourites: function getfavourites() {
+      var _this = this;
 
-            this.axios.get('favourite').then(function (response) {
-                _this.favourites = response.data.favourites;
-            });
-        }
+      this.axios.get('favourite').then(function (response) {
+        _this.favourites = response.data.favourites;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1292,28 +1291,28 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getPost();
-    },
-    data: function data() {
-        return {
-            post: {}
-        };
-    },
+  mounted: function mounted() {
+    this.getPost();
+  },
+  data: function data() {
+    return {
+      post: {}
+    };
+  },
 
 
-    methods: {
-        getPost: function getPost() {
-            var _this = this;
+  methods: {
+    getPost: function getPost() {
+      var _this = this;
 
-            this.axios.get('post/' + this.$route.params.id).then(function (response) {
-                _this.post = response.data.post;
-            });
-        }
+      this.axios.get('post/' + this.$route.params.id).then(function (response) {
+        _this.post = response.data.post;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1324,28 +1323,28 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getPosts();
-    },
-    data: function data() {
-        return {
-            posts: []
-        };
-    },
+  mounted: function mounted() {
+    this.getPosts();
+  },
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
 
 
-    methods: {
-        getPosts: function getPosts() {
-            var _this = this;
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
 
-            this.axios.get('post').then(function (response) {
-                _this.posts = response.data.posts;
-            });
-        }
+      this.axios.get('post').then(function (response) {
+        _this.posts = response.data.posts;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1402,7 +1401,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _config = __webpack_require__(32);
@@ -1412,38 +1411,38 @@ var _config2 = _interopRequireDefault(_config);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    mounted: function mounted() {},
-    data: function data() {
-        return {
-            user: {
-                name: '',
-                password: ''
-            }
-        };
-    },
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      user: {
+        name: '',
+        password: ''
+      }
+    };
+  },
 
 
-    methods: {
-        login: function login() {
-            var _this = this;
+  methods: {
+    login: function login() {
+      var _this = this;
 
-            this.axios.post('login', this.user).then(function (response) {
-                localStorage.setItem(_config2.default.jwtTokenName, response.data.token);
+      this.axios.post('login', this.user).then(function (response) {
+        localStorage.setItem(_config2.default.jwtTokenName, response.data.token);
 
-                _this.$store.commit('UPDATE_IS_LOGIN', true);
+        _this.$store.commit('UPDATE_IS_LOGIN', true);
 
-                _this.$root.success('登录成功');
+        _this.$root.success('登录成功');
 
-                setTimeout(function () {
-                    var redirectPath = _this.$route.query.redirect ? _this.$route.query.redirect : '/';
+        setTimeout(function () {
+          var redirectPath = _this.$route.query.redirect ? _this.$route.query.redirect : '/';
 
-                    _this.$router.push(redirectPath);
-                }, 1000);
-            }, function (response) {
-                _this.$root.error(response.data.message);
-            });
-        }
+          _this.$router.push(redirectPath);
+        }, 1000);
+      }, function (response) {
+        _this.$root.error(response.data.message);
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1454,30 +1453,30 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getOrders();
-    },
-    data: function data() {
-        return {
-            orders: []
-        };
-    },
+  mounted: function mounted() {
+    this.getOrders();
+  },
+  data: function data() {
+    return {
+      orders: []
+    };
+  },
 
 
-    methods: {
-        getOrders: function getOrders() {
-            var _this = this;
+  methods: {
+    getOrders: function getOrders() {
+      var _this = this;
 
-            this.axios.get('order').then(function (response) {
-                _this.orders = response.data;
-            }, function (response) {
-                console.log(response);
-            });
-        }
+      this.axios.get('order').then(function (response) {
+        _this.orders = response.data;
+      }, function (response) {
+        console.log(response);
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1488,26 +1487,26 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {},
-    data: function data() {
-        return {
-            products: []
-        };
-    },
+  mounted: function mounted() {},
+  data: function data() {
+    return {
+      products: []
+    };
+  },
 
 
-    methods: {
-        fetchOrders: function fetchOrders() {
-            var _this = this;
+  methods: {
+    fetchOrders: function fetchOrders() {
+      var _this = this;
 
-            this.axios.get('/api/product').then(function (response) {
-                _this.products = response.data;
-            });
-        }
+      this.axios.get('/api/product').then(function (response) {
+        _this.products = response.data;
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1518,57 +1517,57 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    data: function data() {
-        return {
-            oldPassword: '',
-            password: '',
-            password_confirmation: ''
-        };
-    },
+  data: function data() {
+    return {
+      oldPassword: '',
+      password: '',
+      password_confirmation: ''
+    };
+  },
 
 
-    computed: {
-        canSubmit: function canSubmit() {
-            var reg = /.{6,20}/;
+  computed: {
+    canSubmit: function canSubmit() {
+      var reg = /.{6,20}/;
 
-            if (!this.oldPassword.match(reg)) {
-                return false;
-            }
+      if (!this.oldPassword.match(reg)) {
+        return false;
+      }
 
-            if (!this.password.match(reg)) {
-                return false;
-            }
+      if (!this.password.match(reg)) {
+        return false;
+      }
 
-            if (!this.password_confirmation.match(reg)) {
-                return false;
-            }
+      if (!this.password_confirmation.match(reg)) {
+        return false;
+      }
 
-            if (this.password_confirmation !== this.password) {
-                return false;
-            }
+      if (this.password_confirmation !== this.password) {
+        return false;
+      }
 
-            return true;
-        }
-    },
-
-    methods: {
-        submit: function submit() {
-            var _this = this;
-
-            this.axios.post('update-password', this.$data).then(function (response) {
-                _this.$root.success(response.data.info);
-
-                setTimeout(function () {
-                    _this.$router.push('/user');
-                }, 1000);
-            }, function (response) {
-                _this.$root.error(response.data[0]);
-            });
-        }
+      return true;
     }
+  },
+
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      this.axios.post('update-password', this.$data).then(function (response) {
+        _this.$root.success(response.data.info);
+
+        setTimeout(function () {
+          _this.$router.push('/user');
+        }, 1000);
+      }, function (response) {
+        _this.$root.error(response.data[0]);
+      });
+    }
+  }
 };
 
 /***/ }),
@@ -1579,80 +1578,80 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getProduct();
-        this.checkIsFavourite();
-        this.getProductAmountInCart();
-    },
-    data: function data() {
-        return {
-            product: {},
-            amount: 1,
-            isFavourite: false,
-            productAmountInCart: 0
-        };
-    },
+  mounted: function mounted() {
+    this.getProduct();
+    this.checkIsFavourite();
+    this.getProductAmountInCart();
+  },
+  data: function data() {
+    return {
+      product: {},
+      amount: 1,
+      isFavourite: false,
+      productAmountInCart: 0
+    };
+  },
 
 
-    computed: {
-        banners: function banners() {
-            var temp = [];
-            if (this.product.pictures) {
-                this.product.pictures.forEach(function (picture) {
-                    temp.push({ img: picture });
-                });
-            }
-            return temp;
-        }
-    },
-
-    methods: {
-        getProduct: function getProduct() {
-            var _this = this;
-
-            this.axios.get('product/' + this.$route.params.id).then(function (response) {
-                _this.product = response.data.product;
-            });
-        },
-        checkIsFavourite: function checkIsFavourite() {
-            var _this2 = this;
-
-            this.axios.get('favourite/' + this.$route.params.id + '/is-favourite').then(function (response) {
-                _this2.isFavourite = response.data.isFavourite;
-            });
-        },
-        getProductAmountInCart: function getProductAmountInCart() {
-            var _this3 = this;
-
-            this.axios.get('cart/product-amount').then(function (response) {
-                _this3.productAmountInCart = response.data.amount;
-            });
-        },
-        addToCart: function addToCart(productId) {
-            var _this4 = this;
-
-            var postData = {
-                productId: productId,
-                amount: this.amount
-            };
-
-            this.axios.post('cart/add', postData).then(function (response) {
-                var data = response.data;
-
-                _this4.productAmountInCart = parseInt(_this4.productAmountInCart) + _this4.amount;
-            });
-        },
-        toggleFavourite: function toggleFavourite(productId) {
-            var _this5 = this;
-
-            this.axios.get('favourite/' + productId + '/toggle').then(function (response) {
-                _this5.isFavourite = !_this5.isFavourite;
-            });
-        }
+  computed: {
+    banners: function banners() {
+      var temp = [];
+      if (this.product.pictures) {
+        this.product.pictures.forEach(function (picture) {
+          temp.push({ img: picture });
+        });
+      }
+      return temp;
     }
+  },
+
+  methods: {
+    getProduct: function getProduct() {
+      var _this = this;
+
+      this.axios.get('product/' + this.$route.params.id).then(function (response) {
+        _this.product = response.data.product;
+      });
+    },
+    checkIsFavourite: function checkIsFavourite() {
+      var _this2 = this;
+
+      this.axios.get('favourite/' + this.$route.params.id + '/is-favourite').then(function (response) {
+        _this2.isFavourite = response.data.isFavourite;
+      });
+    },
+    getProductAmountInCart: function getProductAmountInCart() {
+      var _this3 = this;
+
+      this.axios.get('cart/product-amount').then(function (response) {
+        _this3.productAmountInCart = response.data.amount;
+      });
+    },
+    addToCart: function addToCart(productId) {
+      var _this4 = this;
+
+      var postData = {
+        productId: productId,
+        amount: this.amount
+      };
+
+      this.axios.post('cart/add', postData).then(function (response) {
+        var data = response.data;
+
+        _this4.productAmountInCart = parseInt(_this4.productAmountInCart) + _this4.amount;
+      });
+    },
+    toggleFavourite: function toggleFavourite(productId) {
+      var _this5 = this;
+
+      this.axios.get('favourite/' + productId + '/toggle').then(function (response) {
+        _this5.isFavourite = !_this5.isFavourite;
+      });
+    }
+  }
 };
 
 /***/ }),
@@ -1663,30 +1662,30 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    mounted: function mounted() {
-        this.getUser();
-    },
-    data: function data() {
-        return {
-            user: {}
-        };
-    },
+  mounted: function mounted() {
+    this.getUser();
+  },
+  data: function data() {
+    return {
+      user: {}
+    };
+  },
 
 
-    methods: {
-        getUser: function getUser() {
-            var _this = this;
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
 
-            this.axios.get('current-user').then(function (response) {
-                _this.user = response.data.user;
-            }, function (response) {
-                console.log(response.data);
-            });
-        }
+      this.axios.get('current-user').then(function (response) {
+        _this.user = response.data.user;
+      }, function (response) {
+        console.log(response.data);
+      });
     }
+  }
 };
 
 /***/ }),
@@ -1697,46 +1696,46 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = {
-    data: function data() {
-        return {
-            user: {
-                name: '',
-                mobile: '',
-                password: '',
-                password_confirmation: ''
-            }
-        };
-    },
+  data: function data() {
+    return {
+      user: {
+        name: '',
+        mobile: '',
+        password: '',
+        password_confirmation: ''
+      }
+    };
+  },
 
 
-    computed: {
-        canSubmit: function canSubmit() {
-            return this.user.password === this.user.password_confirmation;
-        }
-    },
-
-    methods: {
-        register: function register() {
-            var _this = this;
-
-            this.axios.post('register', this.user).then(function (response) {
-                localStorage.token = response.data.token;
-
-                _this.$store.commit('UPDATE_IS_LOGIN', true);
-
-                _this.$root.success('登录成功');
-
-                setTimeout(function () {
-                    _this.$router.push('/user');
-                }, 1000);
-            }, function (response) {
-                _this.$root.error(response.data.error);
-            });
-        }
+  computed: {
+    canSubmit: function canSubmit() {
+      return this.user.password === this.user.password_confirmation;
     }
+  },
+
+  methods: {
+    register: function register() {
+      var _this = this;
+
+      this.axios.post('register', this.user).then(function (response) {
+        localStorage.token = response.data.token;
+
+        _this.$store.commit('UPDATE_IS_LOGIN', true);
+
+        _this.$root.success('登录成功');
+
+        setTimeout(function () {
+          _this.$router.push('/user');
+        }, 1000);
+      }, function (response) {
+        _this.$root.error(response.data.error);
+      });
+    }
+  }
 };
 
 /***/ }),
@@ -1747,7 +1746,7 @@ exports.default = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _config = __webpack_require__(32);
@@ -1757,32 +1756,32 @@ var _config2 = _interopRequireDefault(_config);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    mounted: function mounted() {
-        this.getUser();
+  mounted: function mounted() {
+    this.getUser();
+  },
+  data: function data() {
+    return {
+      user: {}
+    };
+  },
+
+
+  methods: {
+    getUser: function getUser() {
+      var _this = this;
+
+      this.axios.get('current-user').then(function (response) {
+        _this.user = response.data.user;
+      });
     },
-    data: function data() {
-        return {
-            user: {}
-        };
-    },
+    logout: function logout() {
+      localStorage.removeItem(_config2.default.jwtTokenName);
 
+      this.$store.commit('UPDATE_IS_LOGIN', false);
 
-    methods: {
-        getUser: function getUser() {
-            var _this = this;
-
-            this.axios.get('current-user').then(function (response) {
-                _this.user = response.data.user;
-            });
-        },
-        logout: function logout() {
-            localStorage.removeItem(_config2.default.jwtTokenName);
-
-            this.$store.commit('UPDATE_IS_LOGIN', false);
-
-            this.$router.replace('/');
-        }
+      this.$router.replace('/');
     }
+  }
 };
 
 /***/ }),
@@ -1982,20 +1981,8 @@ exports = module.exports = __webpack_require__(10)();
 exports.push([module.i, "\n.banner-swipe-item[data-v-eb253ae8] {\n  display: block;\n  overflow: hidden;\n}\n#products[data-v-eb253ae8] {\n  display: block;\n  overflow: hidden;\n  margin: 20px 0 80px 0;\n}\n#products ul[data-v-eb253ae8] {\n    display: block;\n    overflow: hidden;\n    padding: 0;\n}\n#products ul li[data-v-eb253ae8] {\n      display: block;\n      float: left;\n      width: 40%;\n      margin: 5%;\n}\n#products ul li .thumbnail[data-v-eb253ae8] {\n        display: block;\n        width: 100%;\n}\n#products ul li .name[data-v-eb253ae8] {\n        display: block;\n        text-align: center;\n}\n", ""]);
 
 /***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(10)();
-exports.push([module.i, "/*$grandientColor1: #1e5eb5;\n$grandientColor2: #8bcffe;\n$grandientColor3: #58b5fe;\n\nhtml {\n    height: 100%;\n}\n\nbody {\n    background: -webkit-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);\n    background: -o-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);\n    background: -moz-linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);\n    background: linear-gradient($grandientColor1, $grandientColor2, $grandientColor2);\n}*/\n", ""]);
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(10)();
-exports.push([module.i, "\n.register-form[data-v-f13e7060] {\n  display: block;\n  overflow: hidden;\n}\n.register-form input[data-v-f13e7060] {\n    display: block;\n    width: 75%;\n    height: 35px;\n    margin: 10px auto;\n    padding: 0 10px;\n    border-radius: 5px;\n}\n.register-form button[data-v-f13e7060] {\n    display: block;\n    background-color: red;\n    width: 75%;\n    height: 40px;\n    line-height: 40px;\n    color: #fff;\n    border: none;\n    border-radius: 5px;\n    margin: 20px auto;\n    padding: 0 10px;\n}\n.register-form button[disabled][data-v-f13e7060] {\n      background-color: #BBB;\n      color: #333;\n}\n#btn-to-register[data-v-f13e7060] {\n  display: block;\n  height: 35px;\n  margin: 50px auto 0;\n  color: #444;\n  font-size: 15px;\n  text-align: center;\n  line-height: 35px;\n}\n", ""]);
-
-/***/ }),
+/* 188 */,
+/* 189 */,
 /* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4674,7 +4661,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.oldPassword),
       callback: function($$v) {
         _vm.oldPassword = (typeof $$v === 'string' ? $$v.trim() : $$v)
-      }
+      },
+      expression: "oldPassword"
     }
   }), _vm._v(" "), _c('wv-input', {
     attrs: {
@@ -4685,7 +4673,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.password),
       callback: function($$v) {
         _vm.password = (typeof $$v === 'string' ? $$v.trim() : $$v)
-      }
+      },
+      expression: "password"
     }
   }), _vm._v(" "), _c('wv-input', {
     attrs: {
@@ -4696,7 +4685,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.password_confirmation),
       callback: function($$v) {
         _vm.password_confirmation = (typeof $$v === 'string' ? $$v.trim() : $$v)
-      }
+      },
+      expression: "password_confirmation"
     }
   }), _vm._v(" "), _c('wv-button', {
     attrs: {
@@ -4778,7 +4768,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.address.name),
       callback: function($$v) {
         _vm.address.name = $$v
-      }
+      },
+      expression: "address.name"
     }
   }), _vm._v(" "), _c('wv-input', {
     attrs: {
@@ -4788,7 +4779,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.address.mobile),
       callback: function($$v) {
         _vm.address.mobile = $$v
-      }
+      },
+      expression: "address.mobile"
     }
   }), _vm._v(" "), _c('wv-input', {
     attrs: {
@@ -4798,7 +4790,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.address.address),
       callback: function($$v) {
         _vm.address.address = $$v
-      }
+      },
+      expression: "address.address"
     }
   }), _vm._v(" "), _c('wv-input', {
     attrs: {
@@ -4808,7 +4801,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.address.postcode),
       callback: function($$v) {
         _vm.address.postcode = $$v
-      }
+      },
+      expression: "address.postcode"
     }
   })], 1), _vm._v(" "), _c('footer', [_c('wv-flex', {
     attrs: {
@@ -4937,7 +4931,49 @@ if (false) {
 /* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('ul', {
+    attrs: {
+      "id": "cart-list"
+    }
+  }, _vm._l((_vm.carts), function(cart) {
+    return _c('li', {
+      staticClass: "list-item"
+    }, [_c('input', {
+      staticClass: "checker",
+      attrs: {
+        "type": "checkbox",
+        "name": ""
+      }
+    }), _vm._v(" "), _c('img', {
+      staticClass: "thumbnail",
+      attrs: {
+        "src": cart.product.thumbnail,
+        "alt": ""
+      }
+    }), _vm._v(" "), _c('div', {
+      staticClass: "right-part"
+    }, [_c('h3', {
+      staticClass: "name"
+    }, [_vm._v(_vm._s(cart.product.name))]), _vm._v(" "), _c('span', {
+      staticClass: "price"
+    }, [_vm._v(_vm._s(cart.product.price))])])])
+  })), _vm._v(" "), _c('footer', [_c('input', {
+    attrs: {
+      "type": "checkbox",
+      "id": "check-all"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "total-price"
+  }, [_vm._v("合计：" + _vm._s(_vm.totalPrice))]), _vm._v(" "), _c('router-link', {
+    staticClass: "btn",
+    attrs: {
+      "to": "/order",
+      "id": "btn-checkout"
+    }
+  }, [_vm._v("立即下单")])], 1)])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
@@ -5071,7 +5107,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "description"
     }
-  }, [_vm._v("\n        " + _vm._s(_vm.product.description) + "\n    ")]), _vm._v(" "), _c('footer', [_c('div', {
+  }, [_vm._v("\n    " + _vm._s(_vm.product.description) + "\n\n  ")]), _vm._v(" "), _c('footer', [_c('div', {
     staticClass: "btn-add-cart",
     on: {
       "click": function($event) {
@@ -5085,9 +5121,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', {
     staticClass: "amount"
-  }, [_vm._v(_vm._s(_vm.productAmountInCart))]), _c('i', {
+  }, [_vm._v(_vm._s(_vm.productAmountInCart))]), _vm._v(" "), _c('i', {
     staticClass: "icon iconfont"
-  }, [_vm._v("")]), _c('span', {
+  }, [_vm._v("")]), _vm._v(" "), _c('span', {
     staticClass: "text"
   }, [_vm._v("购物车")])]), _vm._v(" "), _c('div', {
     staticClass: "btn btn-favourite",
@@ -5099,7 +5135,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "icon iconfont",
     class: {
-      'is-favourite': _vm.isFavourite
+      'is-favourite': _vm.isFavourit
     }
   }, [_vm._v(_vm._s(_vm.isFavourite ? '' : ''))]), _vm._v(" "), _c('span', {
     staticClass: "text"
@@ -5306,7 +5342,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }), _vm._v(" 全选\n        ")]), _vm._v(" "), _c('div', {
+  }), _vm._v(" 全选\n          ")]), _vm._v(" "), _c('div', {
     staticClass: "summary"
   }, [_c('div', {
     staticClass: "total-price"
@@ -5323,7 +5359,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.checkout
     }
-  }, [_vm._v("去结算")])])])
+  }, [_vm._v("去结算\n    ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -5495,7 +5531,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "default"
     }
-  }, [_vm._v("选择图片\n            "), _c('input', {
+  }, [_vm._v("选择图片\n              "), _c('input', {
     attrs: {
       "type": "file",
       "name": "file",
@@ -6160,58 +6196,8 @@ if(false) {
 }
 
 /***/ }),
-/* 228 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(188);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(60)("32808185", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./register.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./register.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 229 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(189);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(60)("454929d1", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060&scoped=true!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./register.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060&scoped=true!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=1!./register.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 228 */,
+/* 229 */,
 /* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6380,6 +6366,39 @@ if(false) {
 
 })()
 
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(10)();
+exports.push([module.i, "\n.register-form[data-v-f13e7060] {\n  display: block;\n  overflow: hidden;\n}\n.register-form input[data-v-f13e7060] {\n    display: block;\n    width: 75%;\n    height: 35px;\n    margin: 10px auto;\n    padding: 0 10px;\n    border-radius: 5px;\n}\n.register-form button[data-v-f13e7060] {\n    display: block;\n    background-color: red;\n    width: 75%;\n    height: 40px;\n    line-height: 40px;\n    color: #fff;\n    border: none;\n    border-radius: 5px;\n    margin: 20px auto;\n    padding: 0 10px;\n}\n.register-form button[disabled][data-v-f13e7060] {\n      background-color: #BBB;\n      color: #333;\n}\n#btn-to-register[data-v-f13e7060] {\n  display: block;\n  height: 35px;\n  margin: 50px auto 0;\n  color: #444;\n  font-size: 15px;\n  text-align: center;\n  line-height: 35px;\n}\n", ""]);
+
+/***/ }),
+/* 232 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(231);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(60)("16c16860", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060&scoped=true!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./register.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-f13e7060&scoped=true!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./register.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 ]));

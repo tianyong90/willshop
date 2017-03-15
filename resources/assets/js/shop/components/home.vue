@@ -24,14 +24,14 @@
     url: 'javascript:',
     img: 'https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg'
   },
-  {
-    url: 'javascript:',
-    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
-  },
-  {
-    url: 'javascript',
-    img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
-  }];
+    {
+      url: 'javascript:',
+      img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
+    },
+    {
+      url: 'javascript',
+      img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
+    }];
 
   export default {
     data () {

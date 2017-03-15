@@ -25,8 +25,7 @@
     },
 
     data () {
-      return {
-      }
+      return {}
     },
 
     computed: {
@@ -35,8 +34,7 @@
       }
     },
 
-    methods: {
-    }
+    methods: {}
   }
 
 </script>

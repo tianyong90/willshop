@@ -1306,7 +1306,7 @@ var Component = __webpack_require__(61)(
   /* cssModules */
   null
 )
-Component.options.__file = "D:\\UPUPW\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\mainmenu.vue"
+Component.options.__file = "D:\\UPUPW_NG7.0\\vhosts\\willshop\\resources\\assets\\js\\shop\\components\\mainmenu.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] mainmenu.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -2816,7 +2816,7 @@ var router = new _vueRouter2.default({
 router.beforeEach(function (to, from, next) {
   _index2.default.commit('UPDATE_LOADING', true);
 
-  _index2.default.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+  _index2.default.commit('UPDATE_MAINMENU_VISIBLE', !to.meta.hideMainmenu);
 
   if (to.matched.some(function (record) {
     return record.meta.auth;

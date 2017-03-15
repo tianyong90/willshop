@@ -23,13 +23,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   store.commit('UPDATE_LOADING', true);
 
-  store.commit('UPDATE_MAINMENU_VISIBLE', to.meta.hideMainmenu ? false : true);
+  store.commit('UPDATE_MAINMENU_VISIBLE', !to.meta.hideMainmenu);
 
   if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem(appConfig.jwtTokenName)) {
     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
     next({
       path: '/login',
-      query: { redirect: to.fullPath }
+      query: {redirect: to.fullPath}
     });
   }
 
@@ -91,7 +91,7 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(error);
 });
 
-import { mapState } from 'vuex';
+import {mapState} from 'vuex';
 
 const app = new Vue({
   // 路由器

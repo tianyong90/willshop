@@ -1,59 +1,59 @@
 <template>
-    <div>order</div>
+  <div>order</div>
 </template>
 
 <script>
-    export default {
-        mounted () {
+  export default {
+    mounted () {
 
-        },
+    },
 
-        data () {
-            return {
-                products: []
-            }
-        },
+    data () {
+      return {
+        products: []
+      }
+    },
 
-        methods: {
-            fetchOrders () {
-                this.axios.get('/api/product').then(response => {
-                    this.products = response.data;
-                });
-            }
-        }
+    methods: {
+      fetchOrders () {
+        this.axios.get('/api/product').then(response => {
+          this.products = response.data;
+        });
+      }
     }
+  }
 </script>
 
 <style lang="scss">
-    $color: red;
-    $color-hover: grayscale($color);
+  $color: red;
+  $color-hover: grayscale($color);
 
-    .my-product-list {
+  .my-product-list {
+    color: $color;
+    font-size: 20px;
+    list-style: none;
+    padding: 20px;
+
+    li {
+      display: block;
+      padding: 5px;
+      border-bottom: 1px dashed grey;
+
+      a {
         color: $color;
-        font-size: 20px;
-        list-style: none;
-        padding: 20px;
+        text-decoration: none;
+        display: block;
 
-        li {
-            display: block;
-            padding: 5px;
-            border-bottom: 1px dashed grey;
-
-            a {
-                color: $color;
-                text-decoration: none;
-                display: block;
-
-                &:hover {
-                    color: $color-hover;
-                }
-            }
-
-            .time {
-                display: inline-block;
-                float: right;
-                color: grey;
-            }
+        &:hover {
+          color: $color-hover;
         }
+      }
+
+      .time {
+        display: inline-block;
+        float: right;
+        color: grey;
+      }
     }
+  }
 </style>
