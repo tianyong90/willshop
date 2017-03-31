@@ -20,15 +20,14 @@
     "eslint-loader": "^1.6.3",
     "fastclick": "^1.0.6",
     "jquery": "^3.1.1",
-    "laravel-mix": "^0.8.8",
+    "laravel-mix": "0.*",
     "lodash": "^4.17.2",
     "normalize.css": "^5.0.0",
     "shelljs": "^0.7.7",
     "vue": "^2.2.4",
     "vue-axios": "^1.2.2",
     "vue-router": "^2.3.0",
-    "vue-touch": "^1.1.0",
     "vuex": "^2.2.1",
-    "we-vue": "^1.0.7"
+    "we-vue": "1.0.*"
   }
 }
