@@ -10,24 +10,24 @@
   "devDependencies": {
     "animate.css": "^3.5.2",
     "axios": "^0.15.3",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^7.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "bootstrap-sass": "^3.3.7",
     "element-ui": "1.2.3",
-    "eslint": "^3.17.1",
-    "eslint-loader": "^1.6.3",
+    "eslint": "^3.18.0",
+    "eslint-loader": "^1.7.1",
     "fastclick": "^1.0.6",
-    "jquery": "^3.1.1",
-    "laravel-mix": "0.*",
+    "jquery": "^3.2.1",
+    "laravel-mix": "^0.10.0",
     "lodash": "^4.17.2",
     "normalize.css": "^5.0.0",
     "shelljs": "^0.7.7",
-    "vue": "^2.2.4",
+    "vue": "^2.2.6",
     "vue-axios": "^1.2.2",
-    "vue-router": "^2.3.0",
+    "vue-router": "^2.3.1",
     "vuex": "^2.2.1",
-    "we-vue": "1.0.*"
+    "we-vue": "^1.0.14"
   }
 }
