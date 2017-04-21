@@ -26,11 +26,6 @@ mix.webpackConfig({
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'eslint-loader'
-      },
-      {
-        test: /\.sa|css$/,
-        exclude: /(node_modules|bower_components)/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
