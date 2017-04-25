@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import WeVue from 'we-vue';
-import 'normalize.css/normalize.css';
 import 'we-vue/lib/style.css';
 import '../../sass/shop.scss';
 import axios from 'axios';
@@ -91,7 +90,7 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(error);
 });
 
-import {mapState} from 'vuex';
+import { mapState } from 'vuex';
 
 const app = new Vue({
   // 路由器
