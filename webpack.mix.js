@@ -1,7 +1,6 @@
 const { mix } = require('laravel-mix');
 
 const path = require('path');
-require('shelljs/global');
 
 /*
  |--------------------------------------------------------------------------
@@ -17,6 +16,26 @@ require('shelljs/global');
 const webpack = require('webpack');mix.disableNotifications();
 
 mix.setResourceRoot('/build/');
+mix.sourceMaps();
+mix.disableNotifications();
+
+let plugins = [
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    filename: 'vendor.js'
+  })
+];
+
+if (process.env.NODE_ENV === 'production') {
+  // 生产环境中打包时先清理旧的打包文件
+  const CleanWebpackPlugin = require('clean-webpack-plugin');
+  plugins.push(new CleanWebpackPlugin('build', {
+    root: path.join(__dirname, 'public'),
+    // exclude:  ['shared.js'],
+    verbose: true,
+    dry: false
+  }));
+}
 
 mix.webpackConfig({
   module: {
@@ -24,7 +43,7 @@ mix.webpackConfig({
       {
         enforce: 'pre',
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: 'eslint-loader'
       }
     ]
@@ -39,18 +58,10 @@ mix.webpackConfig({
     filename: '[name].js',
     chunkFilename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' :'[name].js'
   },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js'
-    })
-  ]
+  plugins: plugins
 });
 
 if (process.env.NODE_ENV === 'production') {
-  // 删除原构建的文件
-  rm('-rf', path.join(__dirname, 'public/build'));
-
   mix.version([
     'public/build/vendor.js',
     'public/build/mix.js',
