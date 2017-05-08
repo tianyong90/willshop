@@ -103,6 +103,7 @@ class AutHController extends BaseController
     public function updatePassword(Request $request)
     {
         $data = $request->all();
+        $data['password'] = $request->password;
 
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
