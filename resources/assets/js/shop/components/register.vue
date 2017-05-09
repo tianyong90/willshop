@@ -13,6 +13,7 @@
 </template>
 
 <script>
+  import config from '../config.js'
   export default {
     data () {
       return {
@@ -35,7 +36,7 @@
       register () {
         this.axios.post('register', this.user).then(response => {
           // 注册成功之后保存 JWT token
-          localStorage.token = response.data.token;
+          localStorage.setItem(config.jwtTokenName ,response.data.token);
 
           // 登录状态设置为已经登录
           this.$store.commit('UPDATE_IS_LOGIN', true);

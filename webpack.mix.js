@@ -13,7 +13,7 @@ const path = require('path');
  |
  */
 
-const webpack = require('webpack');mix.disableNotifications();
+const webpack = require('webpack');
 
 mix.setResourceRoot('/build/');
 mix.sourceMaps();
