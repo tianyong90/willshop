@@ -23,6 +23,9 @@
         ],
         "no-undef": [
             "warn"
+        ],
+        "no-redeclare": [
+            "warn"
         ]
     }
 }

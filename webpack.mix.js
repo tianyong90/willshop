@@ -15,6 +15,7 @@ const path = require('path');
 
 const webpack = require('webpack');
 
+// 此项保证 webpack 能正常加载静态图片等资源
 mix.setResourceRoot('/build/');
 mix.sourceMaps();
 mix.disableNotifications();

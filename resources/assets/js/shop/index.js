@@ -95,10 +95,8 @@ import { mapState } from 'vuex';
 const app = new Vue({
   // 路由器
   router,
-
   // vuex store
   store,
-
   components: {
     'mainmenu': require('./components/mainmenu.vue')
   },
