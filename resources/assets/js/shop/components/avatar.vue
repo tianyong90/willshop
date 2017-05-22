@@ -1,26 +1,27 @@
 <template>
   <div>
     <div id="cropper" :style="{ width: cropperWidth + 'px', height: cropperHeight + 'px' }">
-      <img :src="previewSrc" v-touch:pan="onPan" v-touch:pinch="onPinch"
-           :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }">
+      <img :src="previewSrc" :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }">
     </div>
 
     <div class="buttons">
-      <x-button type="default">选择图片
-                <input type="file" name="file" id="file" @change="fileChange">
-      </x-button>
-      <x-button type="primary" @click="save">保存</x-button>
-      <x-button type="warn" @click="cancle">取消</x-button>
+      <wv-button type="default">选择图片
+         <input type="file" name="file" id="file" @change="fileChange">
+      </wv-button>
+      <wv-flex :gutter="20" style="margin-top: 25px;">
+        <wv-flex-item>
+          <wv-button type="warn" @click="cancle">取消</wv-button>
+        </wv-flex-item>
+        <wv-flex-item>
+          <wv-button type="primary" @click="save">保存</wv-button>
+        </wv-flex-item>
+      </wv-flex>
     </div>
-
-    <loading :show="isLoading"></loading>
   </div>
 </template>
 
 <script>
   import Vue from 'vue';
-  import VueTouch from 'vue-touch';
-  Vue.use(VueTouch);
 
   export default {
     mounted () {
@@ -140,45 +141,6 @@
           _this.startY = _this.posY;
         };
         img.src = this.previewSrc;
-      },
-
-      // 图片拖动处理
-      onPan (e) {
-        if (e.eventType === 2) {
-          // 限制移动时裁剪区不出现空白
-          let targetX = this.startX + e.deltaX;
-          let targetY = this.startY + e.deltaY;
-
-          if (targetX <= 0 && this.cropperWidth - targetX <= this.width) {
-            this.posX = targetX;
-          }
-
-          if (targetY <= 0 && this.cropperHeight - targetY <= this.height) {
-            this.posY = targetY;
-          }
-        } else if (e.eventType === 4) {
-          this.startX = this.posX;
-          this.startY = this.posY;
-        }
-      },
-
-      // 图片缩放处理
-      onPinch (e) {
-        if (e.eventType === 2) {
-          let targetWidth = parseInt(this.startWidth * e.scale);
-          let targetHeight = parseInt(this.startHeight * e.scale);
-
-          if (this.cropperWidth - this.posX <= this.width) {
-            this.width = targetWidth;
-          }
-
-          if (this.cropperHeight - this.posY <= this.height) {
-            this.height = targetHeight;
-          }
-        } else if (e.eventType === 4) {
-          this.startWidth = this.width;
-          this.startHeight = this.height;
-        }
       }
     },
 
@@ -195,7 +157,7 @@
     margin: 20px auto;
     position: relative;
     background-color: #fff;
-    border: 1px doted #ccc;
+    border: 1px dotted #bbb;
 
     img {
       position: absolute;
