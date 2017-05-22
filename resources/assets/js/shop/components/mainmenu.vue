@@ -20,26 +20,20 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+
   export default {
-    mounted () {
-    },
-
-    data () {
-      return {}
-    },
-
     computed: {
-      menuVisible () {
-        return this.$store.state.isMainMenuVisible;
-      }
+      ...mapState({
+        menuVisible: state => state.isMainMenuVisible
+      })
     },
 
     methods: {}
   }
-
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   #tabbar .weui_tabbar {
     position: fixed;
     bottom: 0;

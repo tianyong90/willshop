@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <div class="register-form">
-      <input type="text" v-model="user.name" placeholder="请输入用户名">
-      <input type="mobile" v-model="user.mobile" placeholder="请输入手机号">
-      <input type="password" v-model="user.password" placeholder="请输入登录密码">
-      <input type="password" v-model="user.password_confirmation" placeholder="请再次输入登录密码">
-      <button id="register" @click="register" :disabled="!canSubmit">注册</button>
-    </div>
+  <div id="register">
+    <wv-group title="注册信息">
+      <wv-input label="用户名" placeholder="请输入用户名" v-model="user.name"></wv-input>
+      <wv-input label="手机号" placeholder="请输入手机号" v-model="user.mobile"></wv-input>
+      <wv-input type="password" label="密码" placeholder="请输入登录密码" v-model="user.password"></wv-input>
+      <wv-input type="password" label="确认密码" placeholder="请再次输入登录密码" v-model="user.password_confirmation"></wv-input>
+    </wv-group>
 
-    <router-link to="/login" id="btn-to-register">使用已有账号登录</router-link>
+    <wv-button class="btn-register" type="primary" @click.native="register" :disabled="!canSubmit">注册</wv-button>
+
+    <wv-button class="btn-to-login" type="primary" plain mini @click.native="$router.push('/login')">使用已有账号登录</wv-button>
   </div>
 </template>
 
@@ -55,47 +56,14 @@
 </script>
 
 <style scoped lang="scss">
-  $color: red;
-  $borderRadius: 5px;
-
-  .register-form {
+  .btn-register {
     display: block;
-    overflow: hidden;
-    input {
-      display: block;
-      width: 75%;
-      height: 35px;
-      margin: 10px auto;
-      padding: 0 10px;
-      border-radius: $borderRadius;
-    }
-
-    button {
-      display: block;
-      background-color: $color;
-      width: 75%;
-      height: 40px;
-      line-height: 40px;
-      color: #fff;
-      border: none;
-      border-radius: $borderRadius;
-      margin: 20px auto;
-      padding: 0 10px;
-
-      &[disabled] {
-        background-color: #BBB;
-        color: #333;
-      }
-    }
+    width: 90%;
+    margin: 20px auto 50px;
   }
 
-  #btn-to-register {
+  .btn-to-login {
     display: block;
-    height: 35px;
-    margin: 50px auto 0;
-    color: #444;
-    font-size: 15px;
-    text-align: center;
-    line-height: 35px;
+    margin: 20px auto;
   }
 </style>

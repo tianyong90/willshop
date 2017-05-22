@@ -86,6 +86,7 @@
     overflow: hidden;
     background-color: #2696cb;
     padding: 20px;
+
     .avatar {
       display: block;
       float: left;
@@ -94,11 +95,13 @@
       border-radius: 70px;
       margin-right: 20px;
     }
+
     .username {
       display: block;
       color: #fff;
       font-size: 18px;
     }
+
     .mobile {
       display: block;
       color: #fff;
