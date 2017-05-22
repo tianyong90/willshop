@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div id="login">
     <img src="/img/avatar.jpg" alt="" id="avatar">
     <div class="login-form">
-      <input type="text" v-model="user.name" placeholder="请输入用户名">
+      <input v-model="user.name" placeholder="请输入用户名">
       <input type="password" v-model="user.password" placeholder="请输入登录密码">
-      <button id="login" @click="login" :disabled="false">登录</button>
     </div>
+    <wv-button class="btn-login" type="primary" @click.native="login">登录</wv-button>
 
-    <router-link to="/register" id="btn-register">注册</router-link>
+    <wv-button class="btn-to-register" type="primary" plain mini @click.native="$router.push('/register')">注册</wv-button>
   </div>
 </template>
 
@@ -84,36 +84,16 @@
         outline: none;
       }
     }
-
-    button {
-      display: block;
-      background-color: $color;
-      width: 75%;
-      height: 40px;
-      line-height: 40px;
-      color: #fff;
-      border: none;
-      border-radius: $borderRadius;
-      margin: 20px auto;
-      padding: 0 10px;
-
-      &[disabled] {
-        background-color: #BBB;
-        color: #333;
-      }
-    }
   }
 
-  #btn-register {
+  .btn-login {
     display: block;
-    height: 40px;
-    width: 70px;
-    margin: 50px auto 0;
-    background-color: #5d5de5;
-    border-radius: $borderRadius;
-    color: #fff;
-    font-size: 15px;
-    text-align: center;
-    line-height: 40px;
+    width: 90%;
+    margin: 20px auto 50px;
+  }
+
+  .btn-to-register {
+    display: block;
+    margin: 20px auto;
   }
 </style>

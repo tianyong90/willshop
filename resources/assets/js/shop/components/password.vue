@@ -1,10 +1,12 @@
 <template>
-  <wv-group>
-    <wv-input type="password" v-model.trim="oldPassword" placeholder="原密码"></wv-input>
-    <wv-input type="password" v-model.trim="password" placeholder="新密码"></wv-input>
-    <wv-input type="password" v-model.trim="password_confirmation" placeholder="确认新密码"></wv-input>
+  <div>
+    <wv-group title="修改密码">
+      <wv-input type="password" v-model.trim="oldPassword" placeholder="原密码"></wv-input>
+      <wv-input type="password" v-model.trim="password" placeholder="新密码"></wv-input>
+      <wv-input type="password" v-model.trim="password_confirmation" placeholder="确认新密码"></wv-input>
+    </wv-group>
     <wv-button id="submit-btn" type="primary" @click.native="submit" :disabled="!canSubmit">确定</wv-button>
-  </wv-group>
+  </div>
 </template>
 
 <script>

@@ -6,8 +6,9 @@ import '../../sass/shop.scss';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import store from './store/index';
-import appConfig from './config';  // 配置
-import routes from './route/index.js';
+import appConfig from './config'; // 配置
+import routes from './routes.js';
+import { mapState } from 'vuex';
 
 Vue.use(VueRouter);
 Vue.use(WeVue);
@@ -89,8 +90,6 @@ axios.interceptors.response.use((response) => {
 
   return Promise.reject(error);
 });
-
-import { mapState } from 'vuex';
 
 const app = new Vue({
   // 路由器
