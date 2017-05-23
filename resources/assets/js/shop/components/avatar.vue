@@ -144,28 +144,27 @@
         //取出选择的图片的原始尺寸
         let img = new Image();
 
-        let _this = this;
-        img.onload = function () {
-          let originalWidth = this.width;
-          let originalHeight = this.height;
+        img.onload = () => {
+          const originalWidth = img.width;
+          const originalHeight = img.height;
 
           // 根据原始宽高设置预览图片的宽和高
           if (originalWidth >= originalHeight) {
-            _this.height = _this.cropperHeight + 50;
-            _this.width = parseInt(originalWidth * _this.height / originalHeight);
+            this.height = this.cropperHeight + 50;
+            this.width = parseInt(originalWidth * this.height / originalHeight);
           } else {
-            _this.width = _this.cropperWidth + 50;
-            _this.height = parseInt(originalHeight * _this.width / originalWidth);
+            this.width = this.cropperWidth + 50;
+            this.height = parseInt(originalHeight * this.width / originalWidth);
           }
 
-          _this.startWidth = _this.width;
-          _this.startHeight = _this.height;
+          this.startWidth = this.width;
+          this.startHeight = this.height;
 
           // 居中
-          _this.posX = -parseInt((_this.width - _this.cropperWidth) / 2);
-          _this.posY = -parseInt((_this.height - _this.cropperHeight) / 2);
-          _this.startX = _this.posX;
-          _this.startY = _this.posY;
+          this.posX = -parseInt((this.width - this.cropperWidth) / 2);
+          this.posY = -parseInt((this.height - this.cropperHeight) / 2);
+          this.startX = this.posX;
+          this.startY = this.posY;
         };
         img.src = this.previewSrc;
       }
@@ -173,7 +172,7 @@
 
     beforeDestroy () {
       if (this.af) {
-        this.af = null;
+        this.af.destroy();
       }
     }
   }

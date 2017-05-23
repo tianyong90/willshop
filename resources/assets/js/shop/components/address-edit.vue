@@ -30,7 +30,6 @@
     data () {
       return {
         address: {},
-        address: {},
         pca: [],
       }
     },
@@ -109,6 +108,6 @@
     width: 100%;
     z-index: 20;
     background-color: #fff;
-    padding: .5rem 0;
+    padding: .5rem 1rem;
   }
 </style>

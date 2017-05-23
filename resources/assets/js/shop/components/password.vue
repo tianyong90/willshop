@@ -5,7 +5,7 @@
       <wv-input type="password" v-model.trim="password" placeholder="新密码"></wv-input>
       <wv-input type="password" v-model.trim="password_confirmation" placeholder="确认新密码"></wv-input>
     </wv-group>
-    <wv-button id="submit-btn" type="primary" @click.native="submit" :disabled="!canSubmit">确定</wv-button>
+    <wv-button type="primary" @click.native="submit" :disabled="!canSubmit">确定</wv-button>
   </div>
 </template>
 

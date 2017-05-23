@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul id="address-list" v-if="addresses.length">
+    <ul class="address-list" v-if="addresses.length">
       <li v-for="address in addresses">
         <div class="header">
           <span class="name">{{ address.name }}</span>
@@ -16,12 +16,12 @@
       </li>
     </ul>
 
-    <div class="empty" v-show="!$store.isLoading && addresses.length === 0">
+    <div class="empty" v-show="!$store.state.isLoading && addresses.length === 0">
       <i class="icon iconfont">&#xe617;</i>
       <div class="tips">您还没有设置地址</div>
     </div>
 
-    <footer>
+    <footer v-show="!$store.state.isLoading">
       <router-link class="weui-btn weui-btn_primary" tag="button" to="address/add">添加地址</router-link>
     </footer>
   </div>
@@ -72,7 +72,7 @@
 </script>
 
 <style scoped lang="scss">
-  #address-list {
+  .address-list {
     display: block;
     overflow: hidden;
     margin: 0 0 60px 0;

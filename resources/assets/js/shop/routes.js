@@ -95,7 +95,8 @@ const routes = [
       require.ensure([], () => resolve(require('./components/address.vue')), 'shop-home');
     },
     meta: {
-      auth: true
+      auth: true,
+      hideMainmenu: true
     }
   },
   {

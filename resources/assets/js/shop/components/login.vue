@@ -1,6 +1,5 @@
 <template>
-  <div id="login">
-    <img src="/img/avatar.jpg" alt="" id="avatar">
+  <div class="full-bg">
     <div class="login-form">
       <input v-model="user.name" placeholder="请输入用户名">
       <input type="password" v-model="user.password" placeholder="请输入登录密码">
@@ -56,20 +55,22 @@
   $color: red;
   $borderRadius: 5px;
 
-  #avatar {
+  .full-bg {
     display: block;
-    width: 85px;
-    height: 85px;
-    border-radius: 25px;
-    margin: 30px auto;
-    border: 1px solid #ccc;
-    padding: 5px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../img/login-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 
   .login-form {
-    display: block;
+    display: flex;
     overflow: hidden;
     font-size: 18px;
+    justify-content: center;
+    align-items: center;
 
     input {
       display: block;

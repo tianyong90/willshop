@@ -50,6 +50,11 @@ axios.defaults.timeout = appConfig.timeout;
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true);
 
+  if (config.hideLoading !== true) {
+    // 显示 loading 提示
+    app.showLoading();
+  }
+
   let token = window.localStorage.getItem(appConfig.jwtTokenName);
   config.headers.Authorization = 'bearer ' + token;
 
@@ -61,6 +66,7 @@ axios.interceptors.request.use((config) => {
 // axios 得到响应后处理
 axios.interceptors.response.use((response) => {
   store.commit('UPDATE_LOADING', false);
+  app.hideLoading();
 
   const newToken = response.headers.authorization;
   if (newToken) {
@@ -72,6 +78,11 @@ axios.interceptors.response.use((response) => {
   store.commit('UPDATE_LOADING', false);
 
   if (error.response) {
+    const newToken = error.response.headers.authorization;
+    if (newToken) {
+      window.localStorage.setItem(appConfig.jwtTokenName, newToken.replace('bearer ', ''));
+    }
+
     if (error.response.status === 401) {
       window.localStorage.removeItem(appConfig.jwtTokenName);
 
@@ -81,11 +92,11 @@ axios.interceptors.response.use((response) => {
       app.error('无操作权限');
       return;
     }
-  } else {
-    // 请求超时提示
-    if (error.code === 'ECONNABORTED') {
-      app.error('网络超时，请重试');
-    }
+  }
+
+  // 超时后进行提示
+  if (error.code === 'ECONNABORTED') {
+    app.error('网络繁忙，请重试');
   }
 
   return Promise.reject(error);
@@ -108,26 +119,66 @@ const app = new Vue({
   },
 
   methods: {
-    success (message) {
-      WeVue.Toast(message);
+    /**
+     * 操作成功提示
+     * @param message
+     * @param duration
+     */
+    success (message, duration = 1000) {
+      WeVue.Toast({
+        message,
+        duration
+      });
     },
 
     error (message, duration) {
       WeVue.Toast({
-        duration: duration,
         message: message,
+        duration: duration,
         icon: 'warn'
       });
-    }
-  },
+    },
 
-  watch: {
-    'isLoading': (value) => {
-      if (value) {
-        WeVue.Indicator.open('loading');
-      } else {
-        WeVue.Indicator.close();
-      }
+    /**
+     * 一般信息提示
+     * @param message
+     * @param duration
+     */
+    info (message, duration = 2000) {
+      WeVue.Toast({
+        type: 'text',
+        message,
+        duration
+      });
+    },
+
+    /**
+     * 确认对话框
+     * @param title
+     * @param message
+     * @param callback
+     */
+    confirm (title, message, callback) {
+      WeVue.Dialog({
+        title,
+        message,
+        skin: this.isiOs ? 'ios' : 'android'
+      }, callback);
+    },
+
+    /**
+     * 显示 loading 提示
+     * @param msg
+     */
+    showLoading (msg = 'Loading') {
+      WeVue.Indicator.open(msg);
+    },
+
+    /**
+     * 隐藏 loading 提示
+     */
+    hideLoading () {
+      WeVue.Indicator.close();
     }
   }
 }).$mount('#app');
