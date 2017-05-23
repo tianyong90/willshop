@@ -2,7 +2,7 @@
   <div>
     <div id="banner">
       <wv-swipe :height="180" :auto="4000">
-        <wv-swipe-item class="banner-swipe-item" v-for="banner in banners">
+        <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner">
           <img :src="banner.img" alt="">
         </wv-swipe-item>
       </wv-swipe>

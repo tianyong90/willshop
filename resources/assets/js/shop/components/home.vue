@@ -1,14 +1,14 @@
 <template>
   <div class="main">
     <wv-swipe :height="180" :auto="4000">
-      <wv-swipe-item class="banner-swipe-item" v-for="banner in banners">
+      <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner">
         <img :src="banner.img" alt="">
       </wv-swipe-item>
     </wv-swipe>
 
     <div id="products">
       <ul>
-        <li v-for="product in products">
+        <li v-for="product in products" :key="product">
           <router-link :to="'/product/' + product.id">
             <img class="thumbnail" :src="product.thumbnail" alt="">
             <span class="name">{{ product.name }}</span>

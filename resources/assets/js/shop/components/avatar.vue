@@ -1,19 +1,20 @@
 <template>
   <div>
-    <div id="cropper" :style="{ width: cropperWidth + 'px', height: cropperHeight + 'px' }">
-      <img :src="previewSrc" :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }">
+    <div class="cropper" :style="{ width: cropperWidth + 'px', height: cropperHeight + 'px' }">
+      <img class="preview" :src="previewSrc"
+           :style="{ left: posX + 'px',top: posY + 'px', width: width + 'px', height: height + 'px' }" ref="image">
     </div>
 
     <div class="buttons">
       <wv-button type="default">选择图片
-         <input type="file" name="file" id="file" @change="fileChange">
+        <input type="file" name="file" id="file" @change="fileChange">
       </wv-button>
       <wv-flex :gutter="20" style="margin-top: 25px;">
         <wv-flex-item>
-          <wv-button type="warn" @click="cancle">取消</wv-button>
+          <wv-button type="warn" @click.native="cancle">取消</wv-button>
         </wv-flex-item>
         <wv-flex-item>
-          <wv-button type="primary" @click="save">保存</wv-button>
+          <wv-button type="primary" @click.native="store">保存</wv-button>
         </wv-flex-item>
       </wv-flex>
     </div>
@@ -21,27 +22,21 @@
 </template>
 
 <script>
-  import Vue from 'vue';
+  import AlloyFinger from 'alloyfinger';
 
   export default {
-    mounted () {
-
-    },
-
     data () {
       return {
-        cropperWidth: 250,
-        cropperHeight: 250,
+        cropperWidth: 300,
+        cropperHeight: 300,
         posX: 0,
         posY: 0,
-        startX: 0, //一次拖动操作起始时的横坐标
-        startY: 0, //一次拖动操作起始时的纵坐标
         width: 0,
         height: 0,
-        startWidth: 0, //一次缩放操作起始时的宽度
-        startHeight: 0, //一次缩放操作起始时的高度
+        pinchStartWidth: 0,
+        pinchStartHeight: 0,
         previewSrc: '',
-        isLoading: false,
+        af: null
       }
     },
 
@@ -58,9 +53,45 @@
       }
     },
 
+    mounted () {
+      this.af = new AlloyFinger(this.$refs.image, {
+        multipointStart: (event) => {
+          event.preventDefault();
+
+          this.pinchStartWidth = this.width;
+          this.pinchStartHeight = this.height;
+        },
+        touchMove: (event) => {
+          event.preventDefault();
+
+          const targetX = this.posX + event.deltaX;
+          const targetY = this.posY + event.deltaY;
+
+          if (targetX <= 0 && this.cropperWidth - targetX <= this.width) {
+            this.posX = targetX;
+          }
+
+          if (targetY <= 0 && this.cropperHeight - targetY <= this.height) {
+            this.posY = targetY;
+          }
+        },
+        pinch: (event) => {
+          event.preventDefault();
+
+          const targetWidth = this.pinchStartWidth * event.zoom;
+          const targetHeight = this.pinchStartHeight * event.zoom;
+
+          if (targetWidth >= this.cropperWidth - this.posX && targetHeight >= this.cropperHeight - this.posY) {
+            this.width = targetWidth;
+            this.height = targetHeight;
+          }
+        }
+      })
+    },
+
     methods: {
       // 保存
-      save () {
+      store () {
         let files = document.getElementById('file').files;
 
         if (files.length === 0) {
@@ -80,13 +111,11 @@
         oMyForm.append("avatar", files[0]);
 
         this.isLoading = true;
-        this.axios.post('user/avatar', oMyForm).then(function (response) {
-          this.isLoading = false;
-
+        this.axios.post('user/avatar', oMyForm).then(response => {
           let data = response.data;
 
           if (data.status) {
-            this.$root.success('登录成功');
+            this.$root.success('设置成功');
 
             setTimeout(() => {
               this.$router.push('/profile');
@@ -94,10 +123,8 @@
           } else {
             this.$root.error(data.info);
           }
-        }, function (response) {
-          this.isLoading = false;
-
-          this.error('设置失败');
+        }).catch(error => {
+          this.$root.error('设置失败');
         });
       },
 
@@ -145,13 +172,15 @@
     },
 
     beforeDestroy () {
-      //
+      if (this.af) {
+        this.af = null;
+      }
     }
   }
 </script>
 
 <style scoped lang="scss">
-  #cropper {
+  .cropper {
     display: block;
     overflow: hidden;
     margin: 20px auto;

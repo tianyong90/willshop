@@ -1,6 +1,6 @@
 <template>
   <ul id="favourite-list">
-    <router-link tag="li" :to="'product/' + favourite.product.id" class="list-item" v-for="favourite in favourites">
+    <router-link tag="li" :to="'product/' + favourite.product.id" class="list-item" v-for="favourite in favourites" :key="favourite">
       <img :src="favourite.product.thumbnail" alt="" class="thumbnail" :to="'/product/' + favourite.product.id">
       <div class="right-part">
         <div class="name" :to="'/product/' + favourite.product.id">{{ favourite.product.name }}</div>

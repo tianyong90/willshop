@@ -11,6 +11,7 @@
     "clean": "node_modules/.bin/rimraf public/build"
   },
   "devDependencies": {
+    "alloyfinger": "^0.1.7",
     "animate.css": "^3.5.2",
     "axios": "^0.16.1",
     "babel-eslint": "^7.2.3",
