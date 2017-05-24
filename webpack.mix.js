@@ -20,10 +20,6 @@ mix.setResourceRoot('/build/');
 mix.sourceMaps();
 mix.disableNotifications();
 
-mix.options({
-  processCssUrls: false
-});
-
 let plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',

@@ -3,8 +3,13 @@
   "/shop.js": "/shop.js",
   "/mix.js": "/mix.js",
   "/vendor.js": "/vendor.js",
-  "/build/vendor.js": "/build/vendor.53c70a46290b33e65707c49a7779f3e4.js",
-  "/build/mix.js": "/build/mix.a5f37726c03bc24c2a8ef10406d5c0d6.js",
-  "/build/shop.js": "/build/shop.a38e004d17fa627a93c01ba8d3c3e0f8.js",
+  "/build/vendor.js": "/build/vendor.b34b9c0791d7975045ca33e5323cfdc7.js",
+  "/build/mix.js": "/build/mix.df5796f87067a0aa72a8d608f4058344.js",
+  "/build/shop.js": "/build/shop.395db8e66230d506d0a9aada9931c511.js",
+  "/shop-home.f816383f.js": "/shop-home.f816383f.js",
+  "/shop-home.f816383f.js.map": "/shop-home.f816383f.js.map",
+  "/shop.js.map": "/shop.js.map",
+  "/mix.js.map": "/mix.js.map",
+  "/vendor.js.map": "/vendor.js.map",
   "/shop-home.js": "/shop-home.js"
 }
