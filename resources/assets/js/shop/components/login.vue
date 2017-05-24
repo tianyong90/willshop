@@ -1,9 +1,7 @@
 <template>
   <div class="full-bg">
-    <div class="login-form">
-      <input v-model="user.name" placeholder="请输入用户名">
-      <input type="password" v-model="user.password" placeholder="请输入登录密码">
-    </div>
+    <input v-model.trim="user.name" placeholder="请输入用户名">
+    <input type="password" v-model.trim="user.password" placeholder="请输入登录密码">
     <wv-button class="btn-login" type="primary" @click.native="login">登录</wv-button>
 
     <wv-button class="btn-to-register" type="primary" plain mini @click.native="$router.push('/register')">注册</wv-button>
@@ -14,9 +12,6 @@
   import appConfig from '../config';
 
   export default {
-    mounted () {
-    },
-
     data () {
       return {
         user: {
@@ -56,30 +51,26 @@
   $borderRadius: 5px;
 
   .full-bg {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     background-image: url('../../../img/login-bg.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-  }
-
-  .login-form {
-    display: flex;
-    overflow: hidden;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
 
     input {
       display: block;
       width: 75%;
       height: 40px;
-      margin: 20px auto;
-      padding: 0 10px;
       border-radius: $borderRadius;
       border: 1px solid #999;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 5px 0;
+      text-indent: 1em;
 
       &:active {
         outline: none;
@@ -89,12 +80,11 @@
 
   .btn-login {
     display: block;
-    width: 90%;
-    margin: 20px auto 50px;
+    width: 75%;
+    margin-top: 20px;
   }
 
   .btn-to-register {
     display: block;
-    margin: 20px auto;
   }
 </style>
