@@ -1,6 +1,10 @@
 {
-  "/shop-home.js": "/shop-home.js",
+  "/shop-home.40eea5f6.js": "/shop-home.40eea5f6.js",
   "/shop.js": "/shop.js",
   "/mix.js": "/mix.js",
-  "/vendor.js": "/vendor.js"
+  "/vendor.js": "/vendor.js",
+  "/build/vendor.js": "/build/vendor.53c70a46290b33e65707c49a7779f3e4.js",
+  "/build/mix.js": "/build/mix.a5f37726c03bc24c2a8ef10406d5c0d6.js",
+  "/build/shop.js": "/build/shop.a38e004d17fa627a93c01ba8d3c3e0f8.js",
+  "/shop-home.js": "/shop-home.js"
 }
