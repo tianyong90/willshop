@@ -25,10 +25,10 @@ class AutHController extends BaseController
 
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
-                return $this->response->error('invalid credentials', 401);
+                return response('invalid credentials', 401);
             }
         } catch (JWTException $e) {
-            return $this->response->error('could not create token', 500);
+            return response('could not create token', 500);
         }
 
         // 返回生成的 token
@@ -40,7 +40,7 @@ class AutHController extends BaseController
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse|void
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function register(Request $request)
     {
@@ -56,7 +56,7 @@ class AutHController extends BaseController
         $validator = Validator::make($request->all(), $rules, [], \App\User::$aliases);
 
         if ($validator->fails()) {
-            return $this->response->error($validator->messages()->first(), 401);
+            return response($validator->messages()->first(), 401);
         }
 
         try {
@@ -67,7 +67,7 @@ class AutHController extends BaseController
             // 返回生成的 token
             return response()->json(compact('token'));
         } catch (\Exception $e) {
-            return $this->response->error('system error', 500);
+            return response('system error', 500);
         }
     }
 
@@ -80,14 +80,14 @@ class AutHController extends BaseController
     {
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return $this->response->error('user_not_found', 404);
+                return response('user_not_found', 404);
             }
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return $this->response->error('token_expired', $e->getStatusCode());
+            return response('token_expired', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return $this->response->error('token_invalid', $e->getStatusCode());
+            return response('token_invalid', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return $this->response->error('token_absent', $e->getStatusCode());
+            return response('token_absent', $e->getStatusCode());
         }
 
         // the token is valid and we have found the user via the sub claim
@@ -108,22 +108,22 @@ class AutHController extends BaseController
 
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return $this->response->error('user_not_found', 404);
+                return response('user_not_found', 404);
             }
         } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
-            return $this->response->error('token_expired', $e->getStatusCode());
+            return response('token_expired', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
-            return $this->response->error('token_invalid', $e->getStatusCode());
+            return response('token_invalid', $e->getStatusCode());
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
-            return $this->response->error('token_absent', $e->getStatusCode());
+            return response('token_absent', $e->getStatusCode());
         }
 
         if (!password_verify($data['oldPassword'], $user['password'])) {
-            return $this->response->error('oldpassword don\'t match', 400);
+            return response('oldpassword don\'t match', 400);
         }
 
         if ($data['password'] !== $data['password_confirmation']) {
-            return $this->response->error('password confirmation failed.', 400);
+            return response('password confirmation failed.', 400);
         }
 
         $user['password'] = bcrypt($data['password']);

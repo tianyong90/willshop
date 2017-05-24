@@ -76,6 +76,7 @@ axios.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   store.commit('UPDATE_LOADING', false);
+  app.hideLoading();
 
   if (error.response) {
     const newToken = error.response.headers.authorization;
@@ -90,7 +91,6 @@ axios.interceptors.response.use((response) => {
     } else if (error.response.status === 403) {
       // 无权限时统一提示
       app.error('无操作权限');
-      return;
     }
   }
 

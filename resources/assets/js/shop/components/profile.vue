@@ -2,7 +2,7 @@
   <div>
     <wv-group>
       <wv-cell title="头像" to="/avatar" is-link>
-        <img class="avatar" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
+        <img class="avatar" slot="ft" :src="user.avatar ? user.avatar : '/img/avatar.jpg'" alt="">
       </wv-cell>
       <wv-cell title="用户名" value="admin"></wv-cell>
     </wv-group>
@@ -29,8 +29,8 @@
       getUser () {
         this.axios.get('current-user').then(response => {
           this.user = response.data.user;
-        }, response => {
-          console.log(response.data);
+        }).catch(error => {
+          console.log(error);
         });
       }
     }
@@ -40,8 +40,10 @@
 <style scoped lang="scss">
   .avatar {
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 1px solid #ccc;
   }
 </style>

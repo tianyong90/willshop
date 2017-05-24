@@ -1,5 +1,5 @@
 <template>
-  <wv-group title="常见问题" id="post-list">
+  <wv-group title="常见问题" class="post-list">
     <wv-cell v-for="post in posts" :key="post" :title="post.title" :to="'/help/' + post.id" is-link></wv-cell>
   </wv-group>
 </template>
@@ -27,7 +27,7 @@
 </script>
 
 <style lang="scss">
-  #post-list {
+  .post-list {
     margin-bottom: 60px;
   }
 </style>

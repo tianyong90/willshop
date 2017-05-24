@@ -1,17 +1,19 @@
 <template>
   <div>
-    <ul id="cart-list">
-      <li class="list-item" v-for="cart in carts">
-        <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
-        <router-link :to="'/product/' + cart.product.id">
-          <img :src="cart.product.thumbnail" alt="" class="thumbnail">
-        </router-link>
-        <div class="right-part">
-          <router-link class="name" tag="div" :to="'/product/' + cart.product.id">{{ cart.product.name }}</router-link>
-          <span class="price">{{ cart.product.price }}</span>
+    <div class="weui-panel weui-panel_access">
+      <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_appmsg" v-for="cart in carts">
+          <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
+          <div class="weui-media-box__hd">
+            <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
+          </div>
+          <div class="weui-media-box__bd">
+            <router-link tag="h4" :to="'/product/' + cart.product.id" class="weui-media-box__title" v-text="cart.product.name"></router-link>
+            <p class="weui-media-box__desc price" v-text="cart.product.price"></p>
+          </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
 
     <footer>
       <label id="check-all" for="check-all">
@@ -21,7 +23,7 @@
         <div class="total-price">合计：{{ totalPrice }}</div>
         <div class="product-count">已选 {{ productAmount }} 件商品</div>
       </div>
-      <button class="btn" :class="{ 'disabled': selectedCarts.length === 0 }" id="btn-checkout" @click="checkout">去结算
+      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="checkout">去结算
       </button>
     </footer>
   </div>
@@ -85,9 +87,11 @@
       // 去结算
       checkout () {
         if (this.selectedCarts.length > 0) {
-          this.axios.post('checkout', {selectedCarts: this.selectedCarts}).then(response => {
+          this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(response => {
             this.$router.push('/checkout');
-          })
+          }).catch(error => {
+            console.log(error);
+          });
         }
       },
 
@@ -104,51 +108,12 @@
 </script>
 
 <style scoped lang="scss">
-  #cart-list {
-    display: block;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
+  .checker {
+    margin-right: 10px;
+  }
 
-    .list-item {
-      display: block;
-      overflow: hidden;
-      padding: 10px;
-      border-bottom: 1px solid #eee;
-
-      .checker {
-        display: inline-block;
-        float: left;
-        margin: 30px 15px 0 10px;
-      }
-
-      .thumbnail {
-        display: block;
-        float: left;
-        width: 80px;
-        height: 80px;
-        border: 1px solid #eee;
-      }
-
-      .right-part {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        height: 80px;
-        float: left;
-        padding: 0 10px;
-
-        .name {
-          font-size: 15px;
-        }
-
-        .price {
-          position: absolute;
-          bottom: 0;
-          color: #f00;
-        }
-      }
-    }
+  .price {
+    color: #f44336;
   }
 
   footer {
@@ -179,17 +144,18 @@
       font-size: 13px;
     }
 
-    #btn-checkout {
+    .btn-checkout {
       display: block;
       float: right;
       color: #fff;
       line-height: 50px;
       padding: 0 20px;
-      background-color: #f00;
+      background-color: #f44336;
       border: none;
 
       &.disabled {
         background-color: #ccc;
+        color: #464242;
       }
     }
   }

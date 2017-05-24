@@ -1,20 +1,19 @@
-<template v-cloak>
+<template>
   <div>
-    <div id="banner">
+    <div class="banner">
       <wv-swipe :height="180" :auto="4000">
         <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner">
           <img :src="banner.img" alt="">
         </wv-swipe-item>
       </wv-swipe>
     </div>
-    <div id="details">
+    <div class="details">
       <div class="name">{{ product.name }}</div>
       <div class="price">{{ product.price }}</div>
     </div>
 
-    <div id="description">
+    <div class="description">
       {{ product.description }}
-
     </div>
 
     <footer>
@@ -25,8 +24,8 @@
         <span class="text">购物车</span>
       </router-link>
       <div class="btn btn-favourite" @click="toggleFavourite(product.id)">
-        <i class="icon iconfont" :class="{ 'is-favourite': isFavourit }">{{ isFavourite ? '&#xe606;' : '&#xe607;'
-        }}</i>
+        <i class="icon iconfont" :class="{ 'is-favourite': isFavourite }">{{ isFavourite ? '&#xe606;' : '&#xe607;'
+          }}</i>
         <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
       </div>
     </footer>
@@ -113,17 +112,19 @@
     overflow: hidden;
   }
 
-  #details {
+  .details {
     display: block;
     background-color: #fff;
     overflow: hidden;
     margin: 5px 0;
+
     .name {
       display: block;
       padding: 0 10px;
       font-size: 17px;
       color: #666;
     }
+
     .price {
       display: block;
       padding: 0 10px;
@@ -132,7 +133,7 @@
     }
   }
 
-  #description {
+  .description {
     display: block;
     overflow: hidden;
     background-color: #fff;
@@ -152,6 +153,7 @@
     background-color: #fff;
     border-top: 1px solid #ccc;
     padding: 0;
+
     .btn {
       display: inline-block;
       float: right;
@@ -160,12 +162,14 @@
       padding: 5px 20px;
       font-size: 12px;
       position: relative;
+
       .icon {
         display: block;
         &.is-favourite {
           color: #f00;
         }
       }
+
       .amount {
         position: absolute;
         background-color: #f00;
@@ -176,6 +180,7 @@
         padding: 0 4px;
         border-radius: 50%;
       }
+
       .text {
         font-size: 12px;
       }

@@ -38,8 +38,8 @@
             // 登录成功后跳转至之前想要进入的页面
             this.$router.push(redirectPath);
           }, 1000);
-        }, response => {
-          this.$root.error(response.data.message);
+        }).catch(error => {
+          this.$root.error(error.response.data);
         });
       }
     }
