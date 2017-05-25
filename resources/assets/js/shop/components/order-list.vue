@@ -1,61 +1,45 @@
 <template>
-  <div>order list</div>
+  <div class="weui-panel weui-panel_access">
+    <div class="weui-panel__bd">
+      <router-link :to="'/product/' + favourite.product.id" tag="div" class="weui-media-box weui-media-box_appmsg" v-for="favourite in favourites">
+        <div class="weui-media-box__hd">
+          <img class="weui-media-box__thumb" :src="favourite.product.thumbnail">
+        </div>
+        <div class="weui-media-box__bd">
+          <h4 class="weui-media-box__title" v-text="favourite.product.name"></h4>
+          <p class="weui-media-box__desc price" v-text="favourite.product.price"></p>
+        </div>
+      </router-link>
+    </div>
+  </div>
 </template>
 
 <script>
   export default {
-    mounted () {
-      this.getOrders();
-    },
-
     data () {
       return {
-        orders: []
+        favourites: [],
+        selectedfavourites: []
       }
     },
 
+    mounted () {
+      this.getfavourites();
+    },
+
     methods: {
-      getOrders () {
-        this.axios.get('order').then(response => {
-          this.orders = response.data;
-        }, response => {
-          console.log(response);
+      // 获取收藏列表数据
+      getfavourites () {
+        this.axios.get('favourite').then(response => {
+          this.favourites = response.data.favourites;
         });
       }
     }
   }
 </script>
 
-<style lang="scss">
-  $color: red;
-  $color-hover: grayscale($color);
-
-  .my-product-list {
-    color: $color;
-    font-size: 20px;
-    list-style: none;
-    padding: 20px;
-
-    li {
-      display: block;
-      padding: 5px;
-      border-bottom: 1px dashed grey;
-
-      a {
-        color: $color;
-        text-decoration: none;
-        display: block;
-
-        &:hover {
-          color: $color-hover;
-        }
-      }
-
-      .time {
-        display: inline-block;
-        float: right;
-        color: grey;
-      }
-    }
+<style scoped lang="scss">
+  .price {
+    color: #f44336;
   }
 </style>
