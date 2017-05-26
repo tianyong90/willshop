@@ -45,7 +45,6 @@ class AutHController extends BaseController
     public function register(Request $request)
     {
         $data = $request->all();
-        $data['password'] = bcrypt($request->password);
         
         $rules = [
             'name' => 'required|min:3|max:20',
@@ -104,7 +103,6 @@ class AutHController extends BaseController
     public function updatePassword(Request $request)
     {
         $data = $request->all();
-
 
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {

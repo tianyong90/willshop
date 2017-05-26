@@ -17,6 +17,7 @@ class UserObserver
     public function creating(User $user)
     {
         $user->api_token = str_random(60);
+        $user->password = bcrypt($user->password);
     }
 
     /**
