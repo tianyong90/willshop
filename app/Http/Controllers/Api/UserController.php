@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 use Auth;
 use Image;
 
-class UserController extends BaseController
+class UserController extends BaseApiController
 {
     public function __construct()
     {
     }
-
 
     /**
      * 设置头像

@@ -9,7 +9,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
 use Validator;
 
-class AutHController extends BaseController
+class AutHController extends BaseApiController
 {
     /**
      * 登录授权

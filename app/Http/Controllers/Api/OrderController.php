@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 
-class OrderController extends BaseController
+class OrderController extends BaseApiController
 {
     /**
      * @var Order
@@ -83,6 +83,8 @@ class OrderController extends BaseController
     {
         // 选中的购物车项
         $selectedCarts = $request->input('selectedCarts');
+
+        dd($request->all());
 
         if (count($selectedCarts) == 0) {
             return response('未选择结算项目', 400);

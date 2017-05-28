@@ -7,7 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Auth;
 
-class CartController extends BaseController
+class CartController extends BaseApiController
 {
     /**
      * @var Cart

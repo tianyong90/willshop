@@ -6,7 +6,7 @@ use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 
-class ProductController extends BaseController
+class ProductController extends BaseApiController
 {
     /**
      * @var Product

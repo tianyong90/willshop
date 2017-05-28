@@ -6,7 +6,7 @@ use App\Address;
 use Illuminate\Http\Request;
 use Auth;
 
-class AddressController extends BaseController
+class AddressController extends BaseApiController
 {
     /**
      * @var Address
