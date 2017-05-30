@@ -1,7 +1,7 @@
 <template>
   <div class="weui-panel weui-panel_access">
     <div class="weui-panel__bd">
-      <router-link :to="'/product/' + favourite.product.id" tag="div" class="weui-media-box weui-media-box_appmsg" v-for="favourite in favourites">
+      <router-link :to="'/product/' + favourite.product.id" tag="div" class="weui-media-box weui-media-box_appmsg" v-for="favourite in favourites" :key="favourite">
         <div class="weui-media-box__hd">
           <img class="weui-media-box__thumb" :src="favourite.product.thumbnail">
         </div>

@@ -17,7 +17,7 @@
 
     <footer>
       <label id="check-all" for="check-all">
-        <input type="checkbox" v-model="selectAll" @click="checkAllClick"> 全选
+        <input type="checkbox" v-model="allSelected" @click="checkAllClick"> 全选
             </label>
       <div class="summary">
         <div class="total-price">合计：{{ totalPrice }}</div>
@@ -43,14 +43,14 @@
     },
 
     computed: {
-      selectAll () {
+      // 是否是全选
+      allSelected () {
         return this.selectedCarts.length === this.carts.length;
       },
 
+      // 总价
       totalPrice () {
-        if (this.selectedCarts.length === 0) {
-          return 0;
-        }
+        if (this.selectedCarts.length === 0) return 0;
 
         // 选中的樟商品总价累加
         let price = 0;
@@ -61,10 +61,9 @@
         return price;
       },
 
+      // 选中的购物车项包含的商品总数
       productAmount () {
-        if (this.selectedCarts.length === 0) {
-          return 0;
-        }
+        if (this.selectedCarts.length === 0) return 0;
 
         // 选中的订单中商品数累加
         let count = 0;
@@ -97,7 +96,7 @@
 
       // 全选和取消全选
       checkAllClick () {
-        if (this.selectAll) {
+        if (this.allSelected) {
           this.selectedCarts = [];
         } else {
           this.selectedCarts = this.carts;
