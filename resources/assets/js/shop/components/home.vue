@@ -6,15 +6,14 @@
       </wv-swipe-item>
     </wv-swipe>
 
-    <div id="products">
-      <ul>
-        <li v-for="product in products" :key="product">
-          <router-link :to="'/product/' + product.id">
-            <img class="thumbnail" :src="product.thumbnail" alt="">
-            <span class="name">{{ product.name }}</span>
-          </router-link>
-        </li>
-      </ul>
+    <div class="products">
+      <div class="product-item" v-for="product in products" :key="product">
+        <router-link :to="'/product/' + product.id">
+          <img class="thumbnail" :src="product.thumbnail" alt="">
+          <span class="name" v-text="product.name"></span>
+          <div class="price" v-html="product.price"></div>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -24,36 +23,35 @@
     url: 'javascript:',
     img: 'https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg'
   },
-    {
-      url: 'javascript:',
-      img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
-    },
-    {
-      url: 'javascript',
-      img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
-    }];
+  {
+    url: 'javascript:',
+    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
+  },
+  {
+    url: 'javascript',
+    img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
+  }];
 
   export default {
-    data () {
+    data() {
       return {
         products: [],
         banners
       }
     },
 
-    mounted () {
+    mounted() {
       this.getProducts();
     },
 
     methods: {
-      getProducts () {
+      getProducts() {
         this.axios.get('product').then(response => {
           this.products = response.data.products;
         });
       }
     }
   }
-
 </script>
 
 <style scoped lang="scss">
@@ -62,31 +60,28 @@
     overflow: hidden;
   }
 
-  #products {
-    display: block;
-    overflow: hidden;
-    margin: 20px 0 80px 0;
+  .products {
+    display: flex;
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 80px;
 
-    ul {
+    .product-item {
       display: block;
-      overflow: hidden;
-      padding: 0;
 
-      li {
+      .thumbnail {
         display: block;
-        float: left;
-        width: 40%;
-        margin: 5%;
+        width: 100%;
+      }
 
-        .thumbnail {
-          display: block;
-          width: 100%;
-        }
+      .name {
+        display: block;
+        text-align: center;
+      }
 
-        .name {
-          display: block;
-          text-align: center;
-        }
+      .price {
+        display: block;
+        color: yellow;
       }
     }
   }
