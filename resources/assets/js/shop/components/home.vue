@@ -62,12 +62,19 @@
 
   .products {
     display: flex;
-    background-color: red;
-    margin-top: 10px;
-    margin-bottom: 80px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin: 10px auto 65px;
 
     .product-item {
+      width: 48%;
       display: block;
+      overflow: hidden;
+      background-color: #fff;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
 
       .thumbnail {
         display: block;
@@ -81,7 +88,11 @@
 
       .price {
         display: block;
-        color: yellow;
+        padding: .2em;
+        font-size: 15px;
+        font-weight: bold;
+        color: red;
+        text-align: right;
       }
     }
   }
