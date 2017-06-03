@@ -82,8 +82,13 @@
       }
 
       .name {
-        display: block;
-        text-align: center;
+        display: -webkit-box;
+        color: #444;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        -webkit-box-lines: 1;
       }
 
       .price {

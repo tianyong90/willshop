@@ -12,9 +12,7 @@
       <div class="price">{{ product.price }}</div>
     </div>
 
-    <div class="description">
-      {{ product.description }}
-    </div>
+    <div class="description" v-html="product.description"></div>
 
     <footer>
       <div class="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
