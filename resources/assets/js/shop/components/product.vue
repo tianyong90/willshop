@@ -15,17 +15,17 @@
     <div class="description" v-html="product.description"></div>
 
     <footer>
-      <div class="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
-      <router-link class="btn btn-cart" to="/cart">
-        <span class="amount">{{ productAmountInCart }}</span>
-        <i class="icon iconfont">&#xe611;</i>
-        <span class="text">购物车</span>
-      </router-link>
       <div class="btn btn-favourite" @click="toggleFavourite(product.id)">
         <i class="icon iconfont" :class="{ 'is-favourite': isFavourite }">{{ isFavourite ? '&#xe606;' : '&#xe607;'
           }}</i>
         <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
       </div>
+      <router-link class="btn btn-cart" to="/cart">
+        <span class="amount">{{ productAmountInCart }}</span>
+        <i class="icon iconfont">&#xe611;</i>
+        <span class="text">购物车</span>
+      </router-link>
+      <div class="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
     </footer>
   </div>
 </template>
@@ -105,6 +105,8 @@
 </script>
 
 <style scoped lang="scss">
+  $footerHeight: 45px;
+
   .banner-swipe-item {
     display: block;
     overflow: hidden;
@@ -142,24 +144,21 @@
   }
 
   footer {
-    display: block;
+    display: flex;
     position: fixed;
-    overflow: hidden;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: $footerHeight;
     background-color: #fff;
     border-top: 1px solid #ccc;
-    padding: 0;
 
     .btn {
-      display: inline-block;
-      float: right;
       color: #555;
       text-align: center;
-      padding: 5px 20px;
+      padding: 2px 0;
       font-size: 12px;
       position: relative;
+      flex-basis: 80px;
 
       .icon {
         display: block;
@@ -185,14 +184,14 @@
     }
 
     .btn-add-cart {
-      display: inline-block;
-      height: 60px;
+      height: $footerHeight;
+      line-height: $footerHeight;
       font-size: 15px;
-      line-height: 60px;
+      text-align: center;
       color: #fff;
-      padding: 0 25px;
+      padding: 0;
       background-color: #c00;
-      float: right;
+      flex-grow: 5;
     }
   }
 </style>
