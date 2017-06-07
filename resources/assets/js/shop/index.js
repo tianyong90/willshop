@@ -103,10 +103,12 @@ axios.interceptors.response.use((response) => {
 });
 
 const app = new Vue({
-  // 路由器
+  el: '#app',
+
   router,
-  // vuex store
+
   store,
+
   components: {
     'mainmenu': require('./components/mainmenu.vue')
   },
@@ -181,4 +183,4 @@ const app = new Vue({
       WeVue.Indicator.close();
     }
   }
-}).$mount('#app');
+});
