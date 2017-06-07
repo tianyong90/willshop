@@ -6,15 +6,14 @@
       </wv-swipe-item>
     </wv-swipe>
 
-    <div id="products">
-      <ul>
-        <li v-for="product in products" :key="product">
-          <router-link :to="'/product/' + product.id">
-            <img class="thumbnail" :src="product.thumbnail" alt="">
-            <span class="name">{{ product.name }}</span>
-          </router-link>
-        </li>
-      </ul>
+    <div class="products">
+      <div class="product-item" v-for="product in products" :key="product">
+        <router-link :to="'/product/' + product.id">
+          <img class="thumbnail" :src="product.thumbnail" alt="">
+          <span class="name" v-text="product.name"></span>
+          <div class="price" v-html="product.price"></div>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -24,36 +23,35 @@
     url: 'javascript:',
     img: 'https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg'
   },
-    {
-      url: 'javascript:',
-      img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
-    },
-    {
-      url: 'javascript',
-      img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
-    }];
+  {
+    url: 'javascript:',
+    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
+  },
+  {
+    url: 'javascript',
+    img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
+  }];
 
   export default {
-    data () {
+    data() {
       return {
         products: [],
         banners
       }
     },
 
-    mounted () {
+    mounted() {
       this.getProducts();
     },
 
     methods: {
-      getProducts () {
+      getProducts() {
         this.axios.get('product').then(response => {
           this.products = response.data.products;
         });
       }
     }
   }
-
 </script>
 
 <style scoped lang="scss">
@@ -62,31 +60,44 @@
     overflow: hidden;
   }
 
-  #products {
-    display: block;
-    overflow: hidden;
-    margin: 20px 0 80px 0;
+  .products {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin: 10px auto 65px;
 
-    ul {
+    .product-item {
+      width: 48%;
       display: block;
       overflow: hidden;
-      padding: 0;
+      background-color: #fff;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
 
-      li {
+      .thumbnail {
         display: block;
-        float: left;
-        width: 40%;
-        margin: 5%;
+        width: 100%;
+      }
 
-        .thumbnail {
-          display: block;
-          width: 100%;
-        }
+      .name {
+        display: -webkit-box;
+        color: #444;
+        line-height: 1.2;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        -webkit-box-lines: 1;
+      }
 
-        .name {
-          display: block;
-          text-align: center;
-        }
+      .price {
+        display: block;
+        padding: .2em;
+        font-size: 15px;
+        font-weight: bold;
+        color: red;
+        text-align: right;
       }
     }
   }

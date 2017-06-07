@@ -12,9 +12,7 @@
       <div class="price">{{ product.price }}</div>
     </div>
 
-    <div class="description">
-      {{ product.description }}
-    </div>
+    <div class="description" v-html="product.description"></div>
 
     <footer>
       <div class="btn-add-cart" @click="addToCart(product.id)">加入购物车</div>
@@ -137,7 +135,7 @@
     display: block;
     overflow: hidden;
     background-color: #fff;
-    padding: 1rem 0.5rem 60px 0.5rem;
+    padding: 1rem 0.5rem 80px 0.5rem;
     text-align: justify;
     font-size: 1.1rem;
     color: #666;
