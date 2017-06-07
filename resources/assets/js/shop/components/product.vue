@@ -70,6 +70,8 @@
       checkIsFavourite () {
         this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
           this.isFavourite = response.data.isFavourite;
+        }).catch(error => {
+          console.log(error);
         });
       },
 
@@ -77,6 +79,8 @@
       getProductAmountInCart () {
         this.axios.get('cart/product-amount').then(response => {
           this.productAmountInCart = response.data.amount;
+        }).catch(error => {
+          console.log(error);
         });
       },
 
