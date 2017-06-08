@@ -1,7 +1,5 @@
 # WillShop
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/tianyong90/willshop.svg)](https://greenkeeper.io/)
-
 这是一款基于 Laravel 5.4 + Vue.js 2.x 的网店系统，也是本人初学 vue.js 的练手项目，设计比较粗陋。现学现用之中，让我学到了不少新的东西，这无疑是一个不错的尝试。虽然算不上最佳实践，但也能起到一定的示范作用，所以将它分享出来。
 
 ## 环境要求
@@ -14,19 +12,15 @@
 
 - MySQL5.7 及以上或对应的 MariaDB，数据库引擎使用 InnoDB
 
-- Node.js (num, gulp, bower等为必备)
+- Node.js (含 npm)
 
 ## 安装
 
 1. 克隆代码到自己想要的安装目录
 
-2. 配置 Apache 或 Nginx 虚拟主机
+2. 配置 Apache 或 Nginx 站点
 
-3. 安装 composer 依赖包
-
-    ```shell
-    composer install -vvv
-    ```
+3. 使用 `composer install -vvv` 安装 composer 依赖包
 
 4. 复制根目录下 .env.example 文件为 .env
 
@@ -55,17 +49,9 @@
 
 本项目使用 Laravel 5.4 配套的 Laravel-mix 整合前端资源，因此需要有一个可用的 node.js 环境，包括 npm 等。
 
-1. 使用 npm 安装相关前端依赖
+1. 使用 `npm install` 命令安装相关依赖
 
-    ```shell
-    npm install
-    ```
-
-2. 运行 gulp watch 命令，将启动 browserSync 并监听文章变化
-
-    ```shell
-    gulp watch
-    ```
+2. 运行 `npm run watch` 命令，将启动 browserSync 并监听文件变化
 
 3. 尽情编写代码，实现各种牛逼的功能……
 
