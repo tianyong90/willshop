@@ -69,7 +69,9 @@ class OrderController extends BaseApiController
      */
     public function show($id)
     {
-        return $this->order->findOrFail($id);
+        $order = $this->order->findOrFail($id);
+
+        return response()->json(compact('order'));
     }
 
     /**
@@ -83,8 +85,6 @@ class OrderController extends BaseApiController
     {
         // 选中的购物车项
         $selectedCarts = $request->input('selectedCarts');
-
-        dd($request->all());
 
         if (count($selectedCarts) == 0) {
             return response('未选择结算项目', 400);
@@ -127,7 +127,7 @@ class OrderController extends BaseApiController
             return $order;
         });
 
-        return $this->response->array(['order_no', $order->no]);
+        return response()->json(['order_no', $order->no]);
     }
 
     /**
@@ -139,9 +139,7 @@ class OrderController extends BaseApiController
      */
     public function destroy($id)
     {
-        $order = $this->order->findOrFail($id);
-
-        $order->delete();
+        $this->order->where('id', $id)->delete();
 
         return response()->json(['info' => '删除成功']);
     }
