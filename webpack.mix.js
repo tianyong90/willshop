@@ -62,18 +62,18 @@ mix.webpackConfig({
     path: path.resolve(__dirname, 'public/build'),
     publicPath: '/build/',
     filename: '[name].js',
-    chunkFilename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' :'[name].js'
+    chunkFilename: '[name].js'
   },
   plugins: plugins
 });
 
-if (process.env.NODE_ENV === 'production') {
-  mix.version([
-    'public/build/vendor.js',
-    'public/build/mix.js',
-    'public/build/shop.js'
-  ]);
-}
+// if (process.env.NODE_ENV === 'production') {
+//   mix.version([
+//     'public/build/vendor.js',
+//     'public/build/mix.js',
+//     'public/build/shop.js'
+//   ]);
+// }
 
 mix.browserSync({
   proxy: 'localhost:8050/shop',

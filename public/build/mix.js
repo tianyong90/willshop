@@ -1,18 +1,2 @@
-webpackJsonp([2],{
-
-/***/ 55:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(56);
-
-
-/***/ }),
-
-/***/ 56:
-/***/ (function(module, exports) {
-
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNTYuanMiLCJzb3VyY2VzIjpbXSwibWFwcGluZ3MiOiIiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///56\n");
-
-/***/ })
-
-},[55]);
+webpackJsonp([2],{0:function(c,n,o){c.exports=o("c1/2")},"c1/2":function(c,n){}},[0]);
+//# sourceMappingURL=mix.js.map

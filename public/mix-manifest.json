@@ -1,5 +1,9 @@
 {
     "/shop-home.js": "/shop-home.js",
+    "/shop-home.js.map": "/shop-home.js.map",
     "/shop.js": "/shop.js",
-    "/vendor.js": "/vendor.js"
+    "/shop.js.map": "/shop.js.map",
+    "/mix.js.map": "/mix.js.map",
+    "/vendor.js": "/vendor.js",
+    "/vendor.js.map": "/vendor.js.map"
 }
