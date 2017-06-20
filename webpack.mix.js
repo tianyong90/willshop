@@ -46,6 +46,11 @@ mix.webpackConfig({
         test: /\.js$/,
         exclude: /(node_modules)/,
         loader: 'eslint-loader'
+      },
+      {
+        test: /\.scss$/,
+        exclude: /(node_modules)/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
