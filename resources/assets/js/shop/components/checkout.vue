@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ul id="cart-list">
+    <div class="address">
+
+    </div>
+
+    <ul class="cart-list">
       <li class="list-item" v-for="cart in carts">
         <input class="checker" type="checkbox" name="">
         <img :src="cart.product.thumbnail" alt="" class="thumbnail">
@@ -13,9 +17,8 @@
     </ul>
 
     <footer>
-      <input type="checkbox" id="check-all">
       <div class="total-price">合计：{{ totalPrice }}</div>
-      <router-link to="/order" class="btn" id="btn-checkout">立即下单</router-link>
+      <button class="btn btn-checkout">立即下单</button>
     </footer>
   </div>
 </template>
@@ -34,8 +37,16 @@
 
     methods: {
       getCarts () {
-        this.axios.get('cart/lists').then(response => {
+        this.axios.get('order/create').then(response => {
           this.carts = response.data;
+        });
+      },
+
+      checkout () {
+        this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(response => {
+          this.$router.push('/checkout');
+        }).catch(error => {
+          console.log(error);
         });
       }
     }
@@ -76,16 +87,11 @@
     background-color: #fff;
     height: 50px;
 
-    #check-all {
-      float: left;
-
-    }
-
     .total-price {
       float: left;
     }
 
-    #btn-checkout {
+    .btn-checkout {
       display: block;
       float: right;
       color: #fff;

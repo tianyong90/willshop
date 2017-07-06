@@ -22,7 +22,7 @@
       <div class="summary">
         <div class="total-price">合计：{{ totalPrice }}</div>
       </div>
-      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="checkout">去结算 <span class="product-amount">{{ `(${productAmount})` }}</span>
+      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="toCheckout">去结算 <span class="product-amount">{{ `(${productAmount})` }}</span>
       </button>
     </footer>
   </div>
@@ -83,13 +83,9 @@
       },
 
       // 去结算
-      checkout () {
+      toCheckout () {
         if (this.selectedCarts.length > 0) {
-          this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(response => {
-            this.$router.push('/checkout');
-          }).catch(error => {
-            console.log(error);
-          });
+          // TODO: 跳转至结算页
         }
       },
 
