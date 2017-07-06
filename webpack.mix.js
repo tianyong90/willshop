@@ -67,14 +67,6 @@ mix.webpackConfig({
   plugins: plugins
 });
 
-// if (process.env.NODE_ENV === 'production') {
-//   mix.version([
-//     'public/build/vendor.js',
-//     'public/build/mix.js',
-//     'public/build/shop.js'
-//   ]);
-// }
-
 mix.browserSync({
   proxy: 'localhost:8050/shop',
   files: [

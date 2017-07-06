@@ -45,7 +45,9 @@ class AddressController extends BaseApiController
      */
     public function show($id)
     {
-        return $this->address->findOrFail($id);
+        $address = $this->address->findOrFail($id);
+
+        return response()->json(compact('address'));
     }
 
     /**

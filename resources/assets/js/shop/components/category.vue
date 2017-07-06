@@ -1,59 +1,115 @@
 <template>
-  <div>category</div>
+  <div>
+    <div class="left-sidebar">
+      <div class="sidebar-item" :class="{ 'active': category.id === activeCategoryId }" v-for="category in categories" @click="sidebarItemClick(category.id)">
+        {{ category.name }}
+      </div>
+    </div>
+    
+    <div class="right-panel">
+      <img class="banner" src="http://lorempixel.com/640/150/?28423" alt=""/>
+
+
+
+      <wv-grid>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+        <wv-grid-item class="category-item">
+          <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
+        </wv-grid-item>
+      </wv-grid>
+    </div>
+  </div>
 </template>
 
 <script>
   export default {
-    mounted () {
-
+    created () {
+      this.fetchCategories();
     },
 
     data () {
       return {
-        products: []
+        categories: [],
+        activeCategoryId: null
       }
     },
 
     methods: {
-      fetchOrders () {
-        this.axios.get('/api/product').then(response => {
-          this.products = response.data;
+      fetchCategories () {
+        this.axios.get('product-categories').then(response => {
+          this.categories = response.data.categories;
+
+          this.activeCategoryId = this.categories[0].id;
         });
+      },
+
+      sidebarItemClick (categoryId) {
+        if (this.activeCategoryId !== categoryId) this.activeCategoryId = categoryId;
       }
     }
   }
 </script>
 
 <style lang="scss">
-  $color: red;
-  $color-hover: grayscale($color);
+  .left-sidebar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 50px;
+    width: 5em;
+    background-color: #fff;
+    z-index: 200;
+    overflow-y: scroll;
 
-  .my-product-list {
-    color: $color;
-    font-size: 20px;
-    list-style: none;
-    padding: 20px;
-
-    li {
+    .sidebar-item {
       display: block;
-      padding: 5px;
-      border-bottom: 1px dashed grey;
-
-      a {
-        color: $color;
-        text-decoration: none;
-        display: block;
-
-        &:hover {
-          color: $color-hover;
-        }
+      overflow: hidden;
+      text-align: center;
+      padding: 1em 0;
+      font-size: 13px;
+      border-bottom: 1px solid #f6f6f6;
+      
+      &.active {
+        background-color: #f2f2f2;
+        color: red;
       }
+    }
+  }
 
-      .time {
-        display: inline-block;
-        float: right;
-        color: grey;
-      }
+  .right-panel {
+    display: block;
+    position: fixed;
+    left: 5em;
+    right: 0;
+    top: 0;
+    bottom: 50px;
+    padding: .5em;
+    background-color: #f5f5f5;
+    
+    .banner {
+      display: block;
+      width: 100%;
+      background-color: #fff;
+      margin-bottom: 1rem;
+    }
+    
+    .category-item {
+      background-color: #fff;
     }
   }
 </style>

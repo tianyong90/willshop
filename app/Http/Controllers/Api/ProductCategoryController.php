@@ -31,9 +31,27 @@ class ProductCategoryController extends BaseApiController
         $this->productCategory = $productCategory;
     }
 
-
-    public function lists()
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function lists(Request $request)
     {
-        return $this->productCategory->all();
+        $categories = $this->productCategory->all();
+
+        return response()->json(compact('categories'));
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getTopCategories(Request $request)
+    {
+        $topCategories = $this->productCategory->where('parent_id', 0)->orderBy('id')->all();
+
+        return response()->json(compact('topCategories'));
     }
 }

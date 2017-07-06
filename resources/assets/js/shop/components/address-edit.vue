@@ -10,7 +10,7 @@
     <footer>
       <wv-flex :gutter="20">
         <wv-flex-item v-if="$route.params.id">
-          <wv-button type="warn" @click.native="confirmShow = true">删除</wv-button>
+          <wv-button type="warn" @click.native="deleteAddress">删除</wv-button>
         </wv-flex-item>
         <wv-flex-item>
           <wv-button type="primary" @click.native="store">保存</wv-button>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+  import WeVue from 'we-vue';
 
   export default {
     mounted () {
@@ -42,6 +43,8 @@
 
       getAddress () {
         let addressId = this.$route.params.id;
+
+        console.log(addressId)
 
         if (addressId) {
           this.axios.get(`address/${addressId}`).then(response => {
@@ -75,26 +78,21 @@
 
       // 删除
       deleteAddress () {
-        let addressId = this.$route.params.id;
+        WeVue.Dialog({
+            title: '操作提示',
+            message: '确定要删除吗？',
+            skin: 'ios'
+          },
+          () => {
+            this.axios.delete(`address/${this.address.id}/delete`).then(() => {
+              this.$root.success('删除成功');
 
-        this.axios.delete(`address/${addressId}/delete`).then(response => {
-          this.$root.success('删除成功');
-
-          setTimeout(() => {
-            this.$router.push('/address');
-          }, 1000);
-        }, response => {
-          console.log(response.data);
-        });
-      },
-
-      destroy () {
-        console.log('product destroy');
+              setTimeout(() => {
+                this.$router.push('/address');
+              }, 1000);
+            });
+          });
       }
-    },
-
-    beforeDestroy () {
-      this.destroy();
     }
   }
 </script>

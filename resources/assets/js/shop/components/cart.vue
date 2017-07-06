@@ -21,9 +21,8 @@
             </label>
       <div class="summary">
         <div class="total-price">合计：{{ totalPrice }}</div>
-        <div class="product-count">已选 {{ productAmount }} 件商品</div>
       </div>
-      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="checkout">去结算
+      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="checkout">去结算 <span class="product-amount">{{ `(${productAmount})` }}</span>
       </button>
     </footer>
   </div>
@@ -137,10 +136,7 @@
     .total-price {
       color: #f00;
       font-size: 15px;
-    }
-
-    .product-count {
-      font-size: 13px;
+      line-height: 50px;
     }
 
     .btn-checkout {
@@ -155,6 +151,10 @@
       &.disabled {
         background-color: #ccc;
         color: #464242;
+      }
+
+      .product-amount {
+        font-size: 12px;
       }
     }
   }

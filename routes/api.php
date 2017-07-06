@@ -26,7 +26,7 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
     Route::get('/product', 'ProductController@lists');
     Route::get('/product/{id}', 'ProductController@show');
 
-    Route::get('/product-category', 'ProductCategoryController@lists');
+    Route::get('/product-categories', 'ProductCategoryController@lists');
 
     // 文章
     Route::get('/post', 'PostController@lists');

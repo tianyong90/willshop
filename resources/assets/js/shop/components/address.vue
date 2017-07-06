@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="address-list" v-if="addresses.length">
+    <ul class="address-list" v-if="addresses.length > 0">
       <li v-for="address in addresses">
         <div class="header">
           <span class="name">{{ address.name }}</span>
@@ -16,7 +16,7 @@
       </li>
     </ul>
 
-    <div class="empty" v-show="!$store.state.isLoading && addresses.length === 0">
+    <div class="empty" v-if="!$store.state.isLoading && addresses.length === 0">
       <i class="icon iconfont">&#xe617;</i>
       <div class="tips">您还没有设置地址</div>
     </div>
@@ -63,7 +63,8 @@
             this.axios.delete(`address/${address.id}/delete`).then(response => {
               this.$root.success('删除成功');
 
-              // this.addresses.$remove(address);
+              const indexOfAddress = this.addresses.indexOf(address);
+              this.addresses.splice(indexOfAddress, 1);
             });
           })
       }

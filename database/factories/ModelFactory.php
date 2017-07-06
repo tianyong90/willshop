@@ -23,7 +23,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
+$factory->define(App\ProductCategory::class, function () {
+    $faker = Faker\Factory::create('zh_CN');
+
     return [
         'name' => $faker->colorName,
         'parent_id' => 0,
@@ -32,7 +34,9 @@ $factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Product::class, function (Faker\Generator $faker) {
+$factory->define(App\Product::class, function () {
+    $faker = Faker\Factory::create('zh_CN');
+
     $pictures = [
         $faker->imageUrl(640, 360),
         $faker->imageUrl(640, 360),
@@ -51,10 +55,27 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Post::class, function (Faker\Generator $faker) {
+$factory->define(App\Post::class, function () {
+    $faker = Faker\Factory::create('zh_CN');
+
     return [
-        'title'        => $faker->sentence(mt_rand(3, 10)),
-        'content'      => implode("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+        'title' => $faker->sentence(mt_rand(3, 10)),
+        'content' => $faker->text,
         'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
+    ];
+});
+
+$factory->define(App\Address::class, function () {
+    $faker = Faker\Factory::create('zh_CN');
+
+    return [
+        'user_id' => 1,
+        'name' => $faker->name,
+        'mobile' => $faker->phoneNumber,
+        'province' => $faker->state,
+        'city' => $faker->city,
+        'area' => $faker->area,
+        'address' => $faker->streetAddress,
+        'postcode' => $faker->postcode,
     ];
 });
