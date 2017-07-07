@@ -23,9 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\ProductCategory::class, function () {
-    $faker = Faker\Factory::create('zh_CN');
-
+$factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->colorName,
         'parent_id' => 0,
@@ -34,9 +32,7 @@ $factory->define(App\ProductCategory::class, function () {
     ];
 });
 
-$factory->define(App\Product::class, function () {
-    $faker = Faker\Factory::create('zh_CN');
-
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
     $pictures = [
         $faker->imageUrl(640, 360),
         $faker->imageUrl(640, 360),
@@ -55,9 +51,7 @@ $factory->define(App\Product::class, function () {
     ];
 });
 
-$factory->define(App\Post::class, function () {
-    $faker = Faker\Factory::create('zh_CN');
-
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence(mt_rand(3, 10)),
         'content' => $faker->text,
@@ -65,9 +59,7 @@ $factory->define(App\Post::class, function () {
     ];
 });
 
-$factory->define(App\Address::class, function () {
-    $faker = Faker\Factory::create('zh_CN');
-
+$factory->define(App\Address::class, function (Faker\Generator $faker) {
     return [
         'user_id' => 1,
         'name' => $faker->name,
