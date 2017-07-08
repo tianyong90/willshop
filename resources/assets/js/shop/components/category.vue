@@ -9,25 +9,23 @@
     <div class="right-panel">
       <img class="banner" src="http://lorempixel.com/640/150/?28423" alt=""/>
 
-
-
       <wv-grid>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
-        <wv-grid-item class="category-item">
+        <wv-grid-item class="category-item" to="/product/1">
           <img src="http://lorempixel.com/50/50/?28423" alt="" class="logo"/>
         </wv-grid-item>
       </wv-grid>
