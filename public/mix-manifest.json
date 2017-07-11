@@ -1,5 +1,23 @@
 {
+    "/shop-address-add.js": "/shop-address-add.js",
+    "/shop-login.js": "/shop-login.js",
+    "/shop-avatar.js": "/shop-avatar.js",
+    "/shop-user.js": "/shop-user.js",
+    "/shop-register.js": "/shop-register.js",
+    "/shop-profile.js": "/shop-profile.js",
+    "/shop-product.js": "/shop-product.js",
+    "/shop-password.js": "/shop-password.js",
+    "/shop-order.js": "/shop-order.js",
+    "/shop-order-list.js": "/shop-order-list.js",
     "/shop-home.js": "/shop-home.js",
+    "/shop-help.js": "/shop-help.js",
+    "/shop-help-detail.js": "/shop-help-detail.js",
+    "/shop-favourite.js": "/shop-favourite.js",
+    "/shop-checkout.js": "/shop-checkout.js",
+    "/shop-category.js": "/shop-category.js",
+    "/shop-cart.js": "/shop-cart.js",
+    "/shop-address.js": "/shop-address.js",
+    "/shop-about-us.js": "/shop-about-us.js",
     "/shop.js": "/shop.js",
     "/vendor.js": "/vendor.js"
 }

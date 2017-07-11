@@ -13,7 +13,7 @@ const routes = [
   {
     path: '/cart',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/cart.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/cart.vue')), 'shop-cart');
     },
     name: 'cart',
     meta: {
@@ -24,14 +24,14 @@ const routes = [
   {
     path: '/category',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/category.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/category.vue')), 'shop-category');
     },
     name: 'category',
   },
   {
     path: '/order-list',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/order-list.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/order-list.vue')), 'shop-order-list');
     },
     name: 'order-list',
     meta: {
@@ -41,7 +41,7 @@ const routes = [
   {
     path: '/order/:id',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/order.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/order.vue')), 'shop-order');
     },
     name: 'order',
     meta: {
@@ -51,7 +51,7 @@ const routes = [
   {
     path: '/favourite',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/favourite.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/favourite.vue')), 'shop-favourite');
     },
     name: 'favourite',
     meta: {
@@ -61,7 +61,7 @@ const routes = [
   {
     path: '/checkout',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/checkout.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/checkout.vue')), 'shop-checkout');
     },
     name: 'checkout',
     meta: {
@@ -71,7 +71,7 @@ const routes = [
   {
     path: '/user',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/user.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/user.vue')), 'shop-user');
     },
     name: 'user',
     meta: {
@@ -81,7 +81,7 @@ const routes = [
   {
     path: '/profile',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/profile.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/profile.vue')), 'shop-profile');
     },
     name: 'profile',
     meta: {
@@ -91,7 +91,7 @@ const routes = [
   {
     path: '/avatar',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/avatar.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/avatar.vue')), 'shop-avatar');
     },
     name: 'avatar',
     meta: {
@@ -102,7 +102,7 @@ const routes = [
   {
     path: '/address',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/address.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/address.vue')), 'shop-address');
     },
     name: 'address',
     meta: {
@@ -113,7 +113,7 @@ const routes = [
   {
     path: '/address/add',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/address-edit.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/address-edit.vue')), 'shop-address-add');
     },
     meta: {
       auth: true,
@@ -123,7 +123,7 @@ const routes = [
   {
     path: '/address/:id',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/address-edit.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/address-edit.vue')), 'shop-address-edit');
     },
     meta: {
       auth: true,
@@ -133,25 +133,25 @@ const routes = [
   {
     path: '/about-us',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/about-us.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/about-us.vue')), 'shop-about-us');
     }
   },
   {
     path: '/help',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/help.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/help.vue')), 'shop-help');
     }
   },
   {
     path: '/help/:id',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/help-detail.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/help-detail.vue')), 'shop-help-detail');
     }
   },
   {
     path: '/login',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/login.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/login.vue')), 'shop-login');
     },
     meta: {
       hideMainmenu: true
@@ -160,7 +160,7 @@ const routes = [
   {
     path: '/register',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/register.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/register.vue')), 'shop-register');
     },
     name: 'register',
     meta: {
@@ -170,7 +170,7 @@ const routes = [
   {
     path: '/product/:id',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/product.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/product.vue')), 'shop-product');
     },
     name: 'product',
     meta: {
@@ -180,7 +180,7 @@ const routes = [
   {
     path: '/password',
     component: (resolve) => {
-      require.ensure([], () => resolve(require('./components/password.vue')), 'shop-home');
+      require.ensure([], () => resolve(require('./components/password.vue')), 'shop-password');
     },
     name: 'password',
     meta: {
