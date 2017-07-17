@@ -9,7 +9,7 @@
 <script>
   export default {
     mounted () {
-      this.getPost();
+      this.getPost()
     },
 
     data () {
@@ -21,8 +21,8 @@
     methods: {
       getPost () {
         this.axios.get('post/' + this.$route.params.id).then(response => {
-          this.post = response.data.post;
-        });
+          this.post = response.data.post
+        })
       }
     }
   }

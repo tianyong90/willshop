@@ -2,7 +2,7 @@
   <div>
     <div class="banner">
       <wv-swipe :height="180" :auto="4000">
-        <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner">
+        <wv-swipe-item class="banner-swipe-item" v-for="banner in banners">
           <img :src="banner.img" alt="">
         </wv-swipe-item>
       </wv-swipe>
@@ -33,9 +33,9 @@
 <script>
   export default {
     mounted () {
-      this.getProduct();
-      this.checkIsFavourite();
-      this.getProductAmountInCart();
+      this.getProduct()
+      this.checkIsFavourite()
+      this.getProductAmountInCart()
     },
 
     data () {
@@ -49,39 +49,39 @@
 
     computed: {
       banners () {
-        let temp = [];
+        let temp = []
         if (this.product.pictures) {
           this.product.pictures.forEach(picture => {
-            temp.push({img: picture});
-          });
+            temp.push({img: picture})
+          })
         }
-        return temp;
+        return temp
       }
     },
 
     methods: {
       getProduct () {
         this.axios.get(`product/${this.$route.params.id}`).then(response => {
-          this.product = response.data.product;
-        });
+          this.product = response.data.product
+        })
       },
 
       // 商品是否已被收藏
       checkIsFavourite () {
         this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then(response => {
-          this.isFavourite = response.data.isFavourite;
+          this.isFavourite = response.data.isFavourite
         }).catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       },
 
       // 购物车中商品总数
       getProductAmountInCart () {
         this.axios.get('cart/product-amount').then(response => {
-          this.productAmountInCart = response.data.amount;
+          this.productAmountInCart = response.data.amount
         }).catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       },
 
       // 加入购物车
@@ -89,20 +89,20 @@
         let postData = {
           productId: productId,
           amount: this.amount
-        };
+        }
 
         this.axios.post('cart/add', postData).then(response => {
-          let data = response.data;
+          let data = response.data
 
-          this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount;
-        });
+          this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount
+        })
       },
 
       // 加入购物车
       toggleFavourite (productId) {
         this.axios.get(`favourite/${productId}/toggle`).then(response => {
-          this.isFavourite = !this.isFavourite;
-        });
+          this.isFavourite = !this.isFavourite
+        })
       }
     }
   }

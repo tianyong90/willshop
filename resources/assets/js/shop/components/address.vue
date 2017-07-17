@@ -28,14 +28,14 @@
 </template>
 
 <script>
-  import store from '../store/index';
-  import WeVue from 'we-vue';
+  import store from '../store/index'
+  import WeVue from 'we-vue'
 
   export default {
     store,
 
     mounted () {
-      this.getAddresses();
+      this.getAddresses()
     },
 
     data () {
@@ -48,8 +48,8 @@
     methods: {
       getAddresses () {
         this.axios.get('address').then(response => {
-          this.addresses = response.data.addresses;
-        });
+          this.addresses = response.data.addresses
+        })
       },
 
       // 地址项中删除按钮点击
@@ -61,11 +61,11 @@
           },
           () => {
             this.axios.delete(`address/${address.id}/delete`).then(response => {
-              this.$root.success('删除成功');
+              this.$root.success('删除成功')
 
-              const indexOfAddress = this.addresses.indexOf(address);
-              this.addresses.splice(indexOfAddress, 1);
-            });
+              const indexOfAddress = this.addresses.indexOf(address)
+              this.addresses.splice(indexOfAddress, 1)
+            })
           })
       }
     }

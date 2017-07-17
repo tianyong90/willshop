@@ -26,7 +26,7 @@
 <script>
   export default {
     mounted () {
-      // this.getCarts();
+      // this.getCarts()
     },
 
     data () {
@@ -38,16 +38,16 @@
     methods: {
       getCarts () {
         this.axios.get('order/create').then(response => {
-          this.carts = response.data;
-        });
+          this.carts = response.data
+        })
       },
 
       checkout () {
         this.axios.post('checkout', { selectedCarts: this.selectedCarts }).then(response => {
-          this.$router.push('/checkout');
+          this.$router.push('/checkout')
         }).catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       }
     }
   }

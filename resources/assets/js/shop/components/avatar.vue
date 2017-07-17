@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import AlloyFinger from 'alloyfinger';
+  import AlloyFinger from 'alloyfinger'
 
   export default {
     data () {
@@ -56,34 +56,34 @@
     mounted () {
       this.af = new AlloyFinger(this.$refs.image, {
         multipointStart: (event) => {
-          event.preventDefault();
+          event.preventDefault()
 
-          this.pinchStartWidth = this.width;
-          this.pinchStartHeight = this.height;
+          this.pinchStartWidth = this.width
+          this.pinchStartHeight = this.height
         },
         touchMove: (event) => {
-          event.preventDefault();
+          event.preventDefault()
 
-          const targetX = this.posX + event.deltaX;
-          const targetY = this.posY + event.deltaY;
+          const targetX = this.posX + event.deltaX
+          const targetY = this.posY + event.deltaY
 
           if (targetX <= 0 && this.cropperWidth - targetX <= this.width) {
-            this.posX = targetX;
+            this.posX = targetX
           }
 
           if (targetY <= 0 && this.cropperHeight - targetY <= this.height) {
-            this.posY = targetY;
+            this.posY = targetY
           }
         },
         pinch: (event) => {
-          event.preventDefault();
+          event.preventDefault()
 
-          const targetWidth = this.pinchStartWidth * event.zoom;
-          const targetHeight = this.pinchStartHeight * event.zoom;
+          const targetWidth = this.pinchStartWidth * event.zoom
+          const targetHeight = this.pinchStartHeight * event.zoom
 
           if (targetWidth >= this.cropperWidth - this.posX && targetHeight >= this.cropperHeight - this.posY) {
-            this.width = targetWidth;
-            this.height = targetHeight;
+            this.width = targetWidth
+            this.height = targetHeight
           }
         }
       })
@@ -92,87 +92,87 @@
     methods: {
       // 保存
       store () {
-        let files = document.getElementById('file').files;
+        let files = document.getElementById('file').files
 
         if (files.length === 0) {
-          return false;
+          return false
         }
 
-        let oMyForm = new FormData();
+        let oMyForm = new FormData()
 
-        oMyForm.append("cropX", this.cropData.x);
-        oMyForm.append("cropY", this.cropData.y);
-        oMyForm.append("width", this.cropData.width);
-        oMyForm.append("height", this.cropData.height);
-        oMyForm.append("cropWidth", this.cropData.cropWidth);
-        oMyForm.append("cropHeight", this.cropData.cropHeight);
+        oMyForm.append("cropX", this.cropData.x)
+        oMyForm.append("cropY", this.cropData.y)
+        oMyForm.append("width", this.cropData.width)
+        oMyForm.append("height", this.cropData.height)
+        oMyForm.append("cropWidth", this.cropData.cropWidth)
+        oMyForm.append("cropHeight", this.cropData.cropHeight)
 
         // fileInputElement中已经包含了用户所选择的文件
-        oMyForm.append("avatar", files[0]);
+        oMyForm.append("avatar", files[0])
 
-        this.isLoading = true;
+        this.isLoading = true
         this.axios.post('user/avatar', oMyForm).then(response => {
-          let data = response.data;
+          let data = response.data
 
           if (data.status) {
-            this.$root.success('设置成功');
+            this.$root.success('设置成功')
 
             setTimeout(() => {
-              this.$router.push('/profile');
-            }, 1000);
+              this.$router.push('/profile')
+            }, 1000)
           } else {
-            this.$root.error(data.info);
+            this.$root.error(data.info)
           }
         }).catch(error => {
-          this.$root.error('设置失败');
-        });
+          this.$root.error('设置失败')
+        })
       },
 
       // 取消
       cancle () {
-        this.$router.push('/profile');
+        this.$router.push('/profile')
       },
 
       // 选择图片
       fileChange () {
-        let imageFile = document.getElementById('file').files[0];
+        let imageFile = document.getElementById('file').files[0]
 
-        window.URL = window.URL || window.webkitURL;
+        window.URL = window.URL || window.webkitURL
 
-        this.previewSrc = window.URL.createObjectURL(imageFile);
+        this.previewSrc = window.URL.createObjectURL(imageFile)
 
         //取出选择的图片的原始尺寸
-        let img = new Image();
+        let img = new Image()
 
         img.onload = () => {
-          const originalWidth = img.width;
-          const originalHeight = img.height;
+          const originalWidth = img.width
+          const originalHeight = img.height
 
           // 根据原始宽高设置预览图片的宽和高
           if (originalWidth >= originalHeight) {
-            this.height = this.cropperHeight + 50;
-            this.width = parseInt(originalWidth * this.height / originalHeight);
+            this.height = this.cropperHeight + 50
+            this.width = parseInt(originalWidth * this.height / originalHeight)
           } else {
-            this.width = this.cropperWidth + 50;
-            this.height = parseInt(originalHeight * this.width / originalWidth);
+            this.width = this.cropperWidth + 50
+            this.height = parseInt(originalHeight * this.width / originalWidth)
           }
 
-          this.startWidth = this.width;
-          this.startHeight = this.height;
+          this.startWidth = this.width
+          this.startHeight = this.height
 
           // 居中
-          this.posX = -parseInt((this.width - this.cropperWidth) / 2);
-          this.posY = -parseInt((this.height - this.cropperHeight) / 2);
-          this.startX = this.posX;
-          this.startY = this.posY;
-        };
-        img.src = this.previewSrc;
+          this.posX = -parseInt((this.width - this.cropperWidth) / 2)
+          this.posY = -parseInt((this.height - this.cropperHeight) / 2)
+          this.startX = this.posX
+          this.startY = this.posY
+        }
+        img.src = this.previewSrc
       }
     },
 
     beforeDestroy () {
       if (this.af) {
-        this.af.destroy();
+        this.af.destroy()
       }
     }
   }

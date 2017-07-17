@@ -5,6 +5,6 @@ const Config = {
   timeout: 5000,
   smsResendCountdown: 60,
   jwtTokenName: 'willshop_jwt_token',
-};
+}
 
-export default Config;
+export default Config

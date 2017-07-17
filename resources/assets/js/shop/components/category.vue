@@ -36,7 +36,7 @@
 <script>
   export default {
     created () {
-      this.fetchCategories();
+      this.fetchCategories()
     },
 
     data () {
@@ -49,14 +49,14 @@
     methods: {
       fetchCategories () {
         this.axios.get('product-categories').then(response => {
-          this.categories = response.data.categories;
+          this.categories = response.data.categories
 
-          this.activeCategoryId = this.categories[0].id;
-        });
+          this.activeCategoryId = this.categories[0].id
+        })
       },
 
       sidebarItemClick (categoryId) {
-        if (this.activeCategoryId !== categoryId) this.activeCategoryId = categoryId;
+        if (this.activeCategoryId !== categoryId) this.activeCategoryId = categoryId
       }
     }
   }

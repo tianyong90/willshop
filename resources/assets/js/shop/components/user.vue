@@ -47,11 +47,11 @@
 </template>
 
 <script>
-  import appConfig from '../config';
+  import appConfig from '../config'
 
   export default {
     mounted () {
-      this.getUser();
+      this.getUser()
     },
 
     data () {
@@ -63,18 +63,18 @@
     methods: {
       getUser () {
         this.axios.get('current-user').then(response => {
-          this.user = response.data.user;
-        });
+          this.user = response.data.user
+        })
       },
 
       logout () {
         // 清除 jwt-token
-        localStorage.removeItem(appConfig.jwtTokenName);
+        localStorage.removeItem(appConfig.jwtTokenName)
 
         // 登录状态设置为已经登录
-        this.$store.commit('UPDATE_IS_LOGIN', false);
+        this.$store.commit('UPDATE_IS_LOGIN', false)
 
-        this.$router.replace('/');
+        this.$router.replace('/')
       }
     }
   }

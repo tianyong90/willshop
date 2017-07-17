@@ -16,7 +16,7 @@
 <script>
   export default {
     mounted () {
-      this.getUser();
+      this.getUser()
     },
 
     data () {
@@ -28,10 +28,10 @@
     methods: {
       getUser () {
         this.axios.get('current-user').then(response => {
-          this.user = response.data.user;
+          this.user = response.data.user
         }).catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
       }
     }
   }

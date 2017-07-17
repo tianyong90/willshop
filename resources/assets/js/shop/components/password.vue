@@ -21,39 +21,39 @@
 
     computed: {
       canSubmit: function () {
-        let reg = /.{6,20}/;
+        let reg = /.{6,20}/
 
         if (!this.oldPassword.match(reg)) {
-          return false;
+          return false
         }
 
         if (!this.password.match(reg)) {
-          return false;
+          return false
         }
 
         if (!this.password_confirmation.match(reg)) {
-          return false;
+          return false
         }
 
         if (this.password_confirmation !== this.password) {
-          return false;
+          return false
         }
 
-        return true;
+        return true
       }
     },
 
     methods: {
       submit () {
         this.axios.post('update-password', this.$data).then(response => {
-          this.$root.success(response.data.info);
+          this.$root.success(response.data.info)
 
           setTimeout(() => {
-            this.$router.push('/user');
-          }, 1000);
+            this.$router.push('/user')
+          }, 1000)
         }, response => {
-          this.$root.error(response.data[0]);
-        });
+          this.$root.error(response.data[0])
+        })
       }
     }
   }

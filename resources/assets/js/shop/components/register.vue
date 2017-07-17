@@ -29,7 +29,7 @@
 
     computed: {
       canSubmit: function () {
-        return this.user.password === this.user.password_confirmation;
+        return this.user.password === this.user.password_confirmation
       }
     },
 
@@ -37,20 +37,20 @@
       register () {
         this.axios.post('register', this.user).then(response => {
           // 注册成功之后保存 JWT token
-          localStorage.setItem(config.jwtTokenName ,response.data.token);
+          localStorage.setItem(config.jwtTokenName ,response.data.token)
 
           // 登录状态设置为已经登录
-          this.$store.commit('UPDATE_IS_LOGIN', true);
+          this.$store.commit('UPDATE_IS_LOGIN', true)
 
-          this.$root.success('登录成功');
+          this.$root.success('登录成功')
 
           setTimeout(() => {
             // 注册成功后跳转至用户中心页面
-            this.$router.push('/user');
-          }, 1000);
+            this.$router.push('/user')
+          }, 1000)
         }, response => {
-          this.$root.error(response.data.error);
-        });
+          this.$root.error(response.data.error)
+        })
       }
     }
   }

@@ -31,7 +31,7 @@
 <script>
   export default {
     mounted () {
-      this.getCarts();
+      this.getCarts()
     },
 
     data () {
@@ -44,33 +44,33 @@
     computed: {
       // 是否是全选
       allSelected () {
-        return this.selectedCarts.length === this.carts.length;
+        return this.selectedCarts.length === this.carts.length
       },
 
       // 总价
       totalPrice () {
-        if (this.selectedCarts.length === 0) return 0;
+        if (this.selectedCarts.length === 0) return 0
 
         // 选中的樟商品总价累加
-        let price = 0;
+        let price = 0
         for (let index in this.selectedCarts) {
-          price += (this.selectedCarts[index].product.price * this.selectedCarts[index].amount);
+          price += (this.selectedCarts[index].product.price * this.selectedCarts[index].amount)
         }
 
-        return price;
+        return price
       },
 
       // 选中的购物车项包含的商品总数
       productAmount () {
-        if (this.selectedCarts.length === 0) return 0;
+        if (this.selectedCarts.length === 0) return 0
 
         // 选中的订单中商品数累加
-        let count = 0;
+        let count = 0
         for (let index in this.selectedCarts) {
-          count += this.selectedCarts[index].amount;
+          count += this.selectedCarts[index].amount
         }
 
-        return count;
+        return count
       }
     },
 
@@ -78,8 +78,8 @@
       // 获取购物车列表数据
       getCarts () {
         this.axios.get('cart').then(response => {
-          this.carts = response.data.carts;
-        });
+          this.carts = response.data.carts
+        })
       },
 
       // 去结算
@@ -92,9 +92,9 @@
       // 全选和取消全选
       checkAllClick () {
         if (this.allSelected) {
-          this.selectedCarts = [];
+          this.selectedCarts = []
         } else {
-          this.selectedCarts = this.carts;
+          this.selectedCarts = this.carts
         }
       }
     }

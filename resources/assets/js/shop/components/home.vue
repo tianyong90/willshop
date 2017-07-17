@@ -1,13 +1,13 @@
 <template>
   <div class="main">
     <wv-swipe :height="180" :auto="4000">
-      <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner">
+      <wv-swipe-item class="banner-swipe-item" v-for="banner in banners">
         <img :src="banner.img" alt="">
       </wv-swipe-item>
     </wv-swipe>
 
     <div class="products">
-      <div class="product-item" v-for="product in products" :key="product">
+      <div class="product-item" v-for="product in products">
         <router-link :to="'/product/' + product.id">
           <img class="thumbnail" :src="product.thumbnail" alt="">
           <span class="name" v-text="product.name"></span>
@@ -30,7 +30,7 @@
   {
     url: 'javascript',
     img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
-  }];
+  }]
 
   export default {
     data() {
@@ -41,14 +41,14 @@
     },
 
     mounted() {
-      this.getProducts();
+      this.getProducts()
     },
 
     methods: {
       getProducts() {
         this.axios.get('product').then(response => {
-          this.products = response.data.products;
-        });
+          this.products = response.data.products
+        })
       }
     }
   }

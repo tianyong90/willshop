@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import appConfig from '../config';
+  import appConfig from '../config'
 
   export default {
     data () {
@@ -25,22 +25,22 @@
       login () {
         this.axios.post('login', this.user).then(response => {
           // 登录成功之后保存 JWT token
-          localStorage.setItem(appConfig.jwtTokenName, response.data.token);
+          localStorage.setItem(appConfig.jwtTokenName, response.data.token)
 
           // 登录状态设置为已经登录
-          this.$store.commit('UPDATE_IS_LOGIN', true);
+          this.$store.commit('UPDATE_IS_LOGIN', true)
 
-          this.$root.success('登录成功');
+          this.$root.success('登录成功')
 
           setTimeout(() => {
-            let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/';
+            let redirectPath = this.$route.query.redirect ? this.$route.query.redirect : '/'
 
             // 登录成功后跳转至之前想要进入的页面
-            this.$router.push(redirectPath);
-          }, 1000);
+            this.$router.push(redirectPath)
+          }, 1000)
         }).catch(error => {
-          this.$root.error(error.response.data);
-        });
+          this.$root.error(error.response.data)
+        })
       }
     }
   }
