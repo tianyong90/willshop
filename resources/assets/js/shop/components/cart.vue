@@ -30,15 +30,15 @@
 
 <script>
   export default {
-    mounted () {
-      this.getCarts()
-    },
-
     data () {
       return {
         carts: [],
         selectedCarts: []
       }
+    },
+
+    mounted () {
+      this.getCarts()
     },
 
     computed: {
@@ -53,10 +53,9 @@
 
         // 选中的樟商品总价累加
         let price = 0
-        for (let index in this.selectedCarts) {
-          price += (this.selectedCarts[index].product.price * this.selectedCarts[index].amount)
-        }
-
+        this.selectedCarts.forEach((val) => {
+          price += (val.product.price * val.amount)
+        })
         return price
       },
 
@@ -66,10 +65,9 @@
 
         // 选中的订单中商品数累加
         let count = 0
-        for (let index in this.selectedCarts) {
-          count += this.selectedCarts[index].amount
-        }
-
+        this.selectedCarts.forEach((val) => {
+          count += val.amount
+        })
         return count
       }
     },
