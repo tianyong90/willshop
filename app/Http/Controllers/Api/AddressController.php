@@ -58,9 +58,7 @@ class AddressController extends BaseApiController
     public function store(Request $request)
     {
         $data = $request->input('address');
-
         $id = $request->input('id', null);
-
         $data['user_id'] = Auth::id();
 
         $this->address->updateOrCreate(['id' => $id], $data);

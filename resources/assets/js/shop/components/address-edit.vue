@@ -3,12 +3,12 @@
     <wv-group title="收货地址信息">
       <wv-input label="收货人" v-model="address.name"></wv-input>
       <wv-input label="手机号码" v-model="address.mobile"></wv-input>
-      <wv-cell title="所在地区" v-model="address.address" is-link @click="addressPickerShow = true"></wv-cell>
+      <wv-cell title="所在地区" :value="address | pcaFilter" is-link @click.native="addressPickerShow = true"></wv-cell>
       <wv-input label="街道地址" v-model="address.address"></wv-input>
       <wv-input label="邮政编码" v-model="address.postcode"></wv-input>
     </wv-group>
 
-    <wv-picker v-model="addressPickerShow" :slots="addressSlots" @change="onAddressChange"></wv-picker>
+    <wv-picker ref="addressPicker" v-model="addressPickerShow" :slots="addressSlots" @change="onAddressChange" @confirm="confirmAddress"></wv-picker>
 
     <footer>
       <wv-flex :gutter="20">
@@ -68,10 +68,6 @@
   }
 
   export default {
-    mounted () {
-      this.getAddress()
-    },
-
     data () {
       return {
         address: {},
@@ -86,9 +82,22 @@
           {
             values: []
           }
-        ],
-        pca: [],
+        ]
       }
+    },
+
+    filters: {
+      pcaFilter (value) {
+        if (value.id) {
+          return `${value.province} ${value.city} ${value.area}`
+        } else {
+          return '请选择'
+        }
+      }
+    },
+
+    mounted () {
+      this.getAddress()
     },
 
     methods: {
@@ -97,12 +106,22 @@
         picker.setSlotValues(2, getAreas(value[0], value[1]))
       },
 
+      confirmAddress (picker) {
+        const pickerValues = picker.getValues()
+
+        this.address.province = pickerValues[0]
+        this.address.city = pickerValues[1]
+        this.address.area = pickerValues[2]
+      },
+
       getAddress () {
         let addressId = this.$route.params.id
 
         if (addressId) {
           this.axios.get(`address/${addressId}`).then(response => {
             this.address = response.data.address
+
+            this.$refs.addressPicker.setValues([this.address.province, this.address.city, this.address.area])
           }, response => {
             console.log(response.data)
           })
@@ -119,14 +138,14 @@
           postData.id = addressId
         }
 
-        this.axios.post('address/store', postData).then(response => {
+        this.axios.post('address/store', postData).then(() => {
           this.$root.success('保存成功')
 
           setTimeout(() => {
             this.$router.push('/address')
           }, 1000)
-        }, response => {
-          console.log(response.data)
+        }).catch(error => {
+          console.log(error)
         })
       },
 
@@ -157,9 +176,9 @@
     overflow: hidden;
     position: fixed;
     bottom: 0;
-    width: 100%;
     z-index: 20;
     background-color: #fff;
     padding: .5rem 1rem;
+    width: calc(100vw - 2rem);
   }
 </style>

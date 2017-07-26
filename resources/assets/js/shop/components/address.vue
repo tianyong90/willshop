@@ -157,15 +157,14 @@
     overflow: hidden;
     position: fixed;
     bottom: 0;
-    width: 100%;
     z-index: 1000;
     background-color: #fff;
-    padding: 10px 0;
+    padding: .5rem 1rem;
+    width: calc(100vw - 2rem);
     border-top: 1px solid #ccc;
 
     button {
       display: block;
-      width: 80%;
       margin: 0 auto;
     }
   }
