@@ -22,7 +22,6 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   store.commit('UPDATE_LOADING', true)
-
   store.commit('UPDATE_MAINMENU_VISIBLE', !to.meta.hideMainmenu)
 
   if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem(appConfig.jwtTokenName)) {
@@ -32,7 +31,6 @@ router.beforeEach((to, from, next) => {
       query: {redirect: to.fullPath}
     })
   }
-
   next()
 })
 
@@ -55,7 +53,7 @@ axios.interceptors.request.use((config) => {
     app.showLoading()
   }
 
-  let token = window.localStorage.getItem(appConfig.jwtTokenName)
+  const token = window.localStorage.getItem(appConfig.jwtTokenName)
   config.headers.Authorization = 'bearer ' + token
 
   return config
@@ -98,15 +96,12 @@ axios.interceptors.response.use((response) => {
   if (error.code === 'ECONNABORTED') {
     app.error('网络繁忙，请重试')
   }
-
   return Promise.reject(error)
 })
 
 const app = new Vue({
   el: '#app',
-
   router,
-
   store,
 
   components: {
@@ -133,6 +128,11 @@ const app = new Vue({
       })
     },
 
+    /**
+     * 操作失败提示
+     * @param message
+     * @param duration
+     */
     error (message, duration) {
       WeVue.Toast({
         message: message,
@@ -142,7 +142,7 @@ const app = new Vue({
     },
 
     /**
-     * 一般信息提示
+     * 一般提示
      * @param message
      * @param duration
      */

@@ -2,7 +2,7 @@
 
 const Config = {
   apiRoot: '/api/shop',
-  timeout: 5000,
+  timeout: 10000,
   smsResendCountdown: 60,
   jwtTokenName: 'willshop_jwt_token',
 }

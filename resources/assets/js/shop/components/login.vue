@@ -1,7 +1,7 @@
 <template>
   <div class="full-bg">
-    <input v-model.trim="user.name" placeholder="请输入用户名">
-    <input type="password" v-model.trim="user.password" placeholder="请输入登录密码">
+    <input v-model.trim="user.name" placeholder="请输入用户名" @keyup.enter="login">
+    <input type="password" v-model.trim="user.password" placeholder="请输入登录密码" @keyup.enter="login">
     <wv-button class="btn-login" type="primary" @click.native="login">登录</wv-button>
 
     <wv-button class="btn-to-register" type="primary" plain mini @click.native="$router.push('/register')">注册</wv-button>
@@ -23,6 +23,8 @@
 
     methods: {
       login () {
+        if (this.user.name === '' || this.user.password === '') return
+
         this.axios.post('login', this.user).then(response => {
           // 登录成功之后保存 JWT token
           localStorage.setItem(appConfig.jwtTokenName, response.data.token)
