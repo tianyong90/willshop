@@ -17,8 +17,7 @@ const routes = [
     },
     name: 'cart',
     meta: {
-      auth: true,
-      hideMainmenu: true
+      auth: true
     }
   },
   {
@@ -65,6 +64,7 @@ const routes = [
     },
     name: 'checkout',
     meta: {
+      hideMainmenu: true,
       auth: true
     }
   },

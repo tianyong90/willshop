@@ -11,13 +11,12 @@
         <div class="right-part">
           <h3 class="name">{{ cart.product.name }}</h3>
           <span class="price">{{ cart.product.price }}</span>
-
         </div>
       </li>
     </ul>
 
     <footer>
-      <div class="total-price">合计：{{ totalPrice }}</div>
+      <div class="total-price">实付款：{{ totalPrice }}</div>
       <button class="btn btn-checkout">立即下单</button>
     </footer>
   </div>
@@ -25,14 +24,14 @@
 
 <script>
   export default {
-    mounted () {
-      // this.getCarts()
-    },
-
     data () {
       return {
         carts: []
       }
+    },
+
+    mounted () {
+      this.carts = JSON.parse(localStorage.getItem('selectedCarts'))
     },
 
     methods: {
@@ -80,15 +79,17 @@
   }
 
   footer {
-    display: block;
+    display: flex;
     position: fixed;
-    bottom: 55px;
+    bottom: 0;
     width: 100%;
     background-color: #fff;
     height: 50px;
 
     .total-price {
-      float: left;
+      float: right;
+      line-height: 50px;
+      color: red;
     }
 
     .btn-checkout {

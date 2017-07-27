@@ -83,7 +83,10 @@
       // 去结算
       toCheckout () {
         if (this.selectedCarts.length > 0) {
-          // TODO: 跳转至结算页
+          // 跳转至结算页
+          localStorage.setItem('selectedCarts', JSON.stringify(this.selectedCarts))
+
+          this.$router.push('/checkout')
         }
       },
 
@@ -111,7 +114,7 @@
   footer {
     display: block;
     position: fixed;
-    bottom: 0;
+    bottom: 51px;
     width: 100%;
     background-color: #fff;
     height: 50px;
