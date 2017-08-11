@@ -32,7 +32,7 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
     Route::get('/post', 'PostController@lists');
     Route::get('/post/{id}', 'PostController@detail');
 
-    Route::group(['middleware' => ['jwt.auth', 'jwt.refresh']], function () {
+    Route::group(['middleware' => []], function () {
         Route::post('/update-password', 'AuthController@updatePassword');
         Route::get('/current-user', 'AuthController@getAuthenticatedUser');
         Route::post('/user/avatar', 'UserController@avatar');

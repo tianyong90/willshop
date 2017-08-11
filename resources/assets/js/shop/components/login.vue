@@ -26,8 +26,10 @@
         if (this.user.name === '' || this.user.password === '') return
 
         this.axios.post('login', this.user).then(response => {
-          // 登录成功之后保存 JWT token
-          localStorage.setItem(appConfig.jwtTokenName, response.data.token)
+          console.log(response);
+
+          // 登录成功之后保存 access_token
+          localStorage.setItem(appConfig.jwtTokenName, response.data.access_token)
 
           // 登录状态设置为已经登录
           this.$store.commit('UPDATE_IS_LOGIN', true)
