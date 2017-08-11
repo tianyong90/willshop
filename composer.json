@@ -6,12 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "~3.3",
         "intervention/image": "^2.3",
         "laravel/framework": "5.5.*",
+        "laravel/passport": "^3.0",
         "laravel/tinker": "~1.0",
-        "predis/predis": "^1.1",
-        "tymon/jwt-auth": "^1.0.0-beta.3"
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -47,7 +48,8 @@
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
+            "@php artisan package:discover",
+            "@php artisan ide-helper:generate"
         ]
     },
     "config": {
