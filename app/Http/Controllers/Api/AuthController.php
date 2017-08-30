@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-
-//use JWTAuth;
-//use Tymon\JWTAuth\Exceptions\JWTException;
 use App\User;
 use Validator;
 

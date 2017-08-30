@@ -29,26 +29,6 @@ class User extends Authenticatable
     ];
 
     /**
-     * JWT 相关接口方法
-     *
-     * @return mixed
-     */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-
-    /**
-     * JWT 相关接口方法
-     *
-     * @return array
-     */
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
-
-    /**
      * 用于表单验证时的字段名称提示.
      *
      * @var array
