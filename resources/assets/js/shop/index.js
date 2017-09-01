@@ -9,6 +9,7 @@ import store from './store/index'
 import appConfig from './config' // 配置
 import routes from './routes.js'
 import { mapState } from 'vuex'
+import '../../iconfont/iconfont.css'
 
 Vue.use(VueRouter)
 Vue.use(WeVue)

@@ -25,7 +25,7 @@ const routes = [
     component: (resolve) => {
       require.ensure([], () => resolve(require('./components/category.vue')), 'shop-category')
     },
-    name: 'category',
+    name: 'category'
   },
   {
     path: '/order-list',

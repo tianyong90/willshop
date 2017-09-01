@@ -13,7 +13,6 @@
 
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="stylesheet" href="/css/iconfont/iconfont.css">
   </head>
   <body>
   <div id="app">
