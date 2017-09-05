@@ -1,6 +1,8 @@
 {
     "/shop-address-add.js": "/shop-address-add.js",
     "/shop-cart.js": "/shop-cart.js",
+    "/admin-login.js": "/admin-login.js",
+    "/admin-dashboard.js": "/admin-dashboard.js",
     "/shop-login.js": "/shop-login.js",
     "/shop-avatar.js": "/shop-avatar.js",
     "/shop-user.js": "/shop-user.js",
@@ -18,6 +20,7 @@
     "/shop-category.js": "/shop-category.js",
     "/shop-address.js": "/shop-address.js",
     "/shop-about-us.js": "/shop-about-us.js",
+    "/admin.js": "/admin.js",
     "/shop.js": "/shop.js",
     "/vendor.js": "/vendor.js"
 }

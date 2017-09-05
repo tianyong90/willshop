@@ -50,6 +50,7 @@ mix.webpackConfig({
     ]
   },
   entry: {
+    admin: './resources/assets/js/admin/index.js',
     shop: './resources/assets/js/shop/index.js',
     vendor: ['vue', 'vuex', 'vue-router', 'axios', 'vue-axios', 'we-vue']
   },

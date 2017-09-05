@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop/{vue_capture?}', 'Mobile\IndexController@index')->where('vue_capture', '[\/\w\.-]*');
+Route::get('/admin/{vue_capture?}', 'WebController@admin')->where('vue_capture', '[\/\w\.-]*');
+
+Route::get('/shop/{vue_capture?}', 'WebController@shop')->where('vue_capture', '[\/\w\.-]*');
