@@ -50,7 +50,7 @@
     "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.4.4",
     "vuex": "^2.3.1",
-    "we-vue": "^1.4.12",
+    "we-vue": "^1.4.14",
     "webpack-bundle-analyzer": "^2.9.0"
   }
 }
