@@ -14,6 +14,8 @@
   <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
+  {{--<script src="//willshop.app:6001/socket.io/socket.io.js"></script>--}}
+  <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
   <script>
     window.Laravel = {
       csrfToken: '{!! csrf_token() !!}'
@@ -22,6 +24,8 @@
 </head>
 <body>
 <div id="app">
+  <topmenu v-if="topmenuVisible"></topmenu>
+  <sidebar v-if="sidebarVisible"></sidebar>
   <transition name="slide-fade" mode="out-in">
     <router-view></router-view>
   </transition>

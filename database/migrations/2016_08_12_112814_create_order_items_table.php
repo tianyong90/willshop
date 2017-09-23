@@ -17,6 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('order_id')->comment('关联订单ID');
             $table->unsignedInteger('product_id')->comment('关联产品ID');
+            $table->unsignedDecimal('unit_price')->comment('单价');
             $table->unsignedInteger('amount')->comment('数量');
             $table->timestamps();
             $table->softDeletes();

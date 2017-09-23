@@ -4,6 +4,6 @@ const state = {
   isLoading: false,
   topmenuVisible: false,
   sidebarVisible: false
-};
+}
 
-export default state;
+export default state

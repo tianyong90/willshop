@@ -27,6 +27,8 @@ class ProductCategoryController extends BaseApiController
      */
     public function __construct(Product $product, ProductCategory $productCategory)
     {
+        parent::__construct();
+
         $this->product = $product;
         $this->productCategory = $productCategory;
     }

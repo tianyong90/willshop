@@ -82,7 +82,6 @@ class AutHController extends BaseApiController
     {
         $user = \Auth::user();
 
-
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
     }

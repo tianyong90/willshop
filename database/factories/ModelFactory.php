@@ -34,9 +34,9 @@ $factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $pictures = [
-        $faker->imageUrl(640, 360),
-        $faker->imageUrl(640, 360),
-        $faker->imageUrl(640, 360),
+        $faker->imageUrl(640, 480),
+        $faker->imageUrl(640, 480),
+        $faker->imageUrl(640, 480),
     ];
 
     $productCateIds = array_column(\App\ProductCategory::all('id')->toArray(), 'id');
@@ -47,6 +47,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'thumbnail' => $faker->imageUrl(100, 100),
         'pictures' => $pictures,
         'price' => $faker->randomFloat(2, 1, 250),
+        'stock' => random_int(10, 1000),
         'description' => $faker->paragraph(10),
     ];
 });

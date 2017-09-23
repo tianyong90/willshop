@@ -36,6 +36,9 @@ if (process.env.NODE_ENV === 'production') {
     verbose: true,
     dry: false
   }));
+
+  const BundleAnalyzerPlugin = retuire('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  plugins.push(new BundleAnalyzerPlugin())
 }
 
 mix.webpackConfig({
@@ -64,7 +67,7 @@ mix.webpackConfig({
 });
 
 mix.browserSync({
-  proxy: 'localhost:8050/shop',
+  proxy: 'willshop.app/shop',
   files: [
     'app/**/*.php',
     'resources/views/**/*.php',

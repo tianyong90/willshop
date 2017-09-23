@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Address;
 use App\Cart;
 use App\Order;
 use App\OrderItem;
 use App\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Auth;
 use DB;
 
 class OrderController extends BaseApiController
@@ -42,6 +43,8 @@ class OrderController extends BaseApiController
      */
     public function __construct(Order $order, OrderItem $orderItem, Product $product, Cart $cart)
     {
+        parent::__construct();
+
         $this->order = $order;
         $this->orderItem = $orderItem;
         $this->product = $product;
@@ -53,9 +56,15 @@ class OrderController extends BaseApiController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function index()
+    public function list(Request $request)
     {
-        $orders = $this->order->where('user_id', Auth::id())->all();
+        $status = $request->input('status', 'all');
+
+        $orders = $this->order->where('user_id', $this->currentUser->id)->where(function ($query) use ($status) {
+            if ($status !== 'all') {
+                $query->where('status', $status);
+            }
+        })->with('order_items', 'order_items.product')->orderBy('created_at', 'DESC')->paginate();
 
         return response()->json(compact('orders'));
     }
@@ -63,13 +72,13 @@ class OrderController extends BaseApiController
     /**
      * 订单详情
      *
-     * @param $id
+     * @param string $orderNumber
      *
      * @return mixed
      */
-    public function show($id)
+    public function show($orderNumber)
     {
-        $order = $this->order->findOrFail($id);
+        $order = $this->order->where('number', $orderNumber)->where('user_id', $this->currentUser->id)->with('order_items', 'order_items.product')->first();
 
         return response()->json(compact('order'));
     }
@@ -83,66 +92,92 @@ class OrderController extends BaseApiController
      */
     public function store(Request $request)
     {
-//        // 选中的购物车项
-//        $selectedCarts = $request->input('selectedCarts');
-//
-//        if (count($selectedCarts) == 0) {
-//            return response('未选择结算项目', 400);
-//        }
-//
-//        $products = collect($request->tickets);
-//
-//        $products = Product::whereIn('id', $products->pluck('id'))->pluck('id');
-//
-//        // attach price
-//        $products = collect($request->tickets)->map(function ($product) use ($products) {
-//            $product['unit_price'] = $products[$product['id']];
-//
-//            return $product;
-//        });
-//
-//        $order = new Order([
-//            'user_id' => Auth::id(),
-//            'total_fee' => $products->reduce(function ($carry, $item) {
-//                return $carry + ($item['amount'] * $item['unit_price']);
-//            }),
-//            'amount' => $products->sum('amount'),
-//        ]);
-//
-//        $items = [];
-//
-//        foreach ($products as $product) {
-//            $items[] = new OrderItem([
-//                'order_id' => $order->id,
-//                'product_id' => $product['id'],
-//                'amount' => $product['amount'],
-//                'unit_price' => $product['unit_price'],
-//            ]);
-//        }
-//
-//        $order = DB::transaction(function () use ($order, $items) {
-//            $order->save();
-//            $order->order_items()->saveMany($items);
-//
-//            return $order;
-//        });
-//
-//        return response()->json(['order_no', $order->no]);
+        // 选中的购物车项
+        $cartIds = $request->input('cartIds');
+        $addressId = $request->input('addressId');
+        $remark = $request->input('remark');
 
-        return response('what the fuck');
+        if (count($cartIds) === 0) {
+            return response('未选择结算项目', 400);
+        }
+
+        // 结算相关购物车项目
+        $carts = Cart::whereIn('id', $cartIds)->with('product')->get();
+
+        $products = $carts->pluck('product');
+
+        $address = Address::find($addressId);
+
+        $order = new Order([
+            'user_id' => $this->currentUser->id,
+            'total_fee' => $carts->reduce(function ($carry, $item) {
+                return $carry + ($item->amount * $item->product->price);
+            }),
+            'amount' => $products->sum('amount'),
+            'consumer_name' => $address->name,
+            'consumer_mobile' => $address->mobile,
+            'address' => $address->address,
+            'postcode' => $address->postcode,
+            'remark' => $remark,
+        ]);
+
+        $items = [];
+
+        foreach ($carts as $cart) {
+            $items[] = new OrderItem([
+                'order_id' => $order->id,
+                'product_id' => $cart->product->id,
+                'amount' => $cart->amount,
+                'unit_price' => $cart->product->price,
+            ]);
+        }
+
+        $order = DB::transaction(function () use ($order, $items) {
+            $order->save();
+            $order->order_items()->saveMany($items);
+
+            return $order;
+        });
+
+        // 结算完成后相关购物车荐状态更新
+        Cart::whereIn('id', $cartIds)->update(['checkouted_at' => Carbon::now()]);
+
+        return response()->json(['order_no' => $order->number]);
+    }
+
+    /**
+     * 取消订单
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function cancel($id)
+    {
+        try {
+            Order::where('user_id', $this->currentUser->id)->where('id', $id)->update(['status' => 'canceled']);
+
+            return response()->json(['info' => '取消成功']);
+        } catch (\Exception $e) {
+            return response($e->getMessage(), 500);
+        }
     }
 
     /**
      * 删除订单
      *
-     * @param $id
+     * @param int $id
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        $this->order->where('id', $id)->delete();
+        try {
+            Order::where('user_id', $this->currentUser->id)->where('id', $id)->delete();
 
-        return response()->json(['info' => '删除成功']);
+            return response()->json(['info' => '删除成功']);
+        } catch (\Exception $e) {
+            return response($e->getMessage(), 500);
+        }
     }
 }

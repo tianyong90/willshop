@@ -2,26 +2,32 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\User;
 use Illuminate\Http\Request;
-use Auth;
 use Image;
 
 class UserController extends BaseApiController
 {
     public function __construct()
     {
+        parent::__construct();
+    }
+
+    public function getCurrentUser()
+    {
+        return response()->json(['user' => $this->currentUser]);
     }
 
     /**
      * 设置头像
      *
      * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function avatar(Request $request)
     {
-        if (!$user = Auth::user()) {
-            return $this->response->error('Unauthorized.', 401);
+        if (!$user = $this->currentUser) {
+            return response('Unauthorized.', 401);
         }
 
         $data = $request->all();

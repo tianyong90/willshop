@@ -17,3 +17,4 @@ yarn-error.log
 /.vscode
 /yarn.lock
 /composer.lock
+/worker.log

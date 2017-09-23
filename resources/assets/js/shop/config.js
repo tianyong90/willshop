@@ -1,10 +1,9 @@
-// const debug = process.env.NODE_ENV !== 'production';
+const debug = process.env.NODE_ENV !== 'production'
 
-const Config = {
+const config = {
   apiRoot: '/api/shop',
-  timeout: 10000,
-  smsResendCountdown: 60,
-  jwtTokenName: 'willshop_jwt_token'
+  timeout: debug ? 10000 : 15000,
+  smsResendCountdown: 60
 }
 
-export default Config
+export default config

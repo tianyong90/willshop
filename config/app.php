@@ -176,13 +176,14 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         Intervention\Image\ImageServiceProvider::class, // InterventionImage
+        Prettus\Repository\Providers\RepositoryServiceProvider::class, // l5-repository
 
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
@@ -235,6 +236,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,  // laravel-wechat
     ],
 
+    // other configs.
+    'password_oauth_client' => [
+        'id' => env('PASSWORD_OAUTH_CLIENT_ID', null),
+        'secret' => env('PASSWORD_OAUTH_CLIENT_SECRET', ''),
+    ]
 ];

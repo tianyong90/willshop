@@ -19,8 +19,14 @@ class CreateProductsTable extends Migration
             $table->string('name', 30)->comment('商品名');
             $table->string('thumbnail', 120)->nullable()->comment('缩略图');
             $table->string('pictures', 300)->nullbale()->comment('图片集');
-            $table->decimal('price')->nullable()->comment('价格');
+            $table->unsignedDecimal('price')->nullable()->comment('价格');
             $table->text('description')->nullable()->comment('商品描述');
+            $table->unsignedInteger('stock')->default(0)->comment('库存');
+            $table->enum('status', [
+                'on_sale',
+                'off_sale',
+                'sortage',
+            ])->default('on_sale')->comment('状态');
             $table->timestamps();
             $table->softDeletes();
 

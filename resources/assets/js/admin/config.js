@@ -1,11 +1,10 @@
-const debug = process.env.NODE_ENV !== 'production';
+const debug = process.env.NODE_ENV !== 'production'
 
-const Config = {
-  apiRoot: '/api/user',
+const config = {
+  apiRoot: '/api/admin',
   timeout: debug ? 10000 : 15000,
-  jwtTokenKey: 'willchat_jwt_token',
-  userKey: 'willchat_user',
-  accountsKey: 'willchat_accounts',
-};
+  authTokenKey: 'mj_admin_token',
+  userKey: 'mj_admin_user'
+}
 
-export default Config;
+export default config

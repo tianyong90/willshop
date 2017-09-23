@@ -1,43 +1,30 @@
+import 'babel-polyfill'
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import WeVue from 'we-vue'
+import VueAxios from 'vue-axios'
 import 'we-vue/lib/style.css'
 import '../../sass/shop.scss'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
 import store from './store/index'
 import appConfig from './config' // 配置
-import routes from './routes.js'
 import { mapState } from 'vuex'
 import '../../iconfont/iconfont.css'
+import router from './router'
+import { Dialog, Indicator, Toast } from 'we-vue'
 
-Vue.use(VueRouter)
-Vue.use(WeVue)
+Vue.config.productionTip = false
+
 Vue.use(VueAxios, axios)
-
-const router = new VueRouter({
-  mode: 'history',
-  base: '/shop/',
-  routes
-})
 
 router.beforeEach((to, from, next) => {
   store.commit('UPDATE_LOADING', true)
   store.commit('UPDATE_MAINMENU_VISIBLE', !to.meta.hideMainmenu)
 
-  if (to.matched.some(record => record.meta.auth) && !window.localStorage.getItem(appConfig.jwtTokenName)) {
-    // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
-    next({
-      path: '/login',
-      query: {redirect: to.fullPath}
-    })
-  }
   next()
 })
 
 router.afterEach((to, from) => {
   // 动态设置页面标题
-  document.title = to.meta.title || 'willshop'
+  document.title = to.meta.title || 'WILLSHOP'
 
   store.commit('UPDATE_LOADING', false)
 })
@@ -54,9 +41,6 @@ axios.interceptors.request.use((config) => {
     app.showLoading()
   }
 
-  const token = window.localStorage.getItem(appConfig.jwtTokenName)
-  config.headers.Authorization = 'bearer ' + token
-
   return config
 }, (error) => {
   return Promise.reject(error)
@@ -67,31 +51,10 @@ axios.interceptors.response.use((response) => {
   store.commit('UPDATE_LOADING', false)
   app.hideLoading()
 
-  const newToken = response.headers.authorization
-  if (newToken) {
-    window.localStorage.setItem(appConfig.jwtTokenName, newToken.replace('bearer ', ''))
-  }
-
   return response
 }, (error) => {
   store.commit('UPDATE_LOADING', false)
   app.hideLoading()
-
-  if (error.response) {
-    const newToken = error.response.headers.authorization
-    if (newToken) {
-      window.localStorage.setItem(appConfig.jwtTokenName, newToken.replace('bearer ', ''))
-    }
-
-    if (error.response.status === 401) {
-      window.localStorage.removeItem(appConfig.jwtTokenName)
-
-      router.push('/login')
-    } else if (error.response.status === 403) {
-      // 无权限时统一提示
-      app.error('无操作权限')
-    }
-  }
 
   // 超时后进行提示
   if (error.code === 'ECONNABORTED') {
@@ -106,7 +69,7 @@ const app = new Vue({
   store,
 
   components: {
-    'mainmenu': require('./components/mainmenu.vue')
+    'mainmenu': () => import('./pages/mainmenu.vue')
   },
 
   computed: {
@@ -123,7 +86,7 @@ const app = new Vue({
      * @param duration
      */
     success (message, duration = 1000) {
-      WeVue.Toast({
+      Toast({
         message,
         duration
       })
@@ -135,7 +98,7 @@ const app = new Vue({
      * @param duration
      */
     error (message, duration) {
-      WeVue.Toast({
+      Toast({
         message: message,
         duration: duration,
         icon: 'warn'
@@ -148,7 +111,7 @@ const app = new Vue({
      * @param duration
      */
     info (message, duration = 2000) {
-      WeVue.Toast({
+      Toast({
         type: 'text',
         message,
         duration
@@ -159,14 +122,14 @@ const app = new Vue({
      * 确认对话框
      * @param title
      * @param message
-     * @param callback
      */
-    confirm (title, message, callback) {
-      WeVue.Dialog({
+    confirm (title, message) {
+      return Dialog({
         title,
         message,
+        showCancelBtn: true,
         skin: this.isiOs ? 'ios' : 'android'
-      }, callback)
+      })
     },
 
     /**
@@ -174,14 +137,14 @@ const app = new Vue({
      * @param msg
      */
     showLoading (msg = 'Loading') {
-      WeVue.Indicator.open(msg)
+      Indicator.open(msg)
     },
 
     /**
      * 隐藏 loading 提示
      */
     hideLoading () {
-      WeVue.Indicator.close()
+      Indicator.close()
     }
   }
 })

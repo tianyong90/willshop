@@ -18,6 +18,7 @@ class CreateCartsTable extends Migration
             $table->unsignedInteger('user_id')->comment('用户ID');
             $table->unsignedInteger('product_id')->comment('产品ID');
             $table->unsignedInteger('amount')->comment('数量');
+            $table->timestamp('checkouted_at')->nullable()->comment('结算时间');
             $table->timestamps();
             $table->softDeletes();
 

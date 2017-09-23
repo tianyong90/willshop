@@ -26,21 +26,10 @@ class ProductController extends BaseApiController
      */
     public function __construct(Product $product, ProductCategory $productCategory)
     {
+        parent::__construct();
+
         $this->product = $product;
         $this->productCategory = $productCategory;
-    }
-
-    /**
-     * 商品列表
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
-     */
-    public function lists()
-    {
-
-        $products = $this->product->take(6)->get();
-
-        return response()->json(compact('products'));
     }
 
     /**
@@ -55,5 +44,33 @@ class ProductController extends BaseApiController
         $product = $this->product->findOrFail($id);
 
         return response()->json(compact('product'));
+    }
+
+    /**
+     * 商品列表
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function list(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        $categoryId = $request->input('categoryId');
+        $limit = $request->input('limit');
+
+        $products = $this->product->where(function ($query) use ($keyword, $categoryId, $limit) {
+            if ($keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            }
+
+            if ($categoryId) {
+                $query->where('category_id', $categoryId);
+            }
+
+            if ($limit) {
+                $query->limit($limit);
+            }
+        })->paginate();
+
+        return response()->json(compact('products'));
     }
 }

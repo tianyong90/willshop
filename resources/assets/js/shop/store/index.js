@@ -6,8 +6,7 @@ Vue.use(Vuex)
 const state = {
   isLoading: false,
   direction: 'forward',
-  isMainMenuVisible: true,
-  isLogin: false
+  isMainMenuVisible: true
 }
 
 export default new Vuex.Store({
@@ -21,9 +20,6 @@ export default new Vuex.Store({
     },
     UPDATE_MAINMENU_VISIBLE (state, value) {
       state.isMainMenuVisible = value
-    },
-    UPDATE_IS_LOGIN (state, value) {
-      state.isLogin = value
     }
   }
 })

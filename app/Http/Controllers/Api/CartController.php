@@ -27,6 +27,8 @@ class CartController extends BaseApiController
      */
     public function __construct(Cart $cart, Product $product)
     {
+        parent::__construct();
+
         $this->cart = $cart;
         $this->product = $product;
     }
@@ -50,7 +52,7 @@ class CartController extends BaseApiController
      */
     public function store(Request $request)
     {
-        $where['user_id'] = Auth::id();
+        $where['user_id'] = $this->currentUser->id;
         $where['product_id'] = $request->input('productId');
 
         if ($cart = $this->cart->where($where)->first()) {
@@ -65,13 +67,15 @@ class CartController extends BaseApiController
     }
 
     /**
+     * 删除.
+     *
      * @param $id
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        $this->cart->where('id', $id)->delete();
+        $this->cart->destroy($id);
 
         return response()->json(['info' => '删除成功']);
     }
@@ -84,6 +88,23 @@ class CartController extends BaseApiController
     public function getProductAmount()
     {
         $amount = $this->cart->sum('amount');
+
+        return response()->json(compact('amount'));
+    }
+
+    /**
+     * 更新某一条购物车记录对应的商品数量
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateAmount(Request $request)
+    {
+        $id = $request->input('id');
+        $amount = $request->input('amount');
+
+        $amount = $this->cart->where(['id' => $id])->update(['amount' => $amount]);
 
         return response()->json(compact('amount'));
     }

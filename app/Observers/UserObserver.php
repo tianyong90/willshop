@@ -16,8 +16,12 @@ class UserObserver
      */
     public function creating(User $user)
     {
-        $user->api_token = str_random(60);
-        $user->password = bcrypt($user->password);
+        if ($user->password) {
+            $user->password = bcrypt($user->password);
+        }
+
+        // 设置头像
+        $user->avatar = $user->headimgurl;
     }
 
     /**

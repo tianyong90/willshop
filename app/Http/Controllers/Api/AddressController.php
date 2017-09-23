@@ -20,6 +20,8 @@ class AddressController extends BaseApiController
      */
     public function __construct(Address $address)
     {
+        parent::__construct();
+
         $this->address = $address;
     }
 
@@ -29,9 +31,9 @@ class AddressController extends BaseApiController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function index()
+    public function list()
     {
-        $addresses = $this->address->where('user_id', Auth::id())->get();
+        $addresses = $this->address->where('user_id', $this->currentUser->id)->get();
 
         return response()->json(compact('addresses'));
     }
@@ -59,7 +61,7 @@ class AddressController extends BaseApiController
     {
         $data = $request->input('address');
         $id = $request->input('id', null);
-        $data['user_id'] = Auth::id();
+        $data['user_id'] = $this->currentUser->id;
 
         $this->address->updateOrCreate(['id' => $id], $data);
 
@@ -75,7 +77,7 @@ class AddressController extends BaseApiController
     {
         $data = $request->all();
 
-        $data['user_id'] = Auth::id();
+        $data['user_id'] = $this->currentUser->id;
 
         $this->address->where('id', $id)->update($data);
 

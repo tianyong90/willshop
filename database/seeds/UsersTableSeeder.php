@@ -17,7 +17,6 @@ class UsersTableSeeder extends Seeder
             'mobile' => '13211112222',
             'email' => 'admin@qq.com',
             'avatar' => '',
-            'api_token' => '273AAFaZ1qXVDrZPpKYF5zjN3uyMGChpVmw6tC8iPQjMQdO5tJkSC6CXuaH9',
         ]);
     }
 }
