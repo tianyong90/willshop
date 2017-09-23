@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/admin/{vue_capture?}', 'WebController@admin')->where('vue_capture', '[\/\w\.-]*');
 
-Route::get('/shop/{vue_capture?}', 'WebController@shop')->where('vue_capture', '[\/\w\.-]*');
+Route::get('/shop/{vue_capture?}', 'WebController@shop')->where('vue_capture', '[\/\w\.-]*')->middleware('wechat.oauth');

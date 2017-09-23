@@ -13,19 +13,38 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+// 微信消息服务
+Route::any('wechat-api', 'WechatController@serve');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
+    // Login
+    Route::post('/login', 'AuthController@authenticate');
+    Route::get('/login-qrcode', 'AutHController@getLoginQrcode');
+
+//    Route::group(['middleware' => ['auth:api']], function () {
+    Route::group(['middleware' => []], function () {
+        Route::get('/user', 'AuthController@getAuthenticatedUser');
+
+        Route::get('/order/list', 'OrderController@list');
+
+        // product
+        Route::get('/product/list', 'ProductController@list');
+
+        Route::get('/user/list', 'UserController@list');
+
+    });
+});
 
 Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
-    // Login and Register
-    Route::post('/login', 'AuthController@authenticate');
-    Route::post('/register', 'AuthController@register');
+    // // Login and Register
+    // Route::post('/login', 'AuthController@authenticate');
+    // Route::post('/register', 'AuthController@register');
 
     // 商品相关
-    Route::get('/product', 'ProductController@lists');
+    Route::get('/product', 'ProductController@list');
     Route::get('/product/{id}', 'ProductController@show');
 
+    // 商品分类
     Route::get('/product-categories', 'ProductCategoryController@lists');
 
     // 文章
@@ -33,29 +52,34 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
     Route::get('/post/{id}', 'PostController@detail');
 
     Route::group(['middleware' => []], function () {
-        Route::post('/update-password', 'AuthController@updatePassword');
-        Route::get('/current-user', 'AuthController@getAuthenticatedUser');
-        Route::post('/user/avatar', 'UserController@avatar');
+        // 当前用户
+        Route::get('/current-user', 'UserController@getCurrentUser');
 
+        // 下单及结算
         Route::post('/checkout', 'OrderController@store');
-        Route::get('/order', 'OrderController@index');
-        Route::get('/order/{$id}', 'OrderController@show');
+        Route::get('/order', 'OrderController@list');
+        Route::get('/order/{orderNumber}', 'OrderController@show');
+        Route::post('/order/{orderId}/cancel', 'OrderController@cancel');
+        Route::delete('/order/{orderId}/destroy', 'OrderController@destroy');
 
+        // 购物车
         Route::get('/cart', 'CartController@index');
         Route::post('/cart/add', 'CartController@store');
-        Route::post('/cart/{cartId}/delete', 'CartController@destroy');
+        Route::post('/cart/{cartId}/destroy', 'CartController@destroy');
         Route::get('/cart/product-amount', 'CartController@getProductAmount');
+        Route::post('/cart/update-amount', 'CartController@updateAmount');
 
+        // 收藏
+        Route::get('/favourite', 'FavouriteController@list');
         Route::get('/favourite/{productId}/add', 'FavouriteController@add');
-        Route::get('/favourite/{productId}/delete', 'FavouriteController@delete');
+        Route::get('/favourite/{productId}/destroy', 'FavouriteController@destroy');
         Route::get('/favourite/{productId}/toggle', 'FavouriteController@toggle');
         Route::get('/favourite/{productId}/is-favourite', 'FavouriteController@checkFavourite');
-        Route::get('/favourite', 'FavouriteController@lists');
 
         // 地址
-        Route::get('/address', 'AddressController@index');
+        Route::get('/address', 'AddressController@list');
         Route::post('/address/store', 'AddressController@store');
         Route::get('/address/{id}', 'AddressController@show')->where('id', '\d+');
-        Route::delete('/address/{id}/delete', 'AddressController@destroy');
+        Route::delete('/address/{id}/destroy', 'AddressController@destroy');
     });
 });
