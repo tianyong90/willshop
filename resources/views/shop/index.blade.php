@@ -13,17 +13,19 @@
 
     <!-- No Baidu Siteapp-->
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="stylesheet" href="{{ mix('css/shop.css') }}"/>
   </head>
   <body>
   <div id="app">
     <transition name="slide-fade" mode="out-in">
-      <router-view></router-view>
+      <router-view />
     </transition>
-    <mainmenu></mainmenu>
+    <mainmenu/>
   </div>
 
-  <script src="{{ asset('build/vendor.js') }}"></script>
-  <script src="{{ asset('build/mix.js') }}"></script>
-  <script src="{{ asset('build/shop.js') }}"></script>
+  <script src="{{ mix('js/manifest.js') }}"></script>
+  <script src="{{ mix('js/vendor.js') }}"></script>
+  <script src="{{ mix('js/shop.js') }}"></script>
   </body>
 </html>

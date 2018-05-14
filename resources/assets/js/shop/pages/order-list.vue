@@ -12,7 +12,8 @@
       <router-link :to="'/order/' + order.number" class="order-item" v-for="order in orders.data" :key="order.id">
         <div class="hd">
           <span class="order-number">{{ order.number }}</span>
-          <div class="btn-delete" v-if="order.status === 'canceled' || order.status === 'canceled'" @click.prevent.stop="destroyOrder(order.id)"><i class="iconfont icon-delete"></i></div>
+          <div class="btn-delete" v-if="order.status === 'canceled' || order.status === 'canceled'"
+               @click.prevent.stop="destroyOrder(order.id)"><i class="iconfont icon-delete"></i></div>
         </div>
         <div class="bd">
           <div class="product" v-for="orderItem in order.order_items" :key="orderItem.product.id">
@@ -21,9 +22,15 @@
           </div>
         </div>
         <div class="ft">
-          <wv-button type="primary" mini plain v-if="order.status === 'need_to_pay'" @click.prevent.stop="$router.push('/payment/' + order.number)">支付</wv-button>
-          <wv-button type="primary" mini plain @click.prevent.stop="$router.push('payment/' + order.number)">再次购买</wv-button>
-          <wv-button type="default" mini plain v-if="order.status === 'need_to_pay'" @click.prevent.stop="cancelOrder(order.id)">取消</wv-button>
+          <wv-button type="primary" mini plain v-if="order.status === 'need_to_pay'"
+                     @click.prevent.stop="$router.push('/payment/' + order.number)">支付
+          </wv-button>
+          <wv-button type="primary" mini plain @click.prevent.stop="$router.push('payment/' + order.number)">
+            再次购买
+          </wv-button>
+          <wv-button type="default" mini plain v-if="order.status === 'need_to_pay'"
+                     @click.prevent.stop="cancelOrder(order.id)">取消
+          </wv-button>
         </div>
       </router-link>
     </div>
@@ -66,7 +73,7 @@
     methods: {
       getOrders () {
         this.axios.get('order', {
-          params: { status: this.status }
+          params: {status: this.status}
         }).then((response) => {
           this.orders = response.data.orders
         }).catch((error) => {
@@ -74,14 +81,14 @@
         })
       },
 
-      tabChange() {
+      tabChange () {
         this.getOrders()
       },
 
       cancelOrder (orderId) {
         this.$root.confirm('操作确认', '确定要取消订单？').then(() => {
           this.axios.post(`order/${orderId}/cancel`).then((response) => {
-            this.$root.success('取消成功');
+            this.$root.success('取消成功')
           }).catch((error) => {
             console.log(error)
           })
@@ -91,7 +98,7 @@
       destroyOrder (orderId) {
         this.$root.confirm('操作确认', '确定要删除订单？').then(() => {
           this.axios.delete(`order/${orderId}/destroy`).then((response) => {
-            this.$root.success('删除成功');
+            this.$root.success('删除成功')
           }).catch((error) => {
             console.log(error)
           })
@@ -125,7 +132,6 @@
           font-size: 13px;
           color: #666;
         }
-
 
         .btn-delete {
           float: right;

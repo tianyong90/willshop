@@ -26,6 +26,8 @@ class ProductController extends BaseApiController
      */
     public function __construct(Product $product, ProductCategory $productCategory)
     {
+        parent::__construct();
+
         $this->product = $product;
         $this->productCategory = $productCategory;
     }
@@ -37,6 +39,8 @@ class ProductController extends BaseApiController
      */
     public function list()
     {
+        \Log::info($this->currentUser);
+
         $products = $this->product->paginate();
 
         return response()->json(compact('products'));
@@ -66,7 +70,7 @@ class ProductController extends BaseApiController
         // TODO
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
 
     }

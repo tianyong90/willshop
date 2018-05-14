@@ -8,10 +8,12 @@
             <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
           </router-link>
           <div class="weui-media-box__bd">
-            <router-link tag="h4" :to="'/product/' + cart.product.id" class="weui-media-box__title" v-text="cart.product.name"></router-link>
+            <router-link tag="h4" :to="'/product/' + cart.product.id" class="weui-media-box__title"
+                         v-text="cart.product.name"></router-link>
             <p class="weui-media-box__desc price" v-text="cart.product.price"></p>
 
-            <wv-number-spinner class="amount" v-model="cart.amount" :min="1" @change="onChange(cart.id, $event)"></wv-number-spinner>
+            <wv-number-spinner class="amount" v-model="cart.amount" :min="1"
+                               @change="onChange(cart.id, $event)"></wv-number-spinner>
           </div>
         </div>
       </div>
@@ -20,11 +22,12 @@
     <footer>
       <label id="check-all" for="check-all">
         <input type="checkbox" v-model="allSelected"> 全选
-            </label>
+      </label>
       <div class="summary">
         <div class="total-price">合计：{{ totalPrice }}</div>
       </div>
-      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="toCheckout">去结算 <span class="product-amount">{{ `(${productAmount})` }}</span>
+      <button class="btn btn-checkout" :class="{ 'disabled': selectedCarts.length === 0 }" @click="toCheckout">去结算
+        <span class="product-amount">{{ `(${productAmount})` }}</span>
       </button>
     </footer>
   </div>
@@ -119,7 +122,7 @@
 
       // 更改数量
       onChange (cartId, evt) {
-        this.axios.post('cart/update-amount', { id: cartId, amount: evt }).then((response) => {
+        this.axios.post('cart/update-amount', {id: cartId, amount: evt}).then((response) => {
           console.log(response)
         }).catch((error) => {
           console.log(error)

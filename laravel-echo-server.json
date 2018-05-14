@@ -1,19 +1,16 @@
 {
-	"authHost": "http://localhost",
+	"authHost": "http://willshop.test",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
 	"databaseConfig": {
-		"redis": {
-			"port": 6379,
-			"host": "127.0.0.1"
-		},
+		"redis": {},
 		"sqlite": {
 			"databasePath": "/database/laravel-echo-server.sqlite"
 		}
 	},
-	"devMode": true,
-	"host": "willshop.app",
+	"devMode": false,
+	"host": "willshop.test",
 	"port": "6001",
 	"protocol": "http",
 	"socketio": {},

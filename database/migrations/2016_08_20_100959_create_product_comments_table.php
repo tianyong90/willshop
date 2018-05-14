@@ -20,6 +20,7 @@ class CreateProductCommentsTable extends Migration
             $table->string('comment', 100)->nullable()->comment('评论内容');
             $table->tinyInteger('rate')->nullable()->comment('评分');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

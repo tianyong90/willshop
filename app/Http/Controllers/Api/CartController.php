@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
-use Auth;
 
 class CartController extends BaseApiController
 {
@@ -40,7 +39,7 @@ class CartController extends BaseApiController
      */
     public function index()
     {
-        $carts = $this->cart->with('product')->get();
+        $carts = $this->cart->with('product')->whereNull('checkouted_at')->get();
         
         return response()->json(compact('carts'));
     }
@@ -54,6 +53,7 @@ class CartController extends BaseApiController
     {
         $where['user_id'] = $this->currentUser->id;
         $where['product_id'] = $request->input('productId');
+        $where['checkouted_at'] = null;
 
         if ($cart = $this->cart->where($where)->first()) {
             $cart->increment('amount', $request->input('amount'));
@@ -87,7 +87,7 @@ class CartController extends BaseApiController
      */
     public function getProductAmount()
     {
-        $amount = $this->cart->sum('amount');
+        $amount = $this->cart->whereNull('checkouted_at')->sum('amount');
 
         return response()->json(compact('amount'));
     }

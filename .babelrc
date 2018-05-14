@@ -1,14 +1,20 @@
 {
-  "presets": ["es2015", "stage-2"],
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
   "plugins": [
     "transform-runtime",
-    "syntax-dynamic-import",
-    ["component", [
+    ["import", [
       {
         "libraryName": "we-vue",
-        "style": true
+        "style": false
       }
     ]]
-  ],
-  "comments": false
+  ]
 }

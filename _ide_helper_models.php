@@ -12,13 +12,6 @@ namespace App{
 /**
  * App\Address
  *
- * @property-read \App\User $user
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Address onlyTrashed()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Address withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Address withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int $user_id 用户ID
  * @property string|null $name 收货人
@@ -32,6 +25,10 @@ namespace App{
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \App\User $user
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Address onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereArea($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereCity($value)
@@ -45,6 +42,8 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Address whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Address withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Address withoutTrashed()
  */
 	class Address extends \Eloquent {}
 }
@@ -53,14 +52,6 @@ namespace App{
 /**
  * App\Cart
  *
- * @property-read \App\Product $product
- * @property-read \App\User $user
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Cart onlyTrashed()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Cart withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Cart withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property int $user_id 用户ID
  * @property int $product_id 产品ID
@@ -69,6 +60,11 @@ namespace App{
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \App\Product $product
+ * @property-read \App\User $user
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Cart onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereCheckoutedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereCreatedAt($value)
@@ -77,6 +73,8 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Cart whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Cart withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Cart withoutTrashed()
  */
 	class Cart extends \Eloquent {}
 }
@@ -85,17 +83,23 @@ namespace App{
 /**
  * App\Favourite
  *
- * @property-read \App\Product $product
- * @property-read \App\User $user
- * @mixin \Eloquent
  * @property int $user_id 用户ID
  * @property int $product_id 产品ID
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \App\Product $product
+ * @property-read \App\User $user
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Favourite onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Favourite whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Favourite whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Favourite whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Favourite whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Favourite whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Favourite withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Favourite withoutTrashed()
  */
 	class Favourite extends \Eloquent {}
 }
@@ -104,22 +108,24 @@ namespace App{
 /**
  * App\Order
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\OrderItem[] $order_items
- * @property-read \App\User $user
- * @mixin \Eloquent
  * @property int $id
  * @property string $number 订单号
  * @property int $user_id 所属会员
- * @property int $total_fee 总费用
+ * @property float $total_fee 总费用
  * @property string $status 订单状态
  * @property string $consumer_name 收货人姓名
  * @property string $consumer_mobile 收货人手机
  * @property string $address 收货地址
- * @property string $post_code 邮编
+ * @property string $postcode 邮编
  * @property string $remark 用户备注
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\OrderItem[] $order_items
+ * @property-read \App\User $user
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Order onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereAddress($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereConsumerMobile($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereConsumerName($value)
@@ -127,12 +133,14 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereNumber($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Order wherePostCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Order wherePostcode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereRemark($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereTotalFee($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Order whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Order withoutTrashed()
  */
 	class Order extends \Eloquent {}
 }
@@ -141,9 +149,6 @@ namespace App{
 /**
  * App\OrderItem
  *
- * @property-read \App\Order $order
- * @property-read \App\Product $product
- * @mixin \Eloquent
  * @property int $id
  * @property int $order_id 关联订单ID
  * @property int $product_id 关联产品ID
@@ -152,6 +157,11 @@ namespace App{
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \App\Order $order
+ * @property-read \App\Product $product
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\OrderItem onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereDeletedAt($value)
@@ -160,37 +170,27 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereUnitPrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\OrderItem whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\OrderItem withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\OrderItem withoutTrashed()
  */
 	class OrderItem extends \Eloquent {}
 }
 
 namespace App{
 /**
- * App\Permission
- *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
- */
-	class Permission extends \Eloquent {}
-}
-
-namespace App{
-/**
  * App\Post
  *
- * @property-write mixed $title
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Post onlyTrashed()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Query\Builder|\App\Post withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Post withoutTrashed()
- * @mixin \Eloquent
  * @property int $id
  * @property string $slug
+ * @property string $title 标题
  * @property string $content 内容
  * @property \Carbon\Carbon|null $published_at 发布时间
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereDeletedAt($value)
@@ -199,6 +199,8 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Post whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Post withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Post withoutTrashed()
  */
 	class Post extends \Eloquent {}
 }
@@ -207,8 +209,6 @@ namespace App{
 /**
  * App\Product
  *
- * @property-read \App\ProductCategory $category
- * @mixin \Eloquent
  * @property int $id
  * @property int $category_id 关联产品分类ID
  * @property string $name 商品名
@@ -221,6 +221,10 @@ namespace App{
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \App\ProductCategory $category
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Product onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereDeletedAt($value)
@@ -233,6 +237,8 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereThumbnail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Product withoutTrashed()
  */
 	class Product extends \Eloquent {}
 }
@@ -241,9 +247,6 @@ namespace App{
 /**
  * App\ProductCategory
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProductCategory[] $subCategories
- * @mixin \Eloquent
  * @property int $id
  * @property int|null $parent_id 父分类ID
  * @property string $name 分类名
@@ -251,13 +254,22 @@ namespace App{
  * @property string $thumbnail 分类图标
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProductCategory[] $subCategories
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductCategory onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereThumbnail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductCategory whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductCategory withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductCategory withoutTrashed()
  */
 	class ProductCategory extends \Eloquent {}
 }
@@ -266,7 +278,6 @@ namespace App{
 /**
  * App\ProductComment
  *
- * @mixin \Eloquent
  * @property int $id
  * @property int $product_id 关联商品ID
  * @property int $user_id 关联用户ID
@@ -274,37 +285,28 @@ namespace App{
  * @property int|null $rate 评分
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductComment onlyTrashed()
+ * @method static bool|null restore()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereComment($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\ProductComment whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductComment withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\ProductComment withoutTrashed()
  */
 	class ProductComment extends \Eloquent {}
 }
 
 namespace App{
 /**
- * App\Role
- *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
- */
-	class Role extends \Eloquent {}
-}
-
-namespace App{
-/**
  * App\User
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Client[] $clients
- * @property-read string $location
- * @property-read string $sex
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-write mixed $subscribe_time
- * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
- * @mixin \Eloquent
  * @property int $id
  * @property string $name 用户名
  * @property string|null $avatar
@@ -314,6 +316,7 @@ namespace App{
  * @property string $openid OPENID
  * @property string $nickname 昵称
  * @property string $remark 备注
+ * @property string $sex 性别
  * @property string $language 语言
  * @property string $city 城市
  * @property string $province 省
@@ -321,12 +324,25 @@ namespace App{
  * @property string $headimgurl 头像
  * @property int|null $unionid unionid
  * @property int|null $subscribe 是否已关注
+ * @property \Carbon\Carbon|null $subscribe_time 关注时间
  * @property int $groupid 粉丝组groupid
  * @property array $tagid_list 微信用户标签ID列表
  * @property \Carbon\Carbon|null $last_online_at 最后一次在线时间
+ * @property string|null $remember_token
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Client[] $clients
+ * @property-read string $location
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Permission[] $permissions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Permission\Models\Role[] $roles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User permission($permissions)
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User role($roles)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAvatar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCountry($value)
@@ -345,16 +361,15 @@ namespace App{
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereProvince($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRemark($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSex($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSubscribe($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereSubscribeTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereTagidList($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUnionid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $permissions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePermissionIs($permission = '')
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRoleIs($role = '')
+ * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  */
 	class User extends \Eloquent {}
 }

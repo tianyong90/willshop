@@ -1,6 +1,5 @@
 <template>
   <div class="main-container main-with-padding">
-    adfasdfasdf
     <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="6">
         <h1>dashboard</h1>
@@ -10,34 +9,23 @@
 </template>
 
 <script>
-  import userConfig from '../config';
+  // import userConfig from '../config'
 
   export default {
     data () {
-      return {
-      };
+      return {}
     },
 
     mounted () {
       this.axios.get('user').then((response) => {
-//        this.accounts = response.data.accounts;
-//        window.localStorage.setItem(userConfig.accountsKey, JSON.stringify(response.data.accounts));
+        // this.accounts = response.data.accounts;
+        // window.localStorage.setItem(userConfig.accountsKey, JSON.stringify(response.data.accounts));
       }).catch((error) => {
-        console.log(error);
+        console.log(error)
       })
     },
 
-    methods: {
-//      toManage (id) {
-//        window.localStorage.setItem('willchat_account_id', id);
-//
-//        this.$router.push(`manage/${id}`);
-//      },
-//
-//      toEdit (id) {
-//        this.$router.push(`account/edit/${id}`);
-//      }
-    }
+    methods: {}
   }
 </script>
 
@@ -65,7 +53,7 @@
       margin-right: 1em;
     }
   }
-  
+
   .plus-card {
     display: block;
     overflow: hidden;

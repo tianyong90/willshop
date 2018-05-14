@@ -30,14 +30,14 @@
       priceFilter
     ],
 
-    data() {
+    data () {
       return {
         order: {},
         orderNumber: null
       }
     },
 
-    mounted() {
+    mounted () {
       this.orderNumber = this.$route.params.order_no
 
       this.axios.get('order/' + this.orderNumber).then((response) => {

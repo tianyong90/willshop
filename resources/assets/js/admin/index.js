@@ -1,14 +1,11 @@
 import Vue from 'vue'
 import ElementUI, { Loading } from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
-import '../../sass/admin.scss'
 import { mapGetters, mapState } from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store/index'
-import userConfig from './config'
+import adminConfig from './config'
 import router from './router'
-import '../../iconfont/iconfont.css'
 import Echo from 'laravel-echo'
 
 Vue.config.productionTip = false
@@ -16,20 +13,17 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 
-axios.defaults.baseURL = userConfig.apiRoot
-axios.defaults.timeout = userConfig.timeout
+axios.defaults.baseURL = adminConfig.apiRoot
+axios.defaults.timeout = adminConfig.timeout
 
 router.beforeEach((to, from, next) => {
   store.commit('UPDATE_LOADING', true)
 
-  store.commit('UPDATE_TOPMENU_VISIBLE', to.matched.some(record => record.meta.topmenuVisible))
-  store.commit('UPDATE_SIDEBAR_VISIBLE', to.matched.some(record => record.meta.sidebarVisible))
-
-  if (to.matched.some(record => record.meta.requiresAuth) && !window.localStorage.getItem(userConfig.authTokenKey)) {
+  if (to.matched.some(record => record.meta.requiresAuth) && !window.localStorage.getItem(adminConfig.authTokenKey)) {
     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
     next({
       path: '/login',
-      query: { redirect: to.fullPath }
+      query: {redirect: to.fullPath}
     })
   }
 
@@ -44,7 +38,7 @@ router.afterEach((to, from) => {
 axios.interceptors.request.use((config) => {
   store.commit('UPDATE_LOADING', true)
 
-  let token = window.localStorage.getItem(userConfig.authTokenKey)
+  let token = window.localStorage.getItem(adminConfig.authTokenKey)
   config.headers.Authorization = 'Bearer ' + token
 
   return config
@@ -63,11 +57,11 @@ axios.interceptors.response.use((response) => {
   if (error.response) {
     const newToken = error.response.headers.authorization
     if (newToken) {
-      window.localStorage.setItem(userConfig.authTokenKey, newToken.replace(/^bearer\s?/i, ''))
+      window.localStorage.setItem(adminConfig.authTokenKey, newToken.replace(/^bearer\s?/i, ''))
     }
 
     if (error.response.status === 401) {
-      window.localStorage.removeItem(userConfig.authTokenKey)
+      window.localStorage.removeItem(adminConfig.authTokenKey)
 
       router.push('/login')
     } else if (error.response.status === 403) {
@@ -86,10 +80,27 @@ axios.interceptors.response.use((response) => {
 })
 
 if (typeof io !== 'undefined') {
-  window.echo = new Echo({
+  const echo = new Echo({
     broadcaster: 'socket.io',
-    host: 'willshop.app:6001'
+    host: 'http://willshop.test:6001'
   })
+
+  echo.join('chatroom')
+    .here((users) => {
+      // this.usersInRoom = users
+    })
+    .joining((user) => {
+      // this.usersInRoom.push(user)
+    })
+    .leaving((user) => {
+      // this.usersInRoom = this.usersInRoom.filter(u => u != user)
+    })
+    .listen('MessagePosted', (e) => {
+      // this.messages.push({
+      //   message: e.message.message,
+      //   user: e.user
+      // })
+    })
 }
 
 const app = new Vue({
@@ -99,15 +110,8 @@ const app = new Vue({
   // vuex store
   store,
 
-  components: {
-    'topmenu': require('./pages/topmenu.vue'),
-    'sidebar': require('./pages/sidebar.vue')
-  },
-
   computed: {
     ...mapState({
-      topmenuVisible: state => state.topmenuVisible,
-      sidebarVisible: state => state.sidebarVisible,
       isLoading: state => state.isLoading
     }),
 

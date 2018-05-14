@@ -29,7 +29,6 @@
 
 <script>
   import store from '../store/index'
-  import WeVue from 'we-vue'
   import { mapState } from 'vuex'
 
   export default {
@@ -42,7 +41,7 @@
     data () {
       return {
         addresses: [],
-        activeAddress: null,
+        activeAddress: null
       }
     },
 
@@ -63,19 +62,7 @@
 
       // 地址项中删除按钮点击
       deleteAddress (address) {
-        WeVue.Dialog({
-            title: '操作提示',
-            message: '确定要删除吗？',
-            skin: 'ios'
-          },
-          () => {
-            this.axios.delete(`address/${address.id}/destroy`).then((response) => {
-              this.$root.success('删除成功')
-
-              const indexOfAddress = this.addresses.indexOf(address)
-              this.addresses.splice(indexOfAddress, 1)
-            })
-          })
+        // TODO
       }
     }
   }

@@ -1,11 +1,8 @@
-const state = {
-}
+const state = {}
 
-const getters = {
-}
+const getters = {}
 
-const actions = {
-}
+const actions = {}
 
 const mutations = {
   UPDATE_ORDER (state, value) {

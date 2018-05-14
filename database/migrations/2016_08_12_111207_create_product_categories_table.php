@@ -20,6 +20,7 @@ class CreateProductCategoriesTable extends Migration
             $table->text('description')->comment('分类描述');
             $table->string('thumbnail', 120)->comment('分类图标');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

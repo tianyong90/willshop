@@ -18,17 +18,25 @@ Route::any('wechat-api', 'WechatController@serve');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
     // Login
-    Route::post('/login', 'AuthController@authenticate');
+    Route::post('/login', 'AuthenticateController@login');
+    Route::post('/logout', 'AuthenticateController@logout');
     Route::get('/login-qrcode', 'AutHController@getLoginQrcode');
 
-//    Route::group(['middleware' => ['auth:api']], function () {
-    Route::group(['middleware' => []], function () {
-        Route::get('/user', 'AuthController@getAuthenticatedUser');
+    Route::group(['middleware' => ['auth:api']], function () {
+        Route::get('/user', 'AuthenticateController@getAuthenticatedUser');
 
         Route::get('/order/list', 'OrderController@list');
 
         // product
         Route::get('/product/list', 'ProductController@list');
+        Route::get('/product/{id}/show', 'ProductController@show');
+        Route::get('/product/{id}/store', 'ProductController@store');
+
+        // product-category
+        Route::get('/product-category/list', 'ProductCategoryController@list');
+        Route::get('/product-category/{id}/show', 'ProductCategoryController@show');
+        Route::post('/product-category/{id}/destroy', 'ProductCategoryController@destroy');
+        Route::post('/product-category/store', 'ProductCategoryController@store');
 
         Route::get('/user/list', 'UserController@list');
 
@@ -60,7 +68,7 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
         Route::get('/order', 'OrderController@list');
         Route::get('/order/{orderNumber}', 'OrderController@show');
         Route::post('/order/{orderId}/cancel', 'OrderController@cancel');
-        Route::delete('/order/{orderId}/destroy', 'OrderController@destroy');
+        Route::post('/order/{orderId}/destroy', 'OrderController@destroy');
 
         // 购物车
         Route::get('/cart', 'CartController@index');

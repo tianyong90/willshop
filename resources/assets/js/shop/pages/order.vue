@@ -11,7 +11,8 @@
     </div>
 
     <div class="product-list">
-      <router-link :to="'/product/' + orderItem.product.id" class="product-item" v-for="orderItem in order.order_items" :key="orderItem.product.id">
+      <router-link :to="'/product/' + orderItem.product.id" class="product-item"
+                   v-for="orderItem in order.order_items" :key="orderItem.product.id">
         <img :src="orderItem.product.thumbnail" alt="" class="thumbnail"/>
 
         <div class="item-right">
@@ -103,19 +104,19 @@
         }
 
         this.axios.post('cart/add', postData).then((response) => {
-          this.$root.success('添加成功');
+          this.$root.success('添加成功')
         })
       },
 
       cancelOrder () {
         this.axios.post('order/cancel').then((response) => {
-          this.$root.success('取消成功');
+          this.$root.success('取消成功')
         })
       },
 
       deleteOrder () {
         this.axios.post('order/cancel').then((response) => {
-          this.$root.success('删除成功');
+          this.$root.success('删除成功')
         })
       }
     }

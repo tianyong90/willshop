@@ -124,8 +124,6 @@
         }
 
         this.axios.post('cart/add', postData).then((response) => {
-          let data = response.data
-
           this.productAmountInCart = parseInt(this.productAmountInCart) + this.amount
         })
       },

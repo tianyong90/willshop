@@ -45,7 +45,6 @@
 </template>
 
 <script>
-  import appConfig from '../config'
   import defaultAvatar from '../../../img/default-avatar.jpg'
   import { Group, Cell, Flex, FlexItem } from 'we-vue'
 
@@ -80,11 +79,11 @@
 
 <style scoped lang="scss">
   $avatar-size: 80px;
-  
+
   .main {
     margin-bottom: 70px;
   }
-  
+
   .user-profile {
     display: flex;
     flex-direction: column;

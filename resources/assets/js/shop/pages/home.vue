@@ -1,7 +1,10 @@
 <template>
   <div class="main">
     <wv-swipe :height="180" :auto="4000">
-      <wv-swipe-item class="banner-swipe-item" v-for="banner in banners" :key="banner.index">
+      <wv-swipe-item class="banner-swipe-item"
+                     v-for="banner in banners"
+                     :key="banner.index"
+      >
         <img :src="banner.img" alt="">
       </wv-swipe-item>
     </wv-swipe>
@@ -26,18 +29,20 @@
 <script>
   import { Swipe, SwipeItem } from 'we-vue'
 
-  const banners = [{
-    url: 'javascript:',
-    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg'
-  },
-  {
-    url: 'javascript:',
-    img: 'https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg'
-  },
-  {
-    url: 'javascript',
-    img: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg'
-  }]
+  const banners = [
+    {
+      url: 'javascript:',
+      img: 'https://picsum.photos/640/480/?random'
+    },
+    {
+      url: 'javascript:',
+      img: 'https://picsum.photos/640/480/?random'
+    },
+    {
+      url: 'javascript',
+      img: 'https://picsum.photos/640/480/?random'
+    }
+  ]
 
   export default {
     components: {
@@ -45,19 +50,19 @@
       [SwipeItem.name]: SwipeItem
     },
 
-    data() {
+    data () {
       return {
         products: [],
         banners
       }
     },
 
-    mounted() {
+    mounted () {
       this.getProducts()
     },
 
     methods: {
-      getProducts() {
+      getProducts () {
         this.axios.get('product').then((response) => {
           this.products = response.data.products
         })
@@ -87,7 +92,7 @@
       overflow: hidden;
       width: 100%;
     }
-    
+
     .link {
       z-index: 10;
       position: absolute;

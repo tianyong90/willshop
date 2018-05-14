@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name')->default('')->comment('用户名');
             $table->string('avatar', 200)->nullable();
-            $table->string('mobile', 12)->nullable()->default('');
+            $table->string('mobile', 14)->nullable()->default('');
             $table->string('email')->nullable()->default('');
             $table->string('password')->default('')->comment('密码');
             $table->string('openid', 50)->default('')->comment('OPENID');
@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('groupid')->default(0)->comment('粉丝组groupid');
             $table->string('tagid_list', 50)->default('')->comment('微信用户标签ID列表');
             $table->timestamp('last_online_at')->nullable()->comment('最后一次在线时间');
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -56,7 +56,7 @@
       priceFilter
     ],
 
-    data() {
+    data () {
       return {
         addressId: null,
         carts: []
@@ -89,12 +89,12 @@
       }
     },
 
-    mounted() {
+    mounted () {
       this.carts = JSON.parse(localStorage.getItem('selectedCarts'))
     },
 
     methods: {
-      checkout() {
+      checkout () {
         let cartIds = []
         for (let cart of this.carts.values()) {
           cartIds.push(cart.id)
@@ -173,7 +173,7 @@
       color: $weui-text-color-gray;
     }
   }
-  
+
   .other-info {
     margin-bottom: 70px;
   }

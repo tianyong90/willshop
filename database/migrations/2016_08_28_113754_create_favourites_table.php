@@ -17,6 +17,7 @@ class CreateFavouritesTable extends Migration
             $table->unsignedInteger('user_id')->comment('用户ID');
             $table->unsignedInteger('product_id')->comment('产品ID');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade')->onDelete('cascade');

@@ -3,12 +3,14 @@
     <wv-group title="收货地址信息">
       <wv-input label="收货人" v-model="address.name"></wv-input>
       <wv-input label="手机号码" v-model="address.mobile"></wv-input>
-      <wv-cell title="所在地区" :value="address | pcaFilter" is-link @click.native="addressPickerShow = true"></wv-cell>
+      <wv-cell title="所在地区" :value="address | pcaFilter" is-link
+               @click.native="addressPickerShow = true"></wv-cell>
       <wv-input label="详细地址" v-model="address.address"></wv-input>
       <wv-input label="邮政编码" v-model="address.postcode"></wv-input>
     </wv-group>
 
-    <wv-picker ref="addressPicker" v-model="addressPickerShow" :slots="addressSlots" @change="onAddressChange" @confirm="confirmAddress"></wv-picker>
+    <wv-picker ref="addressPicker" v-model="addressPickerShow" :slots="addressSlots" @change="onAddressChange"
+               @confirm="confirmAddress"></wv-picker>
 
     <footer>
       <wv-flex :gutter="20">
@@ -24,7 +26,6 @@
 </template>
 
 <script>
-  import WeVue from 'we-vue';
   import chinaAreaData from 'china-area-data'
   import { Group, Cell, Input, Picker, Flex, FlexItem, Button } from 'we-vue'
 
@@ -164,20 +165,20 @@
 
       // 删除
       deleteAddress () {
-        WeVue.Dialog({
-            title: '操作提示',
-            message: '确定要删除吗？',
-            skin: 'ios'
-          },
-          () => {
-            this.axios.delete(`address/${this.address.id}/delete`).then(() => {
-              this.$root.success('删除成功')
-
-              setTimeout(() => {
-                this.$router.push('/address')
-              }, 1000)
-            })
-          })
+        // Dialog({
+        //     title: '操作提示',
+        //     message: '确定要删除吗？',
+        //     skin: 'ios'
+        //   },
+        //   () => {
+        //     this.axios.delete(`address/${this.address.id}/delete`).then(() => {
+        //       this.$root.success('删除成功')
+        //
+        //       setTimeout(() => {
+        //         this.$router.push('/address')
+        //       }, 1000)
+        //     })
+        //   })
       }
     }
   }

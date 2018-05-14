@@ -19,6 +19,8 @@ class UserController extends BaseApiController
      */
     public function __construct(User $product)
     {
+        parent::__construct();
+
         $this->user = $product;
     }
 
@@ -58,8 +60,11 @@ class UserController extends BaseApiController
         // TODO
     }
 
-    public function delete($id)
+    /**
+     * @param $id
+     */
+    public function destroy($id)
     {
-
+        // TODO:
     }
 }

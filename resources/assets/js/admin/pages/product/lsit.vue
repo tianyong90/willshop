@@ -1,20 +1,32 @@
 <template>
   <div class="main-container main-with-padding">
     <div class="table-tools">
-      <el-form :inline="true" :model="searchForm" class="demo-form-inline">
+      <el-form :inline="true"
+               :model="searchForm"
+               class="demo-form-inline"
+      >
         <el-form-item>
-          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索" @keyup.enter.native="loadData"></el-input>
+          <el-input v-model="searchForm.keyword"
+                    placeholder="按昵称搜索"
+                    @keyup.enter.native="loadData"
+          />
         </el-form-item>
         <el-form-item>
-          <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
-            <el-option label="全部" value="all"></el-option>
-            <el-option label="男" value="0"></el-option>
-            <el-option label="女" value="1"></el-option>
-            <el-option label="其它" value="2"></el-option>
+          <el-select v-model="searchForm.sex"
+                     placeholder="性别筛选"
+                     @change="loadData"
+          >
+            <el-option label="全部" value="all"/>
+            <el-option label="男" value="0"/>
+            <el-option label="女" value="1"/>
+            <el-option label="其它" value="2"/>
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="search" @click="search">搜索</el-button>
+          <el-button type="primary"
+                     icon="search"
+                     @click="search"
+          >搜索</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -28,21 +40,29 @@
       <el-table-column prop="stock" label="库存"></el-table-column>
       <el-table-column prop="status" label="状态"></el-table-column>
       <el-table-column prop="updated_at" label="更新时间"></el-table-column>
-      <el-table-column label="操作" inline-template>
-        <div>
-          <router-link :to="'/product/edit/' + row.id" class="el-button el-button--primary el-button--small">编辑</router-link>
-          <el-button size="small" type="danger" @click="deleteProduct(row.id)">删除</el-button>
-        </div>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <router-link :to="'/product/edit/' + scope.row.id"
+                       class="el-button el-button--primary el-button--small"
+          >
+            <i class="el-icon-edit"/>
+          </router-link>
+          <el-button size="small"
+                     type="danger"
+                     icon="el-icon-delete"
+                     @click="deleteProduct(scope.row.id)"
+          />
+        </template>
       </el-table-column>
     </el-table>
 
     <div class="paginator">
       <el-pagination
-              @current-change="handleCurrentChange"
-              :current-page="products.current_page"
-              :page-size="products.per_page"
-              layout="total, prev, pager, next, jumper"
-              :total="products.tatal">
+          @current-change="handleCurrentChange"
+          :current-page="products.current_page"
+          :page-size="products.per_page"
+          layout="total, prev, pager, next, jumper"
+          :total="products.tatal">
       </el-pagination>
     </div>
   </div>
@@ -65,7 +85,7 @@
     },
 
     mounted () {
-      this.loadData();
+      this.loadData()
     },
 
     methods: {
@@ -77,8 +97,8 @@
             page: page
           }
         }).then((response) => {
-          this.products = response.data.products;
-        });
+          this.products = response.data.products
+        })
       },
 
       deleteProduct (id) {

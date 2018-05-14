@@ -1,11 +1,12 @@
 <template>
   <div>
     <div class="left-sidebar">
-      <div class="sidebar-item" :class="{ 'active': category.id === activeCategoryId }" v-for="category in categories" :key="category.id" @click="sidebarItemClick(category.id)">
+      <div class="sidebar-item" :class="{ 'active': category.id === activeCategoryId }"
+           v-for="category in categories" :key="category.id" @click="sidebarItemClick(category.id)">
         {{ category.name }}
       </div>
     </div>
-    
+
     <div class="right-panel">
       <img class="banner" src="http://lorempixel.com/640/150/?28423" alt=""/>
 
@@ -101,7 +102,7 @@
       padding: 1em 0;
       font-size: 13px;
       border-bottom: 1px solid #f6f6f6;
-      
+
       &.active {
         background-color: #f2f2f2;
         color: red;
@@ -120,14 +121,14 @@
     background-color: #f5f5f5;
     overflow-x: hidden;
     overflow-y: scroll;
-    
+
     .banner {
       display: block;
       width: 100%;
       background-color: #fff;
       margin-bottom: 1rem;
     }
-    
+
     .product-list {
       display: flex;
       flex-flow: row wrap;
@@ -145,7 +146,7 @@
           overflow: hidden;
           width: 100%;
         }
-        
+
         .name {
           font-size: 14px;
           color: #444;

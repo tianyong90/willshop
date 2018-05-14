@@ -12,31 +12,20 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
-    ];
-});
-
 $factory->define(App\ProductCategory::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->colorName,
         'parent_id' => 0,
         'description' => $faker->sentence,
-        'thumbnail' => $faker->imageUrl(200, 200),
+        'thumbnail' => 'https://picsum.photos/200/200/?random',
     ];
 });
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $pictures = [
-        $faker->imageUrl(640, 480),
-        $faker->imageUrl(640, 480),
-        $faker->imageUrl(640, 480),
+        'https://picsum.photos/640/480/?random',
+        'https://picsum.photos/640/480/?random',
+        'https://picsum.photos/640/480/?random',
     ];
 
     $productCateIds = array_column(\App\ProductCategory::all('id')->toArray(), 'id');
@@ -44,7 +33,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'category_id' => $productCateIds[array_rand($productCateIds)],
-        'thumbnail' => $faker->imageUrl(100, 100),
+        'thumbnail' => 'https://picsum.photos/100/100/?random',
         'pictures' => $pictures,
         'price' => $faker->randomFloat(2, 1, 250),
         'stock' => random_int(10, 1000),

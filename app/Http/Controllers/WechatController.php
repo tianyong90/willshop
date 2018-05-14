@@ -10,9 +10,6 @@ use App\User;
 
 class WechatController extends Controller
 {
-    /**
-     *
-     */
     public function serve()
     {
         $app = app('wechat.official_account');

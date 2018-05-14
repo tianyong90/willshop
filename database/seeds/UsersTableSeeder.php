@@ -11,12 +11,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::create([
+        $user = \App\User::create([
             'name' => 'admin',
-            'password' => '123456',
+            'password' => Hash::make('123456'),
             'mobile' => '13211112222',
             'email' => 'admin@qq.com',
             'avatar' => '',
         ]);
+
+        // 绑定 super-admin 角色
+        $user->assignRole('super-admin');
     }
 }

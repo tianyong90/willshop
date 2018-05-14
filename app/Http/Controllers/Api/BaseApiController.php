@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\ApiResponse;
 use Crypt;
 use App\User;
 
 class BaseApiController extends Controller
 {
+    use ApiResponse;
+
     /**
      * @var mixed
      */

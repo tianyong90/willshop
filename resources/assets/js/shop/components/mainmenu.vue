@@ -21,8 +21,14 @@
 
 <script>
   import { mapState } from 'vuex'
+  import { Tabbar, TabbarItem } from 'we-vue'
 
   export default {
+    components: {
+      [Tabbar.name]: Tabbar,
+      [TabbarItem.name]: TabbarItem
+    },
+
     computed: {
       ...mapState({
         menuVisible: state => state.isMainMenuVisible

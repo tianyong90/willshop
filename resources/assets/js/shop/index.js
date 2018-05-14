@@ -1,15 +1,12 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 import VueAxios from 'vue-axios'
-import 'we-vue/lib/style.css'
-import '../../sass/shop.scss'
 import axios from 'axios'
 import store from './store/index'
 import appConfig from './config' // 配置
 import { mapState } from 'vuex'
-import '../../iconfont/iconfont.css'
 import router from './router'
-import { Dialog, Indicator, Toast } from 'we-vue'
+import { Dialog, Toast } from 'we-vue'
 
 Vue.config.productionTip = false
 
@@ -69,7 +66,7 @@ const app = new Vue({
   store,
 
   components: {
-    'mainmenu': () => import('./pages/mainmenu.vue')
+    'mainmenu': () => import(/* webpackChunkName: 'js/shop-mainmenu' */ './components/mainmenu.vue')
   },
 
   computed: {
@@ -137,14 +134,14 @@ const app = new Vue({
      * @param msg
      */
     showLoading (msg = 'Loading') {
-      Indicator.open(msg)
+      // Indicator.open(msg)
     },
 
     /**
      * 隐藏 loading 提示
      */
     hideLoading () {
-      Indicator.close()
+      // Indicator.close()
     }
   }
 })

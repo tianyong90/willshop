@@ -14,8 +14,11 @@
   <!-- No Baidu Siteapp-->
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-  {{--<script src="//willshop.app:6001/socket.io/socket.io.js"></script>--}}
-  <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+  <link rel="stylesheet" href="{{ mix('css/admin.css') }}"/>
+
+  {{--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>--}}
+  {{--<script src="http://willshop.test:6001/socket.io/socket.io.js"></script>--}}
+  {{--<script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>--}}
   <script>
     window.Laravel = {
       csrfToken: '{!! csrf_token() !!}'
@@ -24,15 +27,24 @@
 </head>
 <body>
 <div id="app">
-  <topmenu v-if="topmenuVisible"></topmenu>
-  <sidebar v-if="sidebarVisible"></sidebar>
-  <transition name="slide-fade" mode="out-in">
-    <router-view></router-view>
-  </transition>
+  <el-container>
+    <el-header>
+      <router-view name="topmenu"></router-view>
+    </el-header>
+
+    <el-container>
+      <el-aside width="200px">
+        <router-view name="sidebar"></router-view>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+  </el-container>
 </div>
 
-<script src="{{ asset('build/vendor.js') }}"></script>
-<script src="{{ asset('build/mix.js') }}"></script>
-<script src="{{ asset('build/admin.js') }}"></script>
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
+<script src="{{ mix('js/admin.js') }}"></script>
 </body>
 </html>

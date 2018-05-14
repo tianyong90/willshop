@@ -1,71 +1,86 @@
+const Topmenu = () => import(/* webpackChunkName: 'js/admin-topmenu' */ '../components/topmenu.vue')
+const Sidebar = () => import(/* webpackChunkName: 'js/admin-sidebar' */ '../components/sidebar.vue')
+
 const routes = [
   {
     path: '/',
-    component: () => import('../pages/dashboard.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-dashboard' */ '../pages/dashboard.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
       requiresAuth: false,
-      title: '首页',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: '首页'
     }
   },
   {
     path: '/order/list',
-    component: () => import('../pages/order/lsit.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-order-list' */ '../pages/order/lsit.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
       requiresAuth: true,
-      title: '',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: ''
     }
   },
   {
     path: '/product/list',
-    component: () => import('../pages/product/lsit.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-product-list' */ '../pages/product/lsit.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
       requiresAuth: true,
-      title: '',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: ''
     }
   },
   {
     path: '/product/edit/:id',
-    component: () => import('../pages/product/product_form.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-product-form' */ '../pages/product/product_form.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
       requiresAuth: true,
-      title: '',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: ''
     }
   },
   {
     path: '/user/list',
-    component: () => import('../pages/user/lsit.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-user-list' */ '../pages/user/lsit.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
       requiresAuth: true,
-      title: '',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: ''
     }
   },
   {
     path: '/login',
-    component: () => import('../pages/auth/login.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-auth-login' */ '../pages/auth/login.vue')
+    },
     meta: {
       requiresAuth: false,
-      title: '',
-      topmenuVisible: false,
-      sidebarVidible: false
+      title: ''
     }
   },
   {
     path: '*',
-    component: () => import('../pages/404.vue'),
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-error404' */ '../pages/404.vue'),
+      topmenu: Topmenu,
+      sidebar: Sidebar
+    },
     meta: {
-      title: '404',
-      topmenuVisible: true,
-      sidebarVidible: true
+      title: '404'
     }
   }
 ]

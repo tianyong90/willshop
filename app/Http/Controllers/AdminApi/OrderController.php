@@ -42,6 +42,8 @@ class OrderController extends BaseApiController
      */
     public function __construct(Order $order, OrderItem $orderItem, Product $product, Cart $cart)
     {
+        parent::__construct();
+
         $this->order = $order;
         $this->orderItem = $orderItem;
         $this->product = $product;

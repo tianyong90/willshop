@@ -4,6 +4,7 @@
 /storage/*.key
 /vendor
 /.idea
+/.vscode
 /.vagrant
 Homestead.json
 Homestead.yaml
@@ -13,8 +14,8 @@ yarn-error.log
 
 *.sublime-workspace
 *.sublime-project
+
+# ide-helper files
 /_ide_helper.php
-/.vscode
-/yarn.lock
-/composer.lock
-/worker.log
+/_ide_helper_models.php
+/.phpstorm.meta.php

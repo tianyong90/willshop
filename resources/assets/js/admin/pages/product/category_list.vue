@@ -3,7 +3,8 @@
     <div class="table-tools">
       <el-form :inline="true" :model="searchForm" class="demo-form-inline">
         <el-form-item>
-          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索" @keyup.enter.native="loadData"></el-input>
+          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索"
+                    @keyup.enter.native="loadData"></el-input>
         </el-form-item>
         <el-form-item>
           <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
@@ -38,11 +39,11 @@
 
     <div class="paginator">
       <el-pagination
-              @current-change="handleCurrentChange"
-              :current-page="products.current_page"
-              :page-size="products.per_page"
-              layout="total, prev, pager, next, jumper"
-              :total="products.tatal">
+          @current-change="handleCurrentChange"
+          :current-page="products.current_page"
+          :page-size="products.per_page"
+          layout="total, prev, pager, next, jumper"
+          :total="products.tatal">
       </el-pagination>
     </div>
   </div>
@@ -65,7 +66,7 @@
     },
 
     mounted () {
-      this.loadData();
+      this.loadData()
     },
 
     methods: {
@@ -77,8 +78,8 @@
             page: page
           }
         }).then((response) => {
-          this.products = response.data.products;
-        });
+          this.products = response.data.products
+        })
       }
     }
   }

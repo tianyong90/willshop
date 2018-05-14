@@ -47,18 +47,18 @@
           merchant_key: '',
           cert_path: '',
           key_path: '',
-          remark: '',
+          remark: ''
         }
       }
     },
 
     mounted () {
-      const productId = this.$route.params.id;
+      const productId = this.$route.params.id
 
       if (productId) {
         this.axios.get(`product/show/${productId}`).then((response) => {
-          this.product = response.data.product;
-        });
+          this.product = response.data.product
+        })
       }
     },
 
@@ -70,17 +70,16 @@
           this.$message({
             message: '添加成功',
             type: 'success'
-          });
+          })
 
           setTimeout(() => {
-            this.$router.push('/');
-          }, 1000);
-        });
+            this.$router.push('/')
+          }, 1000)
+        })
       }
     },
 
-    watch: {
-    }
+    watch: {}
   }
 </script>
 

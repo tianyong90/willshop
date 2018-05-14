@@ -16,10 +16,6 @@ class UserObserver
      */
     public function creating(User $user)
     {
-        if ($user->password) {
-            $user->password = bcrypt($user->password);
-        }
-
         // 设置头像
         $user->avatar = $user->headimgurl;
     }

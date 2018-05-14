@@ -1,32 +1,16 @@
 module.exports = {
+  'root': true,
+  'extends': 'standard',
   'env': {
     'browser': true,
+    'es6': true,
     'node': true
   },
   'parser': 'babel-eslint',
-  'extends': 'standard',
+  'plugins': [
+    'html'
+  ],
   'rules': {
-    'indent': [
-      'error',
-      2
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'never'
-    ],
-    'no-unused-vars': [
-      'warn'
-    ],
-    'no-undef': [
-      'warn'
-    ],
-    'no-redeclare': [
-      'warn'
-    ]
+    'no-useless-escape': 0
   }
-};
-
+}

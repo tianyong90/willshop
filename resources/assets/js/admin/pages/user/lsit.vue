@@ -3,7 +3,8 @@
     <div class="table-tools">
       <el-form :inline="true" :model="searchForm" class="demo-form-inline">
         <el-form-item>
-          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索" @keyup.enter.native="loadData"></el-input>
+          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索"
+                    @keyup.enter.native="loadData"></el-input>
         </el-form-item>
         <el-form-item>
           <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
@@ -39,11 +40,11 @@
 
     <div class="paginator">
       <el-pagination
-              @current-change="handleCurrentChange"
-              :current-page="users.current_page"
-              :page-size="users.per_page"
-              layout="total, prev, pager, next, jumper"
-              :total="users.tatal">
+          @current-change="handleCurrentChange"
+          :current-page="users.current_page"
+          :page-size="users.per_page"
+          layout="total, prev, pager, next, jumper"
+          :total="users.tatal">
       </el-pagination>
     </div>
   </div>
@@ -66,7 +67,7 @@
     },
 
     mounted () {
-      this.loadData();
+      this.loadData()
     },
 
     methods: {
@@ -78,14 +79,14 @@
             page: page
           }
         }).then((response) => {
-          this.users = response.data.users;
-        });
+          this.users = response.data.users
+        })
       },
 
       syncWechatFans () {
         // 同步粉丝数据
         this.axios.post('user/lsit').then((response) => {
-          this.loadData(1);
+          this.loadData(1)
         }).catch((error) => {
           console.log(error)
         })

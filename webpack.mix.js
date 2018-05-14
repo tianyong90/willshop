@@ -13,66 +13,62 @@ const path = require('path');
  |
  */
 
-const webpack = require('webpack');
-
-// 此项保证 webpack 能正常加载静态图片等资源
-mix.setResourceRoot('/build/');
 mix.sourceMaps();
-mix.disableNotifications();
 
-let plugins = [
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-    filename: 'vendor.js'
-  })
-];
+mix.webpackConfig(webpack => {
+  let plugins = [];
 
-if (process.env.NODE_ENV === 'production') {
-  // 生产环境中打包时先清理旧的打包文件
-  const CleanWebpackPlugin = require('clean-webpack-plugin');
-  plugins.push(new CleanWebpackPlugin('build', {
-    root: path.join(__dirname, 'public'),
-    // exclude:  ['shared.js'],
-    verbose: true,
-    dry: false
-  }));
+  if (mix.inProduction()) {
+    // 生产环境中打包时先清理旧的打包文件
+    const CleanWebpackPlugin = require('clean-webpack-plugin');
+    plugins.push(new CleanWebpackPlugin('js', {
+      root: path.join(__dirname, 'public'),
+      // exclude:  ['shared.js'],
+      verbose: true,
+      dry: false
+    }));
 
-  const BundleAnalyzerPlugin = retuire('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  plugins.push(new BundleAnalyzerPlugin())
-}
+    // 包体分析
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+    plugins.push(new BundleAnalyzerPlugin())
+  }
 
-mix.webpackConfig({
-  module: {
-    rules: [
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'eslint-loader'
-      }
-    ]
-  },
-  entry: {
-    admin: './resources/assets/js/admin/index.js',
-    shop: './resources/assets/js/shop/index.js',
-    vendor: ['vue', 'vuex', 'vue-router', 'axios', 'vue-axios', 'we-vue']
-  },
-  output: {
-    path: path.resolve(__dirname, 'public/build'),
-    publicPath: '/build/',
-    filename: '[name].js',
-    chunkFilename: '[name].js'
-  },
-  plugins: plugins
-});
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          enforce: 'pre',
+          include: path.resolve(__dirname, 'resources/assets/js'),
+          exclude: /(node_modules)/,
+          options: {
+            formatter: require('eslint-friendly-formatter'),
+            emitWarning: false
+          }
+        }
+      ]
+    },
+    plugins: plugins
+  }
+})
+
+mix.js('resources/assets/js/shop/index.js', 'js/shop.js')
+  .js('resources/assets/js/admin/index.js', 'js/admin.js')
+  .extract(['vue', 'vuex', 'vue-router', 'axios', 'vue-axios'], 'js/vendor.js')
+  // scss
+  .sass('resources/assets/sass/shop.scss', 'css/shop.css')
+  .sass('resources/assets/sass/admin.scss', 'css/admin.css');
 
 mix.browserSync({
-  proxy: 'willshop.app/shop',
+  proxy: 'willshop.test',
+  startPath: '/admin',
+  open: false,
+  reloadOnStart: true,
   files: [
     'app/**/*.php',
     'resources/views/**/*.php',
     'public/js/**/*.js',
-    'public/css/**/*.css',
-    'public/build/**/*.js',
+    'public/css/**/*.css'
   ]
 });
