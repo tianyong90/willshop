@@ -5,6 +5,10 @@ import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
 import sidebar from './modules/sidebar'
+import product from './modules/product'
+import category from './modules/category'
+import order from './modules/order'
+import role from './modules/role'
 
 Vue.use(Vuex)
 
@@ -16,7 +20,11 @@ export default new Vuex.Store({
   actions,
   getters,
   modules: {
-    sidebar
+    sidebar,
+    product,
+    category,
+    order,
+    role
   },
   strict: debug
 })

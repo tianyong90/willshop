@@ -1,9 +1,6 @@
 const state = {
   user: {},
-  accounts: [],
-  isLoading: false,
-  topmenuVisible: false,
-  sidebarVisible: false
+  isLoading: false
 }
 
 export default state

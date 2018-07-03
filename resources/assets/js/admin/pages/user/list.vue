@@ -21,8 +21,10 @@
     </div>
 
     <el-table :data="users.data" border>
-      <el-table-column label="头像" inline-template>
-        <img :src="row.avatar" class="avatar"/>
+      <el-table-column label="头像">
+        <template slot-scope="scope">
+          <img :src="scope.row.avatar" class="avatar"/>
+        </template>
       </el-table-column>
       <el-table-column prop="nickname" label="昵称"></el-table-column>
       <el-table-column prop="name" label="用户名"></el-table-column>
@@ -30,11 +32,11 @@
       <el-table-column prop="location" label="地区"></el-table-column>
       <el-table-column prop="subscribe_time" label="关注时间"></el-table-column>
       <el-table-column prop="remark" label="备注"></el-table-column>
-      <el-table-column label="操作" inline-template>
-        <div>
-          <el-button size="small" type="primary" @click.native="charge(row.id)">test</el-button>
-          <el-button size="small" type="primary" @click.native="charge(row.id)">test</el-button>
-        </div>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button size="small" type="primary" @click.native="$router.push('/user/' + scope.row.id)">详情</el-button>
+          <el-button size="small" type="primary" @click.native="charge(scope.row.id)">角色及权限</el-button>
+        </template>
       </el-table-column>
     </el-table>
 
@@ -96,11 +98,13 @@
 </script>
 
 <style scoped lang="scss">
+  $avatar-size: 50px;
+
   .avatar {
     display: block;
     overflow: hidden;
     margin: 10px 0;
-    width: 80px;
-    height: 80px;
+    width: $avatar-size;
+    height: $avatar-size;
   }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="main-container main-with-padding">
     <el-form ref="form" :model="product" label-width="150px">
-      <el-form-item label="公众号名称">
+      <el-form-item label="产品名称">
         <el-input v-model="product.name"></el-input>
       </el-form-item>
-      <el-form-item label="类型">
-        <el-select v-model="product.type" placeholder="">
+      <el-form-item label="产品分类">
+        <el-select v-model="product.type">
           <el-option label="订阅号" value="1"></el-option>
           <el-option label="认证订阅号" value="2"></el-option>
           <el-option label="服务号" value="3"></el-option>
@@ -33,13 +33,15 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     data () {
       return {
         product: {
           id: '',
           name: '',
-          type: '订阅号',
+          catetory_id: '订阅号',
           app_id: '',
           app_secret: '',
           aes_key: '',
@@ -55,27 +57,29 @@
     mounted () {
       const productId = this.$route.params.id
 
-      if (productId) {
-        this.axios.get(`product/show/${productId}`).then((response) => {
+      this.axios.get(`product/${productId}`)
+        .then((response) => {
           this.product = response.data.product
         })
-      }
     },
 
-    computed: {},
+    computed: {
+
+    },
 
     methods: {
       store () {
-        this.axios.post('product/store', this.product).then((response) => {
-          this.$message({
-            message: '添加成功',
-            type: 'success'
-          })
+        this.axios.post(`product/${this.product.id}`, this.product)
+          .then((response) => {
+            this.$message({
+              message: '添加成功',
+              type: 'success'
+            })
 
-          setTimeout(() => {
-            this.$router.push('/')
-          }, 1000)
-        })
+            // setTimeout(() => {
+            //   this.$router.push('/')
+            // }, 1000)
+          })
       }
     },
 
@@ -84,4 +88,5 @@
 </script>
 
 <style scoped lang="scss">
+
 </style>

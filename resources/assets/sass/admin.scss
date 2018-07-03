@@ -1,4 +1,4 @@
-@import "!~normalize.css/normalize.css";
+//@import "~normalize.css/normalize.css";
 @import "admin_variables";
 @import "~element-ui/lib/theme-chalk/index.css";
 @import "../../assets/iconfont/iconfont.css";
@@ -12,6 +12,10 @@ body {
 
 html {
   box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
 }
 
 //vue router transition css
@@ -47,5 +51,11 @@ html {
 }
 
 .my-loading-mask {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.admin-sidebar {
+    position: fixed;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
 }

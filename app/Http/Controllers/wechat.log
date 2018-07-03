@@ -1,0 +1,85 @@
+[2018-06-08 15:04:19] NULL.INFO: >>>>>>>>
+POST /wxa/msg_sec_check?access_token=10_-DfANeSd7aZERZ2kUHXavg9HEBxyLpeB9p57Fljqmht1pdsd9YCbCf8wBAcQ_cIyedWFM-g1Wx11GrXM6UVdG5pYoe9yyZUfXIupOE84rSQxUv6ETgKEpCaqTGRCRD87EDzJ3dH4dxbIs2ntIDPeAIAQLX HTTP/1.1
+Host: api.weixin.qq.com
+Content-Length: 23
+User-Agent: GuzzleHttp/6.3.3 curl/7.47.0 PHP/7.2.4-1+ubuntu16.04.1+deb.sury.org+1
+Content-Type: application/json
+
+{"content":"江泽民"}
+<<<<<<<<
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+Content-Length: 65
+
+{"errcode":87014,"errmsg":"risky content hint: [qaK65a04590720]"}
+--------
+NULL  
+[2018-06-08 15:06:05] NULL.INFO: >>>>>>>>
+POST /wxa/msg_sec_check?access_token=10_-DfANeSd7aZERZ2kUHXavg9HEBxyLpeB9p57Fljqmht1pdsd9YCbCf8wBAcQ_cIyedWFM-g1Wx11GrXM6UVdG5pYoe9yyZUfXIupOE84rSQxUv6ETgKEpCaqTGRCRD87EDzJ3dH4dxbIs2ntIDPeAIAQLX HTTP/1.1
+Host: api.weixin.qq.com
+Content-Length: 23
+User-Agent: GuzzleHttp/6.3.3 curl/7.47.0 PHP/7.2.4-1+ubuntu16.04.1+deb.sury.org+1
+Content-Type: application/json
+
+{"content":"江泽民"}
+<<<<<<<<
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+Content-Length: 65
+
+{"errcode":87014,"errmsg":"risky content hint: [aq3BMA05659011]"}
+--------
+NULL  
+[2018-06-08 15:06:07] NULL.INFO: >>>>>>>>
+POST /wxa/msg_sec_check?access_token=10_-DfANeSd7aZERZ2kUHXavg9HEBxyLpeB9p57Fljqmht1pdsd9YCbCf8wBAcQ_cIyedWFM-g1Wx11GrXM6UVdG5pYoe9yyZUfXIupOE84rSQxUv6ETgKEpCaqTGRCRD87EDzJ3dH4dxbIs2ntIDPeAIAQLX HTTP/1.1
+Host: api.weixin.qq.com
+Content-Length: 23
+User-Agent: GuzzleHttp/6.3.3 curl/7.47.0 PHP/7.2.4-1+ubuntu16.04.1+deb.sury.org+1
+Content-Type: application/json
+
+{"content":"江泽民"}
+<<<<<<<<
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+Content-Length: 63
+
+{"errcode":87014,"errmsg":"risky content hint: [U7Wi05678931]"}
+--------
+NULL  
+[2018-06-08 15:06:09] NULL.INFO: >>>>>>>>
+POST /wxa/msg_sec_check?access_token=10_-DfANeSd7aZERZ2kUHXavg9HEBxyLpeB9p57Fljqmht1pdsd9YCbCf8wBAcQ_cIyedWFM-g1Wx11GrXM6UVdG5pYoe9yyZUfXIupOE84rSQxUv6ETgKEpCaqTGRCRD87EDzJ3dH4dxbIs2ntIDPeAIAQLX HTTP/1.1
+Host: api.weixin.qq.com
+Content-Length: 23
+User-Agent: GuzzleHttp/6.3.3 curl/7.47.0 PHP/7.2.4-1+ubuntu16.04.1+deb.sury.org+1
+Content-Type: application/json
+
+{"content":"江泽民"}
+<<<<<<<<
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+Content-Length: 65
+
+{"errcode":87014,"errmsg":"risky content hint: [Te35la05699011]"}
+--------
+NULL  
+[2018-06-08 15:06:10] NULL.INFO: >>>>>>>>
+POST /wxa/msg_sec_check?access_token=10_-DfANeSd7aZERZ2kUHXavg9HEBxyLpeB9p57Fljqmht1pdsd9YCbCf8wBAcQ_cIyedWFM-g1Wx11GrXM6UVdG5pYoe9yyZUfXIupOE84rSQxUv6ETgKEpCaqTGRCRD87EDzJ3dH4dxbIs2ntIDPeAIAQLX HTTP/1.1
+Host: api.weixin.qq.com
+Content-Length: 23
+User-Agent: GuzzleHttp/6.3.3 curl/7.47.0 PHP/7.2.4-1+ubuntu16.04.1+deb.sury.org+1
+Content-Type: application/json
+
+{"content":"江泽民"}
+<<<<<<<<
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+Content-Length: 65
+
+{"errcode":87014,"errmsg":"risky content hint: [KvKNEa05704528]"}
+--------
+NULL  

@@ -1,12 +1,12 @@
 <template>
-  <el-menu class="topmenu"
+  <el-menu class="header"
            default-active="/"
            mode="horizontal"
            :router="true"
-           background-color="#f8f8f8"
+           background-color="#f2f2f2"
            text-color="#000"
   >
-    <span class="logo">WILLSHOP</span>
+    <router-link class="logo" to="/">WILLSHOP</router-link>
 
     <div class="right-part">
       <router-link to="/profile">
@@ -47,13 +47,13 @@
 <style scoped lang="scss">
   @import "../../../sass/admin_variables";
 
-  .topmenu {
+  .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: $zindex-topmenu;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px rgba(100, 100, 100, 0.3);
   }
 
   .logo {

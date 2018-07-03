@@ -29,11 +29,11 @@
 <div id="app">
   <el-container>
     <el-header>
-      <router-view name="topmenu"></router-view>
+      <router-view name="header"></router-view>
     </el-header>
 
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="200px" class="admin-sidebar">
         <router-view name="sidebar"></router-view>
       </el-aside>
       <el-main>

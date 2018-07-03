@@ -24,21 +24,33 @@ Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
 
     Route::group(['middleware' => ['auth:api']], function () {
         Route::get('/user', 'AuthenticateController@getAuthenticatedUser');
+        Route::get('/user/list', 'UserController@list');
 
+        // roles
+        Route::get('/role', 'RoleController@list');
+        Route::get('/role/{id}', 'RoleController@show');
+        Route::post('/role/{id}', 'RoleController@store');
+        Route::delete('/role/{id}', 'RoleController@destroy');
+
+        // permissions
+        Route::get('/permission', 'PermissionController@list');
+        Route::get('/permission/{id}', 'PermissionController@show');
+        Route::post('/permission/{id}', 'PermissionController@store');
+        Route::delete('/permission/{id}', 'PermissionController@destroy');
+
+        // orders
         Route::get('/order/list', 'OrderController@list');
 
         // product
-        Route::get('/product/list', 'ProductController@list');
-        Route::get('/product/{id}/show', 'ProductController@show');
-        Route::get('/product/{id}/store', 'ProductController@store');
+        Route::get('/product', 'ProductController@list');
+        Route::get('/product/{id}', 'ProductController@show');
+        Route::post('/product/{id}', 'ProductController@store');
 
         // product-category
         Route::get('/product-category/list', 'ProductCategoryController@list');
         Route::get('/product-category/{id}/show', 'ProductCategoryController@show');
         Route::post('/product-category/{id}/destroy', 'ProductCategoryController@destroy');
         Route::post('/product-category/store', 'ProductCategoryController@store');
-
-        Route::get('/user/list', 'UserController@list');
 
     });
 });

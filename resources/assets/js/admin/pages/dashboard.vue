@@ -2,7 +2,24 @@
   <div class="main-container main-with-padding">
     <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="6">
-        <h1>dashboard</h1>
+        <el-card shadow="hover" class="card">
+          <div class="card-title">会员数</div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover" class="card">
+          <div class="card-title">商品数</div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover" class="card">
+          <div class="card-title">订单数</div>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover" class="card">
+          <div class="card-title">订单数</div>
+        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -30,45 +47,18 @@
 </script>
 
 <style scoped lang="scss">
-  .setting-icon {
-    color: #777;
-    cursor: pointer;
-  }
+  .card {
+    display: flex;
+    background-color: #909090;
+    height: 120px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 
-  .account-info {
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin: .5em 0;
-      color: #444;
-    }
-
-    .label {
-      color: #000;
-      display: block;
-      float: left;
-      width: 4em;
-      text-align-last: justify;
-      margin-right: 1em;
-    }
-  }
-
-  .plus-card {
-    display: block;
-    overflow: hidden;
-    background-color: #fff;
-    height: 100%;
-    position: relative;
-
-    i {
-      position: absolute;
-      font-size: 3rem;
-      color: lightgray;
-      top: 50%;
-      left: 50%;
-      margin-top: -1.5rem;
-      margin-left: -1.5rem;
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #fff;
     }
   }
 </style>

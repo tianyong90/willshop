@@ -64,11 +64,5 @@ mix.browserSync({
   proxy: 'willshop.test',
   startPath: '/admin',
   open: false,
-  reloadOnStart: true,
-  files: [
-    'app/**/*.php',
-    'resources/views/**/*.php',
-    'public/js/**/*.js',
-    'public/css/**/*.css'
-  ]
+  reloadOnStart: true
 });

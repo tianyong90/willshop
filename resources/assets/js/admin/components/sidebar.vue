@@ -3,7 +3,7 @@
            :router="true"
            :unique-opened="true"
            class="sidebar"
-           background-color="#f8f8f8"
+           background-color="#f2f2f2"
   >
     <template v-for="(item, index) in MenuConfig">
       <el-menu-item :index="item.route" v-if="!item.subItems">
@@ -55,7 +55,8 @@
     height: 100%;
 
     .iconfont {
-      font-size: 1.3em;
+      font-size: 1.4em;
+      font-weight: bold;
       margin-right: .5em;
     }
   }

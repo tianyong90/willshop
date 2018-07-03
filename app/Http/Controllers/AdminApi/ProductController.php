@@ -39,8 +39,6 @@ class ProductController extends BaseApiController
      */
     public function list()
     {
-        \Log::info($this->currentUser);
-
         $products = $this->product->paginate();
 
         return response()->json(compact('products'));

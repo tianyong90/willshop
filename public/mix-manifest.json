@@ -11,13 +11,14 @@
     "/js/shop-home.js": "/js/shop-home.js",
     "/js/shop-mainmenu.js": "/js/shop-mainmenu.js",
     "/js/admin-user-list.js": "/js/admin-user-list.js",
+    "/js/admin-user-detail.js": "/js/admin-user-detail.js",
     "/js/admin-product-list.js": "/js/admin-product-list.js",
     "/js/admin-order-list.js": "/js/admin-order-list.js",
     "/js/admin-product-form.js": "/js/admin-product-form.js",
     "/js/admin-dashboard.js": "/js/admin-dashboard.js",
     "/js/admin-auth-login.js": "/js/admin-auth-login.js",
-    "/js/admin-topmenu.js": "/js/admin-topmenu.js",
     "/js/admin-sidebar.js": "/js/admin-sidebar.js",
+    "/js/admin-header.js": "/js/admin-header.js",
     "/js/admin-error404.js": "/js/admin-error404.js",
     "/js/shop-favourite.js": "/js/shop-favourite.js",
     "/js/shop-about.js": "/js/shop-about.js",
@@ -26,5 +27,7 @@
     "/css/admin.css": "/css/admin.css",
     "/js/admin.js": "/js/admin.js",
     "/js/vendor.js": "/js/vendor.js",
-    "/js/manifest.js": "/js/manifest.js"
+    "/js/manifest.js": "/js/manifest.js",
+    "/js/admin-role-list.js": "/js/admin-role-list.js",
+    "/js/admin-permission-list.js": "/js/admin-permission-list.js"
 }

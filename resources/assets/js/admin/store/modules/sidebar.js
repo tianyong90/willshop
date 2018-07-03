@@ -14,7 +14,7 @@ const MenuConfig = [
       },
       {
         title: '商品分类',
-        route: '/product/list'
+        route: '/category/list'
       }
     ]
   },
@@ -34,7 +34,25 @@ const MenuConfig = [
     subItems: [
       {
         title: '用户列表',
-        route: '/user/list'
+        route: '/user'
+      },
+      {
+        title: '统计数据',
+        route: '/user/stat'
+      }
+    ]
+  },
+  {
+    title: '角色及权限',
+    icon: 'iconfont icon-people',
+    subItems: [
+      {
+        title: '角色列表',
+        route: '/role'
+      },
+      {
+        title: '权限列表',
+        route: '/permission'
       }
     ]
   }
