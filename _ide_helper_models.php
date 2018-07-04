@@ -89,6 +89,14 @@ namespace App{
 
 namespace App{
 /**
+ * App\Coupon
+ *
+ */
+	class Coupon extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\Favourite
  *
  * @property int $user_id 用户ID
