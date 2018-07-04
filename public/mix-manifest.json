@@ -30,5 +30,6 @@
     "/js/admin.js": "/js/admin.js",
     "/js/vendor.js": "/js/vendor.js",
     "/js/manifest.js": "/js/manifest.js",
-    "/js/admin-category-list.js": "/js/admin-category-list.js"
+    "/js/admin-category-list.js": "/js/admin-category-list.js",
+    "/js/admin-brand-list.js": "/js/admin-brand-list.js"
 }

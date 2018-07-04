@@ -5,6 +5,20 @@ const MenuConfig = [
     route: '/'
   },
   {
+    title: '用户管理',
+    icon: 'iconfont icon-people',
+    subItems: [
+      {
+        title: '用户列表',
+        route: '/user'
+      },
+      {
+        title: '统计数据',
+        route: '/user/stat'
+      }
+    ]
+  },
+  {
     title: '商品管理',
     icon: 'iconfont icon-goods',
     subItems: [
@@ -15,6 +29,10 @@ const MenuConfig = [
       {
         title: '商品分类',
         route: '/category'
+      },
+      {
+        title: '品牌列表',
+        route: '/brand'
       }
     ]
   },
@@ -29,16 +47,26 @@ const MenuConfig = [
     ]
   },
   {
-    title: '用户管理',
-    icon: 'iconfont icon-people',
+    title: '活动与优惠',
+    icon: 'iconfont icon-goods',
     subItems: [
       {
-        title: '用户列表',
-        route: '/user'
+        title: '债券管理',
+        route: '/coupon'
+      }
+    ]
+  },
+  {
+    title: '广告管理',
+    icon: 'iconfont icon-goods',
+    subItems: [
+      {
+        title: '广告位列表',
+        route: '/coupon'
       },
       {
-        title: '统计数据',
-        route: '/user/stat'
+        title: '广告列表',
+        route: '/coupon'
       }
     ]
   },

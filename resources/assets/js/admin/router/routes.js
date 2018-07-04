@@ -121,6 +121,30 @@ const routes = [
     }
   },
   {
+    path: '/brand',
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-brand-list' */ '../pages/brand/list.vue'),
+      header: Header,
+      sidebar: Sidebar
+    },
+    meta: {
+      requiresAuth: true,
+      title: ''
+    }
+  },
+  {
+    path: '/coupon',
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-coupon-list' */ '../pages/coupon/list.vue'),
+      header: Header,
+      sidebar: Sidebar
+    },
+    meta: {
+      requiresAuth: true,
+      title: ''
+    }
+  },
+  {
     path: '*',
     components: {
       default: () => import(/* webpackChunkName: 'js/admin-error404' */ '../pages/404.vue'),
