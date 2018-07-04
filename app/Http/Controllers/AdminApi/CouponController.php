@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\AdminApi;
 
-use Spatie\Permission\Models\Permission;
+use App\Coupon;
 use Illuminate\Http\Request;
 
 class CouponController extends BaseApiController
 {
     /**
-     * @var Permission
+     * @var Coupon
      */
-    private $permission;
+    private $coupon;
 
     /**
-     * PermissionController constructor.
+     * CouponController constructor.
      *
-     * @param Permission $role
+     * @param Coupon $coupon
      */
-    public function __construct(Permission $role)
+    public function __construct(Coupon $coupon)
     {
         parent::__construct();
 
-        $this->permission = $role;
+        $this->coupon = $coupon;
     }
 
     /**
@@ -29,9 +29,9 @@ class CouponController extends BaseApiController
      */
     public function list()
     {
-        $permissions = $this->permission->paginate();
+        $coupons = $this->coupon->paginate();
 
-        return response()->json(compact('permissions'));
+        return response()->json(compact('coupons'));
     }
 
     /**
@@ -41,9 +41,9 @@ class CouponController extends BaseApiController
      */
     public function show($id)
     {
-        $permission = $this->permission->findOrFail($id);
+        $coupon = $this->coupon->findOrFail($id);
 
-        return response()->json(compact('permission'));
+        return response()->json(compact('coupon'));
     }
 
     /**
@@ -62,7 +62,7 @@ class CouponController extends BaseApiController
      */
     public function delete($id)
     {
-        $this->permission->where('id', $id)->delete();
+        $this->coupon->where('id', $id)->delete();
 
         return response()->json(['info' => '删除成功']);
     }
