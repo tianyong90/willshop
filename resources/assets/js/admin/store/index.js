@@ -10,6 +10,8 @@ import category from './modules/category'
 import order from './modules/order'
 import role from './modules/role'
 import permission from './modules/permission'
+import brand from './modules/brand'
+import coupon from './modules/coupon'
 
 Vue.use(Vuex)
 
@@ -26,7 +28,9 @@ export default new Vuex.Store({
     category,
     order,
     role,
-    permission
+    permission,
+    brand,
+    coupon
   },
   strict: debug
 })
