@@ -46,11 +46,23 @@ Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
         Route::get('/product/{id}', 'ProductController@show');
         Route::post('/product/{id}', 'ProductController@store');
 
+        // coupon
+        Route::get('/coupon', 'CouponController@list');
+        Route::get('/coupon/{id}', 'CouponController@show');
+        Route::post('/coupon/{id}', 'CouponController@store');
+        Route::delete('/coupon/{id}', 'CouponController@delete');
+
+        // brand
+        Route::get('/brand', 'BrandController@list');
+        Route::get('/brand/{id}', 'BrandController@show');
+        Route::post('/brand/{id}', 'BrandController@store');
+        Route::delete('/brand/{id}', 'BrandController@delete');
+
         // product-category
-        Route::get('/product-category/list', 'ProductCategoryController@list');
-        Route::get('/product-category/{id}/show', 'ProductCategoryController@show');
-        Route::post('/product-category/{id}/destroy', 'ProductCategoryController@destroy');
-        Route::post('/product-category/store', 'ProductCategoryController@store');
+        Route::get('/category', 'ProductCategoryController@list');
+        Route::get('/category/{id}', 'ProductCategoryController@show');
+        Route::post('/category/store', 'ProductCategoryController@store');
+        Route::delete('/category/{id}', 'ProductCategoryController@delete');
 
     });
 });

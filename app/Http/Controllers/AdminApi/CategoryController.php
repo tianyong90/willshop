@@ -3,25 +3,26 @@
 namespace App\Http\Controllers\AdminApi;
 
 use Spatie\Permission\Models\Permission;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends BaseApiController
 {
     /**
-     * @var Permission
+     * @var ProductCategory
      */
-    private $permission;
+    private $productCategory;
 
     /**
-     * PermissionController constructor.
+     * ProductCategoryController constructor.
      *
-     * @param Permission $role
+     * @param ProductCategory $productCategory
      */
-    public function __construct(Permission $role)
+    public function __construct(ProductCategory $productCategory)
     {
         parent::__construct();
 
-        $this->permission = $role;
+        $this->productCategory = $productCategory;
     }
 
     /**
@@ -29,9 +30,9 @@ class CategoryController extends BaseApiController
      */
     public function list()
     {
-        $permissions = $this->permission->paginate();
+        $categories = $this->productCategory->paginate();
 
-        return response()->json(compact('permissions'));
+        return response()->json(compact('categories'));
     }
 
     /**
@@ -41,9 +42,9 @@ class CategoryController extends BaseApiController
      */
     public function show($id)
     {
-        $permission = $this->permission->findOrFail($id);
+        $category = $this->productCategory->findOrFail($id);
 
-        return response()->json(compact('permission'));
+        return response()->json(compact('category'));
     }
 
     /**
@@ -62,7 +63,7 @@ class CategoryController extends BaseApiController
      */
     public function delete($id)
     {
-        $this->permission->where('id', $id)->delete();
+        $this->productCategory->where('id', $id)->delete();
 
         return response()->json(['info' => '删除成功']);
     }

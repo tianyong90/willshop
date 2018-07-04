@@ -8,7 +8,7 @@ const getters = {}
 
 const actions = {
   getCategories () {
-    axios.get('categories').then((response) => {
+    axios.get('category').then((response) => {
       this.commit('UPDATE_CATEGORIES', response.data.categories)
     }).catch((error) => {
       console.error(error)

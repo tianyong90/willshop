@@ -16,6 +16,9 @@
     "/js/admin-product-list.js": "/js/admin-product-list.js",
     "/js/admin-permission-list.js": "/js/admin-permission-list.js",
     "/js/admin-order-list.js": "/js/admin-order-list.js",
+    "/js/admin-coupon-list.js": "/js/admin-coupon-list.js",
+    "/js/admin-category-list.js": "/js/admin-category-list.js",
+    "/js/admin-brand-list.js": "/js/admin-brand-list.js",
     "/js/admin-product-form.js": "/js/admin-product-form.js",
     "/js/admin-dashboard.js": "/js/admin-dashboard.js",
     "/js/admin-auth-login.js": "/js/admin-auth-login.js",
@@ -29,7 +32,5 @@
     "/css/admin.css": "/css/admin.css",
     "/js/admin.js": "/js/admin.js",
     "/js/vendor.js": "/js/vendor.js",
-    "/js/manifest.js": "/js/manifest.js",
-    "/js/admin-category-list.js": "/js/admin-category-list.js",
-    "/js/admin-brand-list.js": "/js/admin-brand-list.js"
+    "/js/manifest.js": "/js/manifest.js"
 }

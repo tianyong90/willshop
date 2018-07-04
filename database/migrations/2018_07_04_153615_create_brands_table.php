@@ -15,7 +15,10 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name')->comment('品牌名');
+            $table->string('logo')->nullable()->comment('品牌 LOGO');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

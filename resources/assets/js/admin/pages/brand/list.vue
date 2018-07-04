@@ -17,7 +17,7 @@
       </el-form>
     </div>
 
-    <el-table :data="permissions.data" border>
+    <el-table :data="brands.data" border>
       <el-table-column prop="id" label="ID"></el-table-column>
       <el-table-column prop="name" label="权限名"></el-table-column>
       <el-table-column prop="guard_name" label="GUARD"></el-table-column>
@@ -34,10 +34,10 @@
     <div class="paginator">
       <el-pagination
         @current-change="handleCurrentChange"
-        :current-page="permissions.current_page"
-        :page-size="permissions.per_page"
+        :current-page="brands.current_page"
+        :page-size="brands.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="permissions.tatal">
+        :total="brands.tatal">
       </el-pagination>
     </div>
   </div>
@@ -61,7 +61,7 @@
 
     computed: {
       ...mapState({
-        permissions: state => state.permission.permissions
+        brands: state => state.brand.brands
       })
     },
 
@@ -71,7 +71,7 @@
 
     methods: {
       ...mapActions({
-        loadData: 'getPermissions'
+        loadData: 'getBrands'
       })
     }
   }
