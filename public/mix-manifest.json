@@ -12,7 +12,9 @@
     "/js/shop-mainmenu.js": "/js/shop-mainmenu.js",
     "/js/admin-user-list.js": "/js/admin-user-list.js",
     "/js/admin-user-detail.js": "/js/admin-user-detail.js",
+    "/js/admin-role-list.js": "/js/admin-role-list.js",
     "/js/admin-product-list.js": "/js/admin-product-list.js",
+    "/js/admin-permission-list.js": "/js/admin-permission-list.js",
     "/js/admin-order-list.js": "/js/admin-order-list.js",
     "/js/admin-product-form.js": "/js/admin-product-form.js",
     "/js/admin-dashboard.js": "/js/admin-dashboard.js",
@@ -28,6 +30,5 @@
     "/js/admin.js": "/js/admin.js",
     "/js/vendor.js": "/js/vendor.js",
     "/js/manifest.js": "/js/manifest.js",
-    "/js/admin-role-list.js": "/js/admin-role-list.js",
-    "/js/admin-permission-list.js": "/js/admin-permission-list.js"
+    "/js/admin-category-list.js": "/js/admin-category-list.js"
 }

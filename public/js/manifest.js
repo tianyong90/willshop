@@ -34,7 +34,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		26: 0
+/******/ 		28: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -91,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"js/shop-address","1":"js/shop-order","2":"js/shop-help","3":"js/shop-product","4":"js/shop-checkout","5":"js/shop-user","6":"js/shop-payment","7":"js/shop-cart","8":"js/shop-category","9":"js/shop-home","10":"js/shop-mainmenu","11":"js/admin-user-list","12":"js/admin-user-detail","13":"js/admin-product-list","14":"js/admin-order-list","15":"js/admin-product-form","16":"js/admin-dashboard","17":"js/admin-auth-login","18":"js/admin-sidebar","19":"js/admin-header","20":"js/admin-error404","21":"js/shop-favourite","22":"js/shop-about","27":"js/admin-role-list","28":"js/admin-permission-list"}[chunkId]||chunkId) + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"js/shop-address","1":"js/shop-order","2":"js/shop-help","3":"js/shop-product","4":"js/shop-checkout","5":"js/shop-user","6":"js/shop-payment","7":"js/shop-cart","8":"js/shop-category","9":"js/shop-home","10":"js/shop-mainmenu","11":"js/admin-user-list","12":"js/admin-user-detail","13":"js/admin-role-list","14":"js/admin-product-list","15":"js/admin-permission-list","16":"js/admin-order-list","17":"js/admin-product-form","18":"js/admin-dashboard","19":"js/admin-auth-login","20":"js/admin-sidebar","21":"js/admin-header","22":"js/admin-error404","23":"js/shop-favourite","24":"js/shop-about","29":"js/admin-category-list"}[chunkId]||chunkId) + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {

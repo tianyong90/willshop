@@ -9,29 +9,20 @@
             @keyup.enter.native="loadData"
           />
         </el-form-item>
-        <!--<el-form-item>-->
-        <!--<el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">-->
-        <!--<el-option label="全部" value="all"></el-option>-->
-        <!--<el-option label="男" value="0"></el-option>-->
-        <!--<el-option label="女" value="1"></el-option>-->
-        <!--<el-option label="其它" value="2"></el-option>-->
-        <!--</el-select>-->
-        <!--</el-form-item>-->
         <el-form-item>
-          <el-button type="primary" icon="search" @click="search">搜索</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
         </el-form-item>
 
-        <el-button type="primary" icon="search" @click="search">新建角色</el-button>
+        <el-button type="primary" icon="el-icon-plus" @click="search">新建权限</el-button>
       </el-form>
     </div>
 
-    <el-table :data="roles.data" border>
+    <el-table :data="permissions.data" border>
       <el-table-column prop="id" label="ID"></el-table-column>
-      <el-table-column prop="name" label="角色名"></el-table-column>
+      <el-table-column prop="name" label="权限名"></el-table-column>
       <el-table-column prop="guard_name" label="GUARD"></el-table-column>
       <el-table-column prop="created_at" label="创建时间"></el-table-column>
       <el-table-column prop="updated_at" label="更新时间"></el-table-column>
-      <el-table-column prop="remark" label="用户数"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="small" type="primary" @click.native="$router.push('/user/' + scope.row.id)">修改</el-button>
@@ -43,10 +34,10 @@
     <div class="paginator">
       <el-pagination
         @current-change="handleCurrentChange"
-        :current-page="roles.current_page"
-        :page-size="roles.per_page"
+        :current-page="permissions.current_page"
+        :page-size="permissions.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="roles.tatal">
+        :total="permissions.tatal">
       </el-pagination>
     </div>
   </div>
@@ -70,7 +61,7 @@
 
     computed: {
       ...mapState({
-        roles: state => state.role.roles
+        permissions: state => state.permission.permissions
       })
     },
 
@@ -80,20 +71,8 @@
 
     methods: {
       ...mapActions({
-        loadData: 'getRoles'
-      }),
-
-      // loadData (page = 1) {
-      //   this.axios.get('user/list', {
-      //     params: {
-      //       keyword: this.searchForm.keyword,
-      //       sex: this.searchForm.sex,
-      //       page: page
-      //     }
-      //   }).then((response) => {
-      //     this.users = response.data.users
-      //   })
-      // }
+        loadData: 'getPermissions'
+      })
     }
   }
 </script>

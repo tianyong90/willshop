@@ -24,7 +24,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary"
-                     icon="search"
+                     icon="el-icon-search"
                      @click="search"
           >搜索</el-button>
         </el-form-item>

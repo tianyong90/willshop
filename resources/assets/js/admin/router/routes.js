@@ -73,7 +73,7 @@ const routes = [
     }
   },
   {
-    path: '/order/list',
+    path: '/order',
     components: {
       default: () => import(/* webpackChunkName: 'js/admin-order-list' */ '../pages/order/list.vue'),
       header: Header,
@@ -85,7 +85,7 @@ const routes = [
     }
   },
   {
-    path: '/product/list',
+    path: '/product',
     components: {
       default: () => import(/* webpackChunkName: 'js/admin-product-list' */ '../pages/product/list.vue'),
       header: Header,
@@ -100,6 +100,18 @@ const routes = [
     path: '/product/edit/:id',
     components: {
       default: () => import(/* webpackChunkName: 'js/admin-product-form' */ '../pages/product/product_form.vue'),
+      header: Header,
+      sidebar: Sidebar
+    },
+    meta: {
+      requiresAuth: true,
+      title: ''
+    }
+  },
+  {
+    path: '/category',
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-category-list' */ '../pages/category/list.vue'),
       header: Header,
       sidebar: Sidebar
     },

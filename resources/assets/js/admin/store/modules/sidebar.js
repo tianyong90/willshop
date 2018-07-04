@@ -10,11 +10,11 @@ const MenuConfig = [
     subItems: [
       {
         title: '商品列表',
-        route: '/product/list'
+        route: '/product'
       },
       {
         title: '商品分类',
-        route: '/category/list'
+        route: '/category'
       }
     ]
   },
@@ -24,7 +24,7 @@ const MenuConfig = [
     subItems: [
       {
         title: '订单列表',
-        route: '/order/list'
+        route: '/order'
       }
     ]
   },

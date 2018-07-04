@@ -37,5 +37,4 @@
 </script>
 
 <style scoped lang="scss">
-  $avatar-size: 50px;
 </style>

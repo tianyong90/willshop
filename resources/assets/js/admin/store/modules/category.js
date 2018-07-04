@@ -1,14 +1,24 @@
+import axios from 'axios'
+
 const state = {
-  product: {}
+  categories: {}
 }
 
 const getters = {}
 
-const actions = {}
+const actions = {
+  getCategories () {
+    axios.get('categories').then((response) => {
+      this.commit('UPDATE_CATEGORIES', response.data.categories)
+    }).catch((error) => {
+      console.error(error)
+    })
+  }
+}
 
 const mutations = {
-  UPDATE_PRODUCT (state, value) {
-    state.product = value
+  UPDATE_CATEGORIES (state, value) {
+    state.categories = value
   }
 }
 

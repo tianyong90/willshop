@@ -18,10 +18,10 @@
           <!--</el-select>-->
         <!--</el-form-item>-->
         <el-form-item>
-          <el-button type="primary" icon="search" @click="search">搜索</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
         </el-form-item>
 
-        <el-button type="primary" icon="search" @click="search">新建角色</el-button>
+        <el-button type="primary" icon="el-icon-search" @click="search">新建角色</el-button>
       </el-form>
     </div>
 
