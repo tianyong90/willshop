@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-dashboard' */ '../pages/dashboard.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-dashboard' */ '../views/dashboard.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/login',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-auth-login' */ '../pages/auth/login.vue')
+      default: () => import(/* webpackChunkName: 'js/admin-auth-login' */ '../views/auth/login.vue')
     },
     meta: {
       requiresAuth: false,
@@ -27,7 +27,7 @@ const routes = [
   {
     path: '/user',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-user-list' */ '../pages/user/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-user-list' */ '../views/user/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -39,7 +39,7 @@ const routes = [
   {
     path: '/user/:id',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-user-detail' */ '../pages/user/detail.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-user-detail' */ '../views/user/detail.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -51,7 +51,7 @@ const routes = [
   {
     path: '/role',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-role-list' */ '../pages/role/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-role-list' */ '../views/role/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -63,7 +63,7 @@ const routes = [
   {
     path: '/permission',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-permission-list' */ '../pages/permission/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-permission-list' */ '../views/permission/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -75,7 +75,7 @@ const routes = [
   {
     path: '/order',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-order-list' */ '../pages/order/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-order-list' */ '../views/order/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -87,7 +87,7 @@ const routes = [
   {
     path: '/product',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-product-list' */ '../pages/product/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-product-list' */ '../views/product/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -99,7 +99,7 @@ const routes = [
   {
     path: '/product/edit/:id',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-product-form' */ '../pages/product/product_form.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-product-form' */ '../views/product/product_form.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -111,7 +111,7 @@ const routes = [
   {
     path: '/category',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-category-list' */ '../pages/category/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-category-list' */ '../views/category/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -123,7 +123,7 @@ const routes = [
   {
     path: '/brand',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-brand-list' */ '../pages/brand/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-brand-list' */ '../views/brand/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -135,7 +135,7 @@ const routes = [
   {
     path: '/coupon',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-coupon-list' */ '../pages/coupon/list.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-coupon-list' */ '../views/coupon/list.vue'),
       header: Header,
       sidebar: Sidebar
     },
@@ -147,7 +147,7 @@ const routes = [
   {
     path: '*',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-error404' */ '../pages/404.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-error404' */ '../views/404.vue'),
       header: Header,
       sidebar: Sidebar
     },
