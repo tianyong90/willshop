@@ -19,6 +19,7 @@
     "/js/admin-coupon-list.js": "/js/admin-coupon-list.js",
     "/js/admin-category-list.js": "/js/admin-category-list.js",
     "/js/admin-brand-list.js": "/js/admin-brand-list.js",
+    "/js/admin-role-detail.js": "/js/admin-role-detail.js",
     "/js/admin-product-form.js": "/js/admin-product-form.js",
     "/js/admin-dashboard.js": "/js/admin-dashboard.js",
     "/js/admin-auth-login.js": "/js/admin-auth-login.js",

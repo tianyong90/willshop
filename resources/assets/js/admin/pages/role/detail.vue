@@ -1,37 +1,34 @@
 <template>
   <div class="main-container main-with-padding">
-    {{ user }}
+    {{ role }}
   </div>
 </template>
 
 <script>
-  import TableMixin from '../../mixins/table_mixin'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
-    mixins: [TableMixin],
-
     data () {
       return {
-        users: {}
       }
+    },
+
+    computed: {
+      ...mapState({
+        role: state => state.role.role
+      })
     },
 
     mounted () {
-      this.loadData()
+      const { roleId } = this.$route.params
+
+      this.loadData(roleId)
     },
 
     methods: {
-      loadData (page = 1) {
-        this.axios.get('user/list', {
-          params: {
-            keyword: this.searchForm.keyword,
-            sex: this.searchForm.sex,
-            page: page
-          }
-        }).then((response) => {
-          this.users = response.data.users
-        })
-      }
+      ...mapActions({
+        loadData: 'getRole'
+      })
     }
   }
 </script>

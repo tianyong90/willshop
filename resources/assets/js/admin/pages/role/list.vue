@@ -81,7 +81,7 @@
     methods: {
       ...mapActions({
         loadData: 'getRoles'
-      }),
+      })//,
 
       // loadData (page = 1) {
       //   this.axios.get('user/list', {

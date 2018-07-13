@@ -61,6 +61,18 @@ const routes = [
     }
   },
   {
+    path: '/role/:roleId',
+    components: {
+      default: () => import(/* webpackChunkName: 'js/admin-role-detail' */ '../pages/role/detail.vue'),
+      header: Header,
+      sidebar: Sidebar
+    },
+    meta: {
+      requiresAuth: true,
+      title: ''
+    }
+  },
+  {
     path: '/permission',
     components: {
       default: () => import(/* webpackChunkName: 'js/admin-permission-list' */ '../pages/permission/list.vue'),
