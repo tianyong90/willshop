@@ -34,7 +34,7 @@
       <el-table-column prop="remark" label="用户数"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="small" type="primary" @click.native="$router.push('/user/' + scope.row.id)">修改</el-button>
+          <el-button size="small" type="primary" @click.native="$router.push('/role/' + scope.row.id)">修改</el-button>
           <el-button size="small" type="danger" @click.native="charge(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
@@ -81,19 +81,7 @@
     methods: {
       ...mapActions({
         loadData: 'getRoles'
-      })//,
-
-      // loadData (page = 1) {
-      //   this.axios.get('user/list', {
-      //     params: {
-      //       keyword: this.searchForm.keyword,
-      //       sex: this.searchForm.sex,
-      //       page: page
-      //     }
-      //   }).then((response) => {
-      //     this.users = response.data.users
-      //   })
-      // }
+      })
     }
   }
 </script>

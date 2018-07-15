@@ -17,6 +17,8 @@ const actions = {
   },
 
   getRole (roleId) {
+    console.log('fuck')
+    console.log(roleId)
     axios.get(`role/${roleId}`).then((response) => {
       this.commit('UPDATE_ROLE', response.data.role)
     }).catch((error) => {

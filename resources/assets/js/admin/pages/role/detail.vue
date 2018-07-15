@@ -22,7 +22,9 @@
     mounted () {
       const { roleId } = this.$route.params
 
-      this.loadData(roleId)
+      // console.log(roleId)
+
+      // this.loadData(roleId)
     },
 
     methods: {
