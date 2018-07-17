@@ -2,18 +2,23 @@
   <div class="main-container main-with-padding">
     <el-form ref="form" :model="role" label-width="120px">
       <el-form-item label="角色名">
-        <el-input v-model="role.name"></el-input>
+        <el-input v-model="role.name"/>
       </el-form-item>
       <el-form-item label="GUARD NAME">
         <el-select v-model="role.guardname" placeholder="请选择">
-          <el-option v-for="guard in guardNames" :label="guard" :value="guard"></el-option>
+          <el-option
+            v-for="(guard, index) in guardNames"
+            :key="index"
+            :label="guard"
+            :value="guard"
+          />
         </el-select>
       </el-form-item>
       <el-form-item label="创建时间">
-        <el-input v-model="role.created_at" readonly></el-input>
+        <el-input v-model="role.created_at" readonly/>
       </el-form-item>
       <el-form-item label="修改时间">
-        <el-input v-model="role.updated_at" readonly></el-input>
+        <el-input v-model="role.updated_at" readonly/>
       </el-form-item>
       <el-form-item size="large">
         <el-button type="primary" @click="onSubmit">保存</el-button>
@@ -40,11 +45,11 @@
     },
 
     mounted () {
+      this.getGuardNames()
+
       const { roleId } = this.$route.params
 
       this.loadData(roleId)
-
-      this.getGuardNames()
     },
 
     methods: {

@@ -8,10 +8,10 @@
         </el-form-item>
         <el-form-item>
           <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
-            <el-option label="全部" value="all"></el-option>
-            <el-option label="男" value="0"></el-option>
-            <el-option label="女" value="1"></el-option>
-            <el-option label="其它" value="2"></el-option>
+            <el-option label="全部" value="all"/>
+            <el-option label="男" value="0"/>
+            <el-option label="女" value="1"/>
+            <el-option label="其它" value="2"/>
           </el-select>
         </el-form-item>
         <el-form-item>
