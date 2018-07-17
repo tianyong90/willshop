@@ -66,4 +66,16 @@ class RoleController extends BaseApiController
 
         return response()->json(['info' => '删除成功']);
     }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getGuardnames(Request $request)
+    {
+        $guardNames = $this->role->select('guard_name')->get()->pluck('guard_name');
+
+        return response()->json(compact('guardNames'));
+    }
 }

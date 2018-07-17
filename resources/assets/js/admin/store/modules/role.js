@@ -2,25 +2,34 @@ import axios from 'axios'
 
 const state = {
   roles: [],
-  role: {}
+  role: {},
+  guardNames: {}
 }
 
 const getters = {}
 
 const actions = {
-  getRoles () {
+  getRoles ({ commit }) {
     axios.get('role').then((response) => {
-      this.commit('UPDATE_ROLES', response.data.roles)
+      commit('UPDATE_ROLES', response.data.roles)
     }).catch((error) => {
       console.error(error)
     })
   },
 
-  getRole (roleId) {
-    console.log('fuck')
-    console.log(roleId)
+  getRole ({ commit }, roleId) {
     axios.get(`role/${roleId}`).then((response) => {
-      this.commit('UPDATE_ROLE', response.data.role)
+      commit('UPDATE_ROLE', response.data.role)
+    }).catch((error) => {
+      console.error(error)
+    })
+  },
+
+  getGuardNames ({ commit }) {
+    axios.get(`get-guardnames`).then((response) => {
+      console.log(response.data)
+
+      commit('UPDATE_GUARDNAMES', response.data.guardNames)
     }).catch((error) => {
       console.error(error)
     })
@@ -34,6 +43,10 @@ const mutations = {
 
   UPDATE_ROLE (state, value) {
     state.role = value
+  },
+
+  UPDATE_GUARDNAMES (state, value) {
+    state.guardNames = value
   }
 }
 

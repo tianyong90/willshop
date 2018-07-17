@@ -29,8 +29,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
         // roles
         Route::get('/role', 'RoleController@list');
         Route::get('/role/{id}', 'RoleController@show');
-        Route::post('/role/{id}', 'RoleController@store');
-        Route::delete('/role/{id}', 'RoleController@destroy');
+        Route::post('/role', 'RoleController@store');
+        Route::delete('/role/{id}', 'RoleController@delete');
+
+        Route::get('/get-guardnames', 'RoleController@getGuardnames');
 
         // permissions
         Route::get('/permission', 'PermissionController@list');

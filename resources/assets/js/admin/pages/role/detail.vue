@@ -1,6 +1,25 @@
 <template>
   <div class="main-container main-with-padding">
-    {{ role }}
+    <el-form ref="form" :model="role" label-width="120px">
+      <el-form-item label="角色名">
+        <el-input v-model="role.name"></el-input>
+      </el-form-item>
+      <el-form-item label="GUARD NAME">
+        <el-select v-model="role.guardname" placeholder="请选择">
+          <el-option v-for="guard in guardNames" :label="guard" :value="guard"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="创建时间">
+        <el-input v-model="role.created_at" readonly></el-input>
+      </el-form-item>
+      <el-form-item label="修改时间">
+        <el-input v-model="role.updated_at" readonly></el-input>
+      </el-form-item>
+      <el-form-item size="large">
+        <el-button type="primary" @click="onSubmit">保存</el-button>
+        <el-button @click="$router.go(-1);">取消</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -15,22 +34,32 @@
 
     computed: {
       ...mapState({
-        role: state => state.role.role
+        role: state => state.role.role,
+        guardNames: state => state.role.guardNames
       })
     },
 
     mounted () {
       const { roleId } = this.$route.params
 
-      // console.log(roleId)
+      this.loadData(roleId)
 
-      // this.loadData(roleId)
+      this.getGuardNames()
     },
 
     methods: {
       ...mapActions({
-        loadData: 'getRole'
-      })
+        loadData: 'getRole',
+        getGuardNames: 'getGuardNames'
+      }),
+
+      onSubmit () {
+        this.axios.post('role', this.role).then((response) => {
+          console.log(response.data)
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     }
   }
 </script>
