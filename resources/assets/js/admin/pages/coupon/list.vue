@@ -35,11 +35,11 @@
       <el-table-column label="预览图" inline-template>
         <img :src="row.thumbnail" class="thumbnail"/>
       </el-table-column>
-      <el-table-column prop="name" label="名称"></el-table-column>
-      <el-table-column prop="price" label="价格（元）"></el-table-column>
-      <el-table-column prop="stock" label="库存"></el-table-column>
-      <el-table-column prop="status" label="状态"></el-table-column>
-      <el-table-column prop="updated_at" label="更新时间"></el-table-column>
+      <el-table-column prop="name" label="名称"/>
+      <el-table-column prop="price" label="价格（元）"/>
+      <el-table-column prop="stock" label="库存"/>
+      <el-table-column prop="status" label="状态"/>
+      <el-table-column prop="updated_at" label="更新时间"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <router-link :to="'/product/edit/' + scope.row.id"

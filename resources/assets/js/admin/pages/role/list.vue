@@ -26,12 +26,12 @@
     </div>
 
     <el-table :data="roles.data" border>
-      <el-table-column prop="id" label="ID"></el-table-column>
-      <el-table-column prop="name" label="角色名"></el-table-column>
-      <el-table-column prop="guard_name" label="GUARD"></el-table-column>
-      <el-table-column prop="created_at" label="创建时间"></el-table-column>
-      <el-table-column prop="updated_at" label="更新时间"></el-table-column>
-      <el-table-column prop="remark" label="用户数"></el-table-column>
+      <el-table-column prop="id" label="ID"/>
+      <el-table-column prop="name" label="角色名"/>
+      <el-table-column prop="guard_name" label="GUARD"/>
+      <el-table-column prop="created_at" label="创建时间"/>
+      <el-table-column prop="updated_at" label="更新时间"/>
+      <el-table-column prop="remark" label="用户数"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="small" type="primary" @click.native="$router.push('/role/' + scope.row.id)">修改</el-button>

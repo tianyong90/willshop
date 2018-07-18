@@ -26,12 +26,12 @@
           <img :src="scope.row.avatar" class="avatar"/>
         </template>
       </el-table-column>
-      <el-table-column prop="nickname" label="昵称"></el-table-column>
-      <el-table-column prop="name" label="用户名"></el-table-column>
-      <el-table-column prop="sex" label="性别"></el-table-column>
-      <el-table-column prop="location" label="地区"></el-table-column>
-      <el-table-column prop="subscribe_time" label="关注时间"></el-table-column>
-      <el-table-column prop="remark" label="备注"></el-table-column>
+      <el-table-column prop="nickname" label="昵称"/>
+      <el-table-column prop="name" label="用户名"/>
+      <el-table-column prop="sex" label="性别"/>
+      <el-table-column prop="location" label="地区"/>
+      <el-table-column prop="subscribe_time" label="关注时间"/>
+      <el-table-column prop="remark" label="备注"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="small" type="primary" @click.native="$router.push('/user/' + scope.row.id)">详情</el-button>
@@ -54,13 +54,13 @@
 
 <script>
   import TableMixin from '../../mixins/table_mixin'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     mixins: [TableMixin],
 
     data () {
       return {
-        users: {},
         searchForm: {
           name: '',
           sex: 'all'
@@ -68,22 +68,20 @@
       }
     },
 
+    computed: {
+      ...mapState({
+        users: state => state.user.users
+      })
+    },
+
     mounted () {
       this.loadData()
     },
 
     methods: {
-      loadData (page = 1) {
-        this.axios.get('user/list', {
-          params: {
-            keyword: this.searchForm.keyword,
-            sex: this.searchForm.sex,
-            page: page
-          }
-        }).then((response) => {
-          this.users = response.data.users
-        })
-      },
+      ...mapActions({
+        loadData: 'getUsers'
+      }),
 
       syncWechatFans () {
         // 同步粉丝数据
