@@ -33,41 +33,31 @@
 </template>
 
 <script>
-  // import { mapState } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     data () {
       return {
-        product: {
-          id: '',
-          name: '',
-          catetory_id: '订阅号',
-          app_id: '',
-          app_secret: '',
-          aes_key: '',
-          merchant_id: '',
-          merchant_key: '',
-          cert_path: '',
-          key_path: '',
-          remark: ''
-        }
       }
     },
 
-    mounted () {
-      const productId = this.$route.params.id
-
-      this.axios.get(`product/${productId}`)
-        .then((response) => {
-          this.product = response.data.product
-        })
+    computed: {
+      ...mapState({
+        product: state => state.product.product
+      })
     },
 
-    computed: {
+    mounted () {
+      const { productId } = this.$route.params
 
+      this.loadData(productId)
     },
 
     methods: {
+      ...mapActions({
+        loadData: 'getRole'
+      }),
+
       store () {
         this.axios.post(`product/${this.product.id}`, this.product)
           .then((response) => {

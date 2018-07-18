@@ -36,14 +36,14 @@
           <img :src="scope.row.thumbnail" class="thumbnail"/>
         </template>
       </el-table-column>
-      <el-table-column prop="name" label="名称"></el-table-column>
-      <el-table-column prop="price" label="价格（元）"></el-table-column>
-      <el-table-column prop="stock" label="库存"></el-table-column>
-      <el-table-column prop="status" label="状态"></el-table-column>
-      <el-table-column prop="updated_at" label="更新时间"></el-table-column>
+      <el-table-column prop="name" label="名称"/>
+      <el-table-column prop="price" label="价格（元）"/>
+      <el-table-column prop="stock" label="库存"/>
+      <el-table-column prop="status" label="状态"/>
+      <el-table-column prop="updated_at" label="更新时间"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <router-link :to="'/product/edit/' + scope.row.id"
+          <router-link :to="'/product/' + scope.row.id"
                        class="el-button el-button--primary el-button--small"
           >
             <i class="el-icon-edit"/>
@@ -71,13 +71,13 @@
 
 <script>
   import TableMixin from '../../mixins/table_mixin'
+  import { mapActions, mapState } from 'vuex'
 
   export default {
     mixins: [TableMixin],
 
     data () {
       return {
-        products: {},
         searchForm: {
           name: '',
           status: ''
@@ -85,25 +85,35 @@
       }
     },
 
+    computed: {
+      ...mapState({
+        products: state => state.product.products
+      })
+    },
+
     mounted () {
       this.loadData()
     },
 
     methods: {
-      // 以分页格式加载商品列表数据
-      loadData (page = 1) {
-        this.axios.get('product', {
-          params: {
-            keyword: this.searchForm.keyword,
-            sex: this.searchForm.sex,
-            page: page
-          }
-        }).then((response) => {
-          this.products = response.data.products
-        }).catch((error) => {
-          console.log(error)
-        })
-      },
+      ...mapActions({
+        loadData: 'getProducts'
+      }),
+
+      // // 以分页格式加载商品列表数据
+      // loadData (page = 1) {
+      //   this.axios.get('product', {
+      //     params: {
+      //       keyword: this.searchForm.keyword,
+      //       sex: this.searchForm.sex,
+      //       page: page
+      //     }
+      //   }).then((response) => {
+      //     this.products = response.data.products
+      //   }).catch((error) => {
+      //     console.log(error)
+      //   })
+      // },
 
       /**
        * 删除商品

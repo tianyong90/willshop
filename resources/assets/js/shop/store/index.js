@@ -1,25 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import state from './state'
+import mutations from './mutations'
+import actions from './actions'
+import getters from './getters'
+
+// modules
+import modules from './modules'
 
 Vue.use(Vuex)
 
-const state = {
-  isLoading: false,
-  direction: 'forward',
-  isMainMenuVisible: true
-}
+const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   state,
-  mutations: {
-    UPDATE_LOADING (state, value) {
-      state.isLoading = value
-    },
-    UPDATE_DIRECTION (state, value) {
-      state.direction = value
-    },
-    UPDATE_MAINMENU_VISIBLE (state, value) {
-      state.isMainMenuVisible = value
-    }
-  }
+  mutations,
+  actions,
+  getters,
+  modules: modules,
+  strict: debug
 })

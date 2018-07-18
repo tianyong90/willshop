@@ -109,9 +109,9 @@ const routes = [
     }
   },
   {
-    path: '/product/edit/:id',
+    path: '/product/:productId',
     components: {
-      default: () => import(/* webpackChunkName: 'js/admin-product-form' */ '../pages/product/product_form.vue'),
+      default: () => import(/* webpackChunkName: 'js/admin-product-detail' */ '../pages/product/detail.vue'),
       header: Header,
       sidebar: Sidebar
     },

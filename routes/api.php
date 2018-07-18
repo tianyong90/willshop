@@ -14,76 +14,76 @@ use Illuminate\Http\Request;
 */
 
 // 微信消息服务
-Route::any('wechat-api', 'WechatController@serve');
+//Route::any('wechat-api', 'WechatController@serve');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
     // Login
     Route::post('/login', 'AuthenticateController@login');
     Route::post('/logout', 'AuthenticateController@logout');
-    Route::get('/login-qrcode', 'AutHController@getLoginQrcode');
+    Route::get('/login-qrcode', 'AuthenticateController@getLoginQrcode');
 
     Route::group(['middleware' => ['auth:api']], function () {
         Route::get('/current-user', 'AuthenticateController@getAuthenticatedUser');
         Route::get('/users', 'UserController@list');
 
         // roles
-        Route::get('/role', 'RoleController@list');
-        Route::get('/role/{id}', 'RoleController@show');
+        Route::get('/roles', 'RoleController@list');
+        Route::get('/roles/{id}', 'RoleController@show');
         Route::post('/role', 'RoleController@store');
         Route::delete('/role/{id}', 'RoleController@delete');
 
-        Route::get('/get-guardnames', 'RoleController@getGuardnames');
+        Route::get('/guard-names', 'RoleController@getGuardnames');
 
         // permissions
-        Route::get('/permission', 'PermissionController@list');
+        Route::get('/permissions', 'PermissionController@list');
         Route::get('/permission/{id}', 'PermissionController@show');
         Route::post('/permission/{id}', 'PermissionController@store');
         Route::delete('/permission/{id}', 'PermissionController@destroy');
 
         // orders
-        Route::get('/order/list', 'OrderController@list');
+        Route::get('/orders/list', 'OrderController@list');
 
         // product
-        Route::get('/product', 'ProductController@list');
-        Route::get('/product/{id}', 'ProductController@show');
-        Route::post('/product/{id}', 'ProductController@store');
+        Route::get('/products', 'ProductController@list');
+        Route::get('/products/{id}', 'ProductController@show');
+        Route::post('/products/{id}', 'ProductController@store');
 
         // coupon
-        Route::get('/coupon', 'CouponController@list');
-        Route::get('/coupon/{id}', 'CouponController@show');
-        Route::post('/coupon/{id}', 'CouponController@store');
-        Route::delete('/coupon/{id}', 'CouponController@delete');
+        Route::get('/coupons', 'CouponController@list');
+        Route::get('/coupons/{id}', 'CouponController@show');
+        Route::post('/coupons/{id}', 'CouponController@store');
+        Route::delete('/coupons/{id}', 'CouponController@delete');
 
         // brand
-        Route::get('/brand', 'BrandController@list');
-        Route::get('/brand/{id}', 'BrandController@show');
-        Route::post('/brand/{id}', 'BrandController@store');
-        Route::delete('/brand/{id}', 'BrandController@delete');
+        Route::get('/brands', 'BrandController@list');
+        Route::get('/brands/{id}', 'BrandController@show');
+        Route::post('/brands/{id}', 'BrandController@store');
+        Route::delete('/brands/{id}', 'BrandController@delete');
 
         // product-category
-        Route::get('/category', 'ProductCategoryController@list');
-        Route::get('/category/{id}', 'ProductCategoryController@show');
-        Route::post('/category/store', 'ProductCategoryController@store');
-        Route::delete('/category/{id}', 'ProductCategoryController@delete');
+        Route::get('/categories', 'ProductCategoryController@list');
+        Route::get('/categories/{id}', 'ProductCategoryController@show');
+        Route::post('/categories/store', 'ProductCategoryController@store');
+        Route::delete('/categories/{id}', 'ProductCategoryController@delete');
 
     });
 });
 
 Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
-    // // Login and Register
-    // Route::post('/login', 'AuthController@authenticate');
-    // Route::post('/register', 'AuthController@register');
+     // Login and Register
+     Route::post('/login', 'AuthController@authenticate');
+     Route::post('/register', 'AuthController@register');
 
     // 商品相关
-    Route::get('/product', 'ProductController@list');
-    Route::get('/product/{id}', 'ProductController@show');
+    Route::get('/products', 'ProductController@list');
+    Route::get('/products/{id}', 'ProductController@show');
 
     // 商品分类
     Route::get('/product-categories', 'ProductCategoryController@lists');
 
     // 文章
-    Route::get('/post', 'PostController@lists');
-    Route::get('/post/{id}', 'PostController@detail');
+    Route::get('/posts', 'PostController@lists');
+    Route::get('/posts/{id}', 'PostController@detail');
 
     Route::group(['middleware' => []], function () {
         // 当前用户
@@ -91,10 +91,10 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Api'], function () {
 
         // 下单及结算
         Route::post('/checkout', 'OrderController@store');
-        Route::get('/order', 'OrderController@list');
-        Route::get('/order/{orderNumber}', 'OrderController@show');
-        Route::post('/order/{orderId}/cancel', 'OrderController@cancel');
-        Route::post('/order/{orderId}/destroy', 'OrderController@destroy');
+        Route::get('/orders', 'OrderController@list');
+        Route::get('/orders/{orderNumber}', 'OrderController@show');
+        Route::post('/orders/{orderId}/cancel', 'OrderController@cancel');
+        Route::post('/orders/{orderId}/destroy', 'OrderController@destroy');
 
         // 购物车
         Route::get('/cart', 'CartController@index');
