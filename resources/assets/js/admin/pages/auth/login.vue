@@ -18,20 +18,20 @@
                  :disabled="false"
       >登录</el-button>
 
-      <div class="icon-wechat-login"
-           @click="scanLogin"
-      >
-        <i class="iconfont icon-wechat-circle">
-      </i></div>
+      <!--<div class="icon-wechat-login"-->
+           <!--@click="scanLogin"-->
+      <!--&gt;-->
+        <!--<i class="iconfont icon-wechat-circle">-->
+      <!--</i></div>-->
     </div>
 
-    <el-dialog title="微信扫码登录"
-               size="tiny"
-               :modal-append-to-body="false"
-               v-model="dialogQrcodeVisible"
-    >
-      <img :src="loginQrcode" alt="" class="qrcode"/>
-    </el-dialog>
+    <!--<el-dialog title="微信扫码登录"-->
+               <!--size="tiny"-->
+               <!--:modal-append-to-body="false"-->
+               <!--v-model="dialogQrcodeVisible"-->
+    <!--&gt;-->
+      <!--<img :src="loginQrcode" alt="" class="qrcode"/>-->
+    <!--</el-dialog>-->
   </div>
 </template>
 

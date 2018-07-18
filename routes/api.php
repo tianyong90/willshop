@@ -23,8 +23,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'AdminApi'], function () {
     Route::get('/login-qrcode', 'AutHController@getLoginQrcode');
 
     Route::group(['middleware' => ['auth:api']], function () {
-        Route::get('/user', 'AuthenticateController@getAuthenticatedUser');
-        Route::get('/user/list', 'UserController@list');
+        Route::get('/current-user', 'AuthenticateController@getAuthenticatedUser');
+        Route::get('/users', 'UserController@list');
 
         // roles
         Route::get('/role', 'RoleController@list');
