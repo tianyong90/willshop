@@ -3,8 +3,11 @@
     <div class="table-tools">
       <el-form :inline="true" :model="searchForm" class="demo-form-inline">
         <el-form-item>
-          <el-input v-model="searchForm.keyword" placeholder="按昵称搜索"
-                    @keyup.enter.native="loadData"></el-input>
+          <el-input
+            v-model="searchForm.keyword"
+            placeholder="按昵称搜索"
+            @keyup.enter.native="loadData"
+          />
         </el-form-item>
         <el-form-item>
           <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
@@ -15,7 +18,11 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+          <el-button
+            type="primary"
+            icon="el-icon-search"
+            @click="search"
+          >搜索</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -34,8 +41,16 @@
       <el-table-column prop="remark" label="备注"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="small" type="primary" @click.native="$router.push('/user/' + scope.row.id)">详情</el-button>
-          <el-button size="small" type="primary" @click.native="charge(scope.row.id)">角色及权限</el-button>
+          <el-button
+            size="small"
+            type="primary"
+            @click.native="$router.push('/user/' + scope.row.id)"
+          >详情</el-button>
+          <el-button
+            size="small"
+            type="primary"
+            @click.native="charge(scope.row.id)"
+          >角色及权限</el-button>
         </template>
       </el-table-column>
     </el-table>
