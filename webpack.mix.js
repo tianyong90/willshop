@@ -13,8 +13,6 @@ const path = require('path');
  |
  */
 
-mix.sourceMaps();
-
 mix.webpackConfig(webpack => {
   let plugins = [];
 
@@ -55,10 +53,34 @@ mix.webpackConfig(webpack => {
 
 mix.js('resources/assets/js/shop/index.js', 'js/shop.js')
   .js('resources/assets/js/admin/index.js', 'js/admin.js')
-  .extract(['vue', 'vuex', 'vue-router', 'axios', 'vue-axios'], 'js/vendor.js')
-  // scss
-  .sass('resources/assets/sass/shop.scss', 'css/shop.css')
+  // .extract(['vue', 'vuex', 'vue-router', 'axios', 'vue-axios'], 'js/vendor.js')
+
+// scss
+mix.sass('resources/assets/sass/shop.scss', 'css/shop.css')
   .sass('resources/assets/sass/admin.scss', 'css/admin.css');
+
+// 仅在 production 模式下加版本
+if (mix.inProduction()) {
+  mix.version()
+}
+
+// 使用了 extract 方法后，需要下面这些处理，hmr 才能正常使用
+Mix.listen('configReady', (webpackConfig) => {
+  if (Mix.isUsing('hmr')) {
+    // Remove leading '/' from entry keys
+    webpackConfig.entry = Object.keys(webpackConfig.entry).reduce((entries, entry) => {
+      entries[entry.replace(/^\//, '')] = webpackConfig.entry[entry];
+      return entries;
+    }, {});
+
+    // Remove leading '/' from ExtractTextPlugin instances
+    webpackConfig.plugins.forEach((plugin) => {
+      if (plugin.constructor.name === 'ExtractTextPlugin') {
+        plugin.filename = plugin.filename.replace(/^\//, '');
+      }
+    });
+  }
+});
 
 mix.browserSync({
   proxy: 'willshop.test',
