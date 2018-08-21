@@ -82,7 +82,6 @@
     width: 100%;
     height: 60px;
     overflow: hidden;
-    background-color: red;
     position: relative;
     margin-top: 10px;
 

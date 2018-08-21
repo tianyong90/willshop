@@ -53,7 +53,11 @@ mix.webpackConfig(webpack => {
 
 mix.js('resources/assets/js/shop/index.js', 'js/shop.js')
   .js('resources/assets/js/admin/index.js', 'js/admin.js')
-  // .extract(['vue', 'vuex', 'vue-router', 'axios', 'vue-axios'], 'js/vendor.js')
+
+// 用了 extract 后 hmr 无法正常使用，所以只要不使用 hmr 的时候使用 extract
+if (!Mix.isUsing('hmr')) {
+  mix.extract(['vue', 'vuex', 'vue-router', 'axios', 'vue-axios'], 'js/vendor.js')
+}
 
 // scss
 mix.sass('resources/assets/sass/shop.scss', 'css/shop.css')

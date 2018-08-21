@@ -24,8 +24,11 @@
     <mainmenu/>
   </div>
 
+  {{--只有在不使用 hmr 的时候使用代码分割--}}
+  @if(!mixIsUsingHmr())
   <script src="{{ mix('js/manifest.js') }}"></script>
   <script src="{{ mix('js/vendor.js') }}"></script>
+  @endif
   <script src="{{ mix('js/shop.js') }}"></script>
   </body>
 </html>
