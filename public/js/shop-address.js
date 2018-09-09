@@ -18,7 +18,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-25955652"
+var __vue_scopeId__ = "data-v-605b4eb6"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\shop\\pages\\address-edit.vue"
+Component.options.__file = "resources/assets/js/shop/pages/address-edit.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-25955652", Component.options)
+    hotAPI.createRecord("data-v-605b4eb6", Component.options)
   } else {
-    hotAPI.reload("data-v-25955652", Component.options)
+    hotAPI.reload("data-v-605b4eb6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -70,7 +70,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-15810535"
+var __vue_scopeId__ = "data-v-9e6ac9fc"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -81,7 +81,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\shop\\pages\\address.vue"
+Component.options.__file = "resources/assets/js/shop/pages/address.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -90,9 +90,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-15810535", Component.options)
+    hotAPI.createRecord("data-v-9e6ac9fc", Component.options)
   } else {
-    hotAPI.reload("data-v-15810535", Component.options)
+    hotAPI.reload("data-v-9e6ac9fc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -582,13 +582,13 @@ var content = __webpack_require__(668);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(605)("e1ff4cba", content, false, {});
+var update = __webpack_require__(605)("2b74c709", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-15810535\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-15810535\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9e6ac9fc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9e6ac9fc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -607,7 +607,7 @@ exports = module.exports = __webpack_require__(574)(false);
 
 
 // module
-exports.push([module.i, "\n.address-list[data-v-15810535] {\n  display: block;\n  overflow: hidden;\n  margin: 0 0 60px 0;\n  padding: 0;\n}\n.address-list li[data-v-15810535] {\n    display: block;\n    overflow: hidden;\n    background-color: #fff;\n    margin-bottom: 10px;\n    padding: 10px 15px;\n}\n.address-list li .header[data-v-15810535] {\n      display: block;\n      font-size: 15px;\n      color: #444;\n}\n.address-list li .header .name[data-v-15810535] {\n        width: 100px;\n        float: left;\n}\n.address-list li .header .mobile[data-v-15810535] {\n        float: left;\n}\n.address-list li .body[data-v-15810535] {\n      clear: both;\n      display: block;\n      font-size: 14px;\n      color: #777;\n      padding: 5px 0;\n}\n.address-list li .footer[data-v-15810535] {\n      display: block;\n      overflow: hidden;\n      border-top: 1px solid #ececec;\n      font-size: 14px;\n      color: #666;\n      padding-top: 3px;\n}\n.address-list li .footer .icon[data-v-15810535] {\n        margin: 0 .5rem;\n}\n.address-list li .footer .edit[data-v-15810535] {\n        display: inline-block;\n        float: right;\n        color: #555;\n}\n.address-list li .footer .delete[data-v-15810535] {\n        display: inline-block;\n        float: right;\n        color: #555;\n}\n.empty-msg[data-v-15810535] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 80vh;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #777;\n}\n.empty-msg .iconfont[data-v-15810535] {\n    font-size: 80px;\n}\n.empty-msg .msg[data-v-15810535] {\n    font-size: 14px;\n}\nfooter[data-v-15810535] {\n  display: block;\n  overflow: hidden;\n  position: fixed;\n  bottom: 0;\n  z-index: 1000;\n  background-color: #fff;\n  padding: .5rem 1rem;\n  width: calc(100vw - 2rem);\n  border-top: 1px solid #ccc;\n}\nfooter button[data-v-15810535] {\n    display: block;\n    margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "\n.address-list[data-v-9e6ac9fc] {\n  display: block;\n  overflow: hidden;\n  margin: 0 0 60px 0;\n  padding: 0;\n}\n.address-list li[data-v-9e6ac9fc] {\n    display: block;\n    overflow: hidden;\n    background-color: #fff;\n    margin-bottom: 10px;\n    padding: 10px 15px;\n}\n.address-list li .header[data-v-9e6ac9fc] {\n      display: block;\n      font-size: 15px;\n      color: #444;\n}\n.address-list li .header .name[data-v-9e6ac9fc] {\n        width: 100px;\n        float: left;\n}\n.address-list li .header .mobile[data-v-9e6ac9fc] {\n        float: left;\n}\n.address-list li .body[data-v-9e6ac9fc] {\n      clear: both;\n      display: block;\n      font-size: 14px;\n      color: #777;\n      padding: 5px 0;\n}\n.address-list li .footer[data-v-9e6ac9fc] {\n      display: block;\n      overflow: hidden;\n      border-top: 1px solid #ececec;\n      font-size: 14px;\n      color: #666;\n      padding-top: 3px;\n}\n.address-list li .footer .icon[data-v-9e6ac9fc] {\n        margin: 0 .5rem;\n}\n.address-list li .footer .edit[data-v-9e6ac9fc] {\n        display: inline-block;\n        float: right;\n        color: #555;\n}\n.address-list li .footer .delete[data-v-9e6ac9fc] {\n        display: inline-block;\n        float: right;\n        color: #555;\n}\n.empty-msg[data-v-9e6ac9fc] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 80vh;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #777;\n}\n.empty-msg .iconfont[data-v-9e6ac9fc] {\n    font-size: 80px;\n}\n.empty-msg .msg[data-v-9e6ac9fc] {\n    font-size: 14px;\n}\nfooter[data-v-9e6ac9fc] {\n  display: block;\n  overflow: hidden;\n  position: fixed;\n  bottom: 0;\n  z-index: 1000;\n  background-color: #fff;\n  padding: .5rem 1rem;\n  width: calc(100vw - 2rem);\n  border-top: 1px solid #ccc;\n}\nfooter button[data-v-9e6ac9fc] {\n    display: block;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -806,7 +806,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-15810535", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9e6ac9fc", module.exports)
   }
 }
 
@@ -822,13 +822,13 @@ var content = __webpack_require__(672);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(605)("1e96d1b0", content, false, {});
+var update = __webpack_require__(605)("71c0dc52", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-25955652\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address-edit.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-25955652\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address-edit.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-605b4eb6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address-edit.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-605b4eb6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./address-edit.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -847,7 +847,7 @@ exports = module.exports = __webpack_require__(574)(false);
 
 
 // module
-exports.push([module.i, "\nfooter[data-v-25955652] {\n  display: block;\n  overflow: hidden;\n  position: fixed;\n  bottom: 0;\n  z-index: 20;\n  background-color: #fff;\n  padding: .5rem 1rem;\n  width: calc(100vw - 2rem);\n}\n", ""]);
+exports.push([module.i, "\nfooter[data-v-605b4eb6] {\n  display: block;\n  overflow: hidden;\n  position: fixed;\n  bottom: 0;\n  z-index: 20;\n  background-color: #fff;\n  padding: .5rem 1rem;\n  width: calc(100vw - 2rem);\n}\n", ""]);
 
 // exports
 
@@ -5285,7 +5285,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-25955652", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-605b4eb6", module.exports)
   }
 }
 

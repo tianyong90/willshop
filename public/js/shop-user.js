@@ -18,7 +18,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-5167d8da"
+var __vue_scopeId__ = "data-v-d56c43a6"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\shop\\pages\\user.vue"
+Component.options.__file = "resources/assets/js/shop/pages/user.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5167d8da", Component.options)
+    hotAPI.createRecord("data-v-d56c43a6", Component.options)
   } else {
-    hotAPI.reload("data-v-5167d8da", Component.options)
+    hotAPI.reload("data-v-d56c43a6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -523,13 +523,13 @@ var content = __webpack_require__(663);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(605)("2f499dee", content, false, {});
+var update = __webpack_require__(605)("5c4bbd0d", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5167d8da\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./user.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5167d8da\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./user.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d56c43a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./user.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d56c43a6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./user.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -548,7 +548,7 @@ exports = module.exports = __webpack_require__(574)(false);
 
 
 // module
-exports.push([module.i, "\n.main[data-v-5167d8da] {\n  margin-bottom: 70px;\n}\n.user-profile[data-v-5167d8da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #2696cb;\n  padding: 20px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.user-profile .avatar[data-v-5167d8da] {\n    display: block;\n    float: left;\n    width: 80px;\n    height: 80px;\n    border-radius: 70px;\n}\n.user-profile .nickname[data-v-5167d8da] {\n    display: block;\n    color: #fff;\n    font-size: 1.1rem;\n    margin-top: .5rem;\n}\n.user-profile .mobile[data-v-5167d8da] {\n    display: block;\n    color: #fff;\n    font-size: 15px;\n}\n.card .br-1px[data-v-5167d8da] {\n  border-right: 1px solid #ececec;\n}\n.card .card-item[data-v-5167d8da] {\n  display: block;\n  padding: .3rem;\n  overflow: hidden;\n  background-color: #fff;\n  text-align: center;\n}\n.card .card-item .amount[data-v-5167d8da] {\n    display: block;\n    color: #f74c31;\n    font-size: 16px;\n    font-weight: 500;\n}\n.card .card-item .label[data-v-5167d8da] {\n    display: block;\n    color: #666;\n    font-size: 14px;\n    font-weight: 400;\n}\n.icon[data-v-5167d8da] {\n  display: inline-block;\n  float: left;\n  margin-right: 5px;\n  color: #777;\n}\n.card-demo-flex[data-v-5167d8da] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.card-demo-content01[data-v-5167d8da] {\n  padding: 10px 0;\n}\n.card-padding[data-v-5167d8da] {\n  padding: 15px;\n}\n.card-demo-flex > div[data-v-5167d8da] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  font-size: 12px;\n}\n.card-demo-flex span[data-v-5167d8da] {\n  color: #f74c31;\n}\n", ""]);
+exports.push([module.i, "\n.main[data-v-d56c43a6] {\n  margin-bottom: 70px;\n}\n.user-profile[data-v-d56c43a6] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: #2696cb;\n  padding: 20px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.user-profile .avatar[data-v-d56c43a6] {\n    display: block;\n    float: left;\n    width: 80px;\n    height: 80px;\n    border-radius: 70px;\n}\n.user-profile .nickname[data-v-d56c43a6] {\n    display: block;\n    color: #fff;\n    font-size: 1.1rem;\n    margin-top: .5rem;\n}\n.user-profile .mobile[data-v-d56c43a6] {\n    display: block;\n    color: #fff;\n    font-size: 15px;\n}\n.card .br-1px[data-v-d56c43a6] {\n  border-right: 1px solid #ececec;\n}\n.card .card-item[data-v-d56c43a6] {\n  display: block;\n  padding: .3rem;\n  overflow: hidden;\n  background-color: #fff;\n  text-align: center;\n}\n.card .card-item .amount[data-v-d56c43a6] {\n    display: block;\n    color: #f74c31;\n    font-size: 16px;\n    font-weight: 500;\n}\n.card .card-item .label[data-v-d56c43a6] {\n    display: block;\n    color: #666;\n    font-size: 14px;\n    font-weight: 400;\n}\n.icon[data-v-d56c43a6] {\n  display: inline-block;\n  float: left;\n  margin-right: 5px;\n  color: #777;\n}\n.card-demo-flex[data-v-d56c43a6] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.card-demo-content01[data-v-d56c43a6] {\n  padding: 10px 0;\n}\n.card-padding[data-v-d56c43a6] {\n  padding: 15px;\n}\n.card-demo-flex > div[data-v-d56c43a6] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  font-size: 12px;\n}\n.card-demo-flex span[data-v-d56c43a6] {\n  color: #f74c31;\n}\n", ""]);
 
 // exports
 
@@ -794,7 +794,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5167d8da", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-d56c43a6", module.exports)
   }
 }
 

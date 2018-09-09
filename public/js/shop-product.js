@@ -18,7 +18,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-0eb040b0"
+var __vue_scopeId__ = "data-v-ac0c5306"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\shop\\pages\\product.vue"
+Component.options.__file = "resources/assets/js/shop/pages/product.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0eb040b0", Component.options)
+    hotAPI.createRecord("data-v-ac0c5306", Component.options)
   } else {
-    hotAPI.reload("data-v-0eb040b0", Component.options)
+    hotAPI.reload("data-v-ac0c5306", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -530,13 +530,13 @@ var content = __webpack_require__(690);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(605)("1aebcfcc", content, false, {});
+var update = __webpack_require__(605)("20623738", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0eb040b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./product.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0eb040b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./product.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ac0c5306\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./product.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ac0c5306\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./product.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -555,7 +555,7 @@ exports = module.exports = __webpack_require__(574)(false);
 
 
 // module
-exports.push([module.i, "\n.banner-swipe-item[data-v-0eb040b0] {\n  display: block;\n  overflow: hidden;\n}\n.details[data-v-0eb040b0] {\n  display: block;\n  background-color: #fff;\n  overflow: hidden;\n}\n.details .name[data-v-0eb040b0] {\n    display: block;\n    padding: 0 10px;\n    font-size: 17px;\n    color: #666;\n}\n.details .price[data-v-0eb040b0] {\n    display: block;\n    padding: 0 10px;\n    font-size: 17px;\n    color: red;\n}\n.description[data-v-0eb040b0] {\n  display: block;\n  overflow: hidden;\n  background-color: #fff;\n  padding: 1rem 0.5rem 80px 0.5rem;\n  text-align: justify;\n  font-size: 1.1rem;\n  color: #666;\n  margin-top: 10px;\n}\n.popup-footer[data-v-0eb040b0] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 1em;\n}\n.popup-footer .btn[data-v-0eb040b0] {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: center;\n    padding: .5em 0;\n    color: #fff;\n}\n.popup-footer .popup-btn-add-cart[data-v-0eb040b0] {\n    background-color: red;\n}\nfooter[data-v-0eb040b0] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 45px;\n  background-color: #fff;\n  border-top: 1px solid #ccc;\n}\nfooter .btn[data-v-0eb040b0] {\n    color: #555;\n    text-align: center;\n    padding: 2px 0;\n    font-size: 12px;\n    position: relative;\n    -ms-flex-preferred-size: 80px;\n        flex-basis: 80px;\n}\nfooter .btn .icon[data-v-0eb040b0] {\n      display: block;\n}\nfooter .btn .icon.is-favourite[data-v-0eb040b0] {\n        color: #f00;\n}\nfooter .btn .amount[data-v-0eb040b0] {\n      position: absolute;\n      background-color: #f00;\n      top: 3px;\n      right: 20px;\n      color: #fff;\n      font-size: 10px;\n      padding: 0 4px;\n      border-radius: 50%;\n}\nfooter .btn .text[data-v-0eb040b0] {\n      font-size: 12px;\n}\nfooter .btn-add-cart[data-v-0eb040b0] {\n    height: 45px;\n    line-height: 45px;\n    font-size: 15px;\n    text-align: center;\n    color: #fff;\n    padding: 0;\n    background-color: #c00;\n    -webkit-box-flex: 5;\n        -ms-flex-positive: 5;\n            flex-grow: 5;\n}\n", ""]);
+exports.push([module.i, "\n.banner-swipe-item[data-v-ac0c5306] {\n  display: block;\n  overflow: hidden;\n}\n.details[data-v-ac0c5306] {\n  display: block;\n  background-color: #fff;\n  overflow: hidden;\n}\n.details .name[data-v-ac0c5306] {\n    display: block;\n    padding: 0 10px;\n    font-size: 17px;\n    color: #666;\n}\n.details .price[data-v-ac0c5306] {\n    display: block;\n    padding: 0 10px;\n    font-size: 17px;\n    color: red;\n}\n.description[data-v-ac0c5306] {\n  display: block;\n  overflow: hidden;\n  background-color: #fff;\n  padding: 1rem 0.5rem 80px 0.5rem;\n  text-align: justify;\n  font-size: 1.1rem;\n  color: #666;\n  margin-top: 10px;\n}\n.popup-footer[data-v-ac0c5306] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 1em;\n}\n.popup-footer .btn[data-v-ac0c5306] {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: center;\n    padding: .5em 0;\n    color: #fff;\n}\n.popup-footer .popup-btn-add-cart[data-v-ac0c5306] {\n    background-color: red;\n}\nfooter[data-v-ac0c5306] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  height: 45px;\n  background-color: #fff;\n  border-top: 1px solid #ccc;\n}\nfooter .btn[data-v-ac0c5306] {\n    color: #555;\n    text-align: center;\n    padding: 2px 0;\n    font-size: 12px;\n    position: relative;\n    -ms-flex-preferred-size: 80px;\n        flex-basis: 80px;\n}\nfooter .btn .icon[data-v-ac0c5306] {\n      display: block;\n}\nfooter .btn .icon.is-favourite[data-v-ac0c5306] {\n        color: #f00;\n}\nfooter .btn .amount[data-v-ac0c5306] {\n      position: absolute;\n      background-color: #f00;\n      top: 3px;\n      right: 20px;\n      color: #fff;\n      font-size: 10px;\n      padding: 0 4px;\n      border-radius: 50%;\n}\nfooter .btn .text[data-v-ac0c5306] {\n      font-size: 12px;\n}\nfooter .btn-add-cart[data-v-ac0c5306] {\n    height: 45px;\n    line-height: 45px;\n    font-size: 15px;\n    text-align: center;\n    color: #fff;\n    padding: 0;\n    background-color: #c00;\n    -webkit-box-flex: 5;\n        -ms-flex-positive: 5;\n            flex-grow: 5;\n}\n", ""]);
 
 // exports
 
@@ -920,7 +920,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0eb040b0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-ac0c5306", module.exports)
   }
 }
 

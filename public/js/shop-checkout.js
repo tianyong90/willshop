@@ -18,7 +18,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-36a39d56"
+var __vue_scopeId__ = "data-v-9ad155b0"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -29,7 +29,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\shop\\pages\\checkout.vue"
+Component.options.__file = "resources/assets/js/shop/pages/checkout.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -38,9 +38,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-36a39d56", Component.options)
+    hotAPI.createRecord("data-v-9ad155b0", Component.options)
   } else {
-    hotAPI.reload("data-v-36a39d56", Component.options)
+    hotAPI.reload("data-v-9ad155b0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -523,13 +523,13 @@ var content = __webpack_require__(652);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(605)("18532a92", content, false, {});
+var update = __webpack_require__(605)("77fc0694", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-36a39d56\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./checkout.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-36a39d56\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./checkout.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9ad155b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./checkout.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-9ad155b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./checkout.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -548,7 +548,7 @@ exports = module.exports = __webpack_require__(574)(false);
 
 
 // module
-exports.push([module.i, "\n.top-tips[data-v-36a39d56] {\n  display: block;\n  background-color: #e64340;\n  color: #f2f2f2;\n  font-size: 12px;\n  padding: .3em .5em;\n}\n.address-panel[data-v-36a39d56] {\n  display: block;\n  overflow: hidden;\n  background-color: #fff;\n}\n.address-panel .content[data-v-36a39d56] {\n    display: block;\n    color: #999999;\n    overflow: hidden;\n    padding: .5em 1em;\n}\n.address-panel .content .consumer-name[data-v-36a39d56],\n    .address-panel .content .consumer-mobile[data-v-36a39d56] {\n      display: block;\n      float: left;\n      color: #000000;\n      font-size: 14px;\n      margin-right: 2em;\n}\n.address-panel .content .address[data-v-36a39d56] {\n      clear: both;\n      display: block;\n      color: #999999;\n      font-size: 13px;\n}\n.address-panel .bottom-border[data-v-36a39d56] {\n    display: block;\n    width: 100%;\n    height: 3px;\n    background-size: 100px 100px;\n    background-image: linear-gradient(45deg, #f25953 12.5%, #fbfaf5 12.5%, #fbfaf5 25%, #5590d6 25%, #5590d6 37.5%, #fbfaf5 37.5%, #fbfaf5 50%, #f25953 50%, #f25953 62.5%, #fbfaf5 62.5%, #fbfaf5 75%, #5590d6 75%, #5590d6 87.5%, #fbfaf5 87.5%, #fbfaf5 100%);\n}\n.product-list .price[data-v-36a39d56] {\n  color: red;\n}\n.product-list .amount[data-v-36a39d56] {\n  color: #999999;\n}\n.other-info[data-v-36a39d56] {\n  margin-bottom: 70px;\n}\nfooter[data-v-36a39d56] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background-color: #fff;\n  height: 50px;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  z-index: 100;\n}\nfooter .total-price[data-v-36a39d56] {\n    margin-right: .5em;\n    line-height: 50px;\n    color: red;\n}\nfooter .btn-checkout[data-v-36a39d56] {\n    border: none;\n    color: #fff;\n    padding: 0 20px;\n    vertical-align: middle;\n    background-color: #e64340;\n}\n", ""]);
+exports.push([module.i, "\n.top-tips[data-v-9ad155b0] {\n  display: block;\n  background-color: #e64340;\n  color: #f2f2f2;\n  font-size: 12px;\n  padding: .3em .5em;\n}\n.address-panel[data-v-9ad155b0] {\n  display: block;\n  overflow: hidden;\n  background-color: #fff;\n}\n.address-panel .content[data-v-9ad155b0] {\n    display: block;\n    color: #999999;\n    overflow: hidden;\n    padding: .5em 1em;\n}\n.address-panel .content .consumer-name[data-v-9ad155b0],\n    .address-panel .content .consumer-mobile[data-v-9ad155b0] {\n      display: block;\n      float: left;\n      color: #000000;\n      font-size: 14px;\n      margin-right: 2em;\n}\n.address-panel .content .address[data-v-9ad155b0] {\n      clear: both;\n      display: block;\n      color: #999999;\n      font-size: 13px;\n}\n.address-panel .bottom-border[data-v-9ad155b0] {\n    display: block;\n    width: 100%;\n    height: 3px;\n    background-size: 100px 100px;\n    background-image: linear-gradient(45deg, #f25953 12.5%, #fbfaf5 12.5%, #fbfaf5 25%, #5590d6 25%, #5590d6 37.5%, #fbfaf5 37.5%, #fbfaf5 50%, #f25953 50%, #f25953 62.5%, #fbfaf5 62.5%, #fbfaf5 75%, #5590d6 75%, #5590d6 87.5%, #fbfaf5 87.5%, #fbfaf5 100%);\n}\n.product-list .price[data-v-9ad155b0] {\n  color: red;\n}\n.product-list .amount[data-v-9ad155b0] {\n  color: #999999;\n}\n.other-info[data-v-9ad155b0] {\n  margin-bottom: 70px;\n}\nfooter[data-v-9ad155b0] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  background-color: #fff;\n  height: 50px;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  z-index: 100;\n}\nfooter .total-price[data-v-9ad155b0] {\n    margin-right: .5em;\n    line-height: 50px;\n    color: red;\n}\nfooter .btn-checkout[data-v-9ad155b0] {\n    border: none;\n    color: #fff;\n    padding: 0 20px;\n    vertical-align: middle;\n    background-color: #e64340;\n}\n", ""]);
 
 // exports
 
@@ -863,7 +863,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-36a39d56", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-9ad155b0", module.exports)
   }
 }
 
