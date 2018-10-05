@@ -29,7 +29,7 @@ class PostController extends BaseApiController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function lists()
+    public function index()
     {
         $posts = $this->post->all();
 
@@ -43,7 +43,7 @@ class PostController extends BaseApiController
      *
      * @return Post
      */
-    public function detail($id)
+    public function show($id)
     {
         $post = $this->post->findOrFail($id);
 

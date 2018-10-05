@@ -37,7 +37,7 @@ class ProductController extends BaseApiController
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function list()
+    public function index(Request $request)
     {
         $products = $this->product->paginate();
 

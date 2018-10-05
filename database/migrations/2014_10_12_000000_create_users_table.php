@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar', 200)->nullable();
             $table->string('mobile', 14)->nullable()->default('');
             $table->string('email')->nullable()->default('');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->default('')->comment('密码');
             $table->string('openid', 50)->default('')->comment('OPENID');
             $table->string('nickname', 50)->default('')->comment('昵称');
