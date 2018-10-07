@@ -2,36 +2,26 @@
   <div class="login">
     <div class="login-form">
       <h1 class="title">WILLSHOP</h1>
-      <el-input type="text"
-                placeholder="请输入用户名"
-                v-model="loginForm.name"
-                @keyup.native.enter="login"
+      <el-input
+        type="text"
+        placeholder="请输入用户名"
+        v-model="loginForm.name"
+        @keyup.native.enter="login"
       />
-      <el-input type="password"
-                placeholder="请输入登录密码"
-                v-model="loginForm.password"
-                @keyup.native.enter="login"
+      <el-input
+        type="password"
+        placeholder="请输入登录密码"
+        v-model="loginForm.password"
+        @keyup.native.enter="login"
       />
-      <el-button class="btn-submit"
-                 type="primary"
-                 @click.native="login"
-                 :disabled="false"
-      >登录</el-button>
-
-      <!--<div class="icon-wechat-login"-->
-           <!--@click="scanLogin"-->
-      <!--&gt;-->
-        <!--<i class="iconfont icon-wechat-circle">-->
-      <!--</i></div>-->
+      <el-button
+        class="btn-submit"
+        type="primary"
+        @click.native="login"
+        :disabled="false"
+      >登录
+      </el-button>
     </div>
-
-    <!--<el-dialog title="微信扫码登录"-->
-               <!--size="tiny"-->
-               <!--:modal-append-to-body="false"-->
-               <!--v-model="dialogQrcodeVisible"-->
-    <!--&gt;-->
-      <!--<img :src="loginQrcode" alt="" class="qrcode"/>-->
-    <!--</el-dialog>-->
   </div>
 </template>
 
@@ -44,7 +34,7 @@
       return {
         loginForm: {
           name: 'admin',
-          password: '123456'
+          password: '12345678'
         },
         loginQrcode: null,
         dialogQrcodeVisible: false
@@ -72,19 +62,6 @@
             type: 'error'
           })
         })
-      },
-
-      scanLogin () {
-        if (this.loginQrcode === null) {
-          this.axios.get('login-qrcode').then((response) => {
-            this.loginQrcode = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=' + response.data.ticket
-            this.dialogQrcodeVisible = true
-          }).catch((error) => {
-            console.log(error)
-          })
-        } else {
-          this.dialogQrcodeVisible = true
-        }
       }
     }
   }
@@ -100,13 +77,13 @@
     bottom: 0;
     justify-content: center;
     align-items: center;
-    background: #324057;
+    background: #efefef;
     background-size: cover;
 
     .login-form {
       display: block;
       width: 360px;
-      background-color: rgba(0, 0, 0, .6);
+      background-color: rgba(0, 0, 0, .5);
       padding: 40px;
       border-radius: 10px;
 

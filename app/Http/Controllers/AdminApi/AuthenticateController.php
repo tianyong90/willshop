@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\AdminApi;
 
-use Carbon\Carbon;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
-use Laravel\Passport\Client;
-//use Socialite;
-
-use Illuminate\Http\Request;
 use App\User;
 use EasyWeChat;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\Client;
 use Validator;
+
+//use Socialite;
 
 class AuthenticateController extends BaseApiController
 {
@@ -41,22 +40,16 @@ class AuthenticateController extends BaseApiController
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|mixed
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|exists:users',
-            'password' => 'required|between:5,32',
+            'password' => 'required|between:8,32',
         ]);
 
-        if ($validator->fails()) {
-            $request->request->add([
-                'errors' => $validator->errors()->toArray(),
-                'code' => 401,
-            ]);
-
-            return $this->sendFailedLoginResponse($request);
-        }
+        $validator->validate();
 
         $credentials = $this->credentials($request);
 
@@ -81,53 +74,6 @@ class AuthenticateController extends BaseApiController
         }
 
         return $this->message('退出登录成功');
-    }
-
-    /**
-     * TODO: 第三方登录
-     *
-     * @param $driver
-     */
-    public function redirectToProvider($driver)
-    {
-//        if (!in_array($driver, ['qq', 'wechat'])) {
-//
-//            throw new NotFoundHttpException;
-//        }
-//
-//        return Socialite::driver($driver)->redirect();
-    }
-
-    /**
-     * TODO: 第三方登录回调
-     *
-     * @param $driver
-     */
-    public function handleProviderCallback($driver)
-    {
-//        $user = Socialite::driver($driver)->user();
-//
-//        $openId = $user->id;
-//
-//        // 第三方认证
-//        $db_user = User::where('xxx', $openId)->first();
-//
-//        if (empty($db_user)) {
-//
-//            $db_user = User::forceCreate([
-//                'phone' => '',
-//                'xxUnionId' => $openId,
-//                'nickname' => $user->nickname,
-//                'head' => $user->avatar,
-//            ]);
-//
-//        }
-//
-//        // 直接创建token
-//
-//        $token = $db_user->createToken($openId)->accessToken;
-//
-//        return $this->success(compact('token'));
     }
 
     /**
@@ -207,7 +153,7 @@ class AuthenticateController extends BaseApiController
     {
         $officialAccount = EasyWeChat::officialAccount();
 
-        $result = $officialAccount->qrcode->temporary('login_'.time(), 10000);
+        $result = $officialAccount->qrcode->temporary('login_' . time(), 10000);
 
         return $result;
     }
