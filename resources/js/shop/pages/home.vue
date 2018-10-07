@@ -1,9 +1,10 @@
 <template>
   <div class="main">
     <wv-swipe :height="180" :auto="4000">
-      <wv-swipe-item class="banner-swipe-item"
-                     v-for="banner in banners"
-                     :key="banner.index"
+      <wv-swipe-item
+        class="banner-swipe-item"
+        v-for="banner in banners"
+        :key="banner.index"
       >
         <img :src="banner.img" alt="">
       </wv-swipe-item>
@@ -27,7 +28,11 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import { Swipe, SwipeItem } from 'we-vue'
+
+  Vue.use(Swipe)
+    .use(SwipeItem)
 
   const banners = [
     {
@@ -45,11 +50,6 @@
   ]
 
   export default {
-    components: {
-      [Swipe.name]: Swipe,
-      [SwipeItem.name]: SwipeItem
-    },
-
     data () {
       return {
         products: [],
@@ -63,7 +63,7 @@
 
     methods: {
       getProducts () {
-        this.axios.get('product').then((response) => {
+        this.axios.get('products').then((response) => {
           this.products = response.data.products
         })
       }

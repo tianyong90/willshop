@@ -19,9 +19,10 @@ class CreateAddressesTable extends Migration
             $table->string('name', 20)->nullable()->comment('收货人');
             $table->string('mobile', 13)->nullable()->comment('手机号');
             $table->string('postcode', 6)->nullable()->comment('邮编');
+            $table->string('address_code', 6)->nullable()->comment('地址编码');
             $table->string('province', 20)->nullable()->comment('省');
             $table->string('city', 20)->nullable()->comment('市');
-            $table->string('area', 20)->nullable()->comment('区');
+            $table->string('county', 20)->nullable()->comment('区');
             $table->string('address', 50)->nullable()->comment('详细地址');
             $table->boolean('is_default')->default(false)->comment('是默认地址');
             $table->timestamps();

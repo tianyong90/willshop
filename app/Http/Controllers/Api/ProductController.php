@@ -33,25 +33,13 @@ class ProductController extends BaseApiController
     }
 
     /**
-     * 商品详情
-     *
-     * @param int $id
-     *
-     * @return mixed
-     */
-    public function show($id)
-    {
-        $product = $this->product->findOrFail($id);
-
-        return response()->json(compact('product'));
-    }
-
-    /**
      * 商品列表
      *
-     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function list(Request $request)
+    public function index(Request $request)
     {
         $keyword = $request->input('keyword');
         $categoryId = $request->input('categoryId');
@@ -72,5 +60,19 @@ class ProductController extends BaseApiController
         })->paginate();
 
         return response()->json(compact('products'));
+    }
+
+    /**
+     * 商品详情
+     *
+     * @param int $id
+     *
+     * @return mixed
+     */
+    public function show(int $id)
+    {
+        $product = $this->product->findOrFail($id);
+
+        return response()->json(compact('product'));
     }
 }

@@ -79,12 +79,12 @@ Route::prefix('shop')
     // 商品相关
 //    Route::resource('products', 'ProductController')->only(['index', 'show']);
     Route::resource('products', 'ProductController')->only(['index', 'show']);
-//
-//    // 商品分类
-//    Route::resource('product-categories', 'ProductCategoryController')->only(['show']);
-//
-//    // 文章
-//    Route::resource('/posts', 'PostController')->only(['index', 'show']);
+
+    // 商品分类
+    Route::resource('product-categories', 'ProductCategoryController')->only(['show']);
+
+    // 文章
+    Route::resource('/posts', 'PostController')->only(['index', 'show']);
 
 //    Route::group(['middleware' => []], function () {
 //        // 当前用户

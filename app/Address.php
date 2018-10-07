@@ -14,9 +14,10 @@ class Address extends Model
         'name',
         'mobile',
         'postcode',
+        'address_code',
         'province',
         'city',
-        'area',
+        'county',
         'address',
         'is_default',
     ];

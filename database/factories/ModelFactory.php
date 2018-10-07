@@ -56,8 +56,9 @@ $factory->define(App\Address::class, function (Faker\Generator $faker) {
         'mobile' => $faker->phoneNumber,
         'province' => $faker->state,
         'city' => $faker->city,
-        'area' => $faker->area,
+        'county' => $faker->streetName,
         'address' => $faker->streetAddress,
         'postcode' => $faker->postcode,
+        'address_code' => '420528',
     ];
 });

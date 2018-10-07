@@ -51,8 +51,8 @@ mix.webpackConfig(webpack => {
   }
 })
 
-mix.js('resources/assets/js/shop/index.js', 'js/shop.js')
-  .js('resources/assets/js/admin/index.js', 'js/admin.js')
+mix.js('resources/js/shop/index.js', 'js/shop.js')
+  .js('resources/js/admin/index.js', 'js/admin.js')
 
 // 用了 extract 后 hmr 无法正常使用，所以只要不使用 hmr 的时候使用 extract
 if (!Mix.isUsing('hmr')) {
@@ -60,8 +60,8 @@ if (!Mix.isUsing('hmr')) {
 }
 
 // scss
-mix.sass('resources/assets/sass/shop.scss', 'css/shop.css')
-  .sass('resources/assets/sass/admin.scss', 'css/admin.css');
+mix.sass('resources/sass/shop.scss', 'css/shop.css')
+  .sass('resources/sass/admin.scss', 'css/admin.css');
 
 // 仅在 production 模式下加版本
 if (mix.inProduction()) {

@@ -13,7 +13,7 @@
     </div>
 
     <wv-group>
-      <wv-cell title="已选" :value="amount + '件'" @click.native="showPopup"></wv-cell>
+      <wv-cell title="已选" :value="amount + '件'" @click.native="showPopup"/>
     </wv-group>
 
     <wv-popup v-model="popupVisible">
@@ -47,18 +47,17 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import { Swipe, SwipeItem, Group, Cell, Popup, NumberSpinner } from 'we-vue'
 
-  export default {
-    components: {
-      [Swipe.name]: Swipe,
-      [SwipeItem.name]: SwipeItem,
-      [Group.name]: Group,
-      [Cell.name]: Cell,
-      [Popup.name]: Popup,
-      [NumberSpinner.name]: NumberSpinner
-    },
+  Vue.use(Swipe)
+    .use(SwipeItem)
+    .use(Group)
+    .use(Cell)
+    .use(Popup)
+    .use(NumberSpinner)
 
+  export default {
     mounted () {
       this.getProduct()
       this.checkIsFavourite()
