@@ -1425,7 +1425,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -1465,7 +1464,7 @@ __WEBPACK_IMPORTED_MODULE_12_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_we_
     getProduct: function getProduct() {
       var _this = this;
 
-      this.axios.get('product/' + this.$route.params.id).then(function (response) {
+      this.axios.get('products/' + this.$route.params.id).then(function (response) {
         _this.product = response.data.product;
       });
     },
@@ -1475,7 +1474,7 @@ __WEBPACK_IMPORTED_MODULE_12_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_we_
     checkIsFavourite: function checkIsFavourite() {
       var _this2 = this;
 
-      this.axios.get('favourite/' + this.$route.params.id + '/is-favourite').then(function (response) {
+      this.axios.get('favourites/' + this.$route.params.id + '/is-favourite').then(function (response) {
         _this2.isFavourite = response.data.isFavourite;
       }).catch(function (error) {
         console.log(error);

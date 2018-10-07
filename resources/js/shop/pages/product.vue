@@ -17,7 +17,6 @@
     </wv-group>
 
     <wv-popup v-model="popupVisible">
-
       <wv-group>
         <wv-cell title="数量">
           <wv-number-spinner v-model="amount" :min="1" slot="ft"></wv-number-spinner>
@@ -88,14 +87,14 @@
 
     methods: {
       getProduct () {
-        this.axios.get(`product/${this.$route.params.id}`).then((response) => {
+        this.axios.get(`products/${this.$route.params.id}`).then((response) => {
           this.product = response.data.product
         })
       },
 
       // 商品是否已被收藏
       checkIsFavourite () {
-        this.axios.get(`favourite/${this.$route.params.id}/is-favourite`).then((response) => {
+        this.axios.get(`favourites/${this.$route.params.id}/is-favourite`).then((response) => {
           this.isFavourite = response.data.isFavourite
         }).catch((error) => {
           console.log(error)
