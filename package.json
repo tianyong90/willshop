@@ -20,7 +20,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
-    "bootstrap-sass": "^3.3.7",
     "browser-sync": "^2.26.0",
     "browser-sync-webpack-plugin": "^2.0.1",
     "china-area-data": "^4.0.0",

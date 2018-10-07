@@ -1,12 +1,12 @@
 <template>
   <div>
-    <wv-navbar v-model="status" @change="tabChange" active-color="red" fixed class="tab">
-      <wv-navbar-item id="all">全部</wv-navbar-item>
-      <wv-navbar-item id="need_to_pay">待付款</wv-navbar-item>
-      <wv-navbar-item id="delivered">待收货</wv-navbar-item>
-      <wv-navbar-item id="finished">已完成</wv-navbar-item>
-      <wv-navbar-item id="canceled">已取消</wv-navbar-item>
-    </wv-navbar>
+    <!--<wv-navbar v-model="status" @change="tabChange" active-color="red" fixed class="tab">-->
+      <!--<wv-navbar-item id="all">全部</wv-navbar-item>-->
+      <!--<wv-navbar-item id="need_to_pay">待付款</wv-navbar-item>-->
+      <!--<wv-navbar-item id="delivered">待收货</wv-navbar-item>-->
+      <!--<wv-navbar-item id="finished">已完成</wv-navbar-item>-->
+      <!--<wv-navbar-item id="canceled">已取消</wv-navbar-item>-->
+    <!--</wv-navbar>-->
 
     <div class="order-list" v-if="orders.data && orders.data.length>0">
       <router-link :to="'/order/' + order.number" class="order-item" v-for="order in orders.data" :key="order.id">
@@ -43,13 +43,13 @@
 </template>
 
 <script>
-  import { Navbar, NavbarItem, Button } from 'we-vue'
+  import { Button } from 'we-vue'
   import { mapState } from 'vuex'
 
   export default {
     components: {
-      [Navbar.name]: Navbar,
-      [NavbarItem.name]: NavbarItem,
+      // [Navbar.name]: Navbar,
+      // [NavbarItem.name]: NavbarItem,
       [Button.name]: Button
     },
 
