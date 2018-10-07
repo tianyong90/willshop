@@ -21,12 +21,13 @@ class BaseApiController extends Controller
      */
     public function __construct()
     {
-        // 请求头里的 user_id
-        $userId = Crypt::decrypt(\Request::cookie('user_id'));
-
-        if ($userId && is_numeric($userId)) {
-            $this->currentUser = User::find($userId);
-        }
+        // TODO
+//        // 请求头里的 user_id
+//        $userId = \Request::cookie('user_id');
+//
+//        if ($userId && is_numeric($userId)) {
+//            $this->currentUser = User::find($userId);
+//        }
     }
 
 
