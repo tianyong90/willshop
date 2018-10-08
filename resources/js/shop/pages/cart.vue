@@ -3,17 +3,24 @@
     <div class="weui-panel weui-panel_access">
       <div class="weui-panel__bd">
         <div class="weui-media-box weui-media-box_appmsg" v-for="cart in carts">
-          <input class="checker" type="checkbox" :value="cart" v-model="selectedCarts">
+          <input class="checker"
+                 type="checkbox"
+                 :value="cart"
+                 v-model="selectedCarts">
           <router-link tag="div" :to="'/product/'+cart.product.id" class="weui-media-box__hd">
             <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
           </router-link>
           <div class="weui-media-box__bd">
-            <router-link tag="h4" :to="'/product/' + cart.product.id" class="weui-media-box__title"
-                         v-text="cart.product.name"></router-link>
-            <p class="weui-media-box__desc price" v-text="cart.product.price"></p>
+            <router-link tag="h4"
+                         :to="'/product/' + cart.product.id"
+                         class="weui-media-box__title"
+                         v-text="cart.product.name"/>
+            <p class="weui-media-box__desc price" v-text="cart.product.price"/>
 
-            <wv-number-spinner class="amount" v-model="cart.amount" :min="1"
-                               @change="onChange(cart.id, $event)"></wv-number-spinner>
+            <wv-number-spinner class="amount"
+                               v-model="cart.amount"
+                               :min="1"
+                               @change="onChange(cart.id, $event)"/>
           </div>
         </div>
       </div>
@@ -32,7 +39,7 @@
     </footer>
   </div>
   <div class="empty-msg" v-else-if="carts.length === 0 && !isLoading">
-    <i class="iconfont icon-cart"></i>
+    <i class="iconfont icon-cart"/>
     <div class="msg">购物车里空荡荡的</div>
   </div>
 </template>
@@ -122,7 +129,7 @@
 
       // 更改数量
       onChange (cartId, evt) {
-        this.axios.post('cart/update-amount', {id: cartId, amount: evt}).then((response) => {
+        this.axios.post('cart/update-amount', { id: cartId, amount: evt }).then((response) => {
           console.log(response)
         }).catch((error) => {
           console.log(error)

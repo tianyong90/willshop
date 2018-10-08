@@ -10,7 +10,7 @@
 
     <div class="right-part">
       <router-link to="/profile">
-        <img :src="user.avatar" alt="" class="avatar"/>
+        <img :src="user.avatar" alt="" class="avatar">
       </router-link>
       <el-dropdown id="dropdown-menu">
         <span class="el-dropdown-link nickname" v-text="user.name"/>

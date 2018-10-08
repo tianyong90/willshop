@@ -22,7 +22,7 @@ router.beforeEach((to, from, next) => {
     // 需要登录后访问的页面，redirect 参数用于登录完成后跳转
     next({
       path: '/login',
-      query: {redirect: to.fullPath}
+      query: { redirect: to.fullPath }
     })
   }
 

@@ -37,8 +37,7 @@
         :current-page="brands.current_page"
         :page-size="brands.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="brands.tatal">
-      </el-pagination>
+        :total="brands.tatal"/>
     </div>
   </div>
 </template>

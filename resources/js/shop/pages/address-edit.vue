@@ -1,16 +1,21 @@
 <template>
   <div>
     <wv-group title="收货地址信息">
-      <wv-input label="收货人" v-model="address.name"></wv-input>
-      <wv-input label="手机号码" v-model="address.mobile"></wv-input>
-      <wv-cell title="所在地区" :value="address | pcaFilter" is-link
-               @click.native="addressPickerShow = true"></wv-cell>
-      <wv-input label="详细地址" v-model="address.address"></wv-input>
-      <wv-input label="邮政编码" v-model="address.postcode"></wv-input>
+      <wv-input label="收货人" v-model="address.name"/>
+      <wv-input label="手机号码" v-model="address.mobile"/>
+      <wv-cell title="所在地区"
+               :value="address | pcaFilter"
+               is-link
+               @click.native="addressPickerShow = true"/>
+      <wv-input label="详细地址" v-model="address.address"/>
+      <wv-input label="邮政编码" v-model="address.postcode"/>
     </wv-group>
 
-    <wv-picker ref="addressPicker" v-model="addressPickerShow" :slots="addressSlots" @change="onAddressChange"
-               @confirm="confirmAddress"></wv-picker>
+    <wv-picker ref="addressPicker"
+               v-model="addressPickerShow"
+               :slots="addressSlots"
+               @change="onAddressChange"
+               @confirm="confirmAddress"/>
 
     <footer>
       <wv-flex :gutter="20">

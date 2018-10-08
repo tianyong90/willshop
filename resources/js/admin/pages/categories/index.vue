@@ -21,7 +21,7 @@
       <el-table-column prop="id" label="ID"/>
       <el-table-column label="头像">
         <template slot-scope="scope">
-          <img :src="scope.row.thumbnail" class="thumbnail"/>
+          <img :src="scope.row.thumbnail" class="thumbnail">
         </template>
       </el-table-column>
       <el-table-column prop="name" label="分类名"/>
@@ -43,8 +43,7 @@
         :current-page="categories.current_page"
         :page-size="categories.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="categories.tatal">
-      </el-pagination>
+        :total="categories.tatal"/>
     </div>
   </div>
 </template>

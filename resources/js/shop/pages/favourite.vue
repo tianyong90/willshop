@@ -1,21 +1,24 @@
 <template>
   <div class="weui-panel weui-panel_access" v-if="favourites.length>0">
     <div class="weui-panel__bd">
-      <router-link :to="'/product/' + favourite.product.id" tag="div" class="weui-media-box weui-media-box_appmsg"
-                   v-for="favourite in favourites" :key="favourite.id">
+      <router-link :to="'/product/' + favourite.product.id"
+                   tag="div"
+                   class="weui-media-box weui-media-box_appmsg"
+                   v-for="favourite in favourites"
+                   :key="favourite.id">
         <div class="weui-media-box__hd">
           <img class="weui-media-box__thumb" :src="favourite.product.thumbnail">
         </div>
         <div class="weui-media-box__bd">
-          <h4 class="weui-media-box__title" v-text="favourite.product.name"></h4>
-          <p class="weui-media-box__desc price" v-text="favourite.product.price"></p>
+          <h4 class="weui-media-box__title" v-text="favourite.product.name"/>
+          <p class="weui-media-box__desc price" v-text="favourite.product.price"/>
         </div>
       </router-link>
     </div>
   </div>
 
   <div class="empty-msg" v-else-if="favourites.length === 0 && !isLoading">
-    <i class="iconfont icon-favor"></i>
+    <i class="iconfont icon-favor"/>
     <div class="msg">还没有收藏任何宝贝</div>
   </div>
 </template>

@@ -23,22 +23,22 @@
 
     <wv-group>
       <wv-cell title="我的订单" is-link to="order-list">
-        <i class="icon iconfont icon-goods" slot="icon"></i>
+        <i class="icon iconfont icon-goods" slot="icon"/>
       </wv-cell>
       <wv-cell title="收货地址" is-link to="address">
-        <i class="icon iconfont icon-location" slot="icon"></i>
+        <i class="icon iconfont icon-location" slot="icon"/>
       </wv-cell>
       <wv-cell title="我的收藏" is-link to="favourite">
-        <i class="icon iconfont icon-like" slot="icon"></i>
+        <i class="icon iconfont icon-like" slot="icon"/>
       </wv-cell>
     </wv-group>
 
     <wv-group>
       <wv-cell title="使用帮助" is-link to="help">
-        <i class="icon iconfont icon-question" slot="icon"></i>
+        <i class="icon iconfont icon-question" slot="icon"/>
       </wv-cell>
       <wv-cell title="关于我们" is-link to="about-us">
-        <i class="icon iconfont icon-info" slot="icon"></i>
+        <i class="icon iconfont icon-info" slot="icon"/>
       </wv-cell>
     </wv-group>
   </div>

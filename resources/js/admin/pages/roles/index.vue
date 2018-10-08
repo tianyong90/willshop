@@ -10,12 +10,12 @@
           />
         </el-form-item>
         <!--<el-form-item>-->
-          <!--<el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">-->
-            <!--<el-option label="全部" value="all"></el-option>-->
-            <!--<el-option label="男" value="0"></el-option>-->
-            <!--<el-option label="女" value="1"></el-option>-->
-            <!--<el-option label="其它" value="2"></el-option>-->
-          <!--</el-select>-->
+        <!--<el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">-->
+        <!--<el-option label="全部" value="all"></el-option>-->
+        <!--<el-option label="男" value="0"></el-option>-->
+        <!--<el-option label="女" value="1"></el-option>-->
+        <!--<el-option label="其它" value="2"></el-option>-->
+        <!--</el-select>-->
         <!--</el-form-item>-->
         <el-form-item>
           <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
@@ -42,12 +42,11 @@
 
     <div class="paginator">
       <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="roles.current_page"
-          :page-size="roles.per_page"
-          layout="total, prev, pager, next, jumper"
-          :total="roles.tatal">
-      </el-pagination>
+        @current-change="handleCurrentChange"
+        :current-page="roles.current_page"
+        :page-size="roles.per_page"
+        layout="total, prev, pager, next, jumper"
+        :total="roles.tatal"/>
     </div>
   </div>
 </template>

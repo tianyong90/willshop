@@ -1,6 +1,10 @@
 <template>
   <wv-group title="常见问题" class="post-list">
-    <wv-cell v-for="post in posts" :key="post.id" :title="post.title" :to="'/help/' + post.id" is-link></wv-cell>
+    <wv-cell v-for="post in posts"
+             :key="post.id"
+             :title="post.title"
+             :to="'/help/' + post.id"
+             is-link/>
   </wv-group>
 </template>
 

@@ -33,7 +33,7 @@
 
     <el-table :data="products.data" border>
       <el-table-column label="预览图" inline-template>
-        <img :src="row.thumbnail" class="thumbnail"/>
+        <img :src="row.thumbnail" class="thumbnail">
       </el-table-column>
       <el-table-column prop="name" label="名称"/>
       <el-table-column prop="price" label="价格（元）"/>
@@ -58,12 +58,11 @@
 
     <div class="paginator">
       <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="products.current_page"
-          :page-size="products.per_page"
-          layout="total, prev, pager, next, jumper"
-          :total="products.tatal">
-      </el-pagination>
+        @current-change="handleCurrentChange"
+        :current-page="products.current_page"
+        :page-size="products.per_page"
+        layout="total, prev, pager, next, jumper"
+        :total="products.tatal"/>
     </div>
   </div>
 </template>

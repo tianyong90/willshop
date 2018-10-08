@@ -19,7 +19,7 @@
     <wv-popup v-model="popupVisible">
       <wv-group>
         <wv-cell title="数量">
-          <wv-number-spinner v-model="amount" :min="1" slot="ft"></wv-number-spinner>
+          <wv-number-spinner v-model="amount" :min="1" slot="ft"/>
         </wv-cell>
       </wv-group>
       <div class="popup-footer">
@@ -27,12 +27,12 @@
       </div>
     </wv-popup>
 
-    <div class="description" v-html="product.description"></div>
+    <div class="description" v-html="product.description"/>
 
     <footer>
       <div class="btn btn-favourite" @click="toggleFavourite(product.id)">
         <i class="icon iconfont" :class="{ 'is-favourite': isFavourite }">{{ isFavourite ? '&#xe606;' : '&#xe607;'
-          }}</i>
+        }}</i>
         <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
       </div>
       <router-link class="btn btn-cart" to="/cart">
@@ -78,7 +78,7 @@
         let temp = []
         if (this.product.pictures) {
           this.product.pictures.forEach(picture => {
-            temp.push({img: picture})
+            temp.push({ img: picture })
           })
         }
         return temp

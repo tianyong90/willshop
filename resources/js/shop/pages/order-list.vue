@@ -1,34 +1,47 @@
 <template>
   <div>
     <!--<wv-navbar v-model="status" @change="tabChange" active-color="red" fixed class="tab">-->
-      <!--<wv-navbar-item id="all">全部</wv-navbar-item>-->
-      <!--<wv-navbar-item id="need_to_pay">待付款</wv-navbar-item>-->
-      <!--<wv-navbar-item id="delivered">待收货</wv-navbar-item>-->
-      <!--<wv-navbar-item id="finished">已完成</wv-navbar-item>-->
-      <!--<wv-navbar-item id="canceled">已取消</wv-navbar-item>-->
+    <!--<wv-navbar-item id="all">全部</wv-navbar-item>-->
+    <!--<wv-navbar-item id="need_to_pay">待付款</wv-navbar-item>-->
+    <!--<wv-navbar-item id="delivered">待收货</wv-navbar-item>-->
+    <!--<wv-navbar-item id="finished">已完成</wv-navbar-item>-->
+    <!--<wv-navbar-item id="canceled">已取消</wv-navbar-item>-->
     <!--</wv-navbar>-->
 
     <div class="order-list" v-if="orders.data && orders.data.length>0">
-      <router-link :to="'/order/' + order.number" class="order-item" v-for="order in orders.data" :key="order.id">
+      <router-link :to="'/order/' + order.number"
+                   class="order-item"
+                   v-for="order in orders.data"
+                   :key="order.id">
         <div class="hd">
           <span class="order-number">{{ order.number }}</span>
-          <div class="btn-delete" v-if="order.status === 'canceled' || order.status === 'canceled'"
-               @click.prevent.stop="destroyOrder(order.id)"><i class="iconfont icon-delete"></i></div>
+          <div class="btn-delete"
+               v-if="order.status === 'canceled' || order.status === 'canceled'"
+               @click.prevent.stop="destroyOrder(order.id)"><i class="iconfont icon-delete"/></div>
         </div>
         <div class="bd">
           <div class="product" v-for="orderItem in order.order_items" :key="orderItem.product.id">
-            <img class="thumbnail" :src="orderItem.product.thumbnail" alt=""/>
-            <h4 class="name" v-html="orderItem.product.name"></h4>
+            <img class="thumbnail" :src="orderItem.product.thumbnail" alt="">
+            <h4 class="name" v-html="orderItem.product.name"/>
           </div>
         </div>
         <div class="ft">
-          <wv-button type="primary" mini plain v-if="order.status === 'need_to_pay'"
+          <wv-button type="primary"
+                     mini
+                     plain
+                     v-if="order.status === 'need_to_pay'"
                      @click.prevent.stop="$router.push('/payment/' + order.number)">支付
           </wv-button>
-          <wv-button type="primary" mini plain @click.prevent.stop="$router.push('payment/' + order.number)">
+          <wv-button type="primary"
+                     mini
+                     plain
+                     @click.prevent.stop="$router.push('payment/' + order.number)">
             再次购买
           </wv-button>
-          <wv-button type="default" mini plain v-if="order.status === 'need_to_pay'"
+          <wv-button type="default"
+                     mini
+                     plain
+                     v-if="order.status === 'need_to_pay'"
                      @click.prevent.stop="cancelOrder(order.id)">取消
           </wv-button>
         </div>
@@ -36,7 +49,7 @@
     </div>
 
     <div class="empty-msg" v-else-if="!isLoading && orders.data && orders.data.length === 0">
-      <i class="iconfont icon-order"></i>
+      <i class="iconfont icon-order"/>
       <div class="msg">没有相关订单记录</div>
     </div>
   </div>
@@ -73,7 +86,7 @@
     methods: {
       getOrders () {
         this.axios.get('order', {
-          params: {status: this.status}
+          params: { status: this.status }
         }).then((response) => {
           this.orders = response.data.orders
         }).catch((error) => {

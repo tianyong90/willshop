@@ -37,8 +37,7 @@
         :current-page="permissions.current_page"
         :page-size="permissions.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="permissions.tatal">
-      </el-pagination>
+        :total="permissions.tatal"/>
     </div>
   </div>
 </template>

@@ -30,7 +30,7 @@
     <el-table :data="users.data" border>
       <el-table-column label="头像">
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" class="avatar"/>
+          <img :src="scope.row.avatar" class="avatar">
         </template>
       </el-table-column>
       <el-table-column prop="nickname" label="昵称"/>
@@ -57,12 +57,11 @@
 
     <div class="paginator">
       <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="users.current_page"
-          :page-size="users.per_page"
-          layout="total, prev, pager, next, jumper"
-          :total="users.tatal">
-      </el-pagination>
+        @current-change="handleCurrentChange"
+        :current-page="users.current_page"
+        :page-size="users.per_page"
+        layout="total, prev, pager, next, jumper"
+        :total="users.tatal"/>
     </div>
   </div>
 </template>

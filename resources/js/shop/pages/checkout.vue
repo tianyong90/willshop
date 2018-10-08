@@ -9,7 +9,7 @@
         <div class="consumer-mobile">13222225555</div>
         <div class="address">广东省深圳市南山区软件产业基地</div>
       </div>
-      <div class="bottom-border"></div>
+      <div class="bottom-border"/>
     </router-link>
 
     <div class="weui-panel weui-panel_access product-list">
@@ -19,10 +19,10 @@
             <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
           </div>
           <div class="weui-media-box__bd">
-            <h4 class="weui-media-box__title" v-text="cart.product.name"></h4>
+            <h4 class="weui-media-box__title" v-text="cart.product.name"/>
             <p class="weui-media-box__desc">
               <span class="price">{{ cart.product.price | priceFilter }}</span> &times;
-              <span v-html="cart.amount" class="amount"></span>
+              <span v-html="cart.amount" class="amount"/>
             </p>
           </div>
         </div>
@@ -30,9 +30,9 @@
     </div>
 
     <wv-group class="other-info">
-      <wv-cell title="商品件数" :value="productAmount"></wv-cell>
-      <wv-cell title="商品金额" :value="totalPrice | priceFilter"></wv-cell>
-      <wv-cell title="优惠" value="0"></wv-cell>
+      <wv-cell title="商品件数" :value="productAmount"/>
+      <wv-cell title="商品金额" :value="totalPrice | priceFilter"/>
+      <wv-cell title="优惠" value="0"/>
     </wv-group>
 
     <footer>

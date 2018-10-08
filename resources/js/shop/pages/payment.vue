@@ -5,12 +5,12 @@
     </div>
 
     <wv-group>
-      <wv-cell title="订单号" :value="orderNumber"></wv-cell>
-      <wv-cell title="商品金额" :value="order.total_fee | priceFilter"></wv-cell>
+      <wv-cell title="订单号" :value="orderNumber"/>
+      <wv-cell title="商品金额" :value="order.total_fee | priceFilter"/>
     </wv-group>
 
     <div class="buttons">
-      <wv-button type="primary" @click="pay"><i class="iconfont icon-wechat-pay"></i>微信支付</wv-button>
+      <wv-button type="primary" @click="pay"><i class="iconfont icon-wechat-pay"/>微信支付</wv-button>
     </div>
   </div>
 </template>

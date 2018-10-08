@@ -11,7 +11,7 @@
     </wv-swipe>
 
     <div class="ad">
-      <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" alt=""/>
+      <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" alt="">
       <router-link to="">去看看</router-link>
     </div>
 
@@ -19,8 +19,8 @@
       <div class="product-item" v-for="product in products.data">
         <router-link :to="'/product/' + product.id">
           <img class="thumbnail" :src="product.thumbnail" alt="">
-          <span class="name" v-text="product.name"></span>
-          <div class="price" v-html="product.price"></div>
+          <span class="name" v-text="product.name"/>
+          <div class="price" v-html="product.price"/>
         </router-link>
       </div>
     </div>

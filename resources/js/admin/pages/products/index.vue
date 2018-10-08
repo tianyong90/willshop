@@ -33,7 +33,7 @@
     <el-table :data="products.data" border>
       <el-table-column label="预览图" width="90">
         <template slot-scope="scope">
-          <img :src="scope.row.thumbnail" class="thumbnail"/>
+          <img :src="scope.row.thumbnail" class="thumbnail">
         </template>
       </el-table-column>
       <el-table-column prop="name" label="名称"/>
@@ -59,12 +59,11 @@
 
     <div class="paginator">
       <el-pagination
-          @current-change="handleCurrentChange"
-          :current-page="products.current_page"
-          :page-size="products.per_page"
-          layout="total, prev, pager, next, jumper"
-          :total="products.tatal">
-      </el-pagination>
+        @current-change="handleCurrentChange"
+        :current-page="products.current_page"
+        :page-size="products.per_page"
+        layout="total, prev, pager, next, jumper"
+        :total="products.tatal"/>
     </div>
   </div>
 </template>

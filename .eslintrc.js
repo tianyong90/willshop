@@ -1,16 +1,38 @@
 module.exports = {
-  'root': true,
-  'extends': 'standard',
-  'env': {
-    'browser': true,
-    'es6': true,
-    'node': true
+  root: true,
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
-  'parser': 'babel-eslint',
-  'plugins': [
-    'html'
+  env: {
+    es6: true,
+    browser: true,
+    node: true
+  },
+  extends: [
+    'plugin:vue/strongly-recommended',
+    'standard'
   ],
-  'rules': {
-    'no-useless-escape': 0
+  rules: {
+    'vue/html-indent': ['error', 2, {'attribute': 1}],
+    'vue/script-indent': ['error', 2, {'baseIndent': 1}],
+    'vue/jsx-uses-vars': 'error',
+    'vue/require-v-for-key': 'off',
+    "vue/require-default-prop": 'off',
+    "vue/name-property-casing": 'off',
+    "vue/no-unused-vars": 'off',
+    'vue/max-attributes-per-line': ['error', {
+      "singleline": 3,
+      "multiline": {
+        "max": 1,
+        "allowFirstLine": true
+      }
+    }],
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-useless-escape': 'off',
+    'indent': 'off',
+    'no-undef': 'off',
+    'no-unused-vars': 'off'
   }
 }

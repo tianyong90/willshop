@@ -6,17 +6,18 @@
            background-color="#f2f2f2"
   >
     <template v-for="(item, index) in MenuConfig">
-      <el-menu-item :index="item.route" v-if="!item.subItems">
+      <el-menu-item :index="item.route" v-if="!item.subItems" :key="index">
         <i :class="item.icon"/>{{ item.title }}
       </el-menu-item>
-      <el-submenu :index="index.toString()" v-else>
+      <el-submenu :index="index.toString()" v-else :key="index">
         <template slot="title">
           <i :class="item.icon"/>{{ item.title }}
         </template>
-        <el-menu-item :index="subItem.route"
-                      v-for="subItem in item.subItems"
-                      v-text="subItem.title"
-                      :key="subItem.index"
+        <el-menu-item
+          :index="subItem.route"
+          v-for="subItem in item.subItems"
+          v-text="subItem.title"
+          :key="subItem.index"
         />
       </el-submenu>
     </template>
@@ -28,8 +29,7 @@
 
   export default {
     data () {
-      return {
-      }
+      return {}
     },
 
     computed: {

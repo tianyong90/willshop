@@ -5,18 +5,20 @@
     </div>
 
     <div class="address-info">
-      <span class="name" v-text="order.consumer_name"></span>
-      <span class="mobile" v-text="order.consumer_mobile"></span>
-      <p class="address" v-text="order.address"></p>
+      <span class="name" v-text="order.consumer_name"/>
+      <span class="mobile" v-text="order.consumer_mobile"/>
+      <p class="address" v-text="order.address"/>
     </div>
 
     <div class="product-list">
-      <router-link :to="'/product/' + orderItem.product.id" class="product-item"
-                   v-for="orderItem in order.order_items" :key="orderItem.product.id">
-        <img :src="orderItem.product.thumbnail" alt="" class="thumbnail"/>
+      <router-link :to="'/product/' + orderItem.product.id"
+                   class="product-item"
+                   v-for="orderItem in order.order_items"
+                   :key="orderItem.product.id">
+        <img :src="orderItem.product.thumbnail" alt="" class="thumbnail">
 
         <div class="item-right">
-          <h4 class="name" v-html="orderItem.product.name"></h4>
+          <h4 class="name" v-html="orderItem.product.name"/>
           <div class="amount">数量：{{ orderItem.amount }}</div>
           <div class="price">{{ orderItem.product.price | priceFilter }}</div>
 
@@ -26,15 +28,15 @@
     </div>
 
     <wv-group class="order-info">
-      <wv-cell title="订单号" :value="order.number"></wv-cell>
-      <wv-cell title="下单时间" :value="order.created_at"></wv-cell>
-      <wv-cell title="支付时间" :value="order.created_at"></wv-cell>
-      <wv-cell title="支付方式" :value="order.created_at"></wv-cell>
+      <wv-cell title="订单号" :value="order.number"/>
+      <wv-cell title="下单时间" :value="order.created_at"/>
+      <wv-cell title="支付时间" :value="order.created_at"/>
+      <wv-cell title="支付方式" :value="order.created_at"/>
     </wv-group>
 
     <wv-group class="fee-info">
-      <wv-cell title="订单总额" :value="order.total_fee"></wv-cell>
-      <wv-cell title="运费" :value="order.total_fee"></wv-cell>
+      <wv-cell title="订单总额" :value="order.total_fee"/>
+      <wv-cell title="运费" :value="order.total_fee"/>
     </wv-group>
 
     <footer>

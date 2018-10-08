@@ -17,7 +17,7 @@
     </ul>
 
     <div class="empty-msg" v-else-if="addresses.length === 0 && !isLoading">
-      <i class="iconfont icon-map-marker"></i>
+      <i class="iconfont icon-map-marker"/>
       <div class="msg">您还没有设置地址</div>
     </div>
 
