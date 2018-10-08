@@ -1,7 +1,7 @@
 <template>
   <div class="login">
-    <div class="login-form">
-      <h1 class="title">WILLSHOP</h1>
+    <el-form :model="loginForm" class="login-form">
+      <h1 class="title">ADMIN</h1>
       <el-input
         type="text"
         placeholder="请输入用户名"
@@ -21,7 +21,7 @@
         :disabled="false"
       >登录
       </el-button>
-    </div>
+    </el-form>
   </div>
 </template>
 
@@ -39,9 +39,6 @@
         loginQrcode: null,
         dialogQrcodeVisible: false
       }
-    },
-
-    mounted () {
     },
 
     methods: {
@@ -94,7 +91,7 @@
         text-align: center;
         font-family: 'Microsoft Yahei', sans-serif;
         font-weight: 400;
-        margin-bottom: 1.5em;
+        margin: 0 0 1em 0;
       }
 
       .el-input {
@@ -106,32 +103,8 @@
         display: block;
         overflow: hidden;
         width: 100%;
-        margin-top: 3rem;
+        margin-top: 2rem;
       }
     }
-  }
-
-  .icon-wechat-login {
-    display: block;
-    overflow: hidden;
-    text-align: center;
-    margin-top: 20px;
-
-    .iconfont {
-      color: #fff;
-      font-size: 40px;
-      cursor: pointer;
-
-      &:hover {
-        color: darken(#fff, 30%);
-      }
-    }
-  }
-
-  .qrcode {
-    display: block;
-    margin: 0 auto;
-    width: 300px;
-    height: 300px;
   }
 </style>

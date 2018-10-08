@@ -6,7 +6,6 @@ import VueAxios from 'vue-axios'
 import store from './store/index'
 import adminConfig from './config'
 import router from './router'
-// import Echo from 'laravel-echo'
 
 Vue.config.productionTip = false
 
@@ -78,31 +77,6 @@ axios.interceptors.response.use((response) => {
 
   return Promise.reject(error)
 })
-
-// TODO: laravel echo 实现实时通知功能
-// if (typeof io !== 'undefined') {
-//   const echo = new Echo({
-//     broadcaster: 'socket.io',
-//     host: 'http://willshop.test:6001'
-//   })
-//
-//   echo.join('chatroom')
-//     .here((users) => {
-//       // this.usersInRoom = users
-//     })
-//     .joining((user) => {
-//       // this.usersInRoom.push(user)
-//     })
-//     .leaving((user) => {
-//       // this.usersInRoom = this.usersInRoom.filter(u => u != user)
-//     })
-//     .listen('MessagePosted', (e) => {
-//       // this.messages.push({
-//       //   message: e.message.message,
-//       //   user: e.user
-//       // })
-//     })
-// }
 
 const app = new Vue({
   el: '#app',

@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\Client;
 use Validator;
 
-//use Socialite;
-
 class AuthenticateController extends BaseApiController
 {
     use AuthenticatesUsers;
