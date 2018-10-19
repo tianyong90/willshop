@@ -1,35 +1,24 @@
 <template>
   <div class="main-container main-with-padding">
-    <el-row
-      :gutter="20"
-      type="flex"
-      justify="center">
+    <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="6">
-        <el-card
-          shadow="hover"
-          class="card">
-          <div class="card-title">会员数</div>
+        <el-card shadow="hover" class="card">
+          <div class="card-title">会员数 {{ userCount }}</div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card
-          shadow="hover"
-          class="card">
-          <div class="card-title">商品数</div>
+        <el-card shadow="hover" class="card">
+          <div class="card-title">商品数 {{ productCount }}</div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card
-          shadow="hover"
-          class="card">
-          <div class="card-title">订单数</div>
+        <el-card shadow="hover" class="card">
+          <div class="card-title">订单数 {{ orderCount }}</div>
         </el-card>
       </el-col>
       <el-col :span="6">
-        <el-card
-          shadow="hover"
-          class="card">
-          <div class="card-title">订单数</div>
+        <el-card shadow="hover" class="card">
+          <div class="card-title">订单数 {{ orderCount }}</div>
         </el-card>
       </el-col>
     </el-row>
@@ -37,19 +26,24 @@
 </template>
 
 <script>
-// import userConfig from '../config'
+import userConfig from '../config'
 
 export default {
   data () {
-    return {}
+    return {
+      userCount: 0,
+      productCount: 0,
+      orderCount: 0
+    }
   },
+
+  computed: {},
 
   mounted () {
     this.axios
-      .get('user')
+      .get('stats')
       .then(response => {
-        // this.accounts = response.data.accounts;
-        // window.localStorage.setItem(userConfig.accountsKey, JSON.stringify(response.data.accounts));
+        Object.assign(this.$data, response.data)
       })
       .catch(error => {
         console.log(error)

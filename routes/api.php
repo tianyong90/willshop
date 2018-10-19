@@ -29,6 +29,9 @@ Route::prefix('admin')
                 Route::get('/current-user', 'AuthenticateController@getAuthenticatedUser');
                 Route::get('/users', 'UserController@list');
 
+                // 统计信息
+                Route::get('stats', 'StatsController@index');
+
                 // roles
                 Route::resource('roles', 'RoleController');
 

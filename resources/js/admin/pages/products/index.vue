@@ -91,7 +91,8 @@
         :current-page="products.current_page"
         :page-size="products.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="products.tatal"/>
+        :total="products.tatal"
+      />
     </div>
   </div>
 </template>
