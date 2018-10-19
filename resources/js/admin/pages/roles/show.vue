@@ -59,12 +59,12 @@ export default {
 
     const { roleId } = this.$route.params
 
-    this.loadData(roleId)
+    this.loadTableData(roleId)
   },
 
   methods: {
     ...mapActions({
-      loadData: 'getRole',
+      loadTableData: 'getRole',
       getGuardNames: 'getGuardNames'
     }),
 

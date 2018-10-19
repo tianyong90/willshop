@@ -9,7 +9,7 @@
           <el-input
             v-model="searchForm.keyword"
             placeholder="按昵称搜索"
-            @keyup.enter.native="loadData"
+            @keyup.enter.native="loadTableData"
           />
         </el-form-item>
         <el-form-item>
@@ -92,12 +92,12 @@ export default {
   },
 
   mounted () {
-    this.loadData()
+    this.loadTableData()
   },
 
   methods: {
     ...mapActions({
-      loadData: 'getPermissions'
+      loadTableData: 'getPermissions'
     })
   }
 }

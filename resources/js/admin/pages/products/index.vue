@@ -10,14 +10,14 @@
           <el-input
             v-model="searchForm.keyword"
             placeholder="名称搜索"
-            @keyup.enter.native="loadData"
+            @keyup.enter.native="loadTableData"
           />
         </el-form-item>
         <el-form-item>
           <el-select
             v-model="searchForm.sex"
             placeholder="状态筛选"
-            @change="loadData"
+            @change="loadTableData"
           >
             <el-option
               label="全部状态"
@@ -120,16 +120,16 @@ export default {
   },
 
   mounted () {
-    this.loadData()
+    this.loadTableData()
   },
 
   methods: {
     ...mapActions({
-      loadData: 'getProducts'
+      loadTableData: 'getProducts'
     }),
 
     // // 以分页格式加载商品列表数据
-    // loadData (page = 1) {
+    // loadTableData (page = 1) {
     //   this.axios.get('product', {
     //     params: {
     //       keyword: this.searchForm.keyword,

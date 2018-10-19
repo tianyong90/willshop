@@ -9,11 +9,11 @@
           <el-input
             v-model="searchForm.keyword"
             placeholder="按昵称搜索"
-            @keyup.enter.native="loadData"
+            @keyup.enter.native="loadTableData"
           />
         </el-form-item>
         <!--<el-form-item>-->
-        <!--<el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">-->
+        <!--<el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadTableData">-->
         <!--<el-option label="全部" value="all"></el-option>-->
         <!--<el-option label="男" value="0"></el-option>-->
         <!--<el-option label="女" value="1"></el-option>-->
@@ -103,12 +103,12 @@ export default {
   },
 
   mounted () {
-    this.loadData()
+    this.loadTableData()
   },
 
   methods: {
     ...mapActions({
-      loadData: 'getRoles'
+      loadTableData: 'getRoles'
     })
   }
 }

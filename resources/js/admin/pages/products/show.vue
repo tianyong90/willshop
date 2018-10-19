@@ -64,12 +64,12 @@ export default {
   mounted () {
     const { productId } = this.$route.params
 
-    this.loadData(productId)
+    this.loadTableData(productId)
   },
 
   methods: {
     ...mapActions({
-      loadData: 'getRole'
+      loadTableData: 'getRole'
     }),
 
     store () {

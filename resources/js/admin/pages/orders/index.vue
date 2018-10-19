@@ -9,13 +9,13 @@
           <el-input
             v-model="searchForm.keyword"
             placeholder="按昵称搜索"
-            @keyup.enter.native="loadData"/>
+            @keyup.enter.native="loadTableData"/>
         </el-form-item>
         <el-form-item>
           <el-select
             v-model="searchForm.sex"
             placeholder="性别筛选"
-            @change="loadData">
+            @change="loadTableData">
             <el-option
               label="全部"
               value="all"/>
@@ -104,11 +104,11 @@ export default {
   },
 
   mounted () {
-    this.loadData()
+    this.loadTableData()
   },
 
   methods: {
-    loadData (page = 1) {
+    loadTableData (page = 1) {
       this.axios
         .get('order/list', {
           params: {
@@ -127,7 +127,7 @@ export default {
       this.axios
         .post('order/lsit')
         .then(response => {
-          this.loadData(1)
+          this.loadTableData(1)
         })
         .catch(error => {
           console.log(error)

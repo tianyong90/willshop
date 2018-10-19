@@ -52,11 +52,11 @@ export default {
   },
 
   mounted () {
-    this.loadData()
+    this.loadTableData()
   },
 
   methods: {
-    loadData (page = 1) {
+    loadTableData (page = 1) {
       this.axios
         .get('user/list', {
           params: {
