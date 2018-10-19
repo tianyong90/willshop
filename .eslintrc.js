@@ -16,7 +16,7 @@ module.exports = {
   ],
   rules: {
     'vue/html-indent': ['error', 2, {'attribute': 1}],
-    'vue/script-indent': ['error', 2, {'baseIndent': 1}],
+    'vue/script-indent': ['error', 2, {'baseIndent': 0}],
     'vue/jsx-uses-vars': 'error',
     'vue/require-v-for-key': 'off',
     "vue/require-default-prop": 'off',

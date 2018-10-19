@@ -1,17 +1,18 @@
 //@import "~normalize.css/normalize.css";
-@import "admin_variables";
-@import "~element-ui/lib/theme-chalk/index.css";
-@import url("//at.alicdn.com/t/font_141321_avlka3jq0is.css");
+@import 'admin_variables';
+@import '~element-ui/lib/theme-chalk/index.css';
+@import url('//at.alicdn.com/t/font_141321_avlka3jq0is.css');
 
 body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei, Arial, sans-serif;
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 a {
@@ -21,37 +22,37 @@ a {
 //vue router transition css
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .2s ease
+    transition: all 0.2s ease;
 }
 
 .fade-enter,
 .fade-leave-active {
-  opacity: 0;
+    opacity: 0;
 }
 
 .main-container {
-  display: block;
-  position: fixed;
-  top: $topmenu-height;
-  left: $sidebar-width;
-  right: 0;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
+    display: block;
+    position: fixed;
+    top: $topmenu-height;
+    left: $sidebar-width;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .main-with-padding {
-  padding: 20px;
+    padding: 20px;
 }
 
 .paginator {
-  display: block;
-  margin: 1rem 0;
-  float: right;
+    display: block;
+    margin: 1rem 0;
+    float: right;
 }
 
 .my-loading-mask {
-  background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .admin-sidebar {

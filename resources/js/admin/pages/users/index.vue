@@ -1,7 +1,10 @@
 <template>
   <div class="main-container main-with-padding">
     <div class="table-tools">
-      <el-form :inline="true" :model="searchForm" class="demo-form-inline">
+      <el-form
+        :inline="true"
+        :model="searchForm"
+        class="demo-form-inline">
         <el-form-item>
           <el-input
             v-model="searchForm.keyword"
@@ -10,11 +13,22 @@
           />
         </el-form-item>
         <el-form-item>
-          <el-select v-model="searchForm.sex" placeholder="性别筛选" @change="loadData">
-            <el-option label="全部" value="all"/>
-            <el-option label="男" value="0"/>
-            <el-option label="女" value="1"/>
-            <el-option label="其它" value="2"/>
+          <el-select
+            v-model="searchForm.sex"
+            placeholder="性别筛选"
+            @change="loadData">
+            <el-option
+              label="全部"
+              value="all"/>
+            <el-option
+              label="男"
+              value="0"/>
+            <el-option
+              label="女"
+              value="1"/>
+            <el-option
+              label="其它"
+              value="2"/>
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -27,18 +41,34 @@
       </el-form>
     </div>
 
-    <el-table :data="users.data" border>
+    <el-table
+      :data="users.data"
+      border>
       <el-table-column label="头像">
         <template slot-scope="scope">
-          <img :src="scope.row.avatar" class="avatar">
+          <img
+            :src="scope.row.avatar"
+            class="avatar">
         </template>
       </el-table-column>
-      <el-table-column prop="nickname" label="昵称"/>
-      <el-table-column prop="name" label="用户名"/>
-      <el-table-column prop="sex" label="性别"/>
-      <el-table-column prop="location" label="地区"/>
-      <el-table-column prop="subscribe_time" label="关注时间"/>
-      <el-table-column prop="remark" label="备注"/>
+      <el-table-column
+        prop="nickname"
+        label="昵称"/>
+      <el-table-column
+        prop="name"
+        label="用户名"/>
+      <el-table-column
+        prop="sex"
+        label="性别"/>
+      <el-table-column
+        prop="location"
+        label="地区"/>
+      <el-table-column
+        prop="subscribe_time"
+        label="关注时间"/>
+      <el-table-column
+        prop="remark"
+        label="备注"/>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
@@ -67,56 +97,59 @@
 </template>
 
 <script>
-  import TableMixin from '../../mixins/table_mixin'
-  import { mapActions, mapState } from 'vuex'
+import TableMixin from '../../mixins/table_mixin'
+import { mapActions, mapState } from 'vuex'
 
-  export default {
-    mixins: [TableMixin],
+export default {
+  mixins: [TableMixin],
 
-    data () {
-      return {
-        searchForm: {
-          name: '',
-          sex: 'all'
-        }
-      }
-    },
-
-    computed: {
-      ...mapState({
-        users: state => state.user.users
-      })
-    },
-
-    mounted () {
-      this.loadData()
-    },
-
-    methods: {
-      ...mapActions({
-        loadData: 'getUsers'
-      }),
-
-      syncWechatFans () {
-        // 同步粉丝数据
-        this.axios.post('user/lsit').then((response) => {
-          this.loadData(1)
-        }).catch((error) => {
-          console.log(error)
-        })
+  data () {
+    return {
+      searchForm: {
+        name: '',
+        sex: 'all'
       }
     }
+  },
+
+  computed: {
+    ...mapState({
+      users: state => state.user.users
+    })
+  },
+
+  mounted () {
+    this.loadData()
+  },
+
+  methods: {
+    ...mapActions({
+      loadData: 'getUsers'
+    }),
+
+    syncWechatFans () {
+      // 同步粉丝数据
+      this.axios
+        .post('user/lsit')
+        .then(response => {
+          this.loadData(1)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   }
+}
 </script>
 
 <style scoped lang="scss">
-  $avatar-size: 50px;
+$avatar-size: 50px;
 
-  .avatar {
-    display: block;
-    overflow: hidden;
-    margin: 10px 0;
-    width: $avatar-size;
-    height: $avatar-size;
-  }
+.avatar {
+  display: block;
+  overflow: hidden;
+  margin: 10px 0;
+  width: $avatar-size;
+  height: $avatar-size;
+}
 </style>

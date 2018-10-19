@@ -30,35 +30,41 @@ axios.defaults.baseURL = appConfig.apiRoot
 axios.defaults.timeout = appConfig.timeout
 
 // axios 请求发送前处理
-axios.interceptors.request.use((config) => {
-  store.commit('UPDATE_LOADING', true)
+axios.interceptors.request.use(
+  config => {
+    store.commit('UPDATE_LOADING', true)
 
-  if (config.hideLoading !== true) {
-    // 显示 loading 提示
-    app.showLoading()
+    if (config.hideLoading !== true) {
+      // 显示 loading 提示
+      app.showLoading()
+    }
+
+    return config
+  },
+  error => {
+    return Promise.reject(error)
   }
-
-  return config
-}, (error) => {
-  return Promise.reject(error)
-})
+)
 
 // axios 得到响应后处理
-axios.interceptors.response.use((response) => {
-  store.commit('UPDATE_LOADING', false)
-  app.hideLoading()
+axios.interceptors.response.use(
+  response => {
+    store.commit('UPDATE_LOADING', false)
+    app.hideLoading()
 
-  return response
-}, (error) => {
-  store.commit('UPDATE_LOADING', false)
-  app.hideLoading()
+    return response
+  },
+  error => {
+    store.commit('UPDATE_LOADING', false)
+    app.hideLoading()
 
-  // 超时后进行提示
-  if (error.code === 'ECONNABORTED') {
-    app.error('网络繁忙，请重试')
+    // 超时后进行提示
+    if (error.code === 'ECONNABORTED') {
+      app.error('网络繁忙，请重试')
+    }
+    return Promise.reject(error)
   }
-  return Promise.reject(error)
-})
+)
 
 const app = new Vue({
   el: '#app',
@@ -66,7 +72,8 @@ const app = new Vue({
   store,
 
   components: {
-    'mainmenu': () => import(/* webpackChunkName: 'js/shop-mainmenu' */ './components/mainmenu.vue')
+    mainmenu: () =>
+      import(/* webpackChunkName: 'js/shop-mainmenu' */ './components/mainmenu.vue')
   },
 
   computed: {

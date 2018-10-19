@@ -8,11 +8,14 @@ const getters = {}
 
 const actions = {
   getPermissions () {
-    axios.get('permission').then((response) => {
-      this.commit('UPDATE_PERMISSIONS', response.data.permissions)
-    }).catch((error) => {
-      console.error(error)
-    })
+    axios
+      .get('permission')
+      .then(response => {
+        this.commit('UPDATE_PERMISSIONS', response.data.permissions)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 

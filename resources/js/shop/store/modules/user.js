@@ -8,11 +8,14 @@ const getters = {}
 
 const actions = {
   getRoles () {
-    axios.get('role').then((response) => {
-      this.commit('UPDATE_ROLES', response.data.roles)
-    }).catch((error) => {
-      console.error(error)
-    })
+    axios
+      .get('role')
+      .then(response => {
+        this.commit('UPDATE_ROLES', response.data.roles)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 

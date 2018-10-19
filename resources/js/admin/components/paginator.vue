@@ -11,15 +11,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'paginator',
+export default {
+  name: 'paginator',
 
-    props: {
-      data: Object,
-      currentChange: {
-        type: Function,
-        required: true
-      }
+  props: {
+    data: Object,
+    currentChange: {
+      type: Function,
+      required: true
     }
   }
+}
 </script>

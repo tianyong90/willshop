@@ -8,16 +8,17 @@ const getters = {}
 
 const actions = {
   login ({ commit }) {
-    axios.get('brands').then((response) => {
-      commit('UPDATE_BRANDS', response.data.brands)
-    }).catch((error) => {
-      console.error(error)
-    })
+    axios
+      .get('brands')
+      .then(response => {
+        commit('UPDATE_BRANDS', response.data.brands)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   },
 
-  logout () {
-
-  }
+  logout () {}
 }
 
 const mutations = {

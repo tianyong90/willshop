@@ -5,37 +5,39 @@
 </template>
 
 <script>
-  import TableMixin from '../../mixins/table_mixin'
+import TableMixin from '../../mixins/table_mixin'
 
-  export default {
-    mixins: [TableMixin],
+export default {
+  mixins: [TableMixin],
 
-    data () {
-      return {
-        users: {}
-      }
-    },
+  data () {
+    return {
+      users: {}
+    }
+  },
 
-    mounted () {
-      this.loadData()
-    },
+  mounted () {
+    this.loadData()
+  },
 
-    methods: {
-      loadData (page = 1) {
-        this.axios.get('user/list', {
+  methods: {
+    loadData (page = 1) {
+      this.axios
+        .get('user/list', {
           params: {
             keyword: this.searchForm.keyword,
             sex: this.searchForm.sex,
             page: page
           }
-        }).then((response) => {
+        })
+        .then(response => {
           this.users = response.data.users
         })
-      }
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
-  $avatar-size: 50px;
+$avatar-size: 50px;
 </style>

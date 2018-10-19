@@ -1,19 +1,27 @@
 <template>
-  <el-menu class="header"
-           default-active="/"
-           mode="horizontal"
-           :router="true"
-           background-color="#f2f2f2"
-           text-color="#000"
+  <el-menu
+    class="header"
+    default-active="/"
+    mode="horizontal"
+    :router="true"
+    background-color="#f2f2f2"
+    text-color="#000"
   >
-    <router-link class="logo" to="/">WILLSHOP</router-link>
+    <router-link
+      class="logo"
+      to="/">WILLSHOP</router-link>
 
     <div class="right-part">
       <router-link to="/profile">
-        <img :src="user.avatar" alt="" class="avatar">
+        <img
+          :src="user.avatar"
+          alt=""
+          class="avatar">
       </router-link>
       <el-dropdown id="dropdown-menu">
-        <span class="el-dropdown-link nickname" v-text="user.name"/>
+        <span
+          class="el-dropdown-link nickname"
+          v-text="user.name"/>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item @click.native="$router.push('/profile')">用户信息</el-dropdown-item>
           <el-dropdown-item @click.native="logout">退出登录</el-dropdown-item>
@@ -24,66 +32,64 @@
 </template>
 
 <script>
-  import userConfig from '../config'
-  import { mapGetters } from 'vuex'
+import userConfig from '../config'
+import { mapGetters } from 'vuex'
 
-  export default {
-    computed: {
-      ...mapGetters([
-        'user'
-      ])
-    },
+export default {
+  computed: {
+    ...mapGetters(['user'])
+  },
 
-    methods: {
-      logout () {
-        window.localStorage.removeItem(userConfig.authTokenKey)
+  methods: {
+    logout () {
+      window.localStorage.removeItem(userConfig.authTokenKey)
 
-        this.$router.replace('/login')
-      }
+      this.$router.replace('/login')
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
-  @import "../../../sass/admin_variables";
+@import '../../../sass/admin_variables';
 
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: $zindex-topmenu;
-    box-shadow: 0 0 8px rgba(100, 100, 100, 0.3);
-  }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $zindex-topmenu;
+  box-shadow: 0 0 8px rgba(100, 100, 100, 0.3);
+}
 
-  .logo {
+.logo {
+  display: block;
+  overflow: hidden;
+  float: left;
+  width: 115px;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.right-part {
+  .avatar {
     display: block;
-    overflow: hidden;
-    float: left;
-    width: 115px;
-    color: #000;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 20px;
+    float: right;
+    width: 40px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 10px 10px 0 20px;
+    outline: none;
   }
 
-  .right-part {
-    .avatar {
-      display: block;
-      float: right;
-      width: 40px;
-      height: 40px;
-      background: #ccc;
-      border-radius: 50%;
-      margin: 10px 10px 0 20px;
-      outline: none;
-    }
-
-    #dropdown-menu {
-      float: right;
-      color: #333;
-      font-size: 1.1rem;
-      margin-top: 20px;
-    }
+  #dropdown-menu {
+    float: right;
+    color: #333;
+    font-size: 1.1rem;
+    margin-top: 20px;
   }
+}
 </style>

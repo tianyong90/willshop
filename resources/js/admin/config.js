@@ -11,6 +11,4 @@ const config = {
 
 export default config
 
-export {
-  APP_NAME
-}
+export { APP_NAME }

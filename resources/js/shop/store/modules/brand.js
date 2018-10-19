@@ -8,11 +8,14 @@ const getters = {}
 
 const actions = {
   getBrands () {
-    axios.get('brands').then((response) => {
-      this.commit('UPDATE_BRANDS', response.data.brands)
-    }).catch((error) => {
-      console.error(error)
-    })
+    axios
+      .get('brands')
+      .then(response => {
+        this.commit('UPDATE_BRANDS', response.data.brands)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 
