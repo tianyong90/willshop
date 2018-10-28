@@ -6,9 +6,20 @@ import VueAxios from 'vue-axios'
 import store from './store/index'
 import adminConfig from './config'
 import router from './router'
+import Vuetify from 'vuetify'
+import zhHans from 'vuetify/es5/locale/zh-Hans'
 
 Vue.config.productionTip = false
 
+Vue.use(Vuetify, {
+  iconfont: 'fa4',
+  lang: {
+    locales: {
+      'zh-Hans': zhHans
+    },
+    current: 'zh-Hans'
+  }
+})
 Vue.use(ElementUI)
 Vue.use(VueAxios, axios)
 

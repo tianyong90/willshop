@@ -1,5 +1,9 @@
 <template>
   <div class="main-container main-with-padding">
+    <v-app>
+      <v-button color="success">Success</v-button>
+    </v-app>
+
     <el-row :gutter="20" type="flex" justify="center">
       <el-col :span="6">
         <el-card shadow="hover" class="card">

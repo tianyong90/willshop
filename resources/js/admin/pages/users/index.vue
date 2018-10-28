@@ -76,13 +76,13 @@
 
 <script>
 import TableMixin from '../../mixins/table_mixin'
-import { mapActions, mapState } from 'vuex'
 
 export default {
   mixins: [TableMixin],
 
   data () {
     return {
+      users: {},
       searchForm: {
         name: '',
         sex: 'all'
@@ -90,20 +90,21 @@ export default {
     }
   },
 
-  computed: {
-    ...mapState({
-      users: state => state.user.users
-    })
-  },
+  computed: {},
 
-  mounted () {
-    this.loadTableData()
-  },
+  mounted () {},
 
   methods: {
-    ...mapActions({
-      loadTableData: 'getUsers'
-    })
+    loadTableData (page = 1) {
+      this.axios
+        .get('users')
+        .then(response => {
+          this.users = response.data.users
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    }
   }
 }
 </script>
