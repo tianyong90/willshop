@@ -1,32 +1,19 @@
 <template>
-  <div class="main-container main-with-padding">
-    <v-app>
-      <v-button color="success">Success</v-button>
-    </v-app>
+  <v-app>
+    <v-btn
+      color="success"
+    >
+      haha
+    </v-btn>
 
-    <el-row :gutter="20" type="flex" justify="center">
-      <el-col :span="6">
-        <el-card shadow="hover" class="card">
-          <div class="card-title">会员数 {{ userCount }}</div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover" class="card">
-          <div class="card-title">商品数 {{ productCount }}</div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover" class="card">
-          <div class="card-title">订单数 {{ orderCount }}</div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card shadow="hover" class="card">
-          <div class="card-title">订单数 {{ orderCount }}</div>
-        </el-card>
-      </el-col>
-    </el-row>
-  </div>
+    <v-btn class="color">fuck</v-btn>
+
+    <v-avatar
+      size="50"
+    >
+      <img src="https://s9.rr.itc.cn/r/wapChange/20174_24_0/a7a01098906440390405.jpg" alt="">
+    </v-avatar>
+  </v-app>
 </template>
 
 <script>

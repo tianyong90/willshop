@@ -44,6 +44,20 @@ mix.webpackConfig(webpack => {
             formatter: require('eslint-friendly-formatter'),
             emitWarning: false
           }
+        },
+        {
+          test: /\.styl$/,
+          use: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'stylus-loader'
+            }
+          ]
         }
       ]
     },

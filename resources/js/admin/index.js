@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import ElementUI, { Loading } from 'element-ui'
 import { mapGetters, mapState } from 'vuex'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -11,16 +10,7 @@ import zhHans from 'vuetify/es5/locale/zh-Hans'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify, {
-  iconfont: 'fa4',
-  lang: {
-    locales: {
-      'zh-Hans': zhHans
-    },
-    current: 'zh-Hans'
-  }
-})
-Vue.use(ElementUI)
+Vue.use(Vuetify, {})
 Vue.use(VueAxios, axios)
 
 axios.defaults.baseURL = adminConfig.apiRoot
@@ -146,20 +136,20 @@ const app = new Vue({
     }
   },
 
-  watch: {
-    isLoading: function (value) {
-      if (value) {
-        this.loadingInstance = Loading.service({
-          text: 'Loading',
-          customClass: 'my-loading-mask'
-        })
-      } else {
-        this.loadingInstance && this.loadingInstance.close()
-      }
-    }
-  },
+  // watch: {
+  //   // isLoading: function (value) {
+  //   //   if (value) {
+  //   //     this.loadingInstance = Loading.service({
+  //   //       text: 'Loading',
+  //   //       customClass: 'my-loading-mask'
+  //   //     })
+  //   //   } else {
+  //   //     this.loadingInstance && this.loadingInstance.close()
+  //   //   }
+  //   // }
+  // },
 
   destroy () {
-    this.loadingInstance = null
+    // this.loadingInstance = null
   }
 })
