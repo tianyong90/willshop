@@ -20,7 +20,7 @@
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
-        "deployer/deployer": "^6.1",
+        "deployer/deployer": "^6.4",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "garygreen/pretty-routes": "^1.0",
