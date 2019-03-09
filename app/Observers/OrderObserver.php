@@ -17,7 +17,7 @@ class OrderObserver
     public function creating(Order $order)
     {
         // 创建订单时生成订单号
-        $order->number = date('YmdHis').str_random(5);
+        $order->number = date('YmdHis').\Str::random(5);
     }
 
     /**
