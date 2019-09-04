@@ -1,41 +1,31 @@
 <template>
   <div class="main">
-    <wv-swipe
-      :height="180"
-      :auto="4000">
-      <wv-swipe-item
+    <w-swipe :height="180" :auto="4000">
+      <w-swipe-item
         class="banner-swipe-item"
         v-for="banner in banners"
         :key="banner.index"
       >
-        <img
-          :src="banner.img"
-          alt="">
-      </wv-swipe-item>
-    </wv-swipe>
+        <img :src="banner.img" alt="">
+      </w-swipe-item>
+    </w-swipe>
 
     <div class="ad">
       <img
         src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg"
-        alt="">
-      <router-link to="">去看看</router-link>
+        alt=""
+      >
+      <router-link to="">
+        去看看
+      </router-link>
     </div>
 
     <div class="product-list">
-      <div
-        class="product-item"
-        v-for="product in products.data">
+      <div class="product-item" v-for="product in products.data">
         <router-link :to="'/product/' + product.id">
-          <img
-            class="thumbnail"
-            :src="product.thumbnail"
-            alt="">
-          <span
-            class="name"
-            v-text="product.name"/>
-          <div
-            class="price"
-            v-html="product.price"/>
+          <img class="thumbnail" :src="product.thumbnail" alt="">
+          <span class="name" v-text="product.name" />
+          <div class="price" v-html="product.price" />
         </router-link>
       </div>
     </div>
@@ -44,30 +34,28 @@
 
 <script>
 import Vue from 'vue'
-import { Swipe, SwipeItem } from 'we-vue'
-
-Vue.use(Swipe).use(SwipeItem)
+import { WSwipe, WSwipeItem } from 'we-vue/lib'
 
 const banners = [
   {
     url: 'javascript:',
-    img: 'https://picsum.photos/640/480/?random'
+    img: 'https://picsum.photos/640/480/?1',
   },
   {
     url: 'javascript:',
-    img: 'https://picsum.photos/640/480/?random'
+    img: 'https://picsum.photos/640/480/?2',
   },
   {
     url: 'javascript',
-    img: 'https://picsum.photos/640/480/?random'
-  }
+    img: 'https://picsum.photos/640/480/?3',
+  },
 ]
 
 export default {
   data () {
     return {
       products: [],
-      banners
+      banners,
     }
   },
 
@@ -80,8 +68,8 @@ export default {
       this.axios.get('products').then(response => {
         this.products = response.data.products
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

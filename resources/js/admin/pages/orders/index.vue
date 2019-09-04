@@ -4,74 +4,98 @@
       <el-form
         :inline="true"
         :model="searchForm"
-        class="demo-form-inline">
+        class="demo-form-inline"
+      >
         <el-form-item>
           <el-input
             v-model="searchForm.keyword"
             placeholder="按昵称搜索"
-            @keyup.enter.native="loadTableData"/>
+            @keyup.enter.native="loadTableData"
+          />
         </el-form-item>
         <el-form-item>
           <el-select
             v-model="searchForm.sex"
             placeholder="性别筛选"
-            @change="loadTableData">
+            @change="loadTableData"
+          >
             <el-option
               label="全部"
-              value="all"/>
+              value="all"
+            />
             <el-option
               label="男"
-              value="0"/>
+              value="0"
+            />
             <el-option
               label="女"
-              value="1"/>
+              value="1"
+            />
             <el-option
               label="其它"
-              value="2"/>
+              value="2"
+            />
           </el-select>
         </el-form-item>
         <el-form-item>
           <el-button
             type="primary"
             icon="el-icon-search"
-            @click="search">搜索</el-button>
+            @click="search"
+          >
+            搜索
+          </el-button>
         </el-form-item>
       </el-form>
     </div>
 
     <el-table
       :data="orders.data"
-      border>
+      border
+    >
       <el-table-column
         prop="nickname"
-        label="昵称"/>
+        label="昵称"
+      />
       <el-table-column
         prop="sex"
-        label="性别"/>
+        label="性别"
+      />
       <el-table-column
         prop="location"
-        label="地区"/>
+        label="地区"
+      />
       <el-table-column
         prop="tagid_list"
-        label="标签"/>
+        label="标签"
+      />
       <el-table-column
         prop="subscribe_time"
-        label="关注时间"/>
+        label="关注时间"
+      />
       <el-table-column
         prop="remark"
-        label="备注"/>
+        label="备注"
+      />
       <el-table-column
         label="操作"
-        inline-template>
+        inline-template
+      >
         <div>
           <el-button
             size="small"
             type="primary"
-            @click.native="charge(row.id)">test</el-button>
+            @click.native="charge(row.id)"
+          >
+            test
+          </el-button>
           <el-button
             size="small"
             type="primary"
-            @click.native="charge(row.id)">test</el-button>
+            @click.native="charge(row.id)"
+          >
+            test
+          </el-button>
         </div>
       </el-table-column>
     </el-table>
@@ -82,7 +106,8 @@
         :current-page="orders.current_page"
         :page-size="orders.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="orders.tatal"/>
+        :total="orders.tatal"
+      />
     </div>
   </div>
 </template>
@@ -98,8 +123,8 @@ export default {
       orders: [],
       searchForm: {
         name: '',
-        sex: 'all'
-      }
+        sex: 'all',
+      },
     }
   },
 
@@ -114,8 +139,8 @@ export default {
           params: {
             keyword: this.searchForm.keyword,
             sex: this.searchForm.sex,
-            page: page
-          }
+            page: page,
+          },
         })
         .then(response => {
           this.orders = response.data.orders
@@ -132,8 +157,8 @@ export default {
         .catch(error => {
           console.log(error)
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

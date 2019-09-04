@@ -6,7 +6,8 @@
       :page-sizes="[20, 30, 40, 50]"
       :page-size="data.per_page"
       layout="total, prev, pager, next, jumper"
-      :total="data.total"/>
+      :total="data.total"
+    />
   </div>
 </template>
 
@@ -18,8 +19,8 @@ export default {
     data: Object,
     currentChange: {
       type: Function,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>

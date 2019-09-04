@@ -1,23 +1,22 @@
 <template>
-  <wv-group
-    title="常见问题"
-    class="post-list">
-    <wv-cell
+  <w-group title="常见问题" class="post-list">
+    <w-cell
       v-for="post in posts"
       :key="post.id"
       :title="post.title"
       :to="'/help/' + post.id"
-      is-link/>
-  </wv-group>
+      is-link
+    />
+  </w-group>
 </template>
 
 <script>
-import { Group, Cell } from 'we-vue'
+import { WGroup, WCell } from 'we-vue/lib'
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
   },
 
   mounted () {
@@ -26,7 +25,7 @@ export default {
 
   data () {
     return {
-      posts: []
+      posts: [],
     }
   },
 
@@ -35,8 +34,8 @@ export default {
       this.axios.get('post').then(response => {
         this.posts = response.data.posts
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

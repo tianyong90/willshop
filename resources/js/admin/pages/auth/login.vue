@@ -2,8 +2,11 @@
   <div class="login">
     <el-form
       :model="loginForm"
-      class="login-form">
-      <h1 class="title">ADMIN</h1>
+      class="login-form"
+    >
+      <h1 class="title">
+        ADMIN
+      </h1>
       <el-input
         type="text"
         placeholder="请输入用户名"
@@ -21,7 +24,8 @@
         type="primary"
         @click.native="login"
         :disabled="false"
-      >登录
+      >
+        登录
       </el-button>
     </el-form>
   </div>
@@ -36,10 +40,10 @@ export default {
     return {
       loginForm: {
         name: 'admin',
-        password: '12345678'
+        password: '12345678',
       },
       loginQrcode: null,
-      dialogQrcodeVisible: false
+      dialogQrcodeVisible: false,
     }
   },
 
@@ -59,11 +63,11 @@ export default {
         .catch(error => {
           this.$message({
             message: error.response.data,
-            type: 'error'
+            type: 'error',
           })
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,64 +1,13 @@
-//@import "~normalize.css/normalize.css";
+@import "normalize.css/normalize.css";
 @import 'admin_variables';
-@import '~element-ui/lib/theme-chalk/index.css';
 @import url('//at.alicdn.com/t/font_141321_avlka3jq0is.css');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons');
-@import "~vuetify/dist/vuetify.css";
+@import "antd/dist/antd.css";
 
-body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-        Microsoft YaHei, Arial, sans-serif;
-}
-
-html {
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-}
-
-//vue router transition css
-.fade-enter-active,
-.fade-leave-active {
-    transition: all 0.2s ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-    opacity: 0;
-}
-
-.main-container {
-    display: block;
-    position: fixed;
-    top: $topmenu-height;
-    left: $sidebar-width;
-    right: 0;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-.main-with-padding {
-    padding: 20px;
-}
-
-.paginator {
-    display: block;
-    margin: 1rem 0;
-    float: right;
-}
-
-.my-loading-mask {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.admin-sidebar {
-    position: fixed;
-    height: 100%;
-    box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
+.app {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }

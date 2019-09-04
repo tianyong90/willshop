@@ -10,13 +10,13 @@ const routes = [
       default: () =>
         import(/* webpackChunkName: 'js/admin-dashboard' */ '../pages/dashboard.vue'),
       header: Header,
-      sidebar: Sidebar
+      sidebar: Sidebar,
     },
     meta: {
       requiresAuth: false,
-      title: '首页'
-    }
-  }
+      title: '首页',
+    },
+  },
   // {
   //   path: '/login',
   //   components: {

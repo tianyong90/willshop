@@ -4,7 +4,8 @@
       <el-form
         :inline="true"
         :model="searchForm"
-        class="demo-form-inline">
+        class="demo-form-inline"
+      >
         <el-form-item>
           <el-input
             v-model="searchForm.keyword"
@@ -24,47 +25,66 @@
           <el-button
             type="primary"
             icon="el-icon-search"
-            @click="search">搜索</el-button>
+            @click="search"
+          >
+            搜索
+          </el-button>
         </el-form-item>
 
         <el-button
           type="primary"
           icon="el-icon-search"
-          @click="search">新建角色</el-button>
+          @click="search"
+        >
+          新建角色
+        </el-button>
       </el-form>
     </div>
 
     <el-table
       :data="roles.data"
-      border>
+      border
+    >
       <el-table-column
         prop="id"
-        label="ID"/>
+        label="ID"
+      />
       <el-table-column
         prop="name"
-        label="角色名"/>
+        label="角色名"
+      />
       <el-table-column
         prop="guard_name"
-        label="GUARD"/>
+        label="GUARD"
+      />
       <el-table-column
         prop="created_at"
-        label="创建时间"/>
+        label="创建时间"
+      />
       <el-table-column
         prop="updated_at"
-        label="更新时间"/>
+        label="更新时间"
+      />
       <el-table-column
         prop="remark"
-        label="用户数"/>
+        label="用户数"
+      />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
             size="small"
             type="primary"
-            @click.native="$router.push('/role/' + scope.row.id)">修改</el-button>
+            @click.native="$router.push('/role/' + scope.row.id)"
+          >
+            修改
+          </el-button>
           <el-button
             size="small"
             type="danger"
-            @click.native="charge(scope.row.id)">删除</el-button>
+            @click.native="charge(scope.row.id)"
+          >
+            删除
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -75,7 +95,8 @@
         :current-page="roles.current_page"
         :page-size="roles.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="roles.tatal"/>
+        :total="roles.tatal"
+      />
     </div>
   </div>
 </template>
@@ -91,15 +112,15 @@ export default {
     return {
       searchForm: {
         name: '',
-        sex: 'all'
-      }
+        sex: 'all',
+      },
     }
   },
 
   computed: {
     ...mapState({
-      roles: state => state.role.roles
-    })
+      roles: state => state.role.roles,
+    }),
   },
 
   mounted () {
@@ -108,9 +129,9 @@ export default {
 
   methods: {
     ...mapActions({
-      loadTableData: 'getRoles'
-    })
-  }
+      loadTableData: 'getRoles',
+    }),
+  },
 }
 </script>
 

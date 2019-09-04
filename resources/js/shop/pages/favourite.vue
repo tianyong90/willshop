@@ -1,26 +1,31 @@
 <template>
   <div
     class="weui-panel weui-panel_access"
-    v-if="favourites.length>0">
+    v-if="favourites.length>0"
+  >
     <div class="weui-panel__bd">
       <router-link
         :to="'/product/' + favourite.product.id"
         tag="div"
         class="weui-media-box weui-media-box_appmsg"
         v-for="favourite in favourites"
-        :key="favourite.id">
+        :key="favourite.id"
+      >
         <div class="weui-media-box__hd">
           <img
             class="weui-media-box__thumb"
-            :src="favourite.product.thumbnail">
+            :src="favourite.product.thumbnail"
+          >
         </div>
         <div class="weui-media-box__bd">
           <h4
             class="weui-media-box__title"
-            v-text="favourite.product.name"/>
+            v-text="favourite.product.name"
+          />
           <p
             class="weui-media-box__desc price"
-            v-text="favourite.product.price"/>
+            v-text="favourite.product.price"
+          />
         </div>
       </router-link>
     </div>
@@ -28,9 +33,12 @@
 
   <div
     class="empty-msg"
-    v-else-if="favourites.length === 0 && !isLoading">
-    <i class="iconfont icon-favor"/>
-    <div class="msg">还没有收藏任何宝贝</div>
+    v-else-if="favourites.length === 0 && !isLoading"
+  >
+    <i class="iconfont icon-favor" />
+    <div class="msg">
+      还没有收藏任何宝贝
+    </div>
   </div>
 </template>
 
@@ -41,14 +49,14 @@ export default {
   data () {
     return {
       favourites: [],
-      selectedfavourites: []
+      selectedfavourites: [],
     }
   },
 
   computed: {
     ...mapState({
-      isLoading: state => state.isLoading
-    })
+      isLoading: state => state.isLoading,
+    }),
   },
 
   mounted () {
@@ -66,8 +74,8 @@ export default {
         .catch(error => {
           console.log(error)
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

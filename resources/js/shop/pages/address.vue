@@ -2,40 +2,54 @@
   <div>
     <ul
       class="address-list"
-      v-if="addresses.length > 0">
+      v-if="addresses.length > 0"
+    >
       <li
         v-for="address in addresses"
-        :key="address.id">
+        :key="address.id"
+      >
         <div class="header">
           <span class="name">{{ address.name }}</span>
           <span class="mobile">{{ address.mobile }}</span>
         </div>
         <div class="body">
-          <div class="address">{{ address.province + address.city + address.area + address.address }}</div>
+          <div class="address">
+            {{ address.province + address.city + address.area + address.address }}
+          </div>
         </div>
         <div class="footer">
           <span
             class="delete icon iconfont"
-            @click="deleteAddress(address)">&#xe612;</span>
+            @click="deleteAddress(address)"
+          >&#xe612;</span>
           <router-link
             class="edit icon iconfont"
-            :to="'/address/' + address.id">&#xe61f;</router-link>
+            :to="'/address/' + address.id"
+          >
+            &#xe61f;
+          </router-link>
         </div>
       </li>
     </ul>
 
     <div
       class="empty-msg"
-      v-else-if="addresses.length === 0 && !isLoading">
-      <i class="iconfont icon-map-marker"/>
-      <div class="msg">您还没有设置地址</div>
+      v-else-if="addresses.length === 0 && !isLoading"
+    >
+      <i class="iconfont icon-map-marker" />
+      <div class="msg">
+        您还没有设置地址
+      </div>
     </div>
 
     <footer v-show="!$store.state.isLoading">
       <router-link
         class="weui-btn weui-btn_primary"
         tag="button"
-        to="/address/add">添加地址</router-link>
+        to="/address/add"
+      >
+        添加地址
+      </router-link>
     </footer>
   </div>
 </template>
@@ -54,14 +68,14 @@ export default {
   data () {
     return {
       addresses: [],
-      activeAddress: null
+      activeAddress: null,
     }
   },
 
   computed: {
     ...mapState({
-      isLoading: state => state.isLoading
-    })
+      isLoading: state => state.isLoading,
+    }),
   },
 
   methods: {
@@ -79,8 +93,8 @@ export default {
     // 地址项中删除按钮点击
     deleteAddress (address) {
       // TODO
-    }
-  }
+    },
+  },
 }
 </script>
 

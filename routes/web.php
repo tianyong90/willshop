@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/{vue_capture?}', 'WebController@admin')->where('vue_capture', '[\/\w\.-]*');
+Route::view('/admin/{path?}', 'admin_entry')->where('path', '[\/\w\.-]*');
 
-Route::get('/shop/{vue_capture?}', 'WebController@shop')->where('vue_capture', '[\/\w\.-]*'); //->middleware('wechat.oauth');
+Route::view('/shop/{path?}', 'shop_entry')->where('path', '[\/\w\.-]*'); //->middleware('wechat.oauth');

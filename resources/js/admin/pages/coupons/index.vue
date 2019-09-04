@@ -21,16 +21,20 @@
           >
             <el-option
               label="全部"
-              value="all"/>
+              value="all"
+            />
             <el-option
               label="男"
-              value="0"/>
+              value="0"
+            />
             <el-option
               label="女"
-              value="1"/>
+              value="1"
+            />
             <el-option
               label="其它"
-              value="2"/>
+              value="2"
+            />
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -38,43 +42,53 @@
             type="primary"
             icon="el-icon-search"
             @click="search"
-          >搜索</el-button>
+          >
+            搜索
+          </el-button>
         </el-form-item>
       </el-form>
     </div>
 
     <el-table
       :data="products.data"
-      border>
+      border
+    >
       <el-table-column
         label="预览图"
-        inline-template>
+        inline-template
+      >
         <img
           :src="row.thumbnail"
-          class="thumbnail">
+          class="thumbnail"
+        >
       </el-table-column>
       <el-table-column
         prop="name"
-        label="名称"/>
+        label="名称"
+      />
       <el-table-column
         prop="price"
-        label="价格（元）"/>
+        label="价格（元）"
+      />
       <el-table-column
         prop="stock"
-        label="库存"/>
+        label="库存"
+      />
       <el-table-column
         prop="status"
-        label="状态"/>
+        label="状态"
+      />
       <el-table-column
         prop="updated_at"
-        label="更新时间"/>
+        label="更新时间"
+      />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <router-link
             :to="'/product/edit/' + scope.row.id"
             class="el-button el-button--primary el-button--small"
           >
-            <i class="el-icon-edit"/>
+            <i class="el-icon-edit" />
           </router-link>
           <el-button
             size="small"
@@ -92,7 +106,8 @@
         :current-page="products.current_page"
         :page-size="products.per_page"
         layout="total, prev, pager, next, jumper"
-        :total="products.tatal"/>
+        :total="products.tatal"
+      />
     </div>
   </div>
 </template>
@@ -108,8 +123,8 @@ export default {
       products: {},
       searchForm: {
         name: '',
-        sex: 'all'
-      }
+        sex: 'all',
+      },
     }
   },
 
@@ -124,8 +139,8 @@ export default {
           params: {
             keyword: this.searchForm.keyword,
             sex: this.searchForm.sex,
-            page: page
-          }
+            page: page,
+          },
         })
         .then(response => {
           this.products = response.data.products
@@ -134,8 +149,8 @@ export default {
 
     deleteProduct (id) {
       console.log('fuck')
-    }
-  }
+    },
+  },
 }
 </script>
 

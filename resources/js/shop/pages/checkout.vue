@@ -3,15 +3,19 @@
     <div class="top-tips">
       请在下单后 48 小时内完成支付，超过 24 小时后订单将自动取消。
     </div>
-    <router-link
-      to="/address"
-      class="address-panel">
+    <router-link to="/address" class="address-panel">
       <div class="content">
-        <div class="consumer-name">田勇</div>
-        <div class="consumer-mobile">13222225555</div>
-        <div class="address">广东省深圳市南山区软件产业基地</div>
+        <div class="consumer-name">
+          田勇
+        </div>
+        <div class="consumer-mobile">
+          13222225555
+        </div>
+        <div class="address">
+          广东省深圳市南山区软件产业基地
+        </div>
       </div>
-      <div class="bottom-border"/>
+      <div class="bottom-border" />
     </router-link>
 
     <div class="weui-panel weui-panel_access product-list">
@@ -19,56 +23,48 @@
         <div
           class="weui-media-box weui-media-box_appmsg"
           v-for="cart in carts"
-          :key="cart.id">
+          :key="cart.id"
+        >
           <div class="weui-media-box__hd">
-            <img
-              class="weui-media-box__thumb"
-              :src="cart.product.thumbnail">
+            <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
           </div>
           <div class="weui-media-box__bd">
-            <h4
-              class="weui-media-box__title"
-              v-text="cart.product.name"/>
+            <h4 class="weui-media-box__title" v-text="cart.product.name" />
             <p class="weui-media-box__desc">
-              <span class="price">{{ cart.product.price | priceFilter }}</span> &times;
-              <span
-                v-html="cart.amount"
-                class="amount"/>
+              <span class="price">{{ cart.product.price | priceFilter }}</span>
+              &times;
+              <span v-html="cart.amount" class="amount" />
             </p>
           </div>
         </div>
       </div>
     </div>
 
-    <wv-group class="other-info">
-      <wv-cell
-        title="商品件数"
-        :value="productAmount"/>
-      <wv-cell
-        title="商品金额"
-        :value="totalPrice | priceFilter"/>
-      <wv-cell
-        title="优惠"
-        value="0"/>
-    </wv-group>
+    <w-group class="other-info">
+      <w-cell title="商品件数" :value="productAmount" />
+      <w-cell title="商品金额" :value="totalPrice | priceFilter" />
+      <w-cell title="优惠" value="0" />
+    </w-group>
 
     <footer>
-      <div class="total-price">实付款：{{ totalPrice | priceFilter }}</div>
-      <button
-        class="btn btn-checkout"
-        @click="checkout">立即下单</button>
+      <div class="total-price">
+        实付款：{{ totalPrice | priceFilter }}
+      </div>
+      <button class="btn btn-checkout" @click="checkout">
+        立即下单
+      </button>
     </footer>
   </div>
 </template>
 
 <script>
-import { Group, Cell } from 'we-vue'
+import { WGroup, WCell } from 'we-vue/lib'
 import priceFilter from '../mixins/price_filter'
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
   },
 
   mixins: [priceFilter],
@@ -76,7 +72,7 @@ export default {
   data () {
     return {
       addressId: null,
-      carts: []
+      carts: [],
     }
   },
 
@@ -103,7 +99,7 @@ export default {
         amount += val.amount
       })
       return amount
-    }
+    },
   },
 
   mounted () {
@@ -112,15 +108,15 @@ export default {
 
   methods: {
     checkout () {
-      let cartIds = []
-      for (let cart of this.carts.values()) {
+      const cartIds = []
+      for (const cart of this.carts.values()) {
         cartIds.push(cart.id)
       }
 
-      let postData = {
+      const postData = {
         cartIds: cartIds,
         addressId: 1,
-        remark: 'hello'
+        remark: 'hello',
       }
 
       this.axios
@@ -131,8 +127,8 @@ export default {
         .catch(error => {
           console.log(error)
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

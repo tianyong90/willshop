@@ -1,92 +1,69 @@
 <template>
   <div class="main">
     <div class="user-profile">
-      <img
-        class="avatar"
-        :src="user.avatar || defaultAvatar">
-      <div class="nickname">{{ user.nickname }}</div>
-      <div class="mobile">{{ user.mobile }}</div>
+      <img class="avatar" :src="user.avatar || defaultAvatar">
+      <div class="nickname">
+        {{ user.nickname }}
+      </div>
+      <div class="mobile">
+        {{ user.mobile }}
+      </div>
     </div>
 
-    <wv-flex class="card">
-      <wv-flex-item class="card-item br-1px">
+    <w-flex class="card">
+      <w-flex-item class="card-item br-1px">
         <span class="amount">1130</span>
         <span class="label">我的余额</span>
-      </wv-flex-item>
-      <wv-flex-item class="card-item br-1px">
+      </w-flex-item>
+      <w-flex-item class="card-item br-1px">
         <span class="amount">15</span>
         <span class="label">我的积分</span>
-      </wv-flex-item>
-      <wv-flex-item class="card-item">
+      </w-flex-item>
+      <w-flex-item class="card-item">
         <span class="amount">0</span>
         <span class="label">我的红包</span>
-      </wv-flex-item>
-    </wv-flex>
+      </w-flex-item>
+    </w-flex>
 
-    <wv-group>
-      <wv-cell
-        title="我的订单"
-        is-link
-        to="order-list">
-        <i
-          class="icon iconfont icon-goods"
-          slot="icon"/>
-      </wv-cell>
-      <wv-cell
-        title="收货地址"
-        is-link
-        to="address">
-        <i
-          class="icon iconfont icon-location"
-          slot="icon"/>
-      </wv-cell>
-      <wv-cell
-        title="我的收藏"
-        is-link
-        to="favourite">
-        <i
-          class="icon iconfont icon-like"
-          slot="icon"/>
-      </wv-cell>
-    </wv-group>
+    <w-group>
+      <w-cell title="我的订单" is-link to="order-list">
+        <i class="icon iconfont icon-goods" slot="icon" />
+      </w-cell>
+      <w-cell title="收货地址" is-link to="address">
+        <i class="icon iconfont icon-location" slot="icon" />
+      </w-cell>
+      <w-cell title="我的收藏" is-link to="favourite">
+        <i class="icon iconfont icon-like" slot="icon" />
+      </w-cell>
+    </w-group>
 
-    <wv-group>
-      <wv-cell
-        title="使用帮助"
-        is-link
-        to="help">
-        <i
-          class="icon iconfont icon-question"
-          slot="icon"/>
-      </wv-cell>
-      <wv-cell
-        title="关于我们"
-        is-link
-        to="about-us">
-        <i
-          class="icon iconfont icon-info"
-          slot="icon"/>
-      </wv-cell>
-    </wv-group>
+    <w-group>
+      <w-cell title="使用帮助" is-link to="help">
+        <i class="icon iconfont icon-question" slot="icon" />
+      </w-cell>
+      <w-cell title="关于我们" is-link to="about-us">
+        <i class="icon iconfont icon-info" slot="icon" />
+      </w-cell>
+    </w-group>
   </div>
 </template>
 
 <script>
 import defaultAvatar from '../../../img/default-avatar.jpg'
-import { Group, Cell, Flex, FlexItem } from 'we-vue'
+import { WGroup, WCell, WFlex, WFlexItem } from 'we-vue/lib'
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell,
-    [Flex.name]: Flex,
-    [FlexItem.name]: FlexItem
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
+    [WFlex.name]: WFlex,
+    [WFlexItem.name]: WFlexItem,
   },
 
   data () {
     return {
       user: {},
-      defaultAvatar
+      defaultAvatar,
     }
   },
 
@@ -99,8 +76,8 @@ export default {
       this.axios.get('current-user').then(response => {
         this.user = response.data.user
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

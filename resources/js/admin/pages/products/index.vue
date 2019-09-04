@@ -21,13 +21,16 @@
           >
             <el-option
               label="全部状态"
-              value="all"/>
+              value="all"
+            />
             <el-option
               label="abc"
-              value="1"/>
+              value="1"
+            />
             <el-option
               label="其它"
-              value="2"/>
+              value="2"
+            />
           </el-select>
         </el-form-item>
         <el-form-item>
@@ -42,38 +45,46 @@
 
     <el-table
       :data="products.data"
-      border>
+      border
+    >
       <el-table-column
         label="预览图"
-        width="90">
+        width="90"
+      >
         <template slot-scope="scope">
           <img
             :src="scope.row.thumbnail"
-            class="thumbnail">
+            class="thumbnail"
+          >
         </template>
       </el-table-column>
       <el-table-column
         prop="name"
-        label="名称"/>
+        label="名称"
+      />
       <el-table-column
         prop="price"
-        label="价格（元）"/>
+        label="价格（元）"
+      />
       <el-table-column
         prop="stock"
-        label="库存"/>
+        label="库存"
+      />
       <el-table-column
         prop="status"
-        label="状态"/>
+        label="状态"
+      />
       <el-table-column
         prop="updated_at"
-        label="更新时间"/>
+        label="更新时间"
+      />
       <el-table-column label="操作">
         <template slot-scope="scope">
           <router-link
             :to="'/product/' + scope.row.id"
             class="el-button el-button--primary el-button--small"
           >
-            <i class="el-icon-edit"/>
+            <i class="el-icon-edit" />
           </router-link>
           <el-button
             size="small"
@@ -108,15 +119,15 @@ export default {
     return {
       searchForm: {
         name: '',
-        status: ''
-      }
+        status: '',
+      },
     }
   },
 
   computed: {
     ...mapState({
-      products: state => state.product.products
-    })
+      products: state => state.product.products,
+    }),
   },
 
   mounted () {
@@ -125,7 +136,7 @@ export default {
 
   methods: {
     ...mapActions({
-      loadTableData: 'getProducts'
+      loadTableData: 'getProducts',
     }),
 
     // // 以分页格式加载商品列表数据
@@ -158,8 +169,8 @@ export default {
             console.log(error)
           })
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

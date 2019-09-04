@@ -17,7 +17,7 @@ const mutations = {
 
   UPDATE_ACCOUNTS (state, value) {
     state.accounts = value
-  }
+  },
 }
 
 export default mutations

@@ -12,7 +12,7 @@ export default {
 
   data () {
     return {
-      users: {}
+      users: {},
     }
   },
 
@@ -27,14 +27,14 @@ export default {
           params: {
             keyword: this.searchForm.keyword,
             sex: this.searchForm.sex,
-            page: page
-          }
+            page: page,
+          },
         })
         .then(response => {
           this.users = response.data.users
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,6 +1,6 @@
 const state = {
   user: {},
-  isLoading: false
+  isLoading: false,
 }
 
 export default state

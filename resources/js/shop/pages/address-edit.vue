@@ -1,59 +1,61 @@
 <template>
   <div>
-    <wv-group title="收货地址信息">
-      <wv-input
-        label="收货人"
-        v-model="address.name"/>
-      <wv-input
-        label="手机号码"
-        v-model="address.mobile"/>
-      <wv-cell
+    <w-group title="收货地址信息">
+      <w-input label="收货人" v-model="address.name" />
+      <w-input label="手机号码" v-model="address.mobile" />
+      <w-cell
         title="所在地区"
         :value="address | pcaFilter"
         is-link
-        @click.native="addressPickerShow = true"/>
-      <wv-input
-        label="详细地址"
-        v-model="address.address"/>
-      <wv-input
-        label="邮政编码"
-        v-model="address.postcode"/>
-    </wv-group>
+        @click.native="addressPickerShow = true"
+      />
+      <w-input label="详细地址" v-model="address.address" />
+      <w-input label="邮政编码" v-model="address.postcode" />
+    </w-group>
 
-    <wv-picker
+    <w-picker
       ref="addressPicker"
       v-model="addressPickerShow"
       :slots="addressSlots"
       @change="onAddressChange"
-      @confirm="confirmAddress"/>
+      @confirm="confirmAddress"
+    />
 
     <footer>
-      <wv-flex :gutter="20">
-        <wv-flex-item v-if="$route.params.id">
-          <wv-button
-            type="warn"
-            @click.native="deleteAddress">删除</wv-button>
-        </wv-flex-item>
-        <wv-flex-item>
-          <wv-button
-            type="primary"
-            @click.native="store">保存</wv-button>
-        </wv-flex-item>
-      </wv-flex>
+      <w-flex :gutter="20">
+        <w-flex-item v-if="$route.params.id">
+          <w-button type="warn" @click.native="deleteAddress">
+            删除
+          </w-button>
+        </w-flex-item>
+        <w-flex-item>
+          <w-button type="primary" @click.native="store">
+            保存
+          </w-button>
+        </w-flex-item>
+      </w-flex>
     </footer>
   </div>
 </template>
 
 <script>
 import chinaAreaData from 'china-area-data'
-import { Group, Cell, Input, Picker, Flex, FlexItem, Button } from 'we-vue'
+import {
+  WGroup,
+  WCell,
+  Input,
+  Picker,
+  Flex,
+  FlexItem,
+  WButton,
+} from 'we-vue/lib'
 
-let provinces = Object.values(chinaAreaData[86])
+const provinces = Object.values(chinaAreaData[86])
 
 // 获取某一省下的市
 function getCities (province) {
   let provinceCode
-  for (let i in chinaAreaData[86]) {
+  for (const i in chinaAreaData[86]) {
     if (province === chinaAreaData[86][i]) {
       provinceCode = i
       break
@@ -66,14 +68,14 @@ function getCities (province) {
 // 获取某一市下的区/县
 function getAreas (province, city) {
   let provinceCode, cityCode
-  for (let i in chinaAreaData[86]) {
+  for (const i in chinaAreaData[86]) {
     if (province === chinaAreaData[86][i]) {
       provinceCode = i
       break
     }
   }
 
-  for (let i in chinaAreaData[provinceCode]) {
+  for (const i in chinaAreaData[provinceCode]) {
     if (city === chinaAreaData[provinceCode][i]) {
       cityCode = i
       break
@@ -90,13 +92,13 @@ function getAreas (province, city) {
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell,
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
     [Input.name]: Input,
     [Picker.name]: Picker,
     [Flex.name]: Flex,
     [FlexItem.name]: FlexItem,
-    [Button.name]: Button
+    [WButton.name]: WButton,
   },
 
   data () {
@@ -105,15 +107,15 @@ export default {
       addressPickerShow: false,
       addressSlots: [
         {
-          values: provinces
+          values: provinces,
         },
         {
-          values: []
+          values: [],
         },
         {
-          values: []
-        }
-      ]
+          values: [],
+        },
+      ],
     }
   },
 
@@ -124,7 +126,7 @@ export default {
       } else {
         return '请选择'
       }
-    }
+    },
   },
 
   mounted () {
@@ -148,7 +150,7 @@ export default {
     },
 
     getAddress () {
-      let addressId = this.$route.params.id
+      const addressId = this.$route.params.id
 
       if (addressId) {
         this.axios.get(`address/${addressId}`).then(
@@ -158,7 +160,7 @@ export default {
             this.$refs.addressPicker.setValues([
               this.address.province,
               this.address.city,
-              this.address.area
+              this.address.area,
             ])
           },
           response => {
@@ -170,9 +172,9 @@ export default {
 
     // 保存
     store () {
-      let postData = JSON.parse(JSON.stringify(this.$data))
+      const postData = JSON.parse(JSON.stringify(this.$data))
 
-      let addressId = this.$route.params.id
+      const addressId = this.$route.params.id
 
       if (addressId) {
         postData.id = addressId
@@ -208,8 +210,8 @@ export default {
       //       }, 1000)
       //     })
       //   })
-    }
-  }
+    },
+  },
 }
 </script>
 

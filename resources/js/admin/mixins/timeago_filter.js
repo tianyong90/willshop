@@ -5,6 +5,6 @@ export default {
     timeago (time) {
       const _timeagoInstance = _timeago(null, 'zh_CN')
       return _timeagoInstance.format(time)
-    }
-  }
+    },
+  },
 }

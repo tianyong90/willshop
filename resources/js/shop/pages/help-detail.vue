@@ -1,8 +1,12 @@
 <template>
   <div>
-    <h1 class="title">{{ post.title }}</h1>
+    <h1 class="title">
+      {{ post.title }}
+    </h1>
 
-    <div class="content">{{ post.content }}</div>
+    <div class="content">
+      {{ post.content }}
+    </div>
   </div>
 </template>
 
@@ -14,7 +18,7 @@ export default {
 
   data () {
     return {
-      post: {}
+      post: {},
     }
   },
 
@@ -23,8 +27,8 @@ export default {
       this.axios.get('post/' + this.$route.params.id).then(response => {
         this.post = response.data.post
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

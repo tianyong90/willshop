@@ -15,6 +15,6 @@ export default {
       default:
         return ''
       }
-    }
-  }
+    },
+  },
 }

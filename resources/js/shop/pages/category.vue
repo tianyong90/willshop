@@ -3,32 +3,32 @@
     <div class="left-sidebar">
       <div
         class="sidebar-item"
-        :class="{ 'active': category.id === activeCategoryId }"
+        :class="{ active: category.id === activeCategoryId }"
         v-for="category in categories"
         :key="category.id"
-        @click="sidebarItemClick(category.id)">
+        @click="sidebarItemClick(category.id)"
+      >
         {{ category.name }}
       </div>
     </div>
 
     <div class="right-panel">
-      <img
-        class="banner"
-        src="http://lorempixel.com/640/150/?28423"
-        alt="">
+      <img class="banner" src="http://lorempixel.com/640/150/?28423" alt="">
 
       <div class="product-list">
         <router-link
           class="product-item"
           to="/product/1"
           v-for="product in products.data"
-          :key="product.id">
-          <img
-            :src="product.thumbnail"
-            alt=""
-            class="thumbnail">
-          <div class="name">{{ product.name }}</div>
-          <div class="price">{{ product.price | priceFilter }}</div>
+          :key="product.id"
+        >
+          <img :src="product.thumbnail" alt="" class="thumbnail">
+          <div class="name">
+            {{ product.name }}
+          </div>
+          <div class="price">
+            {{ product.price | priceFilter }}
+          </div>
         </router-link>
       </div>
     </div>
@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'we-vue'
+import { WSwipe, WSwipeItem } from 'we-vue/lib'
 import priceMixin from '../mixins/price_filter'
 
 export default {
   components: {
-    [Swipe.name]: Swipe,
-    [SwipeItem.name]: SwipeItem
+    [WSwipe.name]: WSwipe,
+    [WSwipeItem.name]: WSwipeItem,
   },
 
   mixins: [priceMixin],
@@ -51,7 +51,7 @@ export default {
     return {
       categories: [],
       activeCategoryId: null,
-      products: []
+      products: [],
     }
   },
 
@@ -72,8 +72,8 @@ export default {
       this.axios
         .get('product', {
           params: {
-            categoryId: categoryId
-          }
+            categoryId: categoryId,
+          },
         })
         .then(response => {
           this.products = response.data.products
@@ -87,14 +87,14 @@ export default {
       if (this.activeCategoryId !== categoryId) {
         this.activeCategoryId = categoryId
       }
-    }
+    },
   },
 
   watch: {
     activeCategoryId (val) {
       this.getProducts(val)
-    }
-  }
+    },
+  },
 }
 </script>
 

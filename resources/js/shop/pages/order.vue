@@ -5,15 +5,9 @@
     </div>
 
     <div class="address-info">
-      <span
-        class="name"
-        v-text="order.consumer_name"/>
-      <span
-        class="mobile"
-        v-text="order.consumer_mobile"/>
-      <p
-        class="address"
-        v-text="order.address"/>
+      <span class="name" v-text="order.consumer_name" />
+      <span class="mobile" v-text="order.consumer_mobile" />
+      <p class="address" v-text="order.address" />
     </div>
 
     <div class="product-list">
@@ -21,88 +15,90 @@
         :to="'/product/' + orderItem.product.id"
         class="product-item"
         v-for="orderItem in order.order_items"
-        :key="orderItem.product.id">
-        <img
-          :src="orderItem.product.thumbnail"
-          alt=""
-          class="thumbnail">
+        :key="orderItem.product.id"
+      >
+        <img :src="orderItem.product.thumbnail" alt="" class="thumbnail">
 
         <div class="item-right">
-          <h4
-            class="name"
-            v-html="orderItem.product.name"/>
-          <div class="amount">数量：{{ orderItem.amount }}</div>
-          <div class="price">{{ orderItem.product.price | priceFilter }}</div>
+          <h4 class="name" v-html="orderItem.product.name" />
+          <div class="amount">
+            数量：{{ orderItem.amount }}
+          </div>
+          <div class="price">
+            {{ orderItem.product.price | priceFilter }}
+          </div>
 
           <button
             class="add-to-cart"
-            @click.prevent.stop="addToCart(orderItem.product.id)">加入购物车</button>
+            @click.prevent.stop="addToCart(orderItem.product.id)"
+          >
+            加入购物车
+          </button>
         </div>
       </router-link>
     </div>
 
-    <wv-group class="order-info">
-      <wv-cell
-        title="订单号"
-        :value="order.number"/>
-      <wv-cell
-        title="下单时间"
-        :value="order.created_at"/>
-      <wv-cell
-        title="支付时间"
-        :value="order.created_at"/>
-      <wv-cell
-        title="支付方式"
-        :value="order.created_at"/>
-    </wv-group>
+    <w-group class="order-info">
+      <w-cell title="订单号" :value="order.number" />
+      <w-cell title="下单时间" :value="order.created_at" />
+      <w-cell title="支付时间" :value="order.created_at" />
+      <w-cell title="支付方式" :value="order.created_at" />
+    </w-group>
 
-    <wv-group class="fee-info">
-      <wv-cell
-        title="订单总额"
-        :value="order.total_fee"/>
-      <wv-cell
-        title="运费"
-        :value="order.total_fee"/>
-    </wv-group>
+    <w-group class="fee-info">
+      <w-cell title="订单总额" :value="order.total_fee" />
+      <w-cell title="运费" :value="order.total_fee" />
+    </w-group>
 
     <footer>
-      <wv-flex :gutter="20">
-        <wv-flex-item v-if="order.status === 'need_to_pay'">
-          <wv-button
+      <w-flex :gutter="20">
+        <w-flex-item v-if="order.status === 'need_to_pay'">
+          <w-button
             type="warn"
             mini
-            @click.native="cancelOrder">取消订单</wv-button>
-        </wv-flex-item>
-        <wv-flex-item v-if="order.status === 'canceled' || order.status === 'finished'">
-          <wv-button
+            @click.native="cancelOrder"
+          >
+            取消订单
+          </w-button>
+        </w-flex-item>
+        <w-flex-item
+          v-if="order.status === 'canceled' || order.status === 'finished'"
+        >
+          <w-button
             type="warn"
             mini
-            @click.native="deleteOrder">删除订单</wv-button>
-        </wv-flex-item>
-        <wv-flex-item v-if="order.status === 'need_to_pay'">
-          <wv-button
+            @click.native="deleteOrder"
+          >
+            删除订单
+          </w-button>
+        </w-flex-item>
+        <w-flex-item v-if="order.status === 'need_to_pay'">
+          <w-button
             type="primary"
             mini
-            @click="$router.push('/payment/' + order.number)">去付款</wv-button>
-        </wv-flex-item>
-      </wv-flex>
+            @click="$router.push('/payment/' + order.number)"
+          >
+            去付款
+          </w-button>
+        </w-flex-item>
+      </w-flex>
     </footer>
   </div>
 </template>
 
 <script>
-import { Group, Cell, Flex, FlexItem, Button } from 'we-vue'
+import { WGroup, WCell, Flex, FlexItem, WButton } from 'we-vue/lib'
 
 import priceFilter from '../mixins/price_filter'
 import statusFilter from '../mixins/status_filter'
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell,
-    [Button.name]: Button,
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
+    [WButton.name]: WButton,
     [Flex.name]: Flex,
-    [FlexItem.name]: FlexItem
+    [FlexItem.name]: FlexItem,
   },
 
   mixins: [priceFilter, statusFilter],
@@ -110,7 +106,7 @@ export default {
   data () {
     return {
       orderId: null,
-      order: {}
+      order: {},
     }
   },
 
@@ -137,7 +133,7 @@ export default {
 
       const postData = {
         productId: productId,
-        amount: 1
+        amount: 1,
       }
 
       this.axios.post('cart/add', postData).then(response => {
@@ -155,8 +151,8 @@ export default {
       this.axios.post('order/cancel').then(response => {
         this.$root.success('删除成功')
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

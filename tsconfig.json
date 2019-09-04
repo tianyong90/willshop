@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "allowJs": true,
+        "sourceMap": true,
+        "strict": false,
+        "jsx": "react",
+        "noUnusedLocals": false,
+        "noImplicitReturns": true,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "importHelpers": true,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noEmit": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["resources/js/*"]
+        }
+    },
+    "include": [
+        "resources/js/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

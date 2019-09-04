@@ -1,83 +1,81 @@
-<template v-if="!isLoading">
-  <div v-if="carts.length>0">
+<template>
+  <div v-if="carts.length > 0">
     <div class="weui-panel weui-panel_access">
       <div class="weui-panel__bd">
-        <div
-          class="weui-media-box weui-media-box_appmsg"
-          v-for="cart in carts">
+        <div class="weui-media-box weui-media-box_appmsg" v-for="cart in carts">
           <input
             class="checker"
             type="checkbox"
             :value="cart"
-            v-model="selectedCarts">
+            v-model="selectedCarts"
+          >
           <router-link
             tag="div"
-            :to="'/product/'+cart.product.id"
-            class="weui-media-box__hd">
-            <img
-              class="weui-media-box__thumb"
-              :src="cart.product.thumbnail">
+            :to="'/product/' + cart.product.id"
+            class="weui-media-box__hd"
+          >
+            <img class="weui-media-box__thumb" :src="cart.product.thumbnail">
           </router-link>
           <div class="weui-media-box__bd">
             <router-link
               tag="h4"
               :to="'/product/' + cart.product.id"
               class="weui-media-box__title"
-              v-text="cart.product.name"/>
-            <p
-              class="weui-media-box__desc price"
-              v-text="cart.product.price"/>
+              v-text="cart.product.name"
+            />
+            <p class="weui-media-box__desc price" v-text="cart.product.price" />
 
-            <wv-number-spinner
+            <w-number-spinner
               class="amount"
               v-model="cart.amount"
               :min="1"
-              @change="onChange(cart.id, $event)"/>
+              @change="onChange(cart.id, $event)"
+            />
           </div>
         </div>
       </div>
     </div>
 
     <footer>
-      <label
-        id="check-all"
-        for="check-all">
-        <input
-          type="checkbox"
-          v-model="allSelected"> 全选
+      <label id="check-all" for="check-all">
+        <input type="checkbox" v-model="allSelected"> 全选
       </label>
       <div class="summary">
-        <div class="total-price">合计：{{ totalPrice }}</div>
+        <div class="total-price">
+          合计：{{ totalPrice }}
+        </div>
       </div>
       <button
         class="btn btn-checkout"
-        :class="{ 'disabled': selectedCarts.length === 0 }"
-        @click="toCheckout">去结算
+        :class="{ disabled: selectedCarts.length === 0 }"
+        @click="toCheckout"
+      >
+        去结算
         <span class="product-amount">{{ `(${productAmount})` }}</span>
       </button>
     </footer>
   </div>
-  <div
-    class="empty-msg"
-    v-else-if="carts.length === 0 && !isLoading">
-    <i class="iconfont icon-cart"/>
-    <div class="msg">购物车里空荡荡的</div>
+  <div class="empty-msg" v-else-if="carts.length === 0 && !isLoading">
+    <i class="iconfont icon-cart" />
+    <div class="msg">
+      购物车里空荡荡的
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { NumberSpinner } from 'we-vue'
+import { NumberSpinner } from 'we-vue/lib'
 
 export default {
   components: {
-    [NumberSpinner.name]: NumberSpinner
+    [NumberSpinner.name]: NumberSpinner,
   },
 
   data () {
     return {
       carts: [],
-      selectedCarts: []
+      selectedCarts: [],
     }
   },
 
@@ -87,7 +85,7 @@ export default {
 
   computed: {
     ...mapState({
-      isLoading: state => state.isLoading
+      isLoading: state => state.isLoading,
     }),
 
     // 是否是全选
@@ -102,7 +100,7 @@ export default {
         } else {
           this.selectedCarts = this.carts
         }
-      }
+      },
     },
 
     // 总价
@@ -127,7 +125,7 @@ export default {
         amount += val.amount
       })
       return amount
-    }
+    },
   },
 
   methods: {
@@ -161,8 +159,8 @@ export default {
         .catch(error => {
           console.log(error)
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

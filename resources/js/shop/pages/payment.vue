@@ -4,32 +4,31 @@
       请在下单后 48 小时内完成支付，超过 24 小时后订单将自动取消。
     </div>
 
-    <wv-group>
-      <wv-cell
-        title="订单号"
-        :value="orderNumber"/>
-      <wv-cell
-        title="商品金额"
-        :value="order.total_fee | priceFilter"/>
-    </wv-group>
+    <w-group>
+      <w-cell title="订单号" :value="orderNumber" />
+      <w-cell title="商品金额" :value="order.total_fee | priceFilter" />
+    </w-group>
 
     <div class="buttons">
-      <wv-button
+      <w-button
         type="primary"
-        @click="pay"><i class="iconfont icon-wechat-pay"/>微信支付</wv-button>
+        @click="pay"
+      >
+        <i class="iconfont icon-wechat-pay" />微信支付
+      </w-button>
     </div>
   </div>
 </template>
 
 <script>
-import { Group, Cell, Button } from 'we-vue'
+import { WGroup, WCell, WButton } from 'we-vue/lib'
 import priceFilter from '../mixins/price_filter'
 
 export default {
   components: {
-    [Group.name]: Group,
-    [Cell.name]: Cell,
-    [Button.name]: Button
+    [WGroup.name]: WGroup,
+    [WCell.name]: WCell,
+    [WButton.name]: WButton,
   },
 
   mixins: [priceFilter],
@@ -37,7 +36,7 @@ export default {
   data () {
     return {
       order: {},
-      orderNumber: null
+      orderNumber: null,
     }
   },
 
@@ -57,8 +56,8 @@ export default {
   methods: {
     pay () {
       console.log('pay')
-    }
-  }
+    },
+  },
 }
 </script>
 

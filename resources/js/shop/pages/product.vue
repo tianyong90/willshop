@@ -1,85 +1,79 @@
 <template>
   <div>
     <div class="banner">
-      <wv-swipe
-        :height="250"
-        :auto="4000">
-        <wv-swipe-item
+      <w-swipe :height="250" :auto="4000">
+        <w-swipe-item
           class="banner-swipe-item"
           v-for="banner in banners"
-          :key="banner.index">
-          <img
-            :src="banner.img"
-            alt="">
-        </wv-swipe-item>
-      </wv-swipe>
+          :key="banner.index"
+        >
+          <img :src="banner.img" alt="">
+        </w-swipe-item>
+      </w-swipe>
     </div>
     <div class="details">
-      <div class="name">{{ product.name }}</div>
-      <div class="price">{{ product.price }}</div>
+      <div class="name">
+        {{ product.name }}
+      </div>
+      <div class="price">
+        {{ product.price }}
+      </div>
     </div>
 
-    <wv-group>
-      <wv-cell
-        title="已选"
-        :value="amount + '件'"
-        @click.native="showPopup"/>
-    </wv-group>
+    <w-group>
+      <w-cell title="已选" :value="amount + '件'" @click.native="showPopup" />
+    </w-group>
 
-    <wv-popup v-model="popupVisible">
-      <wv-group>
-        <wv-cell title="数量">
-          <wv-number-spinner
-            v-model="amount"
-            :min="1"
-            slot="ft"/>
-        </wv-cell>
-      </wv-group>
+    <w-popup v-model="popupVisible">
+      <w-group>
+        <w-cell title="数量">
+          <w-number-spinner v-model="amount" :min="1" slot="ft" />
+        </w-cell>
+      </w-group>
       <div class="popup-footer">
         <div
           class="btn popup-btn-add-cart"
-          @click="addToCart(product.id); popupVisible=false">加入购物车</div>
+          @click="
+            addToCart(product.id)
+            popupVisible = false
+          "
+        >
+          加入购物车
+        </div>
       </div>
-    </wv-popup>
+    </w-popup>
 
-    <div
-      class="description"
-      v-html="product.description"/>
+    <div class="description" v-html="product.description" />
 
     <footer>
-      <div
-        class="btn btn-favourite"
-        @click="toggleFavourite(product.id)">
-        <i
-          class="icon iconfont"
-          :class="{ 'is-favourite': isFavourite }">{{ isFavourite ? '&#xe606;' : '&#xe607;'
-          }}</i>
+      <div class="btn btn-favourite" @click="toggleFavourite(product.id)">
+        <i class="icon iconfont" :class="{ 'is-favourite': isFavourite }">{{
+          isFavourite ? '&#xe606;' : '&#xe607;'
+        }}</i>
         <span class="text">{{ isFavourite ? '已收藏' : '收藏' }}</span>
       </div>
-      <router-link
-        class="btn btn-cart"
-        to="/cart">
+      <router-link class="btn btn-cart" to="/cart">
         <span class="amount">{{ productAmountInCart }}</span>
         <i class="icon iconfont">&#xe611;</i>
         <span class="text">购物车</span>
       </router-link>
-      <div
-        class="btn-add-cart"
-        @click="addToCart(product.id)">加入购物车</div>
+      <div class="btn-add-cart" @click="addToCart(product.id)">
+        加入购物车
+      </div>
     </footer>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import { Swipe, SwipeItem, Group, Cell, Popup, NumberSpinner } from 'we-vue'
-
-Vue.use(Swipe)
-  .use(SwipeItem)
-  .use(Group)
-  .use(Cell)
-  .use(Popup)
-  .use(NumberSpinner)
+import {
+  WSwipe,
+  WSwipeItem,
+  WGroup,
+  WCell,
+  WPopup,
+  WNumberSpinner,
+} from 'we-vue/lib'
 
 export default {
   mounted () {
@@ -94,20 +88,20 @@ export default {
       amount: 1,
       isFavourite: false,
       productAmountInCart: 0,
-      popupVisible: false
+      popupVisible: false,
     }
   },
 
   computed: {
     banners () {
-      let temp = []
+      const temp = []
       if (this.product.pictures) {
         this.product.pictures.forEach(picture => {
           temp.push({ img: picture })
         })
       }
       return temp
-    }
+    },
   },
 
   methods: {
@@ -147,9 +141,9 @@ export default {
 
     // 加入购物车
     addToCart (productId) {
-      let postData = {
+      const postData = {
         productId: productId,
-        amount: this.amount
+        amount: this.amount,
       }
 
       this.axios.post('cart/add', postData).then(response => {
@@ -163,8 +157,8 @@ export default {
       this.axios.get(`favourite/${productId}/toggle`).then(response => {
         this.isFavourite = !this.isFavourite
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

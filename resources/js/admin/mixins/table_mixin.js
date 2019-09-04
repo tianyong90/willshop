@@ -2,7 +2,7 @@ import Paginator from '../components/paginator'
 
 export default {
   components: {
-    Paginator
+    Paginator,
   },
 
   mounted () {
@@ -21,6 +21,6 @@ export default {
 
     handleCurrentChange (page) {
       this.loadTableData(page)
-    }
-  }
+    },
+  },
 }
