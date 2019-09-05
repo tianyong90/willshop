@@ -12,15 +12,7 @@ module.exports = function (api) {
       ],
     ],
     plugins: [
-      [
-        '@babel/plugin-transform-runtime',
-        {
-          corejs: false,
-          helpers: true,
-          regenerator: true,
-          useESModules: false,
-        },
-      ],
+      '@babel/plugin-transform-runtime',
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-object-assign',
