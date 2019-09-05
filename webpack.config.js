@@ -4,15 +4,24 @@ const fs = require('fs')
 const WebpackBar = require('webpackbar')
 
 Encore
-  .setOutputPath('public/js/')
-  .setPublicPath('/') // TODO: 待确认
-  .addEntry('shop', './resources/js/shop/index.ts')
-  .addEntry('admin', './resources/js/admin/index.tsx')
-  .enableSingleRuntimeChunk()
+  // directory where compiled assets will be stored
+  .setOutputPath('public/js')
+  // public path used by the web server to access the output path
+  .setPublicPath('/js')
 
-  .cleanupOutputBeforeBuild().enableSourceMaps(!Encore.isProduction())
+  .addEntry('app', './resources/js/app.js')
+
+  // will require an extra script tag for runtime.js
+  // but, you probably want this, unless you're building a single-page app
+  .disableSingleRuntimeChunk()
+
+  .splitEntryChunks()
+
+  .cleanupOutputBeforeBuild()
+  .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
 
+  .enableBuildNotifications()
   .enableVueLoader()
   .enableTypeScriptLoader()
   .enableForkedTypeScriptTypesChecking(() => ({
@@ -30,11 +39,50 @@ Encore
   .configureFriendlyErrorsPlugin()
   .addPlugin(new WebpackBar())
 
-  .enableReactPreset()
   // 增加 resolve.alias
   .addAliases({
-    '@/': path.join(__dirname, './resources/js/'),
+    '~': path.join(__dirname, './resources/js'),
   })
+
+  // 在开发模式下使用自定义的规则
+  // cache-loader 和 thread-loader 可以提高开发过程中频繁修改时的编译速度
+  // IMPORTANT: 但生产模式构建不不可使用，否则会引起动态加载的模块无法完成代码分割
+  if (Encore.isDevServer()) {
+    Encore.addRule({
+      test: /\.js$/,
+      use: [
+        {
+          loader: 'cache-loader',
+          options: {
+            cacheDirectory: path.resolve('./node_modules/.cache/babel-loader'),
+          },
+        },
+        'thread-loader',
+        'babel-loader',
+      ],
+      include: path.resolve(__dirname, 'resources/js'),
+    }).addRule({
+      test: /\.ts$/,
+      use: [
+        {
+          loader: 'cache-loader',
+          options: {
+            cacheDirectory: path.resolve('./node_modules/.cache/ts-loader'),
+          },
+        },
+        'thread-loader',
+        'babel-loader',
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+            happyPackMode: true,
+          },
+        },
+      ],
+      include: path.resolve(__dirname, 'resources/js'),
+    })
+  }
 
 // fetch the config, then modify it!
 const config = Encore.getWebpackConfig()
@@ -43,6 +91,7 @@ const config = Encore.getWebpackConfig()
 // config.resolve.extensions.push('.json')
 
 if (Encore.isDevServer()) {
+  // 解决 hmr 模式开发可能出现 Invalid Host/Origin header
   config.devServer.disableHostCheck = true
 
   // https://github.com/symfony/webpack-encore/pull/564#issuecomment-501577281
@@ -50,49 +99,11 @@ if (Encore.isDevServer()) {
   Encore.disableCssExtraction()
 }
 
-config.module.rules.push({
-  test: /\.js$/,
-  use: [
-    {
-      loader: 'cache-loader',
-      options: {
-        cacheDirectory: path.resolve('./node_modules/.cache/babel-loader'),
-      },
-    },
-    'thread-loader',
-    'babel-loader',
-  ],
-  include: path.resolve(__dirname, 'resources/js'),
-})
-
-config.module.rules.push({
-  test: /\.ts$/,
-  use: [
-    {
-      loader: 'cache-loader',
-      options: {
-        cacheDirectory: path.resolve('./node_modules/.cache/ts-loader'),
-      },
-    },
-    'thread-loader',
-    'babel-loader',
-    {
-      loader: 'ts-loader',
-      options: {
-        transpileOnly: true,
-        happyPackMode: true,
-      },
-    },
-  ],
-  include: path.resolve(__dirname, 'resources/js'),
-})
-
 // 下面这段生成一个静态的 webpack.config.compiled.js
 // 可用于配置 PHPStorm中 webpack 功能
 // preference -> language & frameworks -> javascript -> webpack
-const compiledConfig = Encore.getWebpackConfig()
 if (!Encore.isProduction()) {
-  fs.writeFile('webpack.config.compiled.js', 'module.exports = ' + JSON.stringify(compiledConfig),
+  fs.writeFile('webpack.config.compiled.js', 'module.exports = ' + JSON.stringify(config),
     function (err) {
       if (err) {
         return console.log(err)

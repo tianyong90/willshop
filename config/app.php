@@ -169,7 +169,6 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         Intervention\Image\ImageServiceProvider::class, // InterventionImage
-        Prettus\Repository\Providers\RepositoryServiceProvider::class, // l5-repository
 
         /*
          * Application Service Providers...
