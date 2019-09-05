@@ -19,9 +19,7 @@ const { children } = this.props
 
 return (
 <>
-<Button type="primary" onClick={this.onClick}>
-  hello
-</Button>
+<h1>header</h1>
 
 { children }
 </>

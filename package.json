@@ -92,6 +92,7 @@
     "vuex-router-sync": "^5.0.0",
     "we-vue": "^3.0.0-alpha.16",
     "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-notifier": "^1.8.0",
     "webpackbar": "^4.0.0"
   }
 }

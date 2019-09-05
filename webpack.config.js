@@ -9,7 +9,8 @@ Encore
   // public path used by the web server to access the output path
   .setPublicPath('/js')
 
-  .addEntry('app', './resources/js/app.js')
+  .addEntry('admin', './resources/js/admin/index.tsx')
+  .addEntry('shop', './resources/js/shop/index.ts')
 
   // will require an extra script tag for runtime.js
   // but, you probably want this, unless you're building a single-page app
