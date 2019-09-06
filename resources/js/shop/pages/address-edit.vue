@@ -13,14 +13,6 @@
       <w-input label="邮政编码" v-model="address.postcode" />
     </w-group>
 
-    <w-picker
-      ref="addressPicker"
-      v-model="addressPickerShow"
-      :slots="addressSlots"
-      @change="onAddressChange"
-      @confirm="confirmAddress"
-    />
-
     <footer>
       <w-flex :gutter="20">
         <w-flex-item v-if="$route.params.id">
@@ -39,7 +31,6 @@
 </template>
 
 <script>
-import chinaAreaData from 'china-area-data'
 import {
   WGroup,
   WCell,
@@ -49,46 +40,6 @@ import {
   FlexItem,
   WButton,
 } from 'we-vue/lib'
-
-const provinces = Object.values(chinaAreaData[86])
-
-// 获取某一省下的市
-function getCities (province) {
-  let provinceCode
-  for (const i in chinaAreaData[86]) {
-    if (province === chinaAreaData[86][i]) {
-      provinceCode = i
-      break
-    }
-  }
-
-  return Object.values(chinaAreaData[provinceCode])
-}
-
-// 获取某一市下的区/县
-function getAreas (province, city) {
-  let provinceCode, cityCode
-  for (const i in chinaAreaData[86]) {
-    if (province === chinaAreaData[86][i]) {
-      provinceCode = i
-      break
-    }
-  }
-
-  for (const i in chinaAreaData[provinceCode]) {
-    if (city === chinaAreaData[provinceCode][i]) {
-      cityCode = i
-      break
-    }
-  }
-
-  if (chinaAreaData[cityCode]) {
-    return Object.values(chinaAreaData[cityCode])
-  } else {
-    // 只有两级的情况，地区列表直接返回市名
-    return [city]
-  }
-}
 
 export default {
   components: {
@@ -105,17 +56,6 @@ export default {
     return {
       address: {},
       addressPickerShow: false,
-      addressSlots: [
-        {
-          values: provinces,
-        },
-        {
-          values: [],
-        },
-        {
-          values: [],
-        },
-      ],
     }
   },
 

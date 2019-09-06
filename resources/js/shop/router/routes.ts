@@ -2,7 +2,7 @@ const routes = [
   {
     path: '/',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-home' */ '../pages/home.vue'),
+      import(/* webpackChunkName: 'shop-home' */ '../pages/home.vue'),
     name: 'home',
     meta: {
       auth: false,
@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/cart',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-cart' */ '../pages/cart.vue'),
+      import(/* webpackChunkName: 'shop-cart' */ '../pages/cart.vue'),
     name: 'cart',
     meta: {
       auth: true,
@@ -21,13 +21,13 @@ const routes = [
   {
     path: '/category',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-category' */ '../pages/category.vue'),
+      import(/* webpackChunkName: 'shop-category' */ '../pages/category.vue'),
     name: 'category',
   },
   {
     path: '/order-list',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-order' */ '../pages/order-list.vue'),
+      import(/* webpackChunkName: 'shop-order' */ '../pages/order-list.vue'),
     name: 'order-list',
     meta: {
       hideMainmenu: true,
@@ -37,7 +37,7 @@ const routes = [
   {
     path: '/order/:orderNumber',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-order' */ '../pages/order.vue'),
+      import(/* webpackChunkName: 'shop-order' */ '../pages/order.vue'),
     name: 'order',
     meta: {
       hideMainmenu: true,
@@ -47,7 +47,7 @@ const routes = [
   {
     path: '/favourite',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-favourite' */ '../pages/favourite.vue'),
+      import(/* webpackChunkName: 'shop-favourite' */ '../pages/favourite.vue'),
     name: 'favourite',
     meta: {
       auth: true,
@@ -56,7 +56,7 @@ const routes = [
   {
     path: '/checkout',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-checkout' */ '../pages/checkout.vue'),
+      import(/* webpackChunkName: 'shop-checkout' */ '../pages/checkout.vue'),
     name: 'checkout',
     meta: {
       hideMainmenu: true,
@@ -66,7 +66,7 @@ const routes = [
   {
     path: '/payment/:order_no',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-payment' */ '../pages/payment.vue'),
+      import(/* webpackChunkName: 'shop-payment' */ '../pages/payment.vue'),
     name: 'payment',
     meta: {
       hideMainmenu: true,
@@ -76,7 +76,7 @@ const routes = [
   {
     path: '/user',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-user' */ '../pages/user.vue'),
+      import(/* webpackChunkName: 'shop-user' */ '../pages/user.vue'),
     name: 'user',
     meta: {
       auth: true,
@@ -85,7 +85,7 @@ const routes = [
   {
     path: '/address',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-address' */ '../pages/address.vue'),
+      import(/* webpackChunkName: 'shop-address' */ '../pages/address.vue'),
     name: 'address',
     meta: {
       auth: true,
@@ -95,7 +95,7 @@ const routes = [
   {
     path: '/address/add',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-address' */ '../pages/address-edit.vue'),
+      import(/* webpackChunkName: 'shop-address' */ '../pages/address-edit.vue'),
     meta: {
       auth: true,
       hideMainmenu: true,
@@ -104,7 +104,7 @@ const routes = [
   {
     path: '/address/:id/edit',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-address' */ '../pages/address-edit.vue'),
+      import(/* webpackChunkName: 'shop-address' */ '../pages/address-edit.vue'),
     meta: {
       auth: true,
       hideMainmenu: true,
@@ -113,7 +113,7 @@ const routes = [
   {
     path: '/about-us',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-about' */ '../pages/about-us.vue'),
+      import(/* webpackChunkName: 'shop-about' */ '../pages/about-us.vue'),
     meta: {
       hideMainmenu: true,
     },
@@ -121,17 +121,17 @@ const routes = [
   {
     path: '/help',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-help' */ '../pages/help.vue'),
+      import(/* webpackChunkName: 'shop-help' */ '../pages/help.vue'),
   },
   {
     path: '/help/:id',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-help' */ '../pages/help.vue'),
+      import(/* webpackChunkName: 'shop-help' */ '../pages/help.vue'),
   },
   {
     path: '/product/:id',
     component: () =>
-      import(/* webpackChunkName: 'js/shop-product' */ '../pages/product.vue'),
+      import(/* webpackChunkName: 'shop-product' */ '../pages/product.vue'),
     name: 'product',
     meta: {
       hideMainmenu: true,
