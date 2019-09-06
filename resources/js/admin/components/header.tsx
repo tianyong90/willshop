@@ -19,7 +19,7 @@ const { children } = this.props
 
 return (
 <>
-<h1>header</h1>
+<h1 className="text-red-500">header</h1>
 
 { children }
 </>
