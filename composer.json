@@ -17,7 +17,9 @@
         "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0",
         "overtrue/laravel-wechat": "^5.0.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "spatie/laravel-permission": "^3.0",
+        "tianyong90/webpack-encore-laravel-helpers": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
