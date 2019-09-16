@@ -169,6 +169,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
         Intervention\Image\ImageServiceProvider::class, // InterventionImage
+        PrettyRoutes\ServiceProvider::class,
 
         /*
          * Application Service Providers...

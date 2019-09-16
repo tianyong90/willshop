@@ -28,27 +28,8 @@ export default {
       menuVisible: state => state.isMainMenuVisible,
     }),
   },
-
-  methods: {},
 }
 </script>
 
 <style scoped lang="scss">
-#tabbar .weui_tabbar {
-  position: fixed;
-  bottom: 0;
-
-  .weui_tabbar_item {
-    .icon {
-      font-size: 20px;
-      color: #666;
-    }
-  }
-
-  .weui_tabbar_item.weui_bar_item_on {
-    .icon {
-      color: #09bb07;
-    }
-  }
-}
 </style>

@@ -10,16 +10,6 @@
       </w-swipe-item>
     </w-swipe>
 
-    <div class="ad">
-      <img
-        src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg"
-        alt=""
-      >
-      <router-link to="">
-        去看看
-      </router-link>
-    </div>
-
     <div class="product-list">
       <div class="product-item" v-for="product in products.data">
         <router-link :to="'/product/' + product.id">
@@ -32,9 +22,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue'
-import { WSwipe, WSwipeItem } from 'we-vue/lib'
 
 const banners = [
   {
@@ -51,7 +40,7 @@ const banners = [
   },
 ]
 
-export default {
+export default Vue.extend({
   data () {
     return {
       products: [],
@@ -70,7 +59,7 @@ export default {
       })
     },
   },
-}
+})
 </script>
 
 <style scoped lang="scss">

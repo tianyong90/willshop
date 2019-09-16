@@ -2,11 +2,20 @@ const routes = [
   {
     path: '/',
     component: () =>
-      import(/* webpackChunkName: 'shop-home' */ '../pages/home.vue'),
-    name: 'home',
+      import(/* webpackChunkName: 'shop-index' */ '../pages/index.vue'),
+    name: 'index',
     meta: {
       auth: false,
       title: '首页',
+    },
+  },
+  {
+    path: '/auth/login',
+    component: () =>
+      import(/* webpackChunkName: 'shop-login' */ '../pages/auth/login.vue'),
+    name: 'auth.login',
+    meta: {
+      auth: false,
     },
   },
   {

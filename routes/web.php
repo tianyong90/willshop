@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::view('/admin/{path?}', 'admin_entry')->where('path', '[\/\w\.-]*');
 
