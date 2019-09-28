@@ -2,27 +2,26 @@ import React, { Component } from 'react'
 import { Button } from 'antd'
 
 export default class Sidebar extends Component {
-constructor (props) {
-super(props)
-}
+  constructor (props) {
+    super(props)
+  }
 
-onClick (e) {
-console.log(e.type)
-}
+  onClick (e) {
+    console.log(e.type)
+  }
 
-componentDidMount (): void {
-console.log('haha')
-}
+  componentDidMount (): void {
+  }
 
-public render () {
-const { children } = this.props
+  public render () {
+    const { children } = this.props
 
-return (
-<>
-<h1>sidebar</h1>
+    return (
+      <>
+        <h1>sidebar</h1>
 
-{ children }
-</>
-)
-}
+        {children}
+      </>
+    )
+  }
 }

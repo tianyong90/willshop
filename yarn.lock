@@ -10096,10 +10096,10 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-we-vue@^3.0.0-alpha.19:
-  version "3.0.0-alpha.19"
-  resolved "https://registry.npm.taobao.org/we-vue/download/we-vue-3.0.0-alpha.19.tgz?cache=0&sync_timestamp=1569578004830&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwe-vue%2Fdownload%2Fwe-vue-3.0.0-alpha.19.tgz#8959a1910c149e5b9017c17a567d61fd7a130bdd"
-  integrity sha1-iVmhkQwUnluQF8F6Vn1h/XoTC90=
+we-vue@^3.0.0-alpha.22:
+  version "3.0.0-alpha.22"
+  resolved "https://registry.npm.taobao.org/we-vue/download/we-vue-3.0.0-alpha.22.tgz#76d2164a6271f30c897247157fae5aaace7766ca"
+  integrity sha1-dtIWSmJx8wyJckcVf65aqs53Zso=
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
