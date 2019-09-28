@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  root: false,
   // parserOptions: {
   //   parser: '@typescript-eslint/parser',
   // },
@@ -8,7 +8,7 @@ module.exports = {
     "ecmaFeatures": {
       "jsx": true
     },
-    "sourceType": "script",
+    "sourceType": "module",
   },
   env: {
     es6: true,
