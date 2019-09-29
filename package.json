@@ -5,9 +5,10 @@
     "development": "cross-env NODE_ENV=development encore dev",
     "watch": "npm run development -- --watch",
     "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "encore dev-server --hot --port 8080",
+    "hot": "encore dev-server --hot --port 9090",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production encore production",
+    "postinstall": "rimraf node_modules/.cache/**",
     "lint": "eslint --ext .js,.vue resources/js"
   },
   "husky": {
@@ -42,6 +43,7 @@
     "antd": "^3.23.4",
     "axios": "^0.19.0",
     "babel-eslint": "^10.0.1",
+    "cache-loader": "^4.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.0",
     "eslint": "^6.4.0",

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Avatar } from 'antd'
 
 const { Header } = Layout
 
@@ -9,13 +9,12 @@ export default class Sidebar extends Component {
   }
 
   componentDidMount (): void {
-    console.log('haha')
   }
 
   public render () {
     return (
-      <Header className="flex header">
-        <div className="inline-flex text-white text-lg font-medium">logo</div>
+      <Header className="flex items-center header">
+        <div className="inline-flex text-white text-lg font-medium">WILLSHOP</div>
         <Menu
           theme="dark"
           mode="horizontal"
@@ -25,6 +24,11 @@ export default class Sidebar extends Component {
           <Menu.Item key="index2">首页</Menu.Item>
           <Menu.Item key="index3">首页</Menu.Item>
         </Menu>
+
+        <Avatar
+          className="ml-auto"
+          icon="user"
+        />
       </Header>
     )
   }

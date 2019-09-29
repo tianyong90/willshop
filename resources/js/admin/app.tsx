@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Button } from 'antd'
-
-import Header from './components/header'
+import { Breadcrumb, Layout } from 'antd'
+import MyHeader from './components/header'
 import Sidebar from './components/sidebar'
+
+const { Content } = Layout
 
 export default class App extends Component {
   constructor (props) {
@@ -13,15 +14,31 @@ export default class App extends Component {
   }
 
   public render () {
-    const { children } = this.props
-
     return (
-      <>
-        <Header />
-        <Sidebar />
+      <Layout>
+        <MyHeader />
+        <Layout>
+          <Sidebar />
+          <Layout>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
 
-        { children }
-      </>
+            <Content
+              style={{
+                background: '#fff',
+                padding: 24,
+                margin: 0,
+                minHeight: 280,
+              }}
+            >
+              Content
+            </Content>
+          </Layout>
+        </Layout>
+      </Layout>
     )
   }
 }

@@ -46,12 +46,18 @@ Encore
   })
 
   // 在开发模式下使用自定义的规则
-  // thread-loader 可以提高开发过程中频繁修改时的编译速度
+  // cache-loader 和 thread-loader 可以提高开发过程中频繁修改时的编译速度
   // IMPORTANT: 但生产模式构建不不可使用，否则会引起动态加载的模块无法完成代码分割
   if (Encore.isDevServer()) {
     Encore.addRule({
       test: /\.js$/,
       use: [
+        {
+          loader: 'cache-loader',
+          options: {
+            cacheDirectory: path.resolve('./node_modules/.cache/babel-loader'),
+          },
+        },
         'thread-loader',
         'babel-loader',
       ],
@@ -59,6 +65,12 @@ Encore
     }).addRule({
       test: /\.ts$/,
       use: [
+        {
+          loader: 'cache-loader',
+          options: {
+            cacheDirectory: path.resolve('./node_modules/.cache/ts-loader'),
+          },
+        },
         'thread-loader',
         'babel-loader',
         {
