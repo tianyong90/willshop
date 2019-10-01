@@ -8,6 +8,7 @@ import router from './router'
 import WeVue from 'we-vue'
 import Mainmenu from './components/mainmenu.vue'
 import '../../sass/shop.scss'
+import { WDialog } from 'we-vue/lib'
 
 Vue.config.productionTip = false
 
@@ -87,6 +88,15 @@ const app = new Vue({
     //   isLoading: state => state.isLoading,
     //   isMainMenuVisible: state => state.isMainMenuVisible,
     // }),
+  },
+
+  mounted () {
+    return WDialog({
+      title: 'hello',
+      message: 'fuck',
+      showCancelBtn: true,
+      skin: this.isiOs ? 'ios' : 'android',
+    })
   },
 
   methods: {

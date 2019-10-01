@@ -78,6 +78,7 @@ Encore
           options: {
             transpileOnly: true,
             happyPackMode: true,
+            experimentalWatchApi: true,
           },
         },
       ],
