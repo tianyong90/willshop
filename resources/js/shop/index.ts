@@ -91,12 +91,13 @@ const app = new Vue({
   },
 
   mounted () {
-    return WDialog({
-      title: 'hello',
-      message: 'fuck',
-      showCancelBtn: true,
-      skin: this.isiOs ? 'ios' : 'android',
-    })
+    // TODO:
+    // return WDialog({
+    //   title: 'hello',
+    //   message: 'fuck',
+    //   showCancelBtn: true,
+    //   skin: this.isiOs ? 'ios' : 'android',
+    // })
   },
 
   methods: {
