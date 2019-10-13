@@ -16,6 +16,7 @@ export default class Sidebar extends Component {
       <Header className="flex items-center header">
         <div className="inline-flex text-white text-lg font-medium">WILLSHOP</div>
         <Menu
+          className="ml-auto mr-1"
           theme="dark"
           mode="horizontal"
           style={{ lineHeight: '64px' }}
@@ -26,7 +27,7 @@ export default class Sidebar extends Component {
         </Menu>
 
         <Avatar
-          className="ml-auto"
+          className="ml-1"
           icon="user"
         />
       </Header>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Breadcrumb, Layout } from 'antd'
 import MyHeader from './components/header'
-import Sidebar from './components/sidebar'
+import MySidebar from './components/sidebar'
 
 const { Content } = Layout
 
@@ -18,7 +18,7 @@ export default class App extends Component {
       <Layout>
         <MyHeader />
         <Layout>
-          <Sidebar />
+          <MySidebar />
           <Layout>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -34,7 +34,7 @@ export default class App extends Component {
                 minHeight: 280,
               }}
             >
-              Content
+              fuck
             </Content>
           </Layout>
         </Layout>
