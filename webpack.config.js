@@ -115,11 +115,11 @@ if (!Encore.isProduction()) {
 }
 
 // export the final config
-// module.exports = config
+module.exports = config
 
-// TODO: 使用 portfinder 查询闲置端口
-module.exports = new Promise((resolve, reject) => {
-  // config.devServer.port = 9099
-
-  resolve(config)
-})
+// // TODO: 使用 portfinder 查询闲置端口
+// module.exports = new Promise((resolve, reject) => {
+//   config.devServer.port = 9099
+//
+//   resolve(config)
+// })
