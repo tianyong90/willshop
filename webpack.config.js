@@ -119,5 +119,7 @@ if (!Encore.isProduction()) {
 
 // TODO: 使用 portfinder 查询闲置端口
 module.exports = new Promise((resolve, reject) => {
-  resolve(Encore.getWebpackConfig())
+  // config.devServer.port = 9099
+
+  resolve(config)
 })
