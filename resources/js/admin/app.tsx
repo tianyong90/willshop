@@ -34,7 +34,7 @@ export default class App extends Component {
                 minHeight: 280,
               }}
             >
-              fuck
+              content
             </Content>
           </Layout>
         </Layout>
