@@ -24,6 +24,7 @@ Encore
 
   .enableBuildNotifications()
   .enableVueLoader()
+  .enableReactPreset()
   .enableTypeScriptLoader()
   .enableForkedTypeScriptTypesChecking(() => ({
     // 限制生产构建时使用的内存大小，防止在生产机上构建占用过多内存

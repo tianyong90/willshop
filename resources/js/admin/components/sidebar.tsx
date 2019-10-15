@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Avatar, Icon } from 'antd'
+import { Icon, Layout, Menu } from 'antd'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -18,7 +18,7 @@ export default class Sidebar extends Component {
         theme="dark"
         collapsible
         width={200}
-        style={{ background: '#fff' }}
+        style={{ background: '#f00' }}
       >
         <Menu
           theme="dark"
@@ -27,6 +27,13 @@ export default class Sidebar extends Component {
           defaultOpenKeys={['sub1']}
           style={{ height: '100%', borderRight: 0 }}
         >
+          <Menu.Item key="home">
+            <span>
+                <Icon type="home" />
+                Home
+              </span>
+          </Menu.Item>
+
           <SubMenu
             key="sub1"
             title={
