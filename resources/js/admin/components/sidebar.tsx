@@ -30,30 +30,16 @@ export default class Sidebar extends Component {
           <Menu.Item key="home">
             <span>
                 <Icon type="home" />
-                Home
+                控制面板
               </span>
           </Menu.Item>
 
-          <SubMenu
-            key="sub1"
-            title={
-              <span>
-                <Icon type="user" />
-                subnav 1
-              </span>
-            }
-          >
-            <Menu.Item key="1">option1</Menu.Item>
-            <Menu.Item key="2">option2</Menu.Item>
-            <Menu.Item key="3">option3</Menu.Item>
-            <Menu.Item key="4">option4</Menu.Item>
-          </SubMenu>
           <SubMenu
             key="sub2"
             title={
               <span>
                 <Icon type="laptop" />
-                subnav 2
+                商品管理
               </span>
             }
           >
@@ -61,6 +47,42 @@ export default class Sidebar extends Component {
             <Menu.Item key="6">option6</Menu.Item>
             <Menu.Item key="7">option7</Menu.Item>
             <Menu.Item key="8">option8</Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key="sub1"
+            title={
+              <span>
+                <Icon type="user" />
+                订单管理
+              </span>
+            }
+          >
+            <Menu.Item key="5">订单列表</Menu.Item>
+            <Menu.Item key="6">abc</Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <Icon type="laptop" />
+                用户管理
+              </span>
+            }
+          >
+            <Menu.Item key="5">用户列表</Menu.Item>
+            <Menu.Item key="6">option6</Menu.Item>
+          </SubMenu>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <Icon type="laptop" />
+                评论管理
+              </span>
+            }
+          >
+            <Menu.Item key="5">评论列表</Menu.Item>
+            <Menu.Item key="6">option6</Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
