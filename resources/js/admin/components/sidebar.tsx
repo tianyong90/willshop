@@ -14,18 +14,67 @@ const menus = [
     name: '订单管理',
     icon: 'order',
     key: 'order',
+    subMenus: [
+      {
+        name: '列表',
+        key: 'list',
+      },
+    ],
   },
   {
     name: '用户管理',
     icon: 'user',
     key: 'user',
+    subMenus: [
+      {
+        name: '列表',
+        key: 'list',
+      },
+    ],
   },
   {
     name: '商品管理',
     icon: 'goods',
     key: 'goods',
+    subMenus: [
+      {
+        name: '列表',
+        key: 'list',
+      },
+    ],
   },
 ]
+
+function renderMenuItem (menu) {
+  if (menu.subMenus) {
+    return (
+      <SubMenu
+        key={menu.key}
+        title={
+          <span>
+              <Icon type={menu.icon}/>
+            {menu.name}
+            </span>
+        }
+      >
+        {
+          menu.subMenus.map(subMenu => (
+            <Menu.Item key={menu.key + subMenu.key}>{subMenu.name}</Menu.Item>
+          ))
+        }
+      </SubMenu>
+    )
+  } else {
+    return (
+      <Menu.Item key={menu.key}>
+        <span>
+          <Icon type={menu.icon}/>
+          {menu.name}
+        </span>
+      </Menu.Item>
+    )
+  }
+}
 
 const Sidebar = () => {
   return (
@@ -44,72 +93,9 @@ const Sidebar = () => {
       >
         {
           menus.map(menu => (
-            <Menu.Item key={menu.key}>
-              <span>
-                <Icon type={menu.icon}/>
-                {menu.name}
-              </span>
-            </Menu.Item>
+            renderMenuItem(menu)
           ))
         }
-
-        <Menu.Item key="home">
-          <span>
-              <Icon type="home" />
-              控制面板
-            </span>
-        </Menu.Item>
-
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="laptop" />
-              商品管理
-            </span>
-          }
-        >
-          <Menu.Item key="5">option5</Menu.Item>
-          <Menu.Item key="6">option6</Menu.Item>
-          <Menu.Item key="7">option7</Menu.Item>
-          <Menu.Item key="8">option8</Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="user" />
-              订单管理
-            </span>
-          }
-        >
-          <Menu.Item key="5">订单列表</Menu.Item>
-          <Menu.Item key="6">abc</Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="laptop" />
-              用户管理
-            </span>
-          }
-        >
-          <Menu.Item key="5">用户列表</Menu.Item>
-          <Menu.Item key="6">option6</Menu.Item>
-        </SubMenu>
-        <SubMenu
-          key="sub2"
-          title={
-            <span>
-              <Icon type="laptop" />
-              评论管理
-            </span>
-          }
-        >
-          <Menu.Item key="5">评论列表</Menu.Item>
-          <Menu.Item key="6">option6</Menu.Item>
-        </SubMenu>
       </Menu>
     </Sider>
   )
